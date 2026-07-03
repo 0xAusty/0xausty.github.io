@@ -1,0 +1,127 @@
+# =============================================================================
+#  hugo.toml — THE single place to configure your site.
+#  Almost everything you'll want to change lives here or in the [params] block.
+#  After editing, the local preview reloads automatically.
+# =============================================================================
+
+# Your live URL. For a GitHub *user* page the repo is named "<user>.github.io"
+# and the site lives at the root, so this is correct as-is.
+# If you use a custom domain, change this to e.g. "https://yourdomain.com/".
+baseURL = "https://0xausty.github.io/"
+
+locale       = "en-us"      # used for RSS/schema; replaces the old languageCode key
+title        = "0xAusty // Security Portfolio"
+
+# Pretty URLs like /writeups/my-box/ instead of /writeups/my-box.html
+# (leave this on)
+canonifyURLs = false
+
+# How many items show in list pages / RSS before paginating.
+[pagination]
+  pagerSize = 10
+
+# Build a little faster / cleaner.
+enableRobotsTXT = true
+enableGitInfo   = false          # set true if you want "last modified from git"
+summaryLength   = 30
+
+# -----------------------------------------------------------------------------
+#  Taxonomies — how recruiters browse your content.
+#  Left side = singular (used in front matter), right side = plural (URL + page).
+# -----------------------------------------------------------------------------
+[taxonomies]
+  platform   = "platforms"     # Hack The Box, TryHackMe, PortSwigger ...
+  os         = "oses"          # Linux, Windows, Active Directory ...
+  difficulty = "difficulties"  # Easy, Medium, Hard, Insane
+  tool       = "tools"         # nmap, burp, ffuf ...
+  tag        = "tags"          # privilege-escalation, bof, sqli ...
+
+# -----------------------------------------------------------------------------
+#  Output formats — adds a JSON search index at /index.json for full-text search.
+# -----------------------------------------------------------------------------
+[outputs]
+  home = ["HTML", "RSS", "JSON", "robots"]
+
+# -----------------------------------------------------------------------------
+#  Markdown rendering.
+# -----------------------------------------------------------------------------
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2     # TOC starts at ## headings
+    endLevel   = 4
+    ordered    = false
+  [markup.highlight]
+    noClasses      = false   # use CSS classes so dark/light themes can recolor code
+    lineNos        = false   # keep line numbers off so "copy" copies clean commands
+    tabWidth       = 4
+    codeFences     = true
+    guessSyntax    = true
+  [markup.goldmark.renderer]
+    unsafe = true            # allow raw HTML in markdown (needed for some embeds)
+
+# =============================================================================
+#  [params] — YOUR personal details & site behaviour.
+#  ↓↓↓  This is the block you'll edit most often.  ↓↓↓
+# =============================================================================
+[params]
+  # ---- Identity ----------------------------------------------------------
+  author   = "0xAusty"
+  tagline  = "Penetration Tester & Security Researcher"   # TODO: make it yours
+  # One-line bio for the homepage hero:
+  heroBio  = "I break things ethically and write about how. Security tooling, research, and lab walkthroughs."
+  # Longer bio (also used on the About page intro & meta description):
+  bio      = "Security enthusiast focused on offensive security, web application testing, and Active Directory. I document what I build and what I hack (legally) so others can learn from it."
+
+  # ---- Contact / social links --------------------------------------------
+  # Leave a value empty ("") to hide that link everywhere.
+  email    = "0xausty@proton.me"
+  github   = "https://github.com/0xausty"
+  linkedin = "https://www.linkedin.com/in/your-handle"   # TODO
+  twitter  = ""                                          # e.g. https://x.com/handle
+  mastodon = ""
+  # Put your resume PDF at static/resume.pdf and this link just works:
+  resume   = "/resume.pdf"
+
+  # ---- Theme / design ----------------------------------------------------
+  # The whole palette is defined as design tokens in assets/css/main.scss.
+  # This one value sets the single accent colour used across the site.
+  accentColor = "#5eead4"          # a confident teal; try "#a78bfa", "#f472b6", "#22d3ee"
+  defaultTheme = "dark"            # "dark" or "light" — the site's starting theme
+
+  # ---- SEO / sharing -----------------------------------------------------
+  description = "The cybersecurity portfolio of 0xAusty — projects, tooling, and Hack The Box / CTF writeups."
+  keywords    = ["cybersecurity", "penetration testing", "hack the box", "ctf", "writeups", "infosec"]
+  # A 1200x630 image at static/images/og-default.png makes shared links look good.
+  ogImage     = "/images/og-default.png"
+
+  # ---- Feature toggles ---------------------------------------------------
+  showReadingTime = true
+  enableSearch    = true
+
+# -----------------------------------------------------------------------------
+#  Top navigation. Reorder / add / remove freely. `weight` sets the order.
+# -----------------------------------------------------------------------------
+[menu]
+  [[menu.main]]
+    name   = "Writeups"
+    url    = "/writeups/"
+    weight = 10
+  [[menu.main]]
+    name   = "Projects"
+    url    = "/projects/"
+    weight = 20
+  [[menu.main]]
+    name   = "Notes"
+    url    = "/blog/"
+    weight = 30
+  [[menu.main]]
+    name   = "About"
+    url    = "/about/"
+    weight = 40
+
+# -----------------------------------------------------------------------------
+#  RSS: put full content in the feed instead of just summaries.
+# -----------------------------------------------------------------------------
+[services]
+  [services.rss]
+    limit = 20

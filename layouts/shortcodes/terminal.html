@@ -1,0 +1,15 @@
+{{/* A styled terminal window with a title bar. Content is shown verbatim
+     and gets a copy button automatically.
+     Usage:
+       {{< terminal title="kali@htb" >}}
+       $ nmap -sC -sV 10.10.10.10
+       {{< /terminal >}}
+*/}}
+{{- $title := .Get "title" | default "bash" -}}
+<div class="terminal">
+  <div class="terminal-bar" aria-hidden="true">
+    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span class="title">{{ $title }}</span>
+  </div>
+  <pre><code>{{ trim .Inner "\n" }}</code></pre>
+</div>

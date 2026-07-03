@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="container">
+
+  {{/* ---- HERO ---- */}}
+  <section class="hero">
+    <p class="eyebrow mono">whoami</p>
+    <h1>{{ site.Params.author }}</h1>
+    <p class="tagline">{{ site.Params.tagline }}</p>
+    <p class="lead">{{ site.Params.heroBio }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ "/writeups/" | relURL }}">Read the writeups</a>
+      <a class="btn" href="{{ "/projects/" | relURL }}">See projects</a>
+      {{ with site.Params.resume }}<a class="btn" href="{{ . | relURL }}">Resume ↓</a>{{ end }}
+    </div>
+  </section>
+
+  {{/* ---- FEATURED PROJECTS ---- */}}
+  {{ $projects := where site.RegularPages "Section" "projects" }}
+  {{ $featured := where $projects "Params.featured" true }}
+  {{ if not $featured }}{{ $featured = $projects | first 3 }}{{ end }}
+  {{ with $featured }}
+  <section>
+    <div class="section-head">
+      <h2>Featured projects</h2>
+      <a class="more" href="{{ "/projects/" | relURL }}">all projects →</a>
+    </div>
+    <div class="card-grid">
+      {{ range first 3 . }}{{ partial "project-card.html" . }}{{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ---- LATEST WRITEUPS ---- */}}
+  {{ $writeups := where site.RegularPages "Section" "writeups" }}
+  {{ with $writeups }}
+  <section>
+    <div class="section-head">
+      <h2>Latest writeups</h2>
+      <a class="more" href="{{ "/writeups/" | relURL }}">all writeups →</a>
+    </div>
+    <ul class="post-list">
+      {{ range first 5 . }}{{ partial "writeup-item.html" . }}{{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+</div>
+{{ end }}

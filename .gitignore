@@ -1,0 +1,17 @@
+# Hugo build output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Hugo/Dart Sass cache
+/.cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (only if you ever add JS tooling)
+node_modules/

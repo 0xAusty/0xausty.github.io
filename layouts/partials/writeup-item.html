@@ -1,0 +1,7 @@
+{{/* A single writeup row for list pages. Pass a writeup page as context. */}}
+<li class="post-item">
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{ partial "writeup-badges.html" . }}
+  {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}
+  {{ partial "post-meta.html" . }}
+</li>

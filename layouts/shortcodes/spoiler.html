@@ -1,0 +1,13 @@
+{{/* Collapsible spoiler / hint block. Hidden until clicked.
+     Usage:
+       {{< spoiler summary="Reveal the root flag" >}}
+       `HTB{...}`
+       {{< /spoiler >}}
+*/}}
+{{- $summary := .Get "summary" | default (.Get 0) | default "Show / hide" -}}
+<details class="spoiler">
+  <summary>{{ $summary }}</summary>
+  <div class="spoiler-body">
+    {{ .Inner | .Page.RenderString }}
+  </div>
+</details>

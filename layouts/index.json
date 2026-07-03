@@ -1,0 +1,17 @@
+{{- /* Full-text search index consumed by assets/js/search.js */ -}}
+{{- $pages := where site.RegularPages "Section" "in" (slice "writeups" "projects" "blog") -}}
+[
+{{- range $i, $p := $pages -}}
+  {{- if $i }},{{ end }}
+  {
+    "title": {{ $p.Title | jsonify }},
+    "url": {{ $p.RelPermalink | jsonify }},
+    "section": {{ (title $p.Section) | jsonify }},
+    "date": {{ $p.Date.Format "Jan 2, 2006" | jsonify }},
+    "description": {{ ($p.Description | default "") | jsonify }},
+    "difficulty": {{ ($p.Params.difficulties | default "") | jsonify }},
+    "tags": {{ ($p.Params.tags | default (slice)) | jsonify }},
+    "content": {{ $p.Plain | jsonify }}
+  }
+{{- end }}
+]

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    <p class="page-intro">Browse content by {{ .Data.Singular }}.</p>
+  </header>
+
+  <div class="tag-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a class="badge{{ if eq $.Data.Singular "difficulty" }} diff diff-{{ .Name | lower }}{{ else if eq $.Data.Singular "tag" }} tag{{ end }}" href="{{ .Page.RelPermalink }}">
+      {{ .Page.Title }} <span class="text-faint">({{ .Count }})</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

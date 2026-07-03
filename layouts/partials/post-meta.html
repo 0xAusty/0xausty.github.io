@@ -1,0 +1,12 @@
+{{/* Date + reading time line. Pass a page as context: {{ partial "post-meta.html" . }} */}}
+<div class="post-meta">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+  {{ if and site.Params.showReadingTime (gt .ReadingTime 0) }}
+    <span class="dot">·</span>
+    <span>{{ .ReadingTime }} min read</span>
+  {{ end }}
+  {{ with .Params.platforms }}
+    <span class="dot">·</span>
+    <span>{{ . }}</span>
+  {{ end }}
+</div>

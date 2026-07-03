@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <p class="eyebrow mono">{{ .Data.Singular }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="page-intro">{{ len .Pages }} post{{ if ne (len .Pages) 1 }}s{{ end }} tagged <code>{{ .Title }}</code>.</p>
+  </header>
+
+  <ul class="post-list">
+    {{ range .Pages }}
+    <li class="post-item">
+      <div class="badges" style="margin-bottom:.4rem"><span class="badge">{{ .Section | title }}</span></div>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}
+      {{ partial "post-meta.html" . }}
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

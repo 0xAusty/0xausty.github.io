@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="mono">© {{ now.Format "2006" }} {{ site.Params.author }}</span>
+      &nbsp;·&nbsp; Built with <a href="https://gohugo.io" rel="noopener" target="_blank">Hugo</a>
+      &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a>
+    </div>
+    {{ partial "social-links.html" . }}
+  </div>
+</footer>

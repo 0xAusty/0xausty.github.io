@@ -1,0 +1,14 @@
+{{/* Shown at the bottom of an article: tools used + a prev/next pager. */}}
+{{ with .Params.tools }}
+<hr>
+<p class="text-dim"><strong>Tools used:</strong>
+  {{ range . }}<a class="badge" href="{{ (printf "/tools/%s" (. | urlize)) | relURL }}">{{ . }}</a> {{ end }}
+</p>
+{{ end }}
+
+{{ if or .NextInSection .PrevInSection }}
+<nav class="post-meta" aria-label="More in this section" style="justify-content:space-between;margin-top:2rem">
+  <span>{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}</span>
+  <span>{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}</span>
+</nav>
+{{ end }}

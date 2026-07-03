@@ -1,0 +1,15 @@
+{{/* A single project card. Pass a project page as context. */}}
+<article class="card">
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p class="card-desc">{{ .Description | default .Summary }}</p>
+  {{ with .Params.tech }}
+  <div class="tech">
+    {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+  <div class="card-links">
+    <a href="{{ .RelPermalink }}">Details →</a>
+    {{ with .Params.repo }}<a href="{{ . }}" rel="noopener" target="_blank">Code ↗</a>{{ end }}
+    {{ with .Params.demo }}<a href="{{ . }}" rel="noopener" target="_blank">Demo ↗</a>{{ end }}
+  </div>
+</article>

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ with .Pages }}
+  <ul class="post-list">
+    {{ range . }}
+    <li class="post-item">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ else }}<p class="excerpt">{{ .Summary }}</p>{{ end }}
+      {{ partial "post-meta.html" . }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-dim">Nothing here yet.</p>
+  {{ end }}
+</div>
+{{ end }}

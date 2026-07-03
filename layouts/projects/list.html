@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ with .Pages }}
+  <div class="card-grid">
+    {{ range . }}{{ partial "project-card.html" . }}{{ end }}
+  </div>
+  {{ else }}
+  <p class="text-dim">No projects yet — run <code>hugo new projects/my-tool.md</code> to add one.</p>
+  {{ end }}
+</div>
+{{ end }}

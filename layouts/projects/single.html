@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ with .Params.tech }}
+        <div class="badges">{{ range . }}<span class="badge">{{ . }}</span>{{ end }}</div>
+        {{ end }}
+        <div class="hero-actions" style="margin-top:1rem">
+          {{ with .Params.repo }}<a class="btn btn-primary" href="{{ . }}" rel="noopener" target="_blank">View code ↗</a>{{ end }}
+          {{ with .Params.demo }}<a class="btn" href="{{ . }}" rel="noopener" target="_blank">Live demo ↗</a>{{ end }}
+        </div>
+        {{ partial "post-meta.html" . }}
+      </header>
+
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

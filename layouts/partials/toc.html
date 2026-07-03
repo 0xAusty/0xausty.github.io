@@ -1,0 +1,10 @@
+{{/* Renders a sticky table of contents — only when the page has headings
+     and hasn't opted out with `toc = false` in its front matter. */}}
+{{ if and (ne .Params.toc false) (gt (len .Fragments.Headings) 0) }}
+<aside class="toc-wrap">
+  <details open>
+    <summary class="toc-title">On this page</summary>
+    {{ .TableOfContents }}
+  </details>
+</aside>
+{{ end }}

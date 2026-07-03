@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ if .IsPage }}{{ partial "post-meta.html" . }}{{ end }}
+      </header>
+
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+
+      {{ if .IsPage }}{{ partial "post-footer.html" . }}{{ end }}
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

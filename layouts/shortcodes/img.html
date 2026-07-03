@@ -1,0 +1,12 @@
+{{/* Image with caption + click-to-zoom lightbox (lightbox is wired up in main.js).
+     Usage:
+       {{< img src="/images/nmap.png" alt="nmap scan" caption="Full TCP port scan" >}}
+     `src` can be a path under static/ (e.g. /images/foo.png) or a full URL.
+*/}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default (.Get "caption") | default "" -}}
+{{- $caption := .Get "caption" -}}
+<figure>
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

@@ -1,0 +1,16 @@
+{{/* Linked taxonomy badges for a writeup. Pass a page as context.
+     Front-matter keys are plural because they are Hugo taxonomies. */}}
+<div class="badges">
+  {{ with .Params.difficulties }}
+    <a class="badge diff diff-{{ . | urlize }}" href="{{ (printf "/difficulties/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ with .Params.platforms }}
+    <a class="badge" href="{{ (printf "/platforms/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ range .Params.oses }}
+    <a class="badge" href="{{ (printf "/oses/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ range .Params.tags }}
+    <a class="badge tag" href="{{ (printf "/tags/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+</div>
