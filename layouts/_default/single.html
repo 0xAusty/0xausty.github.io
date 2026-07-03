@@ -5,7 +5,7 @@
       <header class="article-header">
         <h1>{{ .Title }}</h1>
         {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
-        {{ if .IsPage }}{{ partial "post-meta.html" . }}{{ end }}
+        {{ if and .IsPage (not .Date.IsZero) }}{{ partial "post-meta.html" . }}{{ end }}
       </header>
 
       <div class="article-body">
