@@ -64,7 +64,7 @@ you write. To preview posts still marked `draft = true`, use `hugo server -D`.
 │   └── js/                   # copy buttons, theme toggle, lightbox, search
 ├── static/
 │   ├── images/               # your screenshots and images go here
-│   └── resume.pdf            # ← replace with your real resume
+│   └── (add resume.pdf here, then set params.resume in hugo.toml)
 └── .github/workflows/deploy.yml   # auto-build + deploy on every push
 ```
 
@@ -153,8 +153,8 @@ See `content/projects/subenum.md` for a full example.
 Clicking any image opens it full-screen (lightbox). Images are lazy-loaded automatically.
 
 Replace these starter placeholders with your own when you can:
-`static/images/og-default.png` (1200×630 social card), `static/images/avatar.png`,
-and `static/resume.pdf`.
+`static/images/og-default.png` (1200×630 social card) and `static/images/avatar.png`
+(then uncomment the photo block at the top of `content/about.md`).
 
 ---
 
@@ -220,9 +220,18 @@ Without a custom domain, the site lives at `https://<your-username>.github.io/`.
 1. **Create the repo.** For a root site, name it exactly `<your-username>.github.io`
    (this project is set up for `0xausty.github.io`). A different name also works — it'll
    just live at `<user>.github.io/<repo>/`.
-2. **Personalize** `hugo.toml` (name, links, accent colour) and `content/about.md`, and
-   replace `static/resume.pdf` + the placeholder images.
-3. **Push it:**
+2. **Enable Pages FIRST:** repo **Settings → Pages → Build and deployment → Source =
+   “GitHub Actions.”**
+
+   > ⚠️ Do this **before** your first push. The `actions/configure-pages` step defaults to
+   > `enablement: false`, so if Pages isn't on yet it calls `GET /repos/.../pages`, gets a
+   > 404, and the very first workflow run fails with *"Get Pages site failed."* Enabling
+   > Pages afterwards does **not** re-run it — you'd have to trigger a re-run manually.
+   > (If that happens: **Actions → Deploy Hugo site to Pages → Re-run all jobs**.)
+3. **Personalize** `hugo.toml` (name, links, accent colour) and `content/about.md`, and
+   replace the placeholder images. Add a real `static/resume.pdf` and set
+   `resume = "/resume.pdf"` in `hugo.toml` if you want the Resume button.
+4. **Push it:**
    ```bash
    git init
    git add .
@@ -231,8 +240,6 @@ Without a custom domain, the site lives at `https://<your-username>.github.io/`.
    git remote add origin https://github.com/<your-username>/<repo>.git
    git push -u origin main
    ```
-4. **Enable Pages:** repo **Settings → Pages → Build and deployment → Source =
-   “GitHub Actions.”**
 5. Watch the **Actions** tab — the "Deploy Hugo site to Pages" workflow runs and, when
    green, your site is live at the URL shown.
 6. *(Optional)* add a custom domain (§9).

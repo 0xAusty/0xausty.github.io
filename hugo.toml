@@ -12,18 +12,22 @@ baseURL = "https://0xausty.github.io/"
 locale       = "en-us"      # used for RSS/schema; replaces the old languageCode key
 title        = "0xAusty // Security Portfolio"
 
-# Pretty URLs like /writeups/my-box/ instead of /writeups/my-box.html
-# (leave this on)
+# Leave false. Hugo already emits pretty URLs (/writeups/my-box/) by default —
+# that is controlled by `uglyURLs`, not this key. Setting it true would rewrite
+# every relative URL in the output to an absolute one.
 canonifyURLs = false
+
+# Build a little faster / cleaner.
+# NOTE: these are root-level keys, so they MUST stay ABOVE the first [table]
+# header below. In TOML, any key after a [table] belongs to that table — put
+# these under [pagination] and they are silently ignored.
+enableRobotsTXT = true
+enableGitInfo   = false          # set true if you want "last modified from git"
+summaryLength   = 30
 
 # How many items show in list pages / RSS before paginating.
 [pagination]
   pagerSize = 10
-
-# Build a little faster / cleaner.
-enableRobotsTXT = true
-enableGitInfo   = false          # set true if you want "last modified from git"
-summaryLength   = 30
 
 # -----------------------------------------------------------------------------
 #  Taxonomies — how recruiters browse your content.
@@ -76,11 +80,13 @@ summaryLength   = 30
   # Leave a value empty ("") to hide that link everywhere.
   email    = "0xausty@proton.me"
   github   = "https://github.com/0xausty"
-  linkedin = "https://www.linkedin.com/in/your-handle"   # TODO
+  linkedin = ""                   # add your real profile URL to show the icon
   twitter  = ""                                          # e.g. https://x.com/handle
   mastodon = ""
-  # Put your resume PDF at static/resume.pdf and this link just works:
-  resume   = "/resume.pdf"
+  # Put a REAL resume PDF at static/resume.pdf, then set this to "/resume.pdf"
+  # to show the "Resume" button on the homepage. Left empty so the site never
+  # hands a recruiter a placeholder file.
+  resume   = ""
 
   # ---- Theme / design ----------------------------------------------------
   # The whole palette is defined as design tokens in assets/css/main.scss.

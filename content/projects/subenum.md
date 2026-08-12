@@ -3,10 +3,12 @@ title = "subenum — Fast Subdomain Enumerator"
 date = 2026-05-12T09:00:00Z
 draft = false
 
-description = "A fast, async subdomain enumeration tool that merges passive sources with active resolution and wildcard filtering."
+description = "SAMPLE ENTRY (not a real project) — shows the layout for a tool writeup. Replace with something you actually built."
 
 tech     = ["Python", "asyncio", "Docker"]
-repo     = "https://github.com/0xausty/subenum"
+# repo/demo intentionally empty: this is a fictional example, so no dead links
+# are rendered. Add your real URLs here and the buttons appear automatically.
+repo     = ""
 demo     = ""
 tags     = ["tooling", "reconnaissance", "automation"]
 
@@ -14,6 +16,12 @@ featured = true
 weight   = 10
 toc      = false
 +++
+
+{{< callout type="warning" title="This is a sample entry, not real work" >}}
+`subenum` is a **fictional** tool included to demonstrate the project page format.
+It is not something I built and there is no repository behind it. Replace this file
+with a real project — see the README for how.
+{{< /callout >}}
 
 ## Overview
 
@@ -42,13 +50,15 @@ signature — the part most naive scripts get wrong.
 
 ```bash
 # with Docker
-docker run --rm 0xausty/subenum -d example.com -o results.json
+docker run --rm <your-user>/subenum -d example.com -o results.json
 
 # or locally
-git clone https://github.com/0xausty/subenum
+git clone https://github.com/<your-user>/subenum
 cd subenum && pip install -r requirements.txt
 python subenum.py -d example.com --json | httpx -silent
 ```
+
+Illustrative output (also fictional):
 
 ```text
 [*] example.com — 3 passive sources, 12,003 wordlist entries
@@ -57,6 +67,3 @@ python subenum.py -d example.com --json | httpx -silent
 [+] vpn.example.com
 [*] 47 live subdomains in 9.3s
 ```
-
-> Replace the repo URL in the front matter with your real project. This entry is a
-> template so you can see the exact format — copy it for your next tool.
