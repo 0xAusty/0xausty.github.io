@@ -1,0 +1,41 @@
+# =============================================================================
+#  htmltest — dead-link checking for the built site.
+#  Run locally with:  hugo --gc --minify && htmltest
+#  CI runs this on every push and pull request (.github/workflows/ci.yml).
+# =============================================================================
+
+# htmltest checks the BUILT output, not the markdown source.
+DirectoryPath: "public"
+
+# Follow links out to the internet as well as internal ones. If external
+# checking ever gets flaky (an upstream site rate-limiting CI, say), flip this
+# to false — you still keep full internal link checking, which is the part that
+# actually catches your own broken links.
+CheckExternal: true
+
+IgnoreURLs:
+  # Our OWN origin. baseURL is absolute, so Hugo emits self-references (canonical,
+  # og:url, and the RSS <link rel="alternate">) as full https:// URLs. htmltest has
+  # no concept of baseURL and treats those as EXTERNAL, i.e. it would fetch them
+  # from the LIVE site — which fails for any page not deployed yet. That breaks the
+  # first run after adding a section, and every pull request, by construction.
+  # No coverage is lost: every navigational link the templates emit is root-relative
+  # and is still fully verified by htmltest's internal checker.
+  - "^https://0xausty\\.github\\.io"
+  # Google Fonts answers CDN requests differently for bots and reliably produces
+  # false failures; the stylesheet is verified at build time by Hugo anyway.
+  - "^https://fonts\\.googleapis\\.com"
+  - "^https://fonts\\.gstatic\\.com"
+
+# Cache external results so repeat runs don't re-hit every remote host.
+CacheExpires: "336h"
+
+# Hugo emits pretty URLs (/writeups/my-box/) — don't warn about the trailing slash.
+IgnoreDirectoryMissingTrailingSlash: true
+
+# Every image on the site should carry a real alt attribute; keep this strict so
+# accessibility regressions fail the build rather than sliding through.
+IgnoreAltMissing: false
+
+# Fail on malformed mailto: links (the About page builds one from config).
+CheckMailto: true

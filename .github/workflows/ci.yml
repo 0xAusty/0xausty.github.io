@@ -1,0 +1,79 @@
+# =============================================================================
+#  CI — runs on every push to main and every pull request.
+#  Three gates:
+#    1. no secrets in the working tree or in git history (gitleaks)
+#    2. the site builds cleanly (warnings are treated as failures)
+#    3. no dead links in the built HTML (htmltest)
+#
+#  This is separate from deploy.yml on purpose: deploy publishes, CI verifies.
+#  Versions are pinned so a run is reproducible; bump them deliberately.
+# =============================================================================
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HUGO_VERSION: "0.163.3"
+  HTMLTEST_VERSION: "0.17.0"
+  GITLEAKS_VERSION: "8.30.1"
+
+jobs:
+  verify:
+    name: Secret scan, build, link check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history: gitleaks scans past commits, not just the tip.
+          fetch-depth: 0
+
+      # ---- 1. Secrets -------------------------------------------------------
+      # Deliberately BEFORE the build: public/ does not exist yet, so the scan
+      # covers only real sources instead of re-scanning generated copies of them.
+      - name: Install gitleaks
+        run: |
+          curl -sSfL -o gitleaks.tar.gz "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar xzf gitleaks.tar.gz gitleaks
+          sudo mv gitleaks /usr/local/bin/
+          gitleaks version
+
+      # v8.30 exposes `dir` (working tree) and `git` (history); the older `detect`
+      # subcommand is gone. --redact keeps any match out of the public log, and
+      # either command exits non-zero on a finding, which fails the job.
+      - name: Scan working tree for secrets
+        run: gitleaks dir . --redact --verbose
+
+      - name: Scan git history for secrets
+        run: gitleaks git . --redact --verbose
+
+      # ---- 2. Build ---------------------------------------------------------
+      - name: Install Hugo (extended)
+        run: |
+          wget -q -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i hugo.deb
+          hugo version
+
+      # --panicOnWarning turns Hugo deprecations and template warnings into build
+      # failures. The site is currently warning-free; this keeps it that way.
+      - name: Build site
+        run: hugo --gc --minify --panicOnWarning --baseURL "https://0xausty.github.io/"
+
+      # ---- 3. Dead links ----------------------------------------------------
+      - name: Install htmltest
+        run: |
+          curl -sSfL -o htmltest.tar.gz "https://github.com/wjdp/htmltest/releases/download/v${HTMLTEST_VERSION}/htmltest_${HTMLTEST_VERSION}_linux_amd64.tar.gz"
+          tar xzf htmltest.tar.gz htmltest
+          sudo mv htmltest /usr/local/bin/
+          htmltest --version
+
+      - name: Check for dead links
+        run: htmltest

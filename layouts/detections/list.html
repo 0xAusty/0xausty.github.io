@@ -1,0 +1,94 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{/* ---- Filter chips. Built only from terms actually used by THIS section,
+         so writeup platforms never leak into the detections filter. ---- */}}
+  {{ $detections := .Pages }}
+  {{ if $detections }}
+  {{ $mitre := slice }}{{ $logs := slice }}{{ $plats := slice }}
+  {{ range $detections }}
+    {{ range (partial "aslice.html" (index .Params "mitre-techniques")) }}{{ $mitre = $mitre | append . }}{{ end }}
+    {{ range (partial "aslice.html" (index .Params "log-sources")) }}{{ $logs = $logs | append . }}{{ end }}
+    {{ range (partial "aslice.html" .Params.platforms) }}{{ $plats = $plats | append . }}{{ end }}
+  {{ end }}
+
+  <div class="filter-bar" id="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="badge active" data-facet="all">All</button>
+    {{ range (uniq $mitre) | sort }}
+      <button class="badge mono" data-facet="mitre" data-value="{{ . | urlize }}">{{ . }}</button>
+    {{ end }}
+    {{ range (uniq $plats) | sort }}
+      <button class="badge" data-facet="platform" data-value="{{ . | urlize }}">{{ . }}</button>
+    {{ end }}
+    {{ range (uniq $logs) | sort }}
+      <button class="badge" data-facet="log" data-value="{{ . | urlize }}">{{ . }}</button>
+    {{ end }}
+  </div>
+
+  <ul class="post-list" id="detection-list">
+    {{ range $detections }}
+    <li class="post-item"
+        data-mitre="{{ range (partial "aslice.html" (index .Params "mitre-techniques")) }}{{ . | urlize }} {{ end }}"
+        data-platform="{{ range (partial "aslice.html" .Params.platforms) }}{{ . | urlize }} {{ end }}"
+        data-log="{{ range (partial "aslice.html" (index .Params "log-sources")) }}{{ . | urlize }} {{ end }}">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ partial "detection-badges.html" . }}
+      {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}
+      {{ partial "post-meta.html" . }}
+    </li>
+    {{ end }}
+  </ul>
+  <p class="search-empty" id="no-matches" hidden>No detections match that filter.</p>
+  {{ else }}
+  <p class="text-dim">No detections yet — run <code>hugo new detections/my-rule.md</code> to add one.</p>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function () {
+  var bar = document.getElementById("filter-bar");
+  if (!bar) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll("#detection-list .post-item"));
+  var empty = document.getElementById("no-matches");
+  var active = {};   // facet -> Set of values
+
+  function apply() {
+    var facets = Object.keys(active).filter(function (f) { return active[f].size; });
+    var shown = 0;
+    items.forEach(function (li) {
+      var ok = facets.every(function (f) {
+        var vals = (li.getAttribute("data-" + f) || "").split(/\s+/).filter(Boolean);
+        return vals.some(function (v) { return active[f].has(v); });
+      });
+      li.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+    bar.querySelector('[data-facet="all"]').classList.toggle("active", !facets.length);
+  }
+
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    var facet = btn.getAttribute("data-facet");
+    if (facet === "all") {
+      active = {};
+      bar.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+    } else {
+      var val = btn.getAttribute("data-value");
+      active[facet] = active[facet] || new Set();
+      if (active[facet].has(val)) { active[facet].delete(val); btn.classList.remove("active"); }
+      else { active[facet].add(val); btn.classList.add("active"); }
+    }
+    apply();
+  });
+})();
+</script>
+{{ end }}

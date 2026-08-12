@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{/* ---- Grouped by SKILL AREA, not by date. -------------------------------
+       Every page (any section) that sets `skills = [...]` in its front matter
+       appears under each of those headings. Ordering of the headings is
+       alphabetical; within a heading, newest first.
+       A page with no `skills` value is intentionally not listed here — this
+       page is a curated view, not a full archive.
+  ------------------------------------------------------------------------- */}}
+  {{ $skills := site.Taxonomies.skills }}
+  {{ if $skills }}
+    {{ range $skills.Alphabetical }}
+      {{ $term := . }}
+      <section>
+        <div class="section-head">
+          <h2 id="{{ $term.Term | urlize }}">{{ $term.Page.Title }}</h2>
+          <span class="more">{{ $term.Count }} item{{ if ne $term.Count 1 }}s{{ end }}</span>
+        </div>
+        <ul class="post-list">
+          {{ range $term.Pages }}
+          <li class="post-item">
+            <div class="badges" style="margin-bottom:.4rem">
+              <span class="badge">{{ .Section | title }}</span>
+            </div>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}
+            {{ partial "post-meta.html" . }}
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ else }}
+    <p class="text-dim">
+      Nothing tagged yet. Add <code>skills = ["Web Application Security"]</code> to the
+      front matter of any writeup, detection, or project and it will be grouped here.
+    </p>
+  {{ end }}
+</div>
+{{ end }}

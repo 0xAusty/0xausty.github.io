@@ -5,29 +5,39 @@
     {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
   </header>
 
-  {{/* ---- Filter chips: built automatically from your taxonomies ---- */}}
+  {{/* ---- Filter chips.
+         Built from terms used by THIS section only. `platforms` is shared with
+         the Detections section, so reading it from site.Taxonomies would render
+         chips (e.g. "Splunk") that match zero writeups. ---- */}}
   {{ $writeups := .Pages }}
   {{ if $writeups }}
+  {{ $diffs := slice }}{{ $plats := slice }}{{ $oses := slice }}
+  {{ range $writeups }}
+    {{ range (partial "aslice.html" .Params.difficulties) }}{{ $diffs = $diffs | append . }}{{ end }}
+    {{ range (partial "aslice.html" .Params.platforms) }}{{ $plats = $plats | append . }}{{ end }}
+    {{ range (partial "aslice.html" .Params.oses) }}{{ $oses = $oses | append . }}{{ end }}
+  {{ end }}
+
   <div class="filter-bar" id="filter-bar">
     <span class="filter-label">Filter:</span>
     <button class="badge active" data-facet="all">All</button>
-    {{ range site.Taxonomies.difficulties.Alphabetical }}
-      <button class="badge diff diff-{{ .Term | urlize }}" data-facet="difficulty" data-value="{{ .Term | urlize }}">{{ .Page.Title }}</button>
+    {{ range (uniq $diffs) | sort }}
+      <button class="badge diff diff-{{ . | urlize }}" data-facet="difficulty" data-value="{{ . | urlize }}">{{ . }}</button>
     {{ end }}
-    {{ range site.Taxonomies.platforms.Alphabetical }}
-      <button class="badge" data-facet="platform" data-value="{{ .Term | urlize }}">{{ .Page.Title }}</button>
+    {{ range (uniq $plats) | sort }}
+      <button class="badge" data-facet="platform" data-value="{{ . | urlize }}">{{ . }}</button>
     {{ end }}
-    {{ range site.Taxonomies.oses.Alphabetical }}
-      <button class="badge" data-facet="os" data-value="{{ .Term | urlize }}">{{ .Page.Title }}</button>
+    {{ range (uniq $oses) | sort }}
+      <button class="badge" data-facet="os" data-value="{{ . | urlize }}">{{ . }}</button>
     {{ end }}
   </div>
 
   <ul class="post-list" id="writeup-list">
     {{ range $writeups }}
     <li class="post-item"
-        data-difficulty="{{ .Params.difficulties | urlize }}"
-        data-platform="{{ .Params.platforms | urlize }}"
-        data-os="{{ range .Params.oses }}{{ . | urlize }} {{ end }}">
+        data-difficulty="{{ range (partial "aslice.html" .Params.difficulties) }}{{ . | urlize }} {{ end }}"
+        data-platform="{{ range (partial "aslice.html" .Params.platforms) }}{{ . | urlize }} {{ end }}"
+        data-os="{{ range (partial "aslice.html" .Params.oses) }}{{ . | urlize }} {{ end }}">
       <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       {{ partial "writeup-badges.html" . }}
       {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}

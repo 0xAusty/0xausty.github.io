@@ -51,11 +51,14 @@ you write. To preview posts still marked `draft = true`, use `hugo server -D`.
 ```
 .
 ├── hugo.toml                 # ← ALL your settings live here (name, bio, colours, nav, links)
-├── archetypes/               # templates used by `hugo new` (writeups.md, projects.md)
+├── .htmltest.yml             # dead-link checking config (used by CI)
+├── archetypes/               # templates used by `hugo new` (writeups, detections, projects)
 ├── content/
 │   ├── _index.md             # homepage (text comes from hugo.toml)
 │   ├── about.md              # About page — edit your bio/skills/certs here
+│   ├── portfolio.md          # /portfolio/ — grouped by skill area (the resume URL)
 │   ├── writeups/             # one .md file per writeup
+│   ├── detections/           # one .md file per detection rule
 │   ├── projects/             # one .md file per project
 │   └── blog/                 # short notes (optional)
 ├── layouts/                  # the theme (HTML templates + shortcodes) — rarely touched
@@ -65,7 +68,9 @@ you write. To preview posts still marked `draft = true`, use `hugo server -D`.
 ├── static/
 │   ├── images/               # your screenshots and images go here
 │   └── (add resume.pdf here, then set params.resume in hugo.toml)
-└── .github/workflows/deploy.yml   # auto-build + deploy on every push
+└── .github/workflows/
+    ├── deploy.yml            # auto-build + deploy on every push to main
+    └── ci.yml                # build + dead-link check + secret scan
 ```
 
 ---
@@ -88,10 +93,12 @@ description = "One-line summary shown in lists, search, and social cards."
 
 # Taxonomies — keys are PLURAL (this is a Hugo rule; see §8).
 platforms    = "Hack The Box"          # single value
-oses         = ["Windows", "Active Directory"]   # one or more
+oses         = ["Windows"]             # host OS only — AD is a tag, not an OS (§8)
 difficulties = "Medium"                # Easy | Medium | Hard | Insane
 tools        = ["nmap", "bloodhound", "impacket"]
 tags         = ["kerberos", "as-rep-roasting", "active-directory"]
+
+skills = ["Active Directory"]          # groups it on /portfolio/
 
 toc        = true      # show the table-of-contents sidebar
 disclaimer = true      # show the "authorized targets only" note
@@ -110,7 +117,37 @@ Your walkthrough in **markdown**...
 | **Terminal** window | `{{</* terminal title="kali@htb" */>}}$ nmap ...{{</* /terminal */>}}` |
 | **Code block** with copy button | ` ```bash ` fenced block (copy button is automatic) |
 
-See `content/writeups/sample-htb-relay.md` for a full working example of all of these.
+The archetype (`archetypes/writeups.md`) already contains one of each, so a fresh
+`hugo new` gives you a working example to edit.
+
+---
+
+## 4b. Add a new detection
+
+```bash
+hugo new detections/suspicious-lsass-access.md
+```
+
+Same shape as a writeup, with detection-engineering taxonomies instead:
+
+```toml
++++
+title = "Suspicious LSASS Handle Access"
+date = 2026-08-12T10:00:00Z
+draft = false
+description = "One-line summary of what this rule detects."
+
+mitre-techniques = ["T1003.001"]          # ATT&CK IDs — drives the /mitre-techniques/ index
+platforms        = "Windows"              # shared with writeups; see §8
+log-sources      = ["Sysmon", "Windows Security"]
+tags             = ["detection-engineering", "credential-access"]
+skills           = ["Detection Engineering"]   # groups it on /portfolio/
+toc = true
++++
+```
+
+The Detections list page builds its filter chips from whatever your detections
+actually use, so you never have to register a technique or log source anywhere.
 
 ---
 
@@ -137,7 +174,23 @@ weight   = 10                          # lower sorts earlier
 ...
 ```
 
-See `content/projects/subenum.md` for a full example.
+---
+
+## 5b. The /portfolio/ page (your resume URL)
+
+`/portfolio/` lists your work **grouped by skill area instead of by date**, which is
+what you want when a hiring manager opens one link.
+
+It is driven by a `skills` taxonomy. Any page in any section opts in:
+
+```toml
+skills = ["Active Directory", "Detection Engineering"]
+```
+
+A page appears under every skill it lists. Headings are alphabetical; newest first
+within each. **A page with no `skills` value does not appear** — this is a curated
+view, not a full archive, so you decide what a recruiter sees. Keep the skill names
+consistent (they are literal strings) and reuse the vocabulary from your resume.
 
 ---
 
@@ -179,14 +232,53 @@ top of `assets/css/main.scss` — change a value once, it applies everywhere.
 
 ## 8. How taxonomies work (why keys are plural)
 
-Recruiters browse by **platform, OS, difficulty, tools, and tags**. In Hugo, the
-front-matter key for a taxonomy is its **plural** name, even when the value is a single
-item. That's why you write `difficulties = "Medium"` (not `difficulty`). Defined taxonomies:
+In Hugo, the front-matter key for a taxonomy is its **plural** name, even when the value
+is a single item. That's why you write `difficulties = "Medium"` (not `difficulty`).
 
-`platforms` · `oses` · `difficulties` · `tools` · `tags`
+| Taxonomy | Used by | Example values |
+|----------|---------|----------------|
+| `platforms` | writeups **and** detections | Hack The Box, TryHackMe / Windows, Splunk |
+| `oses` | writeups | Linux, Windows, macOS |
+| `difficulties` | writeups | Easy, Medium, Hard, Insane |
+| `tools` | writeups | nmap, burp, ffuf |
+| `mitre-techniques` | detections | T1003.001, T1059.001 |
+| `log-sources` | detections | Sysmon, Windows Security, Zeek |
+| `tags` | anything | privilege-escalation, active-directory |
+| `skills` | anything (drives `/portfolio/`) | Active Directory, Detection Engineering |
 
-Each gets an automatic browse page (e.g. `/tags/`, `/difficulties/medium/`), and the
-Writeups page builds its filter chips from them automatically — no config needed.
+Each gets an automatic browse page (e.g. `/tags/`, `/mitre-techniques/t1003.001/`).
+
+**Active Directory is a tag, not an OS.** It is a product/service running on Windows,
+not an operating system, so it belongs in `tags` (as `active-directory`) with `oses`
+reserved for the actual host OS. The writeups archetype reflects this.
+
+**`platforms` is deliberately shared** between writeups and detections, because that is
+how it was specified — but the two use it for different things ("Hack The Box" vs
+"Splunk"), so `/platforms/` mixes both vocabularies. To stop that, the filter chips on
+each list page are built from the terms **that section actually uses**, rather than from
+`site.Taxonomies`, so detection platforms never appear as writeup filters or vice versa.
+If the mixing on `/platforms/` itself ever bothers you, split it into a separate
+`detection-platform` taxonomy in `hugo.toml` and swap the key in
+`layouts/partials/detection-badges.html`.
+
+---
+
+## 8b. CI
+
+`.github/workflows/ci.yml` runs on every push to `main` and every pull request:
+
+1. **Build** — `hugo --panicOnWarning`, so a deprecation or template warning fails the run.
+2. **Dead links** — [htmltest](https://github.com/wjdp/htmltest) over the built HTML, configured in `.htmltest.yml`.
+3. **Secrets** — [gitleaks](https://github.com/gitleaks/gitleaks) across both the working tree and full git history.
+
+All three tool versions are pinned. To reproduce a CI failure locally:
+
+```bash
+hugo --gc --minify --panicOnWarning && htmltest
+```
+
+If external link checking ever gets flaky because an upstream host rate-limits CI, set
+`CheckExternal: false` in `.htmltest.yml` — internal link checking still runs.
 
 ---
 

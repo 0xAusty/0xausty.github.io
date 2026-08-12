@@ -1,0 +1,23 @@
+{{/* Linked taxonomy badges for a detection. Pass a page as context.
+     Mirrors writeup-badges.html, but with the detection taxonomies.
+
+     NOTE: hyphenated params MUST be read with `index` — Go templates would parse
+     `.Params.mitre-techniques` as the subtraction `.Params.mitre - techniques`.
+     Values are routed through `aslice` so a scalar or a list both work. */}}
+{{- $mitre := partial "aslice.html" (index .Params "mitre-techniques") -}}
+{{- $logs  := partial "aslice.html" (index .Params "log-sources") -}}
+{{- $plats := partial "aslice.html" .Params.platforms -}}
+<div class="badges">
+  {{ range $mitre }}
+    <a class="badge mono" href="{{ (printf "/mitre-techniques/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ range $plats }}
+    <a class="badge" href="{{ (printf "/platforms/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ range $logs }}
+    <a class="badge" href="{{ (printf "/log-sources/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+  {{ range .Params.tags }}
+    <a class="badge tag" href="{{ (printf "/tags/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+  {{ end }}
+</div>

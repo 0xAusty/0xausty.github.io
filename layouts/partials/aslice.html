@@ -1,0 +1,22 @@
+{{- /*
+  Normalise a front-matter value to a slice so templates can always `range` it.
+
+  Why: Hugo taxonomy terms may be written either as a scalar (platforms = "Windows")
+  or as a list (platforms = ["Windows", "Splunk"]) — both are valid front matter, and
+  Hugo builds the taxonomy correctly either way. Templates are not so forgiving:
+  piping a list into `urlize` aborts the whole build, and `range` over a string errors.
+  Routing every taxonomy read through this partial makes both shapes work.
+
+  Usage:  {{ $platforms := partial "aslice.html" .Params.platforms }}
+          {{ $mitre     := partial "aslice.html" (index .Params "mitre-techniques") }}
+*/ -}}
+{{- $v := . -}}
+{{- $out := slice -}}
+{{- if $v -}}
+  {{- if reflect.IsSlice $v -}}
+    {{- $out = $v -}}
+  {{- else -}}
+    {{- $out = slice $v -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ partial "detection-badges.html" . }}
+        {{ partial "post-meta.html" . }}
+      </header>
+
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+
+      {{ partial "post-footer.html" . }}
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

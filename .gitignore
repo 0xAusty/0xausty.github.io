@@ -15,3 +15,6 @@ Thumbs.db
 
 # Node (only if you ever add JS tooling)
 node_modules/
+
+# htmltest cache + log (created by a local `htmltest` run)
+/tmp/

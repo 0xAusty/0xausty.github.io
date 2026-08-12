@@ -34,11 +34,20 @@ summaryLength   = 30
 #  Left side = singular (used in front matter), right side = plural (URL + page).
 # -----------------------------------------------------------------------------
 [taxonomies]
-  platform   = "platforms"     # Hack The Box, TryHackMe, PortSwigger ...
-  os         = "oses"          # Linux, Windows, Active Directory ...
+  platform   = "platforms"     # writeups: Hack The Box, TryHackMe … / detections: Windows, Splunk …
+  os         = "oses"          # Linux, Windows  (Active Directory now lives in `tags`)
   difficulty = "difficulties"  # Easy, Medium, Hard, Insane
   tool       = "tools"         # nmap, burp, ffuf ...
-  tag        = "tags"          # privilege-escalation, bof, sqli ...
+  tag        = "tags"          # privilege-escalation, bof, sqli, active-directory ...
+
+  # --- Detections section ---
+  mitre-technique = "mitre-techniques"  # T1059.001, T1547.001 ...
+  log-source      = "log-sources"       # Sysmon, Windows Security, Zeek, CloudTrail ...
+
+  # --- Portfolio grouping ---
+  # The /portfolio/ page groups work by this instead of by date. Any page in any
+  # section can opt in with e.g.  skills = ["Active Directory", "Detection Engineering"]
+  skill = "skills"
 
 # -----------------------------------------------------------------------------
 #  Output formats — adds a JSON search index at /index.json for full-text search.
@@ -109,9 +118,17 @@ summaryLength   = 30
 # -----------------------------------------------------------------------------
 [menu]
   [[menu.main]]
+    name   = "Portfolio"
+    url    = "/portfolio/"
+    weight = 5
+  [[menu.main]]
     name   = "Writeups"
     url    = "/writeups/"
     weight = 10
+  [[menu.main]]
+    name   = "Detections"
+    url    = "/detections/"
+    weight = 15
   [[menu.main]]
     name   = "Projects"
     url    = "/projects/"

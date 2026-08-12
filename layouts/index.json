@@ -1,5 +1,5 @@
 {{- /* Full-text search index consumed by assets/js/search.js */ -}}
-{{- $pages := where site.RegularPages "Section" "in" (slice "writeups" "projects" "blog") -}}
+{{- $pages := where site.RegularPages "Section" "in" (slice "writeups" "detections" "projects" "blog") -}}
 [
 {{- range $i, $p := $pages -}}
   {{- if $i }},{{ end }}

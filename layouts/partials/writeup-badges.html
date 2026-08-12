@@ -1,13 +1,18 @@
 {{/* Linked taxonomy badges for a writeup. Pass a page as context.
-     Front-matter keys are plural because they are Hugo taxonomies. */}}
+     Front-matter keys are plural because they are Hugo taxonomies.
+     Values are routed through `aslice` so a scalar or a list both work — piping a
+     list straight into `urlize` would abort the whole build. */}}
+{{- $diffs := partial "aslice.html" .Params.difficulties -}}
+{{- $plats := partial "aslice.html" .Params.platforms -}}
+{{- $oses  := partial "aslice.html" .Params.oses -}}
 <div class="badges">
-  {{ with .Params.difficulties }}
+  {{ range $diffs }}
     <a class="badge diff diff-{{ . | urlize }}" href="{{ (printf "/difficulties/%s" (. | urlize)) | relURL }}">{{ . }}</a>
   {{ end }}
-  {{ with .Params.platforms }}
+  {{ range $plats }}
     <a class="badge" href="{{ (printf "/platforms/%s" (. | urlize)) | relURL }}">{{ . }}</a>
   {{ end }}
-  {{ range .Params.oses }}
+  {{ range $oses }}
     <a class="badge" href="{{ (printf "/oses/%s" (. | urlize)) | relURL }}">{{ . }}</a>
   {{ end }}
   {{ range .Params.tags }}

@@ -74,7 +74,7 @@
   function render(query) {
     var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     if (!terms.length) {
-      results.innerHTML = '<li class="search-empty">Type to search writeups, projects, and notes…</li>';
+      results.innerHTML = '<li class="search-empty">Type to search writeups, detections, projects, and notes…</li>';
       return;
     }
     var matches = index
