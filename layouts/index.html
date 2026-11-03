@@ -14,6 +14,30 @@
     </div>
   </section>
 
+  {{/* ---- HUNTRESS CTF 2026 SERIES ----
+       A compact feature block for the write-up series. The numbers are the
+       certificate figures in data/huntress_ctf_2026.json (event: place, teams,
+       points, modes). Rendered only when that data file and the hub page exist,
+       so the link can never be dead. */}}
+  {{ with hugo.Data.huntress_ctf_2026 }}{{ with .event }}
+  {{ $ev := . }}
+  {{ with site.GetPage "/huntress-ctf-2026" }}
+  <section>
+    <div class="section-head">
+      <h2>{{ .Title }}</h2>
+      <a class="more" href="{{ .RelPermalink }}">the series →</a>
+    </div>
+    <article class="card">
+      <p class="card-desc">{{ .Description | default $ev.name }}</p>
+      {{ partial "ctf-stats.html" (dict "compact" true) }}
+      <div class="card-links">
+        <a href="{{ .RelPermalink }}">Read the series →</a>
+      </div>
+    </article>
+  </section>
+  {{ end }}
+  {{ end }}{{ end }}
+
   {{/* ---- FEATURED PROJECTS ---- */}}
   {{ $projects := where site.RegularPages "Section" "projects" }}
   {{ $featured := where $projects "Params.featured" true }}

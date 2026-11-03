@@ -1,0 +1,34 @@
+{{- /*
+  ctf-lane-card.html — one lane card, used by the hub's "Lanes" block and by the
+  lanes index. Context: dict  lane     the lane key ("binary")
+                              idx      the ctf-index dict
+                              hubURL   the hub's RelPermalink (anchor fallback)
+                              heading  "h2" | "h3" (default) | "h4": the level
+                                       under the caller's own heading
+  Links go to the lane page when it is published, otherwise to the hub's
+  day-by-day list, so the card never emits a dead link. A count of zero
+  write-ups is left out rather than printed.
+*/ -}}
+{{- $lane := printf "%v" .lane -}}
+{{- $idx := .idx -}}
+{{- $hubURL := .hubURL | default "" -}}
+{{- $h := printf "%v" (.heading | default "h3") -}}
+{{- if not (in (slice "h2" "h3" "h4") $h) }}{{ $h = "h3" }}{{ end -}}
+{{- $label := index $idx.labels $lane | default (title $lane) -}}
+{{- $st := index $idx.laneStats $lane | default dict -}}
+{{- $lp := index $idx.laneByKey $lane -}}
+{{- $href := printf "%s#day-by-day" $hubURL -}}
+{{- with $lp }}{{ $href = .RelPermalink }}{{ end -}}
+<article class="card">
+  {{ printf "<%s>" $h | safeHTML }}<a href="{{ $href }}">{{ $label }}</a>{{ printf "</%s>" $h | safeHTML }}
+  {{- with $lp }}{{ with .Description }}
+  <p class="card-desc">{{ . }}</p>
+  {{- end }}{{ end }}
+  <div class="post-meta">
+    {{- with $st.challenges }}<span>{{ . }} challenge{{ if ne (int .) 1 }}s{{ end }}</span>{{ end }}
+    {{- with $st.modes }}<span class="dot">·</span><span>{{ $st.release | default 0 }} / {{ . }} modes cleared at release</span>{{ end }}
+    {{- $n := int ($st.pages | default 0) }}
+    {{- if gt $n 0 }}<span class="dot">·</span><span>{{ $n }} write-up{{ if ne $n 1 }}s{{ end }}</span>{{ end }}
+  </div>
+  <div class="card-links"><a href="{{ $href }}">{{ with $lp }}Read the lane →{{ else }}Browse by day →{{ end }}</a></div>
+</article>

@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{- /*
+  The small index of lanes (content/huntress-ctf-2026/lanes/_index.md,
+  layout = "lanes"): one card per scoring lane, from the same partial the hub
+  uses, with h2 headings here because the page's own h1 sits directly above
+  them. A lane whose page is not published yet links to the hub's day list.
+*/ -}}
+{{- $idx := partialCached "ctf-index.html" . "ctf-index" -}}
+{{- $hub := site.GetPage "/huntress-ctf-2026" -}}
+{{- $hubURL := "" }}{{ with $hub }}{{ $hubURL = .RelPermalink }}{{ end -}}
+<div class="container">
+  <nav class="ctf-breadcrumb mono" aria-label="Breadcrumb">
+    {{- with $hub }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}<span>Huntress CTF 2026</span>{{ end }} › <span>{{ .Title }}</span>
+  </nav>
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{- with $idx.lanes }}
+  <div class="ctf-lanes">
+    {{- range . }}
+    {{ partial "ctf-lane-card.html" (dict "lane" . "idx" $idx "hubURL" $hubURL "heading" "h2") }}
+    {{- end }}
+  </div>
+  {{- else }}
+  <p class="text-dim">Nothing here yet.</p>
+  {{- end }}
+</div>
+{{ end }}

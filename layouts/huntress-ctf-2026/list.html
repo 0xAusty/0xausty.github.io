@@ -1,0 +1,276 @@
+{{ define "main" }}
+{{- /*
+  The Huntress CTF 2026 hub (content/huntress-ctf-2026/_index.md).
+  Everything factual comes from data/huntress_ctf_2026.json through the
+  ctf-index partial; the page's own .Content is only the intro.
+
+  A nested section that has no layout of its own (lanes/ published without a
+  lanes/_index.md, say) would also land here, so anything that is not the
+  top-level section falls back to a plain list instead of a second hub.
+*/ -}}
+{{- $isHub := false }}{{ with .Parent }}{{ if .IsHome }}{{ $isHub = true }}{{ end }}{{ end -}}
+{{- if not $isHub }}
+<div class="container">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+  {{ with .Pages }}
+  <ul class="post-list">
+    {{ range . }}
+    <li class="post-item">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Description }}<p class="excerpt">{{ . }}</p>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-dim">Nothing here yet.</p>
+  {{ end }}
+</div>
+{{- else }}
+{{- $idx := partialCached "ctf-index.html" . "ctf-index" -}}
+{{- $cat := hugo.Data.huntress_ctf_2026 | default dict -}}
+{{- $ev := $cat.event | default dict -}}
+{{- $hubURL := .RelPermalink -}}
+{{- $dayCount := $idx.dayCount -}}
+{{- /* Lane glyphs: the month grid's row labels (a web challenge shows its own number instead) and the key under "How to read this" */ -}}
+{{- $glyphs := dict "warmups" "Wa" "metadata" "Me" "script" "Sc" "binary" "Bi" "mobile" "Mo" "web" "We" "orientation" "Or" -}}
+<div class="container">
+
+  {{/* ---- 1. Header: title, eyebrow, intro ---- */}}
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    <p class="ctf-eyebrow mono">{{ with $ev.name }}{{ replace . ": " " · " }}{{ else }}Huntress CTF 2026{{ end }}{{ with $ev.start }}{{ $start := . }}{{ with $ev.end }} · {{ time.Format "2" $start }}–{{ time.Format "2 Jan 2006" . }}{{ end }}{{ end }}</p>
+    {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{/* ---- 2. Stats strip: the certificate figures from event ---- */}}
+  {{ partial "ctf-stats.html" (dict "pages" (len $idx.pages) "days" $dayCount) }}
+
+  {{/* ---- 3. Start here: the series page first, then featured write-ups ---- */}}
+  {{- $series := site.GetPage "/huntress-ctf-2026/how-i-played" -}}
+  {{- $featured := slice -}}
+  {{- with $idx.pages }}{{ $featured = (where . "Params.featured" true).ByDate.Reverse | first 5 }}{{ end -}}
+  {{- if or $series $featured }}
+  <section>
+    <div class="section-head"><h2 id="start-here">Start here</h2></div>
+    {{- /* the reading order, pointing only at pages that exist in this build */ -}}
+    {{- $fullFeatured := slice }}{{ with $featured }}{{ $fullFeatured = where . "Params.depth" "full" }}{{ end }}
+    <p class="text-dim">
+      {{- with $series }}Start with <a href="{{ .RelPermalink }}">{{ .Title }}</a> for the story of who did what{{ if $fullFeatured }}, then the full write-ups{{ end }}; everything else is a field note.
+      {{- else }}{{ if $fullFeatured }}The full write-ups first; everything else is a field note.{{ else }}Field notes so far: what each challenge asked, what the file was, how the solver handled it.{{ end }}
+      {{- end }}</p>
+    <div class="ctf-cards">
+      {{- with $series }}
+      <article class="card">
+        <div class="badges"><span class="badge">The series</span></div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Description }}<p class="card-desc">{{ . }}</p>{{ end }}
+        <div class="card-links"><a href="{{ .RelPermalink }}">Read →</a></div>
+      </article>
+      {{- end }}
+      {{- range $featured }}
+      {{- $e := index $idx.entryByKey (printf "%v" (.Params.catalog_key | default "") | lower) | default dict }}
+      <article class="card">
+        <div class="badges">
+          {{- if eq (.Params.depth | default "note") "full" }}<span class="badge depth-full">Full write-up</span>{{ else }}<span class="badge depth-note">Field note</span>{{ end }}
+          {{- with $e.lane_label }}<span class="badge">{{ . }}</span>{{ end }}
+          {{- with $e.day }}<span class="badge mono">Day {{ int . }}</span>{{ end }}
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ with $e.emoji }}<span aria-hidden="true">{{ . }}</span> {{ end }}{{ .Title }}</a></h3>
+        {{ with .Description }}<p class="card-desc">{{ . }}</p>{{ end }}
+        <div class="card-links"><a href="{{ .RelPermalink }}">Read →</a></div>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ---- 4. How to read this (mode definitions from the organisers' rules; the points from the data) ---- */}}
+  {{- $sc := $ev.scoring | default dict }}
+  <section>
+    <div class="section-head"><h2 id="how-to-read">How to read this</h2></div>
+    <dl class="ctf-howto">
+      <dt>Single Solve</dt>
+      <dd>One static artifact or task, no time limit.{{ with $sc.single_solve }} {{ int . }} points.{{ end }}</dd>
+      <dt>Time Trial</dt>
+      <dd>An assigned variant with a server-enforced countdown.{{ with $sc.time_trial }} {{ int . }} points.{{ end }}</dd>
+      <dt>Mastery</dt>
+      <dd>A bundle of assigned variants under one timer: the same skill, repeatedly.{{ with $sc.mastery }} {{ int . }} points.{{ end }}</dd>
+      {{- with $sc.note }}
+      <dt>Ranking</dt>
+      <dd>{{ . }}</dd>
+      {{- end }}
+      <dt><span class="badge depth-full">Full write-up</span></dt>
+      <dd>A curated write-up: the challenge, the solve, how it was made deterministic, the dead ends and the takeaways.</dd>
+      <dt><span class="badge depth-note">Field note</span></dt>
+      <dd>A short note: what the challenge asked, what the file was, how the solver handled it.</dd>
+      <dt>Chips</dt>
+      <dd><span class="ctf-chips" aria-hidden="true"><span class="ctf-chip is-release">S</span><span class="ctf-chip is-later">TT</span><span class="ctf-chip is-open">M</span><span class="ctf-chip is-none">M</span></span> S / TT / M = Single Solve / Time Trial / Mastery. Green, solid: solved on the release morning (09:00–11:59 ET). Amber, ringed: solved later, or the time was not recorded. Red outline: unsolved. Grey, dashed: the challenge has no such mode.</dd>
+      {{- /* the month grid's row labels: one entry per scoring lane, then the orientation line with its days from the catalog */ -}}
+      {{- $parts := slice }}
+      {{- range $idx.lanes }}
+        {{- $l := printf "%v" . }}
+        {{- $lbl := printf "%v" (index $idx.labels $l | default (title $l)) }}
+        {{- if eq $l "web" }}{{ $parts = $parts | append (printf "#n = %s, challenge n" $lbl) }}
+        {{- else }}{{ $parts = $parts | append (printf "%s = %s" (index $glyphs $l | default (upper (substr $l 0 1))) $lbl) }}{{ end }}
+      {{- end }}
+      {{- with index $idx.byLane "orientation" }}
+        {{- $days := slice }}{{ $seen := dict }}
+        {{- range . }}{{ with .day }}{{ $d := printf "%d" (int .) }}{{ if not (isset $seen $d) }}{{ $seen = merge $seen (dict $d true) }}{{ $days = $days | append $d }}{{ end }}{{ end }}{{ end }}
+        {{- $when := "" }}{{ if eq (len $days) 1 }}{{ $when = printf " (Day %s only)" (index $days 0) }}{{ else if $days }}{{ $when = printf " (Days %s)" (delimit $days ", ") }}{{ end }}
+        {{- $parts = $parts | append (printf "%s = %s%s" (index $glyphs "orientation" | default "Or") (printf "%v" (index $idx.labels "orientation" | default "Orientation")) $when) }}
+      {{- end }}
+      {{- with $parts }}
+      <dt>Lane glyphs</dt>
+      <dd>{{ delimit . " · " }}.</dd>
+      {{- end }}
+    </dl>
+  </section>
+
+  {{/* ---- 5. Lanes ---- */}}
+  {{- with $idx.lanes }}
+  <section>
+    <div class="section-head"><h2 id="lanes">Lanes</h2>{{ with site.GetPage "/huntress-ctf-2026/lanes" }}<a class="more" href="{{ .RelPermalink }}">all lanes →</a>{{ end }}</div>
+    <div class="ctf-lanes">
+      {{- range . }}
+      {{ partial "ctf-lane-card.html" (dict "lane" . "idx" $idx "hubURL" $hubURL) }}
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ---- 6. The month: one cell per day, one row per lane present that day ----
+         Each cell is one link, named by its aria-label; the rows inside are
+         aria-hidden (the day-by-day list below carries every chip's full text),
+         so a screen reader hears "Day 19, Mon, Oct 19" once rather than every
+         chip's status. Lane glyphs are two letters; the web lane shows its own
+         number. ---- */}}
+  {{- if gt $dayCount 0 }}
+  <section id="the-month">
+    <div class="section-head"><h2>The month</h2><span class="more">click a day to jump to it</span></div>
+    <div class="ctf-month">
+      {{- range $n := seq $dayCount }}
+      {{- $entries := index $idx.byDay (printf "%d" $n) | default slice }}
+      {{- $date := "" }}{{ with $entries }}{{ with (index . 0).date }}{{ $date = time.Format "Mon, Jan 2" . }}{{ end }}{{ end }}
+      <a class="ctf-day" href="#day-{{ $n }}" aria-label="Day {{ $n }}{{ with $date }}, {{ . }}{{ end }}: jump to its challenges">
+        <div class="ctf-day-head" aria-hidden="true"><strong>{{ $n }}</strong>{{ with $date }} <span>{{ . }}</span>{{ end }}</div>
+        <div class="ctf-day-rows" aria-hidden="true">
+          {{- range $entries }}
+          {{- $lane := printf "%v" (.lane | default "") }}
+          {{- $label := index $idx.labels $lane | default (.lane_label | default (title $lane)) }}
+          {{- $glyph := "" }}{{ with $lane }}{{ $glyph = index $glyphs . | default (upper (substr . 0 1)) }}{{ end }}
+          {{- with .web_no }}{{ $glyph = printf "#%d" (int .) }}{{ end }}
+          <div class="ctf-row{{ if eq $lane "orientation" }} is-orientation{{ end }}"><span class="ctf-lane-glyph mono" title="{{ $label }}">{{ $glyph }}</span>{{ partial "ctf-mode-chips.html" (dict "entry" . "terse" true) }}</div>
+          {{- end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ---- 7 + 8. Day by day, behind the filter bar ---- */}}
+  <section id="day-by-day">
+    <div class="section-head"><h2>Day by day</h2></div>
+    <div class="filter-bar ctf-filter" id="filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="badge active" data-facet="all">All</button>
+      {{- range $idx.lanes }}
+      {{- $lane := printf "%v" . }}
+      <button class="badge" data-facet="lane" data-value="{{ $lane }}">{{ index $idx.labels $lane | default (title $lane) }}</button>
+      {{- end }}
+      <button class="badge" data-facet="has-page" data-value="yes">Has write-up</button>
+    </div>
+    {{- if gt $dayCount 0 }}
+    {{- range $n := seq $dayCount }}
+    {{- $entries := index $idx.byDay (printf "%d" $n) | default slice }}
+    <section class="ctf-daylist" id="day-{{ $n }}">
+      <h2>Day {{ $n }}{{ with $entries }}{{ with (index . 0).date }} · {{ time.Format "Mon, Jan 2" . }}{{ end }}{{ end }}</h2>
+      <ul>
+        {{- range $entries }}
+        {{- $e := . }}
+        {{- $key := printf "%v" (.key | default "") | lower }}
+        {{- $lane := printf "%v" (.lane | default "") }}
+        {{- $p := index $idx.pageByKey $key }}
+        {{- $lp := index $idx.laneByKey $lane }}
+        {{- $label := index $idx.labels $lane | default (.lane_label | default (title $lane)) }}
+        {{- $badge := $label }}{{ with .web_no }}{{ $badge = printf "Web #%d" (int .) }}{{ end }}
+        <li class="ctf-item" data-lane="{{ $lane }}" data-has-page="{{ if $p }}yes{{ else }}no{{ end }}">
+          <div class="badges">
+            {{- with $lp }}<a class="badge" href="{{ .RelPermalink }}" title="{{ $label }}">{{ $badge }}</a>{{ else }}<span class="badge" title="{{ $label }}">{{ $badge }}</span>{{ end }}
+            {{- with $p }}<a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>{{ else }}<strong>{{ $e.title | default $key }}</strong>{{ end }}
+            {{- partial "ctf-mode-chips.html" $e }}
+            {{- with $p }}{{ if eq (.Params.depth | default "note") "full" }}<a class="badge depth-full" href="{{ .RelPermalink }}">Full write-up</a>{{ else }}<a class="badge depth-note" href="{{ .RelPermalink }}">Field note</a>{{ end }}{{ end }}
+          </div>
+          {{- with $p }}
+          {{- with .Description }}<p>{{ . }}</p>{{ end }}
+          {{- else }}
+          {{- with $e.prompt }}
+          {{- $ex := replaceRE `(?s)^(.*?[.!?])\s.*$` "$1" (printf "%v" .) }}
+          <p class="text-dim ctf-excerpt">Prompt: <q>{{ truncate 120 (replace $ex "`" "") | plainify }}</q></p>
+          {{- end }}
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+    {{- end }}
+    <p class="search-empty" id="no-matches" hidden>No challenges match that filter.</p>
+  </section>
+
+</div>
+{{- end }}
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function () {
+  var bar = document.getElementById("filter-bar");
+  if (!bar) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll("#day-by-day .ctf-item"));
+  var days = Array.prototype.slice.call(document.querySelectorAll("#day-by-day .ctf-daylist"));
+  var empty = document.getElementById("no-matches");
+  var active = {};   // facet -> Set of values
+
+  function apply() {
+    var facets = Object.keys(active).filter(function (f) { return active[f].size; });
+    var shown = 0;
+    items.forEach(function (li) {
+      var ok = facets.every(function (f) {
+        var vals = (li.getAttribute("data-" + f) || "").split(/\s+/).filter(Boolean);
+        return vals.some(function (v) { return active[f].has(v); });
+      });
+      li.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    // A day whose every row is filtered out loses its heading too.
+    days.forEach(function (day) {
+      var rows = Array.prototype.slice.call(day.querySelectorAll(".ctf-item"));
+      var any = rows.some(function (li) { return li.style.display !== "none"; });
+      day.style.display = any ? "" : "none";
+    });
+    if (empty) empty.hidden = shown !== 0;
+    bar.querySelector('[data-facet="all"]').classList.toggle("active", !facets.length);
+  }
+
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    var facet = btn.getAttribute("data-facet");
+    if (facet === "all") {
+      active = {};
+      bar.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+    } else {
+      var val = btn.getAttribute("data-value");
+      active[facet] = active[facet] || new Set();
+      if (active[facet].has(val)) { active[facet].delete(val); btn.classList.remove("active"); }
+      else { active[facet].add(val); btn.classList.add("active"); }
+    }
+    apply();
+  });
+})();
+</script>
+{{ end }}

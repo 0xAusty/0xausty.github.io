@@ -1,0 +1,73 @@
+{{ define "main" }}
+{{- /*
+  A lane page (layout = "lane", lane = "<key>"): the intro prose, a stats line
+  computed from the catalog, then every challenge of the lane in day order.
+  A challenge with a published page links to it; the rest show the title in
+  muted text with a one-line excerpt of the official prompt, labelled as such.
+  A count of zero write-ups is left out of the stats line.
+*/ -}}
+{{- $idx := partialCached "ctf-index.html" . "ctf-index" -}}
+{{- $lane := printf "%v" (.Params.lane | default "") | lower -}}
+{{- $entries := index $idx.byLane $lane | default slice -}}
+{{- $st := index $idx.laneStats $lane | default dict -}}
+{{- $hub := site.GetPage "/huntress-ctf-2026" -}}
+{{- $lanesIndex := site.GetPage "/huntress-ctf-2026/lanes" -}}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      <nav class="ctf-breadcrumb mono" aria-label="Breadcrumb">
+        {{- with $hub }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}<span>Huntress CTF 2026</span>{{ end }}
+        {{- with $lanesIndex }} › <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }} › <span>{{ .Title }}</span>
+      </nav>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ with (partial "aslice.html" .Params.tags) }}<div class="badges">{{ range . }}<a class="badge tag" href="{{ (printf "/tags/%s" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}</div>{{ end }}
+        <div class="post-meta">
+          {{- with $st.challenges }}<span>{{ . }} challenge{{ if ne (int .) 1 }}s{{ end }}</span>{{ end }}
+          {{- with $st.modes }}<span class="dot">·</span><span>{{ . }} modes</span><span class="dot">·</span><span>{{ $st.release | default 0 }} cleared on the release morning</span>{{ end }}
+          {{- $n := int ($st.pages | default 0) }}
+          {{- if gt $n 0 }}<span class="dot">·</span><span>{{ $n }} write-up{{ if ne $n 1 }}s{{ end }}</span>{{ end }}
+        </div>
+      </header>
+
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+
+      {{- with $entries }}
+      <section class="ctf-daylist" id="challenges">
+        <h2>Challenges</h2>
+        <ul>
+          {{- range . }}
+          {{- $e := . }}
+          {{- $key := printf "%v" (.key | default "") | lower }}
+          {{- $p := index $idx.pageByKey $key }}
+          <li class="ctf-item" data-lane="{{ $lane }}" data-has-page="{{ if $p }}yes{{ else }}no{{ end }}">
+            <div class="badges">
+              {{- with .day }}<span class="badge mono">Day {{ int . }}{{ with $e.web_no }} · Web #{{ int . }}{{ end }}</span>{{ end }}
+              {{- with $p }}<a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>{{ else }}<strong class="text-dim">{{ $e.title | default $key }}</strong>{{ end }}
+              {{- partial "ctf-mode-chips.html" $e }}
+              {{- with $p }}{{ if eq (.Params.depth | default "note") "full" }}<a class="badge depth-full" href="{{ .RelPermalink }}">Write-up</a>{{ else }}<a class="badge depth-note" href="{{ .RelPermalink }}">Note</a>{{ end }}{{ end }}
+            </div>
+            {{- with $p }}
+            {{- with .Description }}<p>{{ . }}</p>{{ end }}
+            {{- else }}
+            {{- with $e.prompt }}
+            {{- $ex := replaceRE `(?s)^(.*?[.!?])\s.*$` "$1" (printf "%v" .) }}
+            <p class="text-dim ctf-excerpt">Prompt: <q>{{ truncate 120 (replace $ex "`" "") | plainify }}</q></p>
+            {{- end }}
+            {{- end }}
+          </li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+
+      {{ partial "post-footer.html" . }}
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

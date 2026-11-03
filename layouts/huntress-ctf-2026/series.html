@@ -1,0 +1,39 @@
+{{ define "main" }}
+{{- /*
+  A prose page in the series (layout = "series"), e.g. how-i-played.md:
+  breadcrumb back to the hub, the "Part of the series" line, the article with
+  its table of contents. No glance card: there is no catalog entry behind it.
+  The tools line is inlined from post-footer.html: that partial's section pager
+  walks the section by date and would offer challenge pages as prev/next.
+*/ -}}
+{{- $hub := site.GetPage "/huntress-ctf-2026" -}}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      <nav class="ctf-breadcrumb mono" aria-label="Breadcrumb">
+        {{- with $hub }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}<span>Huntress CTF 2026</span>{{ end }} › <span>{{ .Title }}</span>
+      </nav>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ with (partial "aslice.html" .Params.tags) }}<div class="badges">{{ range . }}<a class="badge tag" href="{{ (printf "/tags/%s" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}</div>{{ end }}
+        {{ partial "post-meta.html" . }}
+        <p class="ctf-eyebrow mono">Part of the {{ with $hub }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}Huntress CTF 2026{{ end }} series</p>
+      </header>
+
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+
+      {{ with .Params.tools }}
+      <hr>
+      <p class="text-dim"><strong>Tools used:</strong>
+        {{ range . }}<a class="badge" href="{{ (printf "/tools/%s" (. | urlize)) | relURL }}">{{ . }}</a> {{ end }}
+      </p>
+      {{ end }}
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

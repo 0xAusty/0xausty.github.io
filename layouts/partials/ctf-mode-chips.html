@@ -1,0 +1,44 @@
+{{- /*
+  ctf-mode-chips.html — the S / TT / M chip triplet for one catalog entry.
+  Context: EITHER one challenge map from hugo.Data.huntress_ctf_2026.challenges
+           OR a dict:  entry  that challenge map
+                       terse  true → no visually-hidden text (the month grid
+                              is aria-hidden and names its cells itself)
+
+  Status per mode (SPEC §2): release = confirmed on the release morning,
+  later = CORRECT but not confirmed on the release morning (or the time was
+  not recorded), open = not solved, none = the challenge does not have that
+  mode. Colour is never the only signal: every chip carries the same words in
+  a title attribute and, unless terse, as visually-hidden text (the letter is
+  aria-hidden). A confirmed_at whose confirmed_source is "harness-state" is
+  when a state file was written, not a solve time, so it reads "time not
+  recorded".
+*/ -}}
+{{- $e := . -}}
+{{- $terse := false -}}
+{{- if and . (reflect.IsMap .) (isset . "entry") -}}
+  {{- $e = .entry | default dict -}}
+  {{- $terse = .terse | default false -}}
+{{- end -}}
+{{- $modes := dict -}}
+{{- with $e }}{{ with .modes }}{{ $modes = . }}{{ end }}{{ end -}}
+<span class="ctf-chips">
+{{- range $m := slice (dict "key" "single_solve" "label" "Single Solve" "chip" "S") (dict "key" "time_trial" "label" "Time Trial" "chip" "TT") (dict "key" "mastery" "label" "Mastery" "chip" "M") -}}
+  {{- $status := "none" -}}
+  {{- $desc := printf "%s · not part of this challenge" $m.label -}}
+  {{- with index $modes $m.key -}}
+    {{- if .release_morning -}}
+      {{- $status = "release" -}}
+      {{- $desc = printf "%s · CORRECT at %v on release morning" $m.label .release_morning -}}
+    {{- else if eq (printf "%v" (.result | default "")) "CORRECT" -}}
+      {{- $status = "later" -}}
+      {{- $desc = printf "%s · CORRECT, time not recorded" $m.label -}}
+      {{- if and .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $desc = printf "%s · CORRECT, confirmed %v ET" $m.label .confirmed_at }}{{ end -}}
+    {{- else -}}
+      {{- $status = "open" -}}
+      {{- $desc = printf "%s · %v" $m.label (.result | default "unsolved") -}}
+    {{- end -}}
+  {{- end -}}
+  <span class="ctf-chip is-{{ $status }}" title="{{ $desc }}"><span aria-hidden="true">{{ $m.chip }}</span>{{ if not $terse }}<span class="visually-hidden">{{ $desc }}</span>{{ end }}</span>
+{{- end -}}
+</span>

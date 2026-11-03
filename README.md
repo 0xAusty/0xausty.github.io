@@ -151,6 +151,70 @@ actually use, so you never have to register a technique or log source anywhere.
 
 ---
 
+## 4c. Add a Huntress CTF 2026 page
+
+The `/huntress-ctf-2026/` section is driven by a data file, `data/huntress_ctf_2026.json`:
+one catalog entry per challenge (key, day, lane, title, prompt, modes, artifacts, results)
+plus the event totals. The hub, the lane pages and the "at a glance" card at the top of
+every challenge page are rendered from that catalog, so a content page only adds prose and
+never restates a number. A challenge page is tied to its entry by `catalog_key`, which must
+match exactly. A `catalog_key` that matches no entry fails the build on purpose:
+`hugo --panicOnWarning` stops with the file name and the key.
+
+Generate the stub with `hugo new huntress-ctf-2026/<key>.md` (the archetype reads the
+catalog) or, without Hugo, with the helper script; both fill the key, title, release date
+and the lane's default tags and skills from the catalog:
+
+```bash
+python scripts/ctf_new.py --list                          # catalog keys that have no page yet
+python scripts/ctf_new.py day06-pool-party                # field note stub   (depth = "note")
+python scripts/ctf_new.py day06-pool-party --depth full   # full write-up stub (depth = "full")
+```
+
+The script keeps the static part of `archetypes/huntress-ctf-2026.md` (its `{{ if }}` /
+`{{ with }}` blocks are Hugo's job and count as false), fills `title`, `date`, `catalog_key`,
+`depth`, `tags` and `skills` itself, adds a comment with the entry's day, lane, Game Master id
+and `web_no` (the web lane's own numbering), writes `content/huntress-ctf-2026/<key>.md` as a
+draft, and refuses to overwrite an existing page. Standard library only; works from any shell.
+
+```toml
++++
+title = "Pool Party"
+date = 2026-10-06                 # the challenge's release date (from the catalog)
+draft = true
+params.kind = "challenge"         # see note below; series pages use layout = "series" instead
+catalog_key = "day06-pool-party"  # MUST match a key in data/huntress_ctf_2026.json
+depth = "full"                    # "full" (curated write-up) | "note" (short field note)
+featured = false                  # true → listed under "Start here" on the hub (newest first, max 5)
+description = "One line: the key insight or the skill this shows."
+solved_by = ["agent", "hand"]     # autopilot | agent | hand | homebase, most important first
+# Each value renders as one line under the glance card:
+#   autopilot → "Solved by the pipeline, no human in the loop"
+#   agent     → "Fixed in session by an AI coding agent (Claude Code)"
+#   hand      → "Solved by hand (Austin)"
+#   homebase  → "The event's Homebase AI (GPT-6 Luna) supplied the key"
+tools = ["python"]
+tags = ["reverse-engineering", "java"]
+skills = ["Reverse Engineering"]  # groups it on /portfolio/
+toc = true
++++
+```
+
+For a challenge the catalog marks unsolved, both generators write `solved_by = []` so no
+page claims a solve it did not get.
+
+`kind` is written as `params.kind` because Hugo reserves the bare key and has refused it
+since v0.144; through the `params` map it still reaches the templates as `.Params.kind`.
+
+Set `draft = false` to publish. The catalog decides *what* the hub shows for every
+challenge; a page only changes *how*: a published page turns the title into a link, swaps
+the prompt excerpt for your `description`, adds a "Full write-up" or "Field note" badge,
+and counts towards the "N write-ups" figure on the hub. Lane intros live in
+`content/huntress-ctf-2026/lanes/<lane>.md` (`layout = "lane"`), and prose chapters such as
+*How I played* are series pages (`layout = "series"`) in the same folder.
+
+---
+
 ## 5. Add a new project
 
 ```bash

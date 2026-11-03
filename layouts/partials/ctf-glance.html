@@ -1,0 +1,161 @@
+{{- /*
+  ctf-glance.html — the generated "at a glance" card on a challenge page, plus
+  the attribution list and the flags note under it.
+  Context: dict  page   the challenge page
+                 entry  its catalog entry (a map from hugo.Data)
+                 lane   the lane page, or nil
+
+  One column at every width: the definition list, then a four-column modes
+  table (Mode · Result · When · Questions), then the artifacts as a list, the
+  first four in mode order and the rest folded into a <details>. Every catalog
+  field is optional: a missing field drops its row, the table is emitted only
+  when a mode exists, the artifacts block only when an artifact does, and the
+  card itself only when it has at least one of those to show.
+
+  "When": release_morning → "<time> on release morning"; CORRECT with a
+  confirmed_at whose confirmed_source is not "harness-state" → "confirmed <ts>
+  ET"; any other CORRECT mode → "not recorded" (a harness-state timestamp is
+  when a state file was written, not a solve time); otherwise "—".
+
+  The prompt is third-party text: raw HTML is escaped and markdown link/image
+  syntax (inline and reference-style definitions) is broken up before
+  markdownify; then every <a> and <img> goldmark still produces (escaped or
+  nested brackets, linkify's bare URLs and e-mail addresses) is stripped from
+  the rendered HTML. That filter is exact: every "<" in goldmark's output is
+  goldmark's own, because the source's were escaped first. A leading "#" and
+  a setext underline are escaped too, so a prompt line cannot become a heading
+  inside the card.
+*/ -}}
+{{- $p := .page -}}
+{{- $e := .entry | default dict -}}
+{{- $lanePage := .lane -}}
+{{- $modes := $e.modes | default dict -}}
+{{- $modeDefs := slice (dict "key" "single_solve" "label" "Single Solve" "chip" "S") (dict "key" "time_trial" "label" "Time Trial" "chip" "TT") (dict "key" "mastery" "label" "Mastery" "chip" "M") -}}
+{{- /* ---- the modes present, and every artifact across them in mode order ---- */ -}}
+{{- $present := 0 -}}
+{{- $arts := slice -}}
+{{- range $m := $modeDefs -}}
+  {{- with index $modes $m.key -}}
+    {{- $present = add $present 1 -}}
+    {{- range (.artifacts | default slice) -}}
+      {{- with . }}{{ $arts = $arts | append (dict "mode" $m.label "a" .) }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $nArts := len $arts -}}
+{{- /* ---- the field rows, counted before anything is emitted: no empty card, no empty list ---- */ -}}
+{{- $released := slice -}}
+{{- with $e.date }}{{ $released = $released | append (time.Format "Jan 2, 2006" .) }}{{ end -}}
+{{- with $e.day }}{{ $released = $released | append (printf "Day %d" (int .)) }}{{ end -}}
+{{- with $e.web_no }}{{ $released = $released | append (printf "Web #%d" (int .)) }}{{ end -}}
+{{- $hasFields := or (gt (len $released) 0) $e.lane_label $e.gm_id $e.prompt $e.points_available -}}
+{{- if or $hasFields (gt $present 0) (gt $nArts 0) }}
+<aside class="ctf-glance" aria-label="At a glance">
+  {{- if $hasFields }}
+  <dl class="ctf-glance-fields">
+    {{- with $released }}
+    <dt>Released</dt>
+    <dd>{{ delimit . " · " }}</dd>
+    {{- end }}
+    {{- with $e.lane_label }}
+    <dt>Lane</dt>
+    <dd>{{ with $lanePage }}<a href="{{ .RelPermalink }}">{{ $e.lane_label }}</a>{{ else }}{{ . }}{{ end }}</dd>
+    {{- end }}
+    {{- with $e.gm_id }}
+    <dt>Game Master id</dt>
+    <dd><code class="ctf-sha">{{ . }}</code></dd>
+    {{- end }}
+    {{- with $e.prompt }}
+    {{- $t := replace (printf "%v" .) "<" "&lt;" }}
+    {{- $t = replaceRE `!?\[([^\]]*)\]\(` "[$1] (" $t }}
+    {{- $t = replaceRE `\]:` "] :" $t }}
+    {{- $t = replaceRE `(?m)^([ \t]*)#` "$1\\#" $t }}
+    {{- $t = replaceRE `(?m)^([ \t]*)(=+|-+)[ \t]*$` "$1\\$2" $t }}
+    {{- $html := printf "%s" ($t | markdownify) }}
+    {{- $html = replaceRE `(?i)</?a\b[^>]*>|<img\b[^>]*>` "" $html }}
+    <dt>Prompt</dt>
+    <dd><blockquote>{{ $html | safeHTML }}</blockquote></dd>
+    {{- end }}
+    {{- with $e.points_available }}
+    <dt>Points</dt>
+    <dd>{{ int ($e.points_earned | default 0) }} / {{ int . }} <span class="text-dim">earned / available</span></dd>
+    {{- end }}
+  </dl>
+  {{- end }}
+  {{- if gt $present 0 }}
+  <table class="ctf-glance-table">
+    <caption class="ctf-glance-label">Modes</caption>
+    <thead>
+      <tr><th scope="col">Mode</th><th scope="col">Result</th><th scope="col">When</th><th scope="col">Questions</th></tr>
+    </thead>
+    <tbody>
+    {{- range $m := $modeDefs }}
+      {{- with index $modes $m.key }}
+      {{- $result := printf "%v" (.result | default "") }}
+      {{- $correct := eq $result "CORRECT" }}
+      {{- $status := "open" }}
+      {{- if .release_morning }}{{ $status = "release" }}{{ else if $correct }}{{ $status = "later" }}{{ end }}
+      {{- $when := "—" }}
+      {{- if .release_morning }}{{ $when = printf "%v on release morning" .release_morning }}
+      {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "confirmed %v ET" .confirmed_at }}
+      {{- else if $correct }}{{ $when = "not recorded" }}{{ end }}
+      <tr>
+        <th scope="row">{{ $m.label }}{{ with .points }} <small class="text-dim">{{ int . }} pts</small>{{ end }}</th>
+        <td data-label="Result"><span class="ctf-chip is-{{ $status }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "—" }}</td>
+        <td data-label="When">{{ $when }}</td>
+        <td data-label="Questions">
+          {{- with .questions }}{{ int . }}{{ else }}—{{ end }}
+          {{- with .format_kinds }}
+            {{- $kinds := slice }}{{ range $k, $v := . }}{{ $kinds = $kinds | append (dict "n" (int $v) "k" (replace (printf "%v" $k) "_" " ")) }}{{ end }}
+            {{- $parts := slice }}{{ range sort $kinds "n" "desc" }}{{ $parts = $parts | append (printf "%d %s" .n .k) }}{{ end }}
+            {{- with $parts }}<br><small class="text-dim">{{ delimit . " · " }}</small>{{ end }}
+          {{- end -}}
+        </td>
+      </tr>
+      {{- end }}
+    {{- end }}
+    </tbody>
+  </table>
+  {{- end }}
+  {{- if gt $nArts 0 }}
+  <div class="ctf-artifacts">
+    <p class="ctf-glance-label">Artifacts</p>
+    <ul>
+      {{- range $i, $x := $arts }}
+      {{- $a := $x.a }}
+      {{- $size := int ($a.size | default 0) }}
+      {{- if eq $i 4 }}
+    </ul>
+    <details class="ctf-artifacts-more">
+      <summary>{{ sub $nArts 4 }} more artifact{{ if ne (sub $nArts 4) 1 }}s{{ end }}</summary>
+      <ul>
+      {{- end }}
+      <li><span class="ctf-artifact-mode">{{ $x.mode }}</span> <span{{ if $size }} title="{{ lang.FormatNumberCustom 0 $size }} bytes"{{ end }}>{{ $a.filename | default "artifact" }}{{ if $size }} · {{ if ge $size 1000000 }}{{ printf "%.1f MB" (div (float $size) 1000000) }}{{ else if ge $size 1000 }}{{ printf "%.0f KB" (div (float $size) 1000) }}{{ else }}{{ $size }} B{{ end }}{{ end }}</span>{{ with $a.sha256 }}<code class="ctf-sha">{{ . }}</code>{{ end }}</li>
+      {{- end }}
+      </ul>
+    {{- if gt $nArts 4 }}
+    </details>
+    {{- end }}
+  </div>
+  {{- end }}
+</aside>
+{{- end }}
+
+{{- /* ---- who solved it (SPEC §3a labels, rendered exactly; the chips and the When column say when) ---- */ -}}
+{{- $labels := dict
+  "autopilot" "Solved by the pipeline, no human in the loop"
+  "agent"     "Fixed in session by an AI coding agent (Claude Code)"
+  "hand"      "Solved by hand (Austin)"
+  "homebase"  "The event's Homebase AI (GPT-6 Luna) supplied the key" -}}
+{{- $who := slice -}}
+{{- range (partial "aslice.html" $p.Params.solved_by) -}}
+  {{- with index $labels (printf "%v" . | lower) }}{{ $who = $who | append . }}{{ end -}}
+{{- end -}}
+{{- with $who }}
+<ul class="ctf-attrib">
+  {{- range . }}
+  <li>{{ . }}</li>
+  {{- end }}
+</ul>
+{{- end }}
+<p class="ctf-flagnote">Flags are omitted: they were unique per team (an MD5 value) and have no spoiler value.</p>

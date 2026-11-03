@@ -1,0 +1,109 @@
+{{ define "main" }}
+{{- /*
+  A challenge page: one that carries a catalog_key. The page supplies the prose and a
+  catalog_key; every fact on the page comes from data/huntress_ctf_2026.json
+  through the ctf-index partial. A catalog_key that matches no entry fails the
+  build: an orphan would otherwise publish as an empty write-up and be counted.
+  No HTB disclaimer here: the event is over and the targets were the organisers' own.
+*/ -}}
+{{- $idx := partialCached "ctf-index.html" . "ctf-index" -}}
+{{- $key := printf "%v" (.Params.catalog_key | default "") | lower -}}
+{{- $e := index $idx.entryByKey $key | default dict -}}
+{{- if and .Params.catalog_key (not $e.key) }}{{ errorf "%s: catalog_key %q matches no entry in data/huntress_ctf_2026.json" .File.Path .Params.catalog_key }}{{ end -}}
+{{- $lane := printf "%v" ($e.lane | default "") -}}
+{{- $lanePage := index $idx.laneByKey $lane -}}
+{{- $hub := site.GetPage "/huntress-ctf-2026" -}}
+{{- $hubURL := "" }}{{ $hubTitle := "Huntress CTF 2026" }}{{ with $hub }}{{ $hubURL = .RelPermalink }}{{ $hubTitle = .Title }}{{ end -}}
+{{- $day := 0 }}{{ with $e.day }}{{ $day = int . }}{{ end -}}
+{{- $depth := .Params.depth | default "note" -}}
+<div class="container">
+  <div class="article-layout">
+    <article>
+      {{/* ---- 1. Breadcrumb: hub › Day N › lane ---- */}}
+      <nav class="ctf-breadcrumb mono" aria-label="Breadcrumb">
+        {{- if $hubURL }}<a href="{{ $hubURL }}">{{ $hubTitle }}</a>{{ else }}<span>{{ $hubTitle }}</span>{{ end }}
+        {{- if $day }} › <a href="{{ $hubURL }}#day-{{ $day }}">Day {{ $day }}</a>{{ end }}
+        {{- with $e.lane_label }} › {{ with $lanePage }}<a href="{{ .RelPermalink }}">{{ $e.lane_label }}</a>{{ else }}<span>{{ . }}</span>{{ end }}{{ end }}
+      </nav>
+
+      {{/* ---- 2. Header ---- */}}
+      <header class="article-header">
+        <h1>{{ with $e.emoji }}<span aria-hidden="true">{{ . }}</span> {{ end }}{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        <div class="badges">
+          {{- if eq $depth "full" }}<span class="badge depth-full">Full write-up</span>{{ else }}<span class="badge depth-note">Field note</span>{{ end }}
+          {{- with $e.lane_label }}{{ with $lanePage }}<a class="badge" href="{{ .RelPermalink }}">{{ $e.lane_label }}</a>{{ else }}<span class="badge">{{ . }}</span>{{ end }}{{ end }}
+          {{- with $e.web_no }}<span class="badge mono">Web #{{ int . }}</span>{{ end }}
+          {{- range (partial "aslice.html" .Params.tags) }}<a class="badge tag" href="{{ (printf "/tags/%s" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}
+        </div>
+        {{ partial "post-meta.html" . }}
+      </header>
+
+      {{/* ---- 3. At a glance (only when the catalog knows the key) ---- */}}
+      {{- if $e.key }}
+      {{ partial "ctf-glance.html" (dict "page" . "entry" $e "lane" $lanePage) }}
+      {{- end }}
+
+      {{/* ---- 4. The write-up ---- */}}
+      <div class="article-body">
+        {{ .Content }}
+      </div>
+
+      {{/* ---- 5. Same-day and same-lane neighbours (published pages only): only the
+             links that exist, no placeholders. The lane link goes to the lane page,
+             or to the hub's #lanes anchor while that page is unpublished. ---- */}}
+      {{- if $e.key }}
+      {{- $dayPrev := "" }}{{ $dayNext := "" }}{{ $lanePrev := "" }}{{ $laneNext := "" }}
+      {{- $seen := false }}
+      {{- range (index $idx.byDay (printf "%d" $day) | default slice) }}
+        {{- $k := printf "%v" (.key | default "") | lower }}
+        {{- if eq $k $key }}{{ $seen = true }}
+        {{- else }}{{ with index $idx.pageByKey $k }}{{ if $seen }}{{ if not $dayNext }}{{ $dayNext = . }}{{ end }}{{ else }}{{ $dayPrev = . }}{{ end }}{{ end }}{{ end }}
+      {{- end }}
+      {{- $seen = false }}
+      {{- range (index $idx.byLane $lane | default slice) }}
+        {{- $k := printf "%v" (.key | default "") | lower }}
+        {{- if eq $k $key }}{{ $seen = true }}
+        {{- else }}{{ with index $idx.pageByKey $k }}{{ if $seen }}{{ if not $laneNext }}{{ $laneNext = . }}{{ end }}{{ else }}{{ $lanePrev = . }}{{ end }}{{ end }}{{ end }}
+      {{- end }}
+      {{- $laneHref := "" }}{{ $laneText := "" }}
+      {{- with $lanePage }}{{ $laneHref = .RelPermalink }}{{ $laneText = .Title }}{{ else }}{{ with $e.lane_label }}{{ if $hubURL }}{{ $laneHref = printf "%s#lanes" $hubURL }}{{ $laneText = . }}{{ end }}{{ end }}{{ end }}
+      {{- $dayRow := or $dayPrev $dayNext (and $hubURL $day) }}
+      {{- $laneRow := or $lanePrev $laneNext $laneHref }}
+      {{- if or $dayRow $laneRow }}
+      <nav class="ctf-pager" aria-label="More in the series">
+        {{- if $dayRow }}
+        <div class="post-meta">
+          <span class="label">Same day</span>
+          {{- with $dayPrev }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+          {{- if and $hubURL $day }}<a href="{{ $hubURL }}#day-{{ $day }}">All of Day {{ $day }}</a>{{ end }}
+          {{- with $dayNext }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+        </div>
+        {{- end }}
+        {{- if $laneRow }}
+        <div class="post-meta">
+          <span class="label">Same lane</span>
+          {{- with $lanePrev }}<a href="{{ .RelPermalink }}">← {{ with index $idx.entryByKey (printf "%v" (.Params.catalog_key | default "") | lower) }}{{ with .day }}Day {{ int . }} · {{ end }}{{ end }}{{ .Title }}</a>{{ end }}
+          {{- if $laneHref }}<a href="{{ $laneHref }}">All of {{ $laneText }}</a>{{ end }}
+          {{- with $laneNext }}<a href="{{ .RelPermalink }}">{{ with index $idx.entryByKey (printf "%v" (.Params.catalog_key | default "") | lower) }}{{ with .day }}Day {{ int . }} · {{ end }}{{ end }}{{ .Title }} →</a>{{ end }}
+        </div>
+        {{- end }}
+      </nav>
+      {{- end }}
+      {{- end }}
+
+      {{/* ---- 6. Tools used. Inlined from post-footer.html: that partial's section
+             pager walks the whole section by date (into the series pages) and would
+             contradict the same-day / same-lane rows above. ---- */}}
+      {{ with .Params.tools }}
+      <hr>
+      <p class="text-dim"><strong>Tools used:</strong>
+        {{ range . }}<a class="badge" href="{{ (printf "/tools/%s" (. | urlize)) | relURL }}">{{ . }}</a> {{ end }}
+      </p>
+      {{ end }}
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+{{ end }}

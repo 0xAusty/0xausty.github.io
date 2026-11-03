@@ -73,6 +73,8 @@
   --text:       #1f2933;
   --text-dim:   #52606d;
   --text-faint: #7b8794;
+  --link:       #0f766e;   // links: the accent (#5eead4) is 1.5:1 on white; this teal is 5.5:1
+  --accent-strong: #0f766e;   // inline code: the pale mix is 1.2:1 on light backgrounds
   --shadow:     0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
 }
 
@@ -186,7 +188,7 @@ main { flex: 1 0 auto; padding: var(--sp-7) 0 var(--sp-8); }
 
 // Mobile nav toggle
 .nav-toggle { display: none; }
-@media (max-width: 640px) {
+@media (max-width: 879px) {   // the seven-link nav needs ~760px; below 880px it overflowed the header
   .nav-toggle { display: inline-grid; }
   .nav {
     position: fixed; inset: 4rem 0 auto 0;
@@ -559,3 +561,213 @@ mark { background: var(--accent-soft); color: var(--text); padding: 0 2px; borde
 // The github (light) Chroma style sets no base text colour, so plain
 // (untokenised) code text would otherwise inherit the dark palette. Fix it:
 [data-theme="light"] .chroma { color: #1f2328; }
+// ---------------------------------------------------------------------------
+//  HUNTRESS CTF SERIES  (/huntress-ctf-2026/: hub, lane pages, challenge pages)
+//  Existing tokens only. Chips and the "Full write-up" badge keep dark text
+//  (#04140f) on a solid token colour in both themes, exactly like .badge.diff.
+//  Small labels use --text-dim (AA on every surface in both themes);
+//  --text-faint is kept for the breadcrumb separators only.
+//  Breakpoints: phone < 768px, tablet 768-1079px, desktop >= 1080px (the 7-day month).
+// ---------------------------------------------------------------------------
+
+// -- Eyebrow line on the hub ("Huntress CTF 2026 · AI Arena · 1–31 Oct 2026")
+.ctf-eyebrow { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: .04em; color: var(--accent); margin: 0 0 var(--sp-2); }
+[data-theme="light"] .ctf-eyebrow { color: var(--text-dim); }   // the accent is too light on white
+
+// -- Stats strip (partial ctf-stats): big mono number over a small label. A stat sizes to its number; the strip wraps, the number never does
+.ctf-stats {
+  display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-6);
+  margin: var(--sp-5) 0 var(--sp-6); padding: var(--sp-4) var(--sp-5);
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.ctf-stat { flex: 1 1 auto; min-width: 7rem; font-family: var(--font-mono); line-height: 1.2; }
+.ctf-stat .num { display: block; font-size: clamp(1.35rem, 2.6vw, 1.8rem); font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.ctf-stat .label { display: block; margin-top: var(--sp-1); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); }
+
+// -- Card grids: "Start here" (.ctf-cards) and the six lanes (.ctf-lanes) reuse .card
+.ctf-cards, .ctf-lanes {
+  display: grid; gap: var(--sp-5); margin: 0 0 var(--sp-6);
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+.ctf-lanes .post-meta { color: var(--text-dim); }   // "31 challenges · 67 / 93 modes cleared at release": text, so AA (the global .post-meta is --text-faint); the .dot separators keep --border
+
+// -- "How to read this": one compact definition list; term | definition from tablet up
+.ctf-howto { margin: 0 0 var(--sp-6); font-size: 0.95rem; }
+.ctf-howto dt { font-family: var(--font-mono); font-weight: 600; margin: var(--sp-2) 0 0; }
+.ctf-howto dd { margin: 0; color: var(--text-dim); }
+@media (min-width: 768px) {
+  .ctf-howto { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--sp-5); row-gap: var(--sp-1); align-items: baseline; }
+  .ctf-howto dt { grid-column: 1; margin: 0; white-space: nowrap; }   // explicit columns keep a dt with several dd entries aligned
+  .ctf-howto dd { grid-column: 2; }
+}
+
+// -- The month: 31 cells, 2 / 4 / 7 columns (CSS grid, no table)
+.ctf-month { display: grid; gap: var(--sp-2); grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0 0 var(--sp-6); }
+@media (min-width: 768px)  { .ctf-month { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .ctf-month { grid-template-columns: repeat(7, minmax(0, 1fr)); } }
+#the-month .section-head { flex-wrap: wrap; }   // phone: the mono hint wraps under "The month" instead of squeezing the heading onto two lines
+
+// One cell. Works as <a class="ctf-day" href="#day-N"> or as a div holding a link.
+.ctf-day {
+  display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: inherit;
+}
+.ctf-day a { color: inherit; }
+.ctf-day:hover, .ctf-day:focus-within { border-color: var(--accent); text-decoration: none; }
+.ctf-day a:hover { text-decoration: none; }
+.ctf-day-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-2); font-family: var(--font-mono); margin-bottom: var(--sp-1); }
+.ctf-day-head > :first-child { font-size: 0.95rem; font-weight: 700; }                                  // day number
+.ctf-day-head > :last-child:not(:first-child) { font-size: 0.7rem; color: var(--text-dim); }          // weekday / date
+.ctf-day-rows { display: flex; flex-direction: column; gap: 0.2rem; }
+
+// One lane row inside a cell: a two-letter lane glyph ("#n" for a web challenge; title attr) + the terse chips
+.ctf-row { display: flex; align-items: center; gap: var(--sp-2); min-width: 0; font-family: var(--font-mono); font-size: 0.72rem; }
+.ctf-row > .ctf-lane-glyph { flex: 0 0 1.7rem; text-align: center; font-weight: 700; color: var(--text-dim); }
+.ctf-row.is-orientation { font-size: 0.65rem; color: var(--text-dim); }   // optional: the tiny orientation line
+@media (min-width: 1080px) {   // seven cells across: ~120px inside a cell; a row needs ~116px (glyph 27 + gap 4 + three chips 85)
+  .ctf-day { padding: var(--sp-2); }
+  .ctf-row { gap: var(--sp-1); }
+}
+
+// -- Mode chips (partial ctf-mode-chips): S / TT / M pills. Colour is never the only cue:
+//    release = solid green, later = solid amber with a dark ring, open = red outline, none = dashed grey
+.ctf-chips { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1); vertical-align: middle; }
+.ctf-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.5rem; min-height: 1.15rem; padding: 0.1rem 0.42rem;
+  border: 1px solid transparent; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; line-height: 1; letter-spacing: .02em;
+  color: #04140f; background: var(--text-faint);   // fallback when no status modifier is present
+  white-space: nowrap;
+}
+.ctf-chip.is-release { background: var(--easy); }                                                                  // CORRECT on the release morning
+.ctf-chip.is-later   { background: var(--medium); box-shadow: inset 0 0 0 1px #04140f; }                           // CORRECT, later: ringed
+.ctf-chip.is-open    { background: transparent; border-color: var(--insane); color: var(--insane); font-weight: 700; }   // unsolved: outlined
+[data-theme="light"] .ctf-chip.is-open { border-color: #b91c1c; color: #b91c1c; }                                 // --insane is 2.8:1 on white; this red is 6.5:1
+.ctf-chip.is-none    { background: transparent; border-style: dashed; border-color: var(--border); color: var(--text-faint); font-weight: 500; } // mode not offered
+
+// -- Day-by-day list (hub) and the per-lane challenge list: a <section class="ctf-daylist"> holding a plain <ul>
+.ctf-daylist, .ctf-daylist ul { list-style: none; margin: 0; padding: 0; }
+.ctf-daylist h2 { font-family: var(--font-mono); font-size: 1.15rem; margin: var(--sp-6) 0 var(--sp-2); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--border); }
+.ctf-item {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3);
+  padding: var(--sp-3) 0; border-bottom: 1px solid var(--border);
+}
+.ctf-item:last-child { border-bottom: none; }
+.ctf-item a:not(.badge) { color: inherit; font-weight: 600; }
+.ctf-item a:not(.badge):hover { color: var(--accent); text-decoration: none; }
+.ctf-item p, .ctf-item .excerpt { flex-basis: 100%; margin: 0; font-size: 0.92rem; color: var(--text-dim); }   // description or prompt excerpt
+.ctf-excerpt q { font-style: normal; color: inherit; }   // "Prompt: <q>...</q>": the browser's own quotation marks, no italics
+.ctf-daylist [hidden], .ctf-item[hidden] { display: none; }   // the filter may use the hidden attribute; flex must not override it
+
+// -- Hub filter bar (.filter-bar is shared with the writeups list, which has no .active rule): a selected facet shows it
+.ctf-filter .badge.active { border-color: var(--accent); color: inherit; background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.ctf-filter .filter-label { color: var(--text-dim); }   // "Filter:" is text: --text-faint (the global rule) is 4.2:1 dark / 3.5:1 light
+
+// -- Depth badges: "Full write-up" filled like .badge.diff, "Field note" outlined
+.badge.depth-full { border: none; font-weight: 600; background: var(--accent); color: #04140f; }
+.badge.depth-note { background: transparent; border-color: var(--accent); color: var(--text-dim); }
+.badge.depth-note:hover { color: inherit; }
+
+// -- Challenge page: breadcrumb, glance card (fields, modes table, artifacts), attribution, flags note
+.ctf-breadcrumb, .ctf-breadcrumb ol {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2);
+  list-style: none; margin: 0; padding: 0;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-faint);   // --text-faint: the separators only; the links are --text-dim
+}
+.ctf-breadcrumb { margin-bottom: var(--sp-4); }
+.ctf-breadcrumb a { color: var(--text-dim); }
+.ctf-breadcrumb a:hover { color: var(--accent); }
+.ctf-breadcrumb span { color: var(--text-dim); }                                   // the current page's name (a span, not a separator)
+.ctf-breadcrumb + .article-header .post-meta { color: var(--text-dim); }           // the lane stats line / date line on section pages: the global --text-faint is 4.2:1 dark, 3.5:1 light
+
+// The card: one column at every width (the fields, then the modes table, then the artifacts)
+.ctf-glance {
+  display: grid; gap: var(--sp-4);
+  margin: 0 0 var(--sp-6); padding: var(--sp-5);
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+  font-size: 0.95rem;
+}
+.ctf-glance > * { min-width: 0; }                                   // long ids and hashes must wrap, not widen the card
+.ctf-glance dl { margin: 0; }
+.ctf-glance dt { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); margin: var(--sp-3) 0 var(--sp-1); }
+.ctf-glance dt:first-child { margin-top: 0; }
+.ctf-glance dd { margin: 0; overflow-wrap: anywhere; }
+.ctf-glance code, .ctf-glance .mono { overflow-wrap: anywhere; }    // Game Master id: mono, wrap anywhere
+.ctf-glance blockquote { margin: var(--sp-1) 0 0; padding: var(--sp-2) var(--sp-4); font-size: 0.95rem; }
+@media (min-width: 768px) {   // the fields as label | value rows from tablet up; stacked below
+  .ctf-glance-fields { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--sp-5); row-gap: var(--sp-2); align-items: baseline; }
+  .ctf-glance-fields dt { grid-column: 1; margin: 0; }
+  .ctf-glance-fields dd { grid-column: 2; }
+  .ctf-glance-fields blockquote { margin-top: 0; }
+}
+
+// A section label inside the card: the modes table's <caption> and the Artifacts <p>
+.ctf-glance-label {
+  caption-side: top; text-align: left; margin: 0 0 var(--sp-2); padding: 0;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim);
+}
+
+// Modes table: a real table across the whole card (the global table rule's display:block / overflow-x:auto must not leak in)
+.ctf-glance-table { display: table; width: 100%; margin: 0; font-size: 0.85rem; border-collapse: collapse; overflow: visible; }
+.ctf-glance-table th, .ctf-glance-table td { padding: var(--sp-2); vertical-align: top; text-align: left; border: 0; border-bottom: 1px solid var(--border); }
+.ctf-glance-table th { background: none; }
+.ctf-glance-table th[scope="col"] { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); }
+.ctf-glance-table th[scope="row"] { font-weight: 600; white-space: nowrap; }                     // "Single Solve" + the small pts
+.ctf-glance-table th[scope="row"] small { font-weight: 400; color: var(--text-dim); }
+@media (min-width: 768px) {
+  .ctf-glance-table td[data-label="When"] { white-space: nowrap; }                              // "09:00:05 on release morning"
+}
+@media (max-width: 767px) {   // phone: each mode is a bordered block; the column headers become inline labels from data-label
+  .ctf-glance-table, .ctf-glance-table caption, .ctf-glance-table tbody, .ctf-glance-table tr, .ctf-glance-table th, .ctf-glance-table td { display: block; width: auto; }
+  .ctf-glance-table thead { display: block; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .ctf-glance-table tr { padding: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-2); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+  .ctf-glance-table tr:last-child { margin-bottom: 0; }
+  .ctf-glance-table th, .ctf-glance-table td { padding: 0.15rem 0; border: 0; }
+  .ctf-glance-table th[scope="row"] { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; text-transform: none; letter-spacing: 0; white-space: normal; }
+  .ctf-glance-table td { padding-left: calc(5.5rem + var(--sp-2)); text-indent: calc(-1 * (5.5rem + var(--sp-2))); }   // hanging indent: a wrapped value lines up under itself, not under the label
+  .ctf-glance-table td::before {
+    content: attr(data-label); display: inline-block; min-width: 5.5rem; margin-right: var(--sp-2); text-indent: 0;
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim);
+  }
+  .ctf-glance-table td > * { text-indent: 0; }   // text-indent inherits: without this the chip (inline-flex) lays its letter out 96px to the left, over the label
+}
+
+// Artifacts: one line per file (mode · name · size) with its sha256 under it; the first four, the rest behind <details>
+.ctf-artifacts ul { list-style: none; margin: 0; padding: 0; }
+.ctf-artifacts li + li { margin-top: var(--sp-2); }
+.ctf-artifact-mode { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); margin-right: var(--sp-2); }
+.ctf-sha { display: block; font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.4; color: var(--text-dim); word-break: break-all; overflow-wrap: anywhere; }
+.ctf-artifacts-more { margin-top: var(--sp-2); }
+.ctf-artifacts-more summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
+.ctf-artifacts-more ul { margin-top: var(--sp-2); }
+
+.ctf-attrib { list-style: none; margin: var(--sp-2) 0 0; padding: 0; font-size: 0.9rem; color: var(--text-dim); }
+.ctf-attrib li { margin: 0.2em 0; }
+.ctf-attrib li::before { content: "▸ "; color: var(--accent); }
+[data-theme="light"] .ctf-attrib li::before { color: var(--link); }   // the accent marker is 1.5:1 on white
+.ctf-flagnote { margin: var(--sp-2) 0 0; font-size: 0.8rem; color: var(--text-dim); }
+
+// -- Footer pager: two rows (same day / same lane), a label and then only the links that exist (no separators)
+.ctf-pager {
+  display: grid; gap: var(--sp-3);
+  margin: var(--sp-6) 0 var(--sp-5); padding-top: var(--sp-5); border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 0.85rem;
+}
+.ctf-pager > * { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0; }
+.ctf-pager ul, .ctf-pager li { list-style: none; margin: 0; padding: 0; }
+.ctf-pager .label, .ctf-pager strong { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); white-space: nowrap; }
+.ctf-pager a {
+  display: inline-flex; align-items: center; gap: var(--sp-1); max-width: 100%;
+  padding: var(--sp-1) var(--sp-3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg-elev); color: var(--text-dim);
+}
+.ctf-pager a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+// -- Visually hidden text (the chips carry their status in words, not colour alone)
+.visually-hidden, .sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}

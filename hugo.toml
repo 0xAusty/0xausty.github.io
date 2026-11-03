@@ -126,6 +126,10 @@ summaryLength   = 30
     url    = "/writeups/"
     weight = 10
   [[menu.main]]
+    name   = "Huntress CTF"
+    url    = "/huntress-ctf-2026/"
+    weight = 12
+  [[menu.main]]
     name   = "Detections"
     url    = "/detections/"
     weight = 15

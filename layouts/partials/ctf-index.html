@@ -1,0 +1,157 @@
+{{- /*
+  ctf-index.html — ONE precomputed view of data/huntress_ctf_2026.json plus the
+  section's published pages, shared by the hub, the lane pages and every
+  challenge page. Always call it through partialCached so the work happens once
+  per build, not once per page:
+
+      {{ $idx := partialCached "ctf-index.html" . "ctf-index" }}
+
+  Returns a dict:
+    entries     every catalog entry, in catalog order
+    entryByKey  catalog key -> entry
+    laneOrder   the fixed lane order used everywhere (orientation last)
+    lanes       the scoring lanes: event.lanes, or the lanes seen in the catalog
+    labels      lane key -> display label
+    byDay       "1".."31" -> that day's entries in lane order (web by number)
+    byLane      lane key  -> that lane's entries in day order
+    dayCount    the highest day number in the catalog (0 when there is no data)
+    pages       the published (non-draft) challenge pages whose catalog_key
+                matches an entry (an orphan key is never counted; single.html
+                fails the build for it)
+    pageByKey   catalog key -> challenge page
+    laneByKey   lane key    -> lane page (layout = "lane")
+    laneStats   lane key    -> dict: challenges, modes, release, pages
+
+  Every catalog field may be absent, so everything is read with with/default.
+  Hugo decodes JSON numbers as float64: day numbers are normalised with `int`.
+*/ -}}
+{{- $cat := hugo.Data.huntress_ctf_2026 | default dict -}}
+{{- $ev := $cat.event | default dict -}}
+{{- $entries := $cat.challenges | default slice -}}
+{{- $laneOrder := slice "warmups" "metadata" "script" "binary" "mobile" "web" "orientation" -}}
+
+{{- /* ---- entries by key, and grouped by day (catalog order) ---- */ -}}
+{{- $entryByKey := dict -}}
+{{- $grouped := dict -}}
+{{- $maxDay := 0 -}}
+{{- range $entries -}}
+  {{- $e := . -}}
+  {{- with .key -}}
+    {{- $entryByKey = merge $entryByKey (dict (printf "%v" . | lower) $e) -}}
+  {{- end -}}
+  {{- with .day -}}
+    {{- $n := int . -}}
+    {{- if gt $n $maxDay }}{{ $maxDay = $n }}{{ end -}}
+    {{- $d := printf "%d" $n -}}
+    {{- $grouped = merge $grouped (dict $d ((index $grouped $d | default slice) | append $e)) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---- within a day: fixed lane order; web by its own number ---- */ -}}
+{{- $byDay := dict -}}
+{{- range $d, $list := $grouped -}}
+  {{- $ordered := slice -}}
+  {{- range $laneOrder -}}
+    {{- $inLane := where $list "lane" . -}}
+    {{- if eq . "web" -}}
+      {{- $inLane = sort $inLane "web_no" -}}
+    {{- else -}}
+      {{- $inLane = sort $inLane "key" -}}
+    {{- end -}}
+    {{- $ordered = $ordered | append $inLane -}}
+  {{- end -}}
+  {{- range $list -}}
+    {{- if not (in $laneOrder (printf "%v" (.lane | default ""))) -}}
+      {{- $ordered = $ordered | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $byDay = merge $byDay (dict $d $ordered) -}}
+{{- end -}}
+
+{{- /* ---- by lane, in day order (built from byDay so the order matches) ---- */ -}}
+{{- $byLane := dict -}}
+{{- if gt $maxDay 0 -}}
+  {{- range $n := seq $maxDay -}}
+    {{- range (index $byDay (printf "%d" $n) | default slice) -}}
+      {{- $l := printf "%v" (.lane | default "") -}}
+      {{- $byLane = merge $byLane (dict $l ((index $byLane $l | default slice) | append .)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---- lanes and labels ---- */ -}}
+{{- $lanes := slice -}}
+{{- with $ev.lanes -}}
+  {{- $lanes = . -}}
+{{- else -}}
+  {{- range $laneOrder -}}
+    {{- if and (ne . "orientation") (index $byLane .) }}{{ $lanes = $lanes | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- $labels := $ev.lane_labels | default dict -}}
+{{- range $entries -}}
+  {{- $l := printf "%v" (.lane | default "") -}}
+  {{- if and $l (not (index $labels $l)) -}}
+    {{- with .lane_label }}{{ $labels = merge $labels (dict $l .) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---- the section's pages (drafts are already excluded by Hugo) ----
+       A page is a challenge page only when its catalog_key matches an entry
+       (compared lower-cased, like everywhere else); the raw keys that do are
+       collected first so `where ... "in"` keeps a real page collection. */ -}}
+{{- $all := where site.RegularPages "Section" "huntress-ctf-2026" -}}
+{{- $validKeys := slice -}}
+{{- range $all -}}
+  {{- with .Params.catalog_key -}}
+    {{- if index $entryByKey (printf "%v" . | lower) }}{{ $validKeys = $validKeys | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- $pages := where $all "Params.catalog_key" "in" $validKeys -}}
+{{- $pageByKey := dict -}}
+{{- range $pages -}}
+  {{- $p := . -}}
+  {{- with .Params.catalog_key -}}
+    {{- $pageByKey = merge $pageByKey (dict (printf "%v" . | lower) $p) -}}
+  {{- end -}}
+{{- end -}}
+{{- $laneByKey := dict -}}
+{{- range $all -}}
+  {{- $p := . -}}
+  {{- if eq .Layout "lane" -}}
+    {{- with .Params.lane -}}
+      {{- $laneByKey = merge $laneByKey (dict (printf "%v" . | lower) $p) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---- per-lane counts: challenges, modes, modes cleared at release, pages ---- */ -}}
+{{- $laneStats := dict -}}
+{{- range $lane, $list := $byLane -}}
+  {{- $modes := 0 -}}
+  {{- $release := 0 -}}
+  {{- $written := 0 -}}
+  {{- range $list -}}
+    {{- range $mk, $m := (.modes | default dict) -}}
+      {{- $modes = add $modes 1 -}}
+      {{- with $m.release_morning }}{{ $release = add $release 1 }}{{ end -}}
+    {{- end -}}
+    {{- with index $pageByKey (printf "%v" (.key | default "") | lower) }}{{ $written = add $written 1 }}{{ end -}}
+  {{- end -}}
+  {{- $laneStats = merge $laneStats (dict $lane (dict "challenges" (len $list) "modes" $modes "release" $release "pages" $written)) -}}
+{{- end -}}
+
+{{- return (dict
+  "entries" $entries
+  "entryByKey" $entryByKey
+  "laneOrder" $laneOrder
+  "lanes" $lanes
+  "labels" $labels
+  "byDay" $byDay
+  "byLane" $byLane
+  "dayCount" $maxDay
+  "pages" $pages
+  "pageByKey" $pageByKey
+  "laneByKey" $laneByKey
+  "laneStats" $laneStats
+) -}}

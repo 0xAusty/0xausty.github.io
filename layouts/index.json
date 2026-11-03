@@ -1,12 +1,14 @@
 {{- /* Full-text search index consumed by assets/js/search.js */ -}}
-{{- $pages := where site.RegularPages "Section" "in" (slice "writeups" "detections" "projects" "blog") -}}
+{{- $pages := where site.RegularPages "Section" "in" (slice "writeups" "detections" "projects" "blog" "huntress-ctf-2026") -}}
+{{- /* section labels that are not just the title-cased slug */ -}}
+{{- $sectionLabels := dict "huntress-ctf-2026" "Huntress CTF" -}}
 [
 {{- range $i, $p := $pages -}}
   {{- if $i }},{{ end }}
   {
     "title": {{ $p.Title | jsonify }},
     "url": {{ $p.RelPermalink | jsonify }},
-    "section": {{ (title $p.Section) | jsonify }},
+    "section": {{ (index $sectionLabels $p.Section | default (title $p.Section)) | jsonify }},
     "date": {{ $p.Date.Format "Jan 2, 2006" | jsonify }},
     "description": {{ ($p.Description | default "") | jsonify }},
     "difficulty": {{ ($p.Params.difficulties | default "") | jsonify }},

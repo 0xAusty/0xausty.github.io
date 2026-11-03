@@ -1,0 +1,39 @@
+{{- /*
+  ctf-stats.html — the stats strip. Every number is read from
+  hugo.Data.huntress_ctf_2026.event (the certificate figures); nothing here is
+  counted from the catalog.
+
+  Context: a dict with optional keys
+     pages    number of published challenge write-ups   (hub only; 0 is left out)
+     days     number of event days                      (hub only)
+     compact  true → place, points and modes only       (homepage feature block)
+*/ -}}
+{{- $ctx := . | default dict -}}
+{{- with hugo.Data.huntress_ctf_2026 -}}
+{{- with .event -}}
+{{- $ev := . -}}
+<div class="ctf-stats">
+  {{- with $ev.place }}
+  <div class="ctf-stat"><span class="num">{{ humanize (int .) }}</span><span class="label">{{ with $ev.teams }}of {{ lang.FormatNumberCustom 0 . }} teams{{ else }}place{{ end }}</span></div>
+  {{- end }}
+  {{- with $ev.points }}
+  <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}{{ with $ev.points_max }} / {{ lang.FormatNumberCustom 0 . }}{{ end }}</span><span class="label">points</span></div>
+  {{- end }}
+  {{- with $ev.modes_solved }}
+  <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}{{ with $ev.modes_total }} / {{ lang.FormatNumberCustom 0 . }}{{ end }}</span><span class="label">modes solved</span></div>
+  {{- end }}
+  {{- if not $ctx.compact }}
+    {{- with $ctx.days }}
+  <div class="ctf-stat"><span class="num">{{ . }}</span><span class="label">days</span></div>
+    {{- end }}
+    {{- with $ev.challenges }}
+  <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}</span><span class="label">challenges</span></div>
+    {{- end }}
+    {{- if and (isset $ctx "pages") (gt (int $ctx.pages) 0) }}
+    {{- $n := int $ctx.pages }}
+  <div class="ctf-stat"><span class="num">{{ $n }}</span><span class="label">{{ if lt $n (int ($ev.challenges | default 0)) }}write-up{{ if ne $n 1 }}s{{ end }} so far{{ else }}write-ups published{{ end }}</span></div>
+    {{- end }}
+  {{- end }}
+</div>
+{{- end -}}
+{{- end -}}
