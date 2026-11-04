@@ -29,11 +29,11 @@
   {{- with index $modes $m.key -}}
     {{- if .release_morning -}}
       {{- $status = "release" -}}
-      {{- $desc = printf "%s · CORRECT at %v on release morning" $m.label .release_morning -}}
+      {{- $desc = printf "%s · CORRECT by %v on release morning" $m.label .release_morning -}}
     {{- else if eq (printf "%v" (.result | default "")) "CORRECT" -}}
       {{- $status = "later" -}}
       {{- $desc = printf "%s · CORRECT, time not recorded" $m.label -}}
-      {{- if and .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $desc = printf "%s · CORRECT, confirmed %v ET" $m.label .confirmed_at }}{{ end -}}
+      {{- if and .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $desc = printf "%s · CORRECT by %v ET" $m.label .confirmed_at }}{{ end -}}
     {{- else -}}
       {{- $status = "open" -}}
       {{- $desc = printf "%s · %v" $m.label (.result | default "unsolved") -}}

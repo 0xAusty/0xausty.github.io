@@ -64,11 +64,11 @@ catalog_key = ""                  # MUST match a key in data/huntress_ctf_2026.j
 depth = "note"                    # "full" (curated write-up) | "note" (short field note)
 featured = false                  # true -> appears in the hub's "Start here"
 description = "One line: the key insight or the skill this shows. Used in lists, search and social cards."
-# Who got it, most important first: autopilot | agent | hand | homebase
+# Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
 #   agent     → "Fixed in session by an AI coding agent (Claude Code)"
-#   hand      → "Solved by hand (Austin)"
 #   homebase  → "The event's Homebase AI (GPT-6 Luna) supplied the key"
+#   chatgpt   → "ChatGPT, on my own account, supplied the key"
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 tools = ["python"]

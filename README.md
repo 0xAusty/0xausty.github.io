@@ -187,12 +187,13 @@ catalog_key = "day06-pool-party"  # MUST match a key in data/huntress_ctf_2026.j
 depth = "full"                    # "full" (curated write-up) | "note" (short field note)
 featured = false                  # true → listed under "Start here" on the hub (newest first, max 5)
 description = "One line: the key insight or the skill this shows."
-solved_by = ["agent", "hand"]     # autopilot | agent | hand | homebase, most important first
+solved_by = ["agent", "homebase"] # autopilot | agent | homebase | chatgpt, most important first
 # Each value renders as one line under the glance card:
 #   autopilot → "Solved by the pipeline, no human in the loop"
 #   agent     → "Fixed in session by an AI coding agent (Claude Code)"
-#   hand      → "Solved by hand (Austin)"
 #   homebase  → "The event's Homebase AI (GPT-6 Luna) supplied the key"
+#   chatgpt   → "ChatGPT, on my own account, supplied the key"
+# Any other value fails the build.
 tools = ["python"]
 tags = ["reverse-engineering", "java"]
 skills = ["Reverse Engineering"]  # groups it on /portfolio/

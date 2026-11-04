@@ -12,10 +12,12 @@
   when a mode exists, the artifacts block only when an artifact does, and the
   card itself only when it has at least one of those to show.
 
-  "When": release_morning → "<time> on release morning"; CORRECT with a
-  confirmed_at whose confirmed_source is not "harness-state" → "confirmed <ts>
-  ET"; any other CORRECT mode → "not recorded" (a harness-state timestamp is
-  when a state file was written, not a solve time); otherwise "—".
+  "When": release_morning → "by <time> on release morning"; CORRECT with a
+  confirmed_at whose confirmed_source is not "harness-state" → "by <ts> ET";
+  any other CORRECT mode → "not recorded" (a harness-state timestamp is when a
+  state file was written, not a solve time); otherwise "—". "By", because many
+  recorded times are upper bounds: a status line written after the run, a
+  completion summary, or a commit that reports the day complete.
 
   The prompt is third-party text: raw HTML is escaped and markdown link/image
   syntax (inline and reference-style definitions) is broken up before
@@ -96,8 +98,8 @@
       {{- $status := "open" }}
       {{- if .release_morning }}{{ $status = "release" }}{{ else if $correct }}{{ $status = "later" }}{{ end }}
       {{- $when := "—" }}
-      {{- if .release_morning }}{{ $when = printf "%v on release morning" .release_morning }}
-      {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "confirmed %v ET" .confirmed_at }}
+      {{- if .release_morning }}{{ $when = printf "by %v on release morning" .release_morning }}
+      {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "by %v ET" .confirmed_at }}
       {{- else if $correct }}{{ $when = "not recorded" }}{{ end }}
       <tr>
         <th scope="row">{{ $m.label }}{{ with .points }} <small class="text-dim">{{ int . }} pts</small>{{ end }}</th>
@@ -145,11 +147,12 @@
 {{- $labels := dict
   "autopilot" "Solved by the pipeline, no human in the loop"
   "agent"     "Fixed in session by an AI coding agent (Claude Code)"
-  "hand"      "Solved by hand (Austin)"
-  "homebase"  "The event's Homebase AI (GPT-6 Luna) supplied the key" -}}
+  "homebase"  "The event's Homebase AI (GPT-6 Luna) supplied the key"
+  "chatgpt"   "ChatGPT, on my own account, supplied the key" -}}
 {{- $who := slice -}}
 {{- range (partial "aslice.html" $p.Params.solved_by) -}}
-  {{- with index $labels (printf "%v" . | lower) }}{{ $who = $who | append . }}{{ end -}}
+  {{- with index $labels (printf "%v" . | lower) }}{{ $who = $who | append . }}
+  {{- else }}{{ errorf "%s: solved_by label %q is not one of autopilot, agent, homebase, chatgpt" $p.File.Path . }}{{ end -}}
 {{- end -}}
 {{- with $who }}
 <ul class="ctf-attrib">

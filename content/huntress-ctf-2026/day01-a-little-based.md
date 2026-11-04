@@ -2,22 +2,24 @@
 title = "A Little Based"
 date = 2026-10-01
 draft = true
-params.kind = "challenge"  # Hugo reserves a top-level "kind" (removed in v0.144); this still reads as .Params.kind
+params.kind = "challenge"
 catalog_key = "day01-a-little-based"
 depth = "note"
 featured = false
-description = "The first warmup: one Base64 blob, and a strict decoder that accepts a decode only when the alphabet, the length and the output all check out."
-solved_by = ["autopilot"]
-tools = ["python"]
+description = "The first warmup: one Base64 blob whose answer is the slug in the final line, not the decoded sentence, which set the format rule every later warmup followed."
+solved_by = ["agent"]
+tools = ["wusolve.py", "timed.py", "python"]
 tags = ["encoding", "base64"]
 skills = ["Automation & Tooling"]
 toc = false
 +++
 
-The warmups lane opened with one blob and a prompt that doubles as the hint: "Everyone has to start somewhere. I hear sixty-four is a good base." The question asked for the blob to be decoded completely and for the exact answer slug that its final non-empty decoded line instructs you to submit. The declared format was strict: three lowercase words separated by hyphens, then a hyphen and a two-digit number, the slug alone.
+The warmups lane opened with a Base64 blob, a hint in the prompt ("sixty-four") and a strict answer format: the slug alone, never the decoded sentence. It is routine decoding. What made it worth a note is the fixed sentence inside the blob, which every later warmup decodes to as well.
 
-The file was `blob.txt`, 148 bytes of Base64. Decoded, it is a single sentence of the shape "Nice work decoding this warmup! To solve, submit this exact answer to the Game Master: &lt;slug&gt;". That fixed sentence turned out to matter more than the slug, because it is what later warmup decodes were validated against.
+## The solve
 
-My first harness, committed on 2 October, had a deliberately strict Base64 solver: it decodes only when the text uses a valid Base64 alphabet, the length is a multiple of four and the result is printable. Anything else is left alone rather than guessed at. That was enough here. All three modes came back CORRECT: the single, the time trial with its fresh 144-byte blob, and the three-question mastery zip. Times for Day 1 were not captured; the supervisor that logs them only started on Day 5.
+The decode is Base64, then take the slug after "Game Master:" in the final line. My first harness, committed on 2 October with Claude Code as co-author, had a strict Base64 solver, but it returned the whole decoded text, and my notes later call that the wrong answer for warmups. Who or what submitted the Day 1 single is not recorded, and the catalogue's times for the three modes look like a state sync, not solve times.
 
-Later warmups taught the solver to peel layers and to check each one against the known sentence, but the rule was set on Day 1: a decode is accepted when it can be verified, not when it looks right.
+The time trial and the mastery were solved on 4 October by a Claude Code session that wrote `wusolve.py` and `timed.py`. `wusolve.py` decodes in a bounded search until the "Game Master: slug" instruction appears with dictionary words; `timed.py` fetches, solves and submits in one process. Later, the fixed sentence became known plaintext for deriving cipher keys.
+
+Answer with the slug only, and check the format where it is declared: on start and submit, not on status.

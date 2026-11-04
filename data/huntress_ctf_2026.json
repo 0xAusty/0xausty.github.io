@@ -68,7 +68,7 @@
     "day": 26,
     "place": 66,
     "approx": false,
-    "source": "day26-retro-proactive-reset.md: 'rank bled 5th->66th from LATE finishes'"
+    "source": "notes/claude-memory/MEMORY.md:14 (the index line for day26-retro-proactive-reset.md): 'rank bled 5th->66th from LATE finishes'"
    },
    {
     "day": 31,
@@ -248,9 +248,7 @@
      "answer_ids": 5,
      "accepted_answers": 5,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:53:01",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -271,9 +269,7 @@
      "answer_ids": 10,
      "accepted_answers": 10,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:53:05",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -2979,9 +2975,7 @@
      "answer_ids": 469,
      "accepted_answers": 469,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:52:45",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3222,9 +3216,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3243,9 +3235,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3264,9 +3254,7 @@
      "answer_ids": 38,
      "accepted_answers": 38,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -3306,9 +3294,7 @@
      "answer_ids": 12,
      "accepted_answers": 12,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3331,9 +3317,7 @@
      "answer_ids": 12,
      "accepted_answers": 12,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3356,9 +3340,7 @@
      "answer_ids": 60,
      "accepted_answers": 60,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -3399,9 +3381,7 @@
      "answer_ids": 615,
      "accepted_answers": 615,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3425,9 +3405,7 @@
      "answer_ids": 615,
      "accepted_answers": 615,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3451,9 +3429,7 @@
      "answer_ids": 3075,
      "accepted_answers": 3075,
      "attempts_recorded": 4,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -3493,9 +3469,7 @@
      "answer_ids": 80,
      "accepted_answers": 80,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3518,9 +3492,7 @@
      "answer_ids": 80,
      "accepted_answers": 80,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3563,9 +3535,7 @@
      "answer_ids": 400,
      "accepted_answers": 400,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -3601,9 +3571,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 1,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3622,9 +3590,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 2,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -3663,9 +3629,7 @@
      "answer_ids": 5,
      "accepted_answers": 5,
      "attempts_recorded": 2,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-09 08:50:09",
-     "confirmed_source": "supervisor-log"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -3701,7 +3665,10 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 1,
-     "rejected_recorded": 0
+     "rejected_recorded": 0,
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3721,8 +3688,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:48:54",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "mastery": {
      "result": "CORRECT",
@@ -3742,8 +3710,9 @@
      "accepted_answers": 43,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:48:58",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     }
    },
    "points_earned": 10
@@ -3783,7 +3752,10 @@
      "answer_ids": 13,
      "accepted_answers": 13,
      "attempts_recorded": 1,
-     "rejected_recorded": 0
+     "rejected_recorded": 0,
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3807,8 +3779,9 @@
      "accepted_answers": 13,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:49:02",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "mastery": {
      "result": "CORRECT",
@@ -3832,8 +3805,9 @@
      "accepted_answers": 65,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:49:06",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     }
    },
    "points_earned": 10
@@ -3902,8 +3876,9 @@
      "accepted_answers": 695,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:49:20",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "mastery": {
      "result": "CORRECT",
@@ -3928,8 +3903,9 @@
      "accepted_answers": 3475,
      "attempts_recorded": 4,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:50:16",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     }
    },
    "points_earned": 10
@@ -3969,7 +3945,10 @@
      "answer_ids": 90,
      "accepted_answers": 90,
      "attempts_recorded": 1,
-     "rejected_recorded": 0
+     "rejected_recorded": 0,
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "time_trial": {
      "result": "CORRECT",
@@ -3993,8 +3972,9 @@
      "accepted_answers": 90,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:50:26",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     },
     "mastery": {
      "result": "CORRECT",
@@ -4038,8 +4018,9 @@
      "accepted_answers": 450,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:50:43",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-09 09:25:00",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:25:00"
     }
    },
    "points_earned": 10
@@ -4661,8 +4642,9 @@
      "accepted_answers": 53,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:36:28",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-11 09:16:08",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:16:08"
     }
    },
    "points_earned": 10
@@ -4717,9 +4699,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 2,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:36:32",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -5546,9 +5526,7 @@
      "answer_ids": 63,
      "accepted_answers": 63,
      "attempts_recorded": 5,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:35:15",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -5603,9 +5581,7 @@
      "answer_ids": 1,
      "accepted_answers": 18,
      "attempts_recorded": 5,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:35:20",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -5624,9 +5600,7 @@
      "answer_ids": 2,
      "accepted_answers": 90,
      "attempts_recorded": 5,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:35:24",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     }
    },
    "points_earned": 10
@@ -6003,8 +5977,9 @@
      "accepted_answers": 68,
      "attempts_recorded": 5,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:34:20",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-14 09:32:44",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:32:44"
     }
    },
    "points_earned": 10
@@ -6040,7 +6015,10 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 1,
-     "rejected_recorded": 0
+     "rejected_recorded": 0,
+     "confirmed_at": "2026-10-14 09:32:44",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:32:44"
     },
     "time_trial": {
      "result": "CORRECT",
@@ -6060,8 +6038,9 @@
      "accepted_answers": 19,
      "attempts_recorded": 5,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:34:24",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-14 09:32:44",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:32:44"
     },
     "mastery": {
      "result": "CORRECT",
@@ -6081,8 +6060,9 @@
      "accepted_answers": 95,
      "attempts_recorded": 5,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:34:29",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-14 09:32:44",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:32:44"
     }
    },
    "points_earned": 10
@@ -6283,8 +6263,9 @@
      "accepted_answers": 700,
      "attempts_recorded": 3,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-16 09:34:55",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-14 09:32:44",
+     "confirmed_source": "git-commit",
+     "release_morning": "09:32:44"
     }
    },
    "points_earned": 10
@@ -6520,8 +6501,9 @@
      "accepted_answers": 20,
      "attempts_recorded": 12,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-15 12:27:30",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-15 09:07:22",
+     "confirmed_source": "mastery-lock",
+     "release_morning": "09:07:22"
     },
     "mastery": {
      "result": "CORRECT",
@@ -6616,8 +6598,9 @@
      "accepted_answers": 1026,
      "attempts_recorded": 11,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-15 12:27:53",
-     "confirmed_source": "corpus-record"
+     "confirmed_at": "2026-10-15 09:18:56",
+     "confirmed_source": "mastery-lock",
+     "release_morning": "09:18:56"
     },
     "mastery": {
      "result": "CORRECT",
@@ -11528,9 +11511,7 @@
      "answer_ids": 1,
      "accepted_answers": 1,
      "attempts_recorded": 2,
-     "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 15:59:53",
-     "confirmed_source": "corpus-record"
+     "rejected_recorded": 0
     },
     "mastery": {
      "result": "CORRECT",
@@ -12148,9 +12129,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-25 09:00:10",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:10",
+     "confirmed_at": "2026-10-25 09:07:38",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:38",
      "first_seen": "2026-10-25 09:00:01"
     },
     "time_trial": {
@@ -12685,9 +12666,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-25 09:00:09",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:09",
+     "confirmed_at": "2026-10-25 09:07:24",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:24",
      "first_seen": "2026-10-25 09:00:01"
     },
     "time_trial": {
@@ -12702,9 +12683,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-25 09:08:32",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:08:32",
+     "confirmed_at": "2026-10-25 09:08:38",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:08:38",
      "first_seen": "2026-10-25 09:00:01"
     },
     "mastery": {
@@ -12753,9 +12734,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-25 09:08:07",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:08:07",
+     "confirmed_at": "2026-10-25 09:08:17",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:08:17",
      "first_seen": "2026-10-25 09:00:01"
     },
     "time_trial": {
@@ -12821,9 +12802,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-25 09:00:12",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:12",
+     "confirmed_at": "2026-10-25 09:07:26",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:26",
      "first_seen": "2026-10-25 09:00:01"
     },
     "time_trial": {
@@ -12895,9 +12876,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:00:13",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:13",
+     "confirmed_at": "2026-10-26 09:04:15",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:04:15",
      "first_seen": "2026-10-26 09:00:01"
     },
     "time_trial": {
@@ -13178,9 +13159,9 @@
      "accepted_answers": 312,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:00:13",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:13",
+     "confirmed_at": "2026-10-26 09:06:55",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:06:55",
      "first_seen": "2026-10-26 09:00:01"
     },
     "time_trial": {
@@ -13317,9 +13298,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:00:04",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:04",
+     "confirmed_at": "2026-10-26 09:06:57",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:06:57",
      "first_seen": "2026-10-26 09:00:01"
     },
     "time_trial": {
@@ -13442,9 +13423,6 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:21:47",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:21:47",
      "first_seen": "2026-10-26 09:00:01"
     },
     "time_trial": {
@@ -13486,9 +13464,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:00:14",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:14",
+     "confirmed_at": "2026-10-26 09:02:12",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:02:12",
      "first_seen": "2026-10-26 09:00:01"
     },
     "time_trial": {
@@ -13503,9 +13481,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:02:12",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:02:12",
+     "confirmed_at": "2026-10-26 09:03:22",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:03:22",
      "first_seen": "2026-10-26 09:00:01"
     },
     "mastery": {
@@ -13520,9 +13498,9 @@
      "accepted_answers": 4,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-26 09:03:36",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:03:36",
+     "confirmed_at": "2026-10-26 09:03:45",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:03:45",
      "first_seen": "2026-10-26 09:00:01"
     }
    },
@@ -14119,9 +14097,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-27 09:08:47",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:08:47",
+     "confirmed_at": "2026-10-27 09:23:18",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:23:18",
      "first_seen": "2026-10-27 09:00:03"
     },
     "time_trial": {
@@ -14136,9 +14114,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-27 09:23:18",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:23:18",
+     "confirmed_at": "2026-10-27 09:24:51",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:24:51",
      "first_seen": "2026-10-27 09:00:03"
     },
     "mastery": {
@@ -14153,9 +14131,6 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-27 09:24:50",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:24:50",
      "first_seen": "2026-10-27 09:00:03"
     }
    },
@@ -14187,9 +14162,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-27 09:08:35",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:08:35",
+     "confirmed_at": "2026-10-27 09:11:19",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:11:19",
      "first_seen": "2026-10-27 09:00:03"
     },
     "time_trial": {
@@ -14204,9 +14179,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 2,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-27 09:11:18",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:11:18",
+     "confirmed_at": "2026-10-27 09:14:46",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:14:46",
      "first_seen": "2026-10-27 09:00:03"
     },
     "mastery": {
@@ -14221,9 +14196,6 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-27 09:14:45",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:14:45",
      "first_seen": "2026-10-27 09:00:03"
     }
    },
@@ -14255,9 +14227,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-27 09:00:16",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:16",
+     "confirmed_at": "2026-10-27 09:07:50",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:50",
      "first_seen": "2026-10-27 09:00:03"
     },
     "time_trial": {
@@ -14415,9 +14387,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 09:00:05",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:05",
+     "confirmed_at": "2026-10-28 09:11:31",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:11:31",
      "first_seen": "2026-10-28 09:00:04"
     },
     "time_trial": {
@@ -14612,9 +14584,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-28 09:18:45",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:18:45",
+     "confirmed_at": "2026-10-28 09:23:49",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:23:49",
      "first_seen": "2026-10-28 09:00:04"
     },
     "time_trial": {
@@ -14721,9 +14693,9 @@
      "accepted_answers": 4704,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 09:52:46",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:52:46",
+     "confirmed_at": "2026-10-28 09:53:22",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:53:22",
      "first_seen": "2026-10-28 09:00:04"
     }
    },
@@ -14761,9 +14733,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 09:00:07",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:07",
+     "confirmed_at": "2026-10-28 09:15:37",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:15:37",
      "first_seen": "2026-10-28 09:00:04"
     },
     "time_trial": {
@@ -14896,9 +14868,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 09:00:17",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:17",
+     "confirmed_at": "2026-10-28 09:15:29",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:15:29",
      "first_seen": "2026-10-28 09:00:04"
     },
     "time_trial": {
@@ -14964,9 +14936,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-28 09:00:17",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:17",
+     "confirmed_at": "2026-10-28 09:15:39",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:15:39",
      "first_seen": "2026-10-28 09:00:04"
     },
     "time_trial": {
@@ -15321,9 +15293,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-29 09:06:34",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:06:34",
+     "confirmed_at": "2026-10-29 09:14:57",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:14:57",
      "first_seen": "2026-10-29 09:00:03"
     },
     "time_trial": {
@@ -15348,9 +15320,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-29 09:14:57",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:14:57",
+     "confirmed_at": "2026-10-29 09:16:25",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:16:25",
      "first_seen": "2026-10-29 09:00:03"
     },
     "mastery": {
@@ -15475,9 +15447,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-29 09:06:33",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:06:33",
+     "confirmed_at": "2026-10-29 09:11:09",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:11:09",
      "first_seen": "2026-10-29 09:00:03"
     },
     "time_trial": {
@@ -15615,9 +15587,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-29 09:00:29",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:29",
+     "confirmed_at": "2026-10-29 09:05:12",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:05:12",
      "first_seen": "2026-10-29 09:00:03"
     },
     "time_trial": {
@@ -15683,9 +15655,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-29 09:05:52",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:05:52",
+     "confirmed_at": "2026-10-29 09:07:11",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:11",
      "first_seen": "2026-10-29 09:00:03"
     },
     "time_trial": {
@@ -15843,9 +15815,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-30 09:02:33",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:02:33",
+     "confirmed_at": "2026-10-30 09:03:11",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:03:11",
      "first_seen": "2026-10-30 09:00:02"
     },
     "time_trial": {
@@ -15870,9 +15842,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-30 09:03:42",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:03:42",
+     "confirmed_at": "2026-10-30 09:04:05",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:04:05",
      "first_seen": "2026-10-30 09:00:02"
     },
     "mastery": {
@@ -15897,9 +15869,6 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-30 09:04:49",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:04:49",
      "first_seen": "2026-10-30 09:00:02"
     }
    },
@@ -16040,9 +16009,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-30 09:05:57",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:05:57",
+     "confirmed_at": "2026-10-30 09:06:28",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:06:28",
      "first_seen": "2026-10-30 09:00:02"
     },
     "time_trial": {
@@ -16067,9 +16036,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 1,
-     "confirmed_at": "2026-10-30 09:06:43",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:06:43",
+     "confirmed_at": "2026-10-30 09:08:17",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:08:17",
      "first_seen": "2026-10-30 09:00:02"
     },
     "mastery": {
@@ -16379,9 +16348,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-30 09:00:21",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:21",
+     "confirmed_at": "2026-10-30 09:02:17",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:02:17",
      "first_seen": "2026-10-30 09:00:02"
     },
     "time_trial": {
@@ -16447,9 +16416,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-30 09:00:31",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:31",
+     "confirmed_at": "2026-10-30 09:02:31",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:02:31",
      "first_seen": "2026-10-30 09:00:02"
     },
     "time_trial": {
@@ -16464,9 +16433,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-30 09:07:00",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:07:00",
+     "confirmed_at": "2026-10-30 09:07:58",
+     "confirmed_source": "supervisor-log",
+     "release_morning": "09:07:58",
      "first_seen": "2026-10-30 09:00:02"
     },
     "mastery": {
@@ -16567,9 +16536,9 @@
      "accepted_answers": 153,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:01:16",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:01:16",
+     "confirmed_at": "2026-10-31 09:14:39",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:14:39",
      "first_seen": "2026-10-31 09:00:03"
     }
    },
@@ -16607,9 +16576,9 @@
      "accepted_answers": 1,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:00:09",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:09",
+     "confirmed_at": "2026-10-31 09:10:58",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:10:58",
      "first_seen": "2026-10-31 09:00:03"
     },
     "time_trial": {
@@ -16634,7 +16603,10 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "first_seen": "2026-10-31 09:00:03"
+     "first_seen": "2026-10-31 09:00:03",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29"
     },
     "mastery": {
      "result": "CORRECT",
@@ -16658,7 +16630,10 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "first_seen": "2026-10-31 09:00:03"
+     "first_seen": "2026-10-31 09:00:03",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29"
     }
    },
    "points_earned": 10
@@ -16798,9 +16773,9 @@
      "accepted_answers": 434,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:02:39",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:02:39",
+     "confirmed_at": "2026-10-31 09:11:25",
+     "confirmed_source": "corpus-record",
+     "release_morning": "09:11:25",
      "first_seen": "2026-10-31 09:00:03"
     },
     "time_trial": {
@@ -17078,9 +17053,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:00:49",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:49",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29",
      "first_seen": "2026-10-31 09:00:03"
     }
    },
@@ -17112,20 +17087,26 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:00:45",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:45",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29",
      "first_seen": "2026-10-31 09:00:03"
     },
     "time_trial": {
      "result": "CORRECT",
      "points": 3,
-     "first_seen": "2026-10-31 09:00:03"
+     "first_seen": "2026-10-31 09:00:03",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29"
     },
     "mastery": {
      "result": "CORRECT",
      "points": 5,
-     "first_seen": "2026-10-31 09:00:03"
+     "first_seen": "2026-10-31 09:00:03",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29"
     }
    },
    "points_earned": 10
@@ -17156,9 +17137,9 @@
      "accepted_answers": 0,
      "attempts_recorded": 1,
      "rejected_recorded": 0,
-     "confirmed_at": "2026-10-31 09:00:41",
-     "confirmed_source": "daily-progress",
-     "release_morning": "09:00:41",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29",
      "first_seen": "2026-10-31 09:00:03"
     },
     "time_trial": {
@@ -17181,7 +17162,10 @@
     "mastery": {
      "result": "CORRECT",
      "points": 5,
-     "first_seen": "2026-10-31 09:00:03"
+     "first_seen": "2026-10-31 09:00:03",
+     "confirmed_at": "2026-10-31 11:58:29",
+     "confirmed_source": "supervisor-summary",
+     "release_morning": "11:58:29"
     }
    },
    "points_earned": 10
