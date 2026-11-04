@@ -79,11 +79,11 @@ summaryLength   = 30
 [params]
   # ---- Identity ----------------------------------------------------------
   author   = "0xAusty"
-  tagline  = "Penetration Tester & Security Researcher"   # TODO: make it yours
+  tagline  = "Cybersecurity specialist"
   # One-line bio for the homepage hero:
-  heroBio  = "I break things ethically and write about how. Security tooling, research, and lab walkthroughs."
+  heroBio  = "Four years in security, seven in enterprise IT. I own security baselines built on CIS Benchmarks and NIST SP 800-53 at work, and build solvers, detections and write-ups on my own time."
   # Longer bio (also used on the About page intro & meta description):
-  bio      = "Security enthusiast focused on offensive security, web application testing, and Active Directory. I document what I build and what I hack (legally) so others can learn from it."
+  bio      = "Cybersecurity specialist: security baselines by day, security tooling and CTF write-ups on my own time."
 
   # ---- Contact / social links --------------------------------------------
   # Leave a value empty ("") to hide that link everywhere.
@@ -104,8 +104,8 @@ summaryLength   = 30
   defaultTheme = "dark"            # "dark" or "light" — the site's starting theme
 
   # ---- SEO / sharing -----------------------------------------------------
-  description = "The cybersecurity portfolio of 0xAusty — projects, tooling, and Hack The Box / CTF writeups."
-  keywords    = ["cybersecurity", "penetration testing", "hack the box", "ctf", "writeups", "infosec"]
+  description = "The security portfolio of 0xAusty: the Huntress CTF 2026 write-ups, security tooling and notes."
+  keywords    = ["cybersecurity", "ctf", "huntress ctf", "writeups", "detection engineering", "reverse engineering", "infosec"]
   # A 1200x630 image at static/images/og-default.png makes shared links look good.
   ogImage     = "/images/og-default.png"
 
@@ -122,25 +122,9 @@ summaryLength   = 30
     url    = "/portfolio/"
     weight = 5
   [[menu.main]]
-    name   = "Writeups"
-    url    = "/writeups/"
-    weight = 10
-  [[menu.main]]
     name   = "Huntress CTF"
     url    = "/huntress-ctf-2026/"
     weight = 12
-  [[menu.main]]
-    name   = "Detections"
-    url    = "/detections/"
-    weight = 15
-  [[menu.main]]
-    name   = "Projects"
-    url    = "/projects/"
-    weight = 20
-  [[menu.main]]
-    name   = "Notes"
-    url    = "/blog/"
-    weight = 30
   [[menu.main]]
     name   = "About"
     url    = "/about/"
