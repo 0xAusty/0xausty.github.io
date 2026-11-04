@@ -10,9 +10,7 @@ toc = false
 
 ## whoami
 
-I'm **0xAusty**, a Penetration Tester & Security Researcher. I focus on offensive
-security — web application testing, Active Directory, and building the tooling that
-makes assessments faster. This site is where I publish what I build and (legally) break.
+I'm **0xAusty**, a security practitioner focusing on detection engineering and offensive testing.
 
 <!-- ^ This is a starter bio. Rewrite it in your own words: your background, what
      you're looking for, and what makes you a strong hire. Recruiters read it first. -->
