@@ -11,7 +11,7 @@ catalog_key = "day07-seven-zip-no-relation"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "The answer is the entry count a ZIP's end-of-central-directory record claims, not the number of members present, so the solver reads the record instead of counting files."
+description = "The answer is the entry count a ZIP's end-of-central-directory record claims, which need not match the members present, so the solver reads that record directly."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"

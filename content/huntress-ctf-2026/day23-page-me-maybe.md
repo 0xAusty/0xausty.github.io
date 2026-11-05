@@ -28,16 +28,16 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 23 asked for the page size of a SQLite database, as an integer. It was routine. The bench file recorded release-to-correct times of 4.4 s for the single, 9.3 s for the Time Trial and 12.6 s for Mastery. The Time Trial and Mastery were first bloods: the first of 1,602 teams to solve them, about a minute ahead of the next.
+Day 23 asked for the page size of a SQLite database, as an integer, and it was routine. The bench file recorded release-to-correct times of 4.4 s for the single, 9.3 s for the Time Trial and 12.6 s for Mastery. The Time Trial and Mastery were first bloods: the first of 1,602 teams to solve them, about a minute ahead of the next.
 
 ## The solve
 
-The SQLite header parser had been built on 14 October. It reads the big-endian u16 page size at offset 16 of the database header, where a stored 1 means 65536. The engine stripped the trailing type word `bytes` from `page_size_bytes` to reach the `page_size` key. Nothing else was needed.
+The SQLite header parser was built on 14 October. It reads the big-endian u16 page size at offset 16 of the database header, where a stored 1 means 65536. The engine stripped the trailing type word `bytes` from `page_size_bytes` to reach the `page_size` key, and that was all the single needed.
 
-The Time Trial was cumulative, so it also carried older fields. The ZIP member-names field from Day 8 was rejected in central-directory order and was healed automatically to an alphabetically sorted array.
+The Time Trial was cumulative, so it carried older fields as well. The ZIP member-names field from Day 8 came back rejected in central-directory order, and heal switched it automatically to an alphabetically sorted array.
 
-The day's long tail was in other lanes. A script Time Trial and Mastery were only recovered at 10:31:16 and 10:32:39, while the metadata lane had banked its modes in 13 seconds.
+The day's long tail was in other lanes. A script Time Trial and Mastery weren't recovered until 10:31:16 and 10:32:39; the metadata lane had banked its modes in 13 seconds.
 
-This field later made up about 200 of the "latent" cases in a generality audit. The agent investigated and judged them not a real miss risk, because the parser already emits the value and the event's field naming is stable.
+This field later made up about 200 of the "latent" cases in a generality audit. The agent looked into them and judged them not a real miss risk, because the parser already emits the value and the event's field naming is stable.
 
-A cumulative challenge re-tests the old fields too, and the heal path for them worked here.
+A cumulative challenge re-tests the old fields too, and here the heal path for them worked.

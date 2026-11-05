@@ -21,7 +21,7 @@ description = "A routine warmup: Base64 combined with ROT13 was already in the s
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["encoding", "base64", "rot13"]
 skills = ["Automation & Tooling"]  # groups it on /portfolio/
 
@@ -32,8 +32,8 @@ Day 29's warmup was a 148-byte blob, routine and solved by the autopilot without
 
 ## The solve
 
-The single was banked at 09:00:06, the Time Trial at 09:00:11 and the Mastery at 09:00:18. The notes do not name the encoding. The prompt points to Base64 combined with ROT13, and both are in the first-step set of `wusolve.py`, so the per-chunk search can chain them. That is an inference from the prompt and the solver, not a logged fact.
+The single was banked at 09:00:06, the Time Trial at 09:00:11 and the Mastery at 09:00:18. The notes don't name the encoding. The prompt points to Base64 combined with ROT13, and both are in the first-step set of `wusolve.py`, so the per-chunk search can chain them. That's an inference from the prompt and the solver, not a logged fact.
 
-The day did leave one pipeline lesson. The supervisor's first-pass report at 09:00:04 listed warmups among the misses about 16 seconds before the lane banked, because it counted singles that were still running as missed. That morning the line only printed a notice. A commit on 29 October made the same line start the escalator, so before Day 30 it was fixed with a 90-second first-pass wait.
+The supervisor's first-pass report at 09:00:04 listed warmups among the misses about 16 seconds before the lane banked, because it counted singles that were still running as missed. That morning the line only printed a notice. A commit on 29 October made the same line start the escalator, so the miscount was fixed before Day 30 with a 90-second first-pass wait.
 
 A report that counts "running" as "missed" is a bug even when the run turns out fine.

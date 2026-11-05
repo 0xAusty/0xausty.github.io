@@ -11,7 +11,7 @@ catalog_key = "day16-jni-boundary"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "Single and time trial were automatic, but running the mastery in parallel with the time trial hit a server gate; a sequential pipeline fixed it."
+description = "Single and time trial were automatic, but starting the mastery in parallel with the time trial ran into a server unlock rule, so the pipeline went sequential."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,11 +28,11 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt was about a Java-to-native type or length assumption changing backend authorisation. The solver treated it like every other Android day, so the story is the pipeline, not the APK.
+The prompt was about a Java-to-native type or length assumption changing backend authorisation. The solver treated it like every other Android day. What went wrong that morning was in the pipeline.
 
 ## The solve
 
-The single and time trial were answered at release, at 09:00:09 and 09:00:11. The mastery failed with HTTP 409. The previous day's optimisation started the time trial and mastery in parallel, but the server only unlocks the mastery once the time trial is correct. The notes show 44 solved pairs where no mastery had ever been solved before its time trial. The data already held the rule; nobody had asked it.
+The single and time trial were answered at release, at 09:00:09 and 09:00:11. The mastery failed with HTTP 409. The previous day's optimisation started the time trial and mastery in parallel, but the server only unlocks the mastery once the time trial is correct. The notes show 44 solved pairs, and in none of them had a mastery been solved before its time trial, so the rule was sitting in our own data the whole time.
 
 Claude Code re-ran the mastery in session and it landed at 09:00:58, 47 seconds after the time trial. Three lanes lost their mastery the same way. The fix made `daily.py` run single, time trial and mastery strictly in sequence, with a test.
 

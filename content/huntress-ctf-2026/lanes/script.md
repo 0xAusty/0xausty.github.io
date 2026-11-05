@@ -17,7 +17,7 @@ Script Analysis was cumulative. Each day re-asked every earlier day on top of ne
 
 None of it was executed outside an empty sandbox. Every sample was decoded statically or through its own inert decoder: JScript's `recover_*` functions in a Node vm, a tiny Python AST evaluator, re-implemented Bash recovery routines. Each decode was validated against the sample's own descriptor markers, and each sample was mapped to MITRE ATT&CK.
 
-Two things kept coming back. The puzzle was the Batch variable-expansion "form", whose answer key changed with the challenge generator. The trick was using the grader as an oracle: a wrong field rejects the whole submit, but an all-correct partial is banked, so submit by family and bisect what fails.
+Two things kept coming back: the Batch variable-expansion "form", whose answer key changed with the challenge generator, and the grader as an oracle. A wrong field rejects the whole submit but an all-correct partial is banked, so the way through was to submit by family and bisect what failed.
 
 ## The shape of every sample
 
@@ -41,7 +41,7 @@ Teaching the shared decoder Day 6's Bash codecs lifted the still-open Day 4 sing
 
 Day 8, [Lost in Translation](/huntress-ctf-2026/day08-lost-in-translation/), changed the lane's shape: PHP polyglots and WSF, HTA and webshell hosts carried the `HUNTRESS_ANALYSIS_V1` comment, its descriptor states role and technique, `polysolve.py` answers by field name, and most later languages went through it unchanged.
 
-Day 18's Google Apps Script split its payload across a string array behind a `SPLIT` marker; Day 19's C# sat in an ASPX string literal, where the hex payload ran into a `\n` escape. Joining the array and stopping at the first escape were the whole fixes. Day 23, [Press Start to Decode](/huntress-ctf-2026/day23-press-start-to-decode/), was the hard one: a layered `LYR` codec and opaque hex-id file names that broke every role-name lookup table. The agent handled the codec and reached 1,164 of the time trial's 1,495 fields; the rest, deriving role, technique and steps from the descriptor instead of file names, was finished in a separate session where I put the problem to the Homebase AI and my own ChatGPT account, and the 10,465-field mastery was accepted in one submit.
+Day 18's Google Apps Script split its payload across a string array behind a `SPLIT` marker; Day 19's C# sat in an ASPX string literal, where the hex payload ran into a `\n` escape. The fixes were just joining the array and stopping at the first escape. Day 23, [Press Start to Decode](/huntress-ctf-2026/day23-press-start-to-decode/), was the hard one: a layered `LYR` codec and opaque hex-id file names that broke every role-name lookup table. The agent handled the codec and reached 1,164 of the time trial's 1,495 fields; the rest, deriving role, technique and steps from the descriptor instead of file names, was finished in a separate session where I put the problem to the Homebase AI and my own ChatGPT account, and the 10,465-field mastery was accepted in one submit.
 
 ## Mapping to ATT&CK
 

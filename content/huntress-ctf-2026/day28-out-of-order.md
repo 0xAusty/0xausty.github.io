@@ -28,14 +28,14 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 28 brought Terraform HCL polyglots. The prompt asked for a cloud timeline assembled without planning or applying anything, and for the one change that happened out of order. The question shapes were the same as the lane's earlier days, which is why this is a short note.
+Day 28 brought Terraform HCL polyglots. The prompt asked for a cloud timeline assembled without planning or applying anything, and for the one change that happened out of order. The question shapes were the same as on the lane's earlier days.
 
 ## The solve
 
 The autopilot banked all three modes at the release: the single at 09:00:08, the Time Trial at 09:00:11 and the mastery (twelve sets, 21,372 fields) at 09:00:21. The notes record it as fully automatic, with no new code.
 
-The Time Trial this time carried 1,781 fields, a different set from the single's 1,703, and had no ATT&CK-id fields.
+This time the Time Trial carried 1,781 fields, a different set from the single's 1,703, with no ATT&CK-id fields.
 
 That afternoon a ranked loop re-solved the Script Time Trial and mastery runs for several earlier days, this one included, as ranked attempts. The loop log puts that around 17:07 ET.
 
-The takeaway is that a deterministic lane does not care what the day's language is, so long as the declared formats stay put.
+A deterministic lane does not care what the day's language is, as long as the declared formats stay put.

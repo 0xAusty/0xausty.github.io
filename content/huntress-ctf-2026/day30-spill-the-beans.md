@@ -36,4 +36,4 @@ All three modes were banked at the release: the single at 09:00:09, the Time Tri
 
 The supervisor's first-pass report went out at 09:00:31 and did not list script as a miss, so the false alarm from the day before had not come back.
 
-The takeaway is plain: a new language and a bigger host family changed the evidence, not the method.
+A new language and a bigger host family changed what the solver had to read, and the same method still covered both.

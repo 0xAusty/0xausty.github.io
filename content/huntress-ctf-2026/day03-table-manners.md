@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was the first cumulative bundle: 24 fields over Days 1 to 3, spanning the Day 1 C ELF, the Day 2 C++ ELF and a .NET DLL. Most of it was ordinary format-and-config reading. One field was not.
+This was the first cumulative bundle: 24 fields over Days 1 to 3, spanning the Day 1 C ELF, the Day 2 C++ ELF and a .NET DLL. Most of it was ordinary format-and-config reading, except for one field.
 
 ## The solve
 

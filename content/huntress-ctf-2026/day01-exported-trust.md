@@ -28,14 +28,14 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-This is the first mobile challenge. The prompt talks about invoking an exported deep-link Activity, but the notes say the early APKs never needed a device: each one carries its answer code in `assets/huntress_puzzle.json`, with a new encoding every day. Day 1's is the plain one. It is routine.
+This was the first mobile challenge. The prompt talks about invoking an exported deep-link Activity, but the notes say the early APKs never needed a device. Each one carries its answer code in `assets/huntress_puzzle.json`, in a new encoding every day, and Day 1's is the plain one, so this was routine.
 
 ## The solve
 
-The notes do not record who solved Day 1. The scoreboard does record when: the single at 21:50:08 on 1 October, the time trial at 09:30:07 and the mastery at 09:30:49 on the morning of 2 October. All my notes have is a status sweep on 4 October that found the three modes already correct.
+The notes don't record who solved Day 1, but the scoreboard records when: the single at 21:50:08 on 1 October, then the time trial at 09:30:07 and the mastery at 09:30:49 on the morning of 2 October. The only thing my notes have on it is a status sweep on 4 October that found all three modes already correct.
 
-What the notes do describe is a static read. Open the APK as a zip, read the puzzle file and decode its `data` field by the declared `codec`. For the plain codec the data is the code itself. The committed `mobsolve.py` accepts it only as a whole-string match of the answer-code shape, which guards against submitting a half-decoded guess. Mastery APKs were solved in delivery order and paired with the set ids.
+What they do describe is a static read. Open the APK as a zip, read the puzzle file and decode its `data` field by the declared `codec`. For the plain codec the data is the code itself. The committed `mobsolve.py` only accepts it as a whole-string match of the answer-code shape, which guards against submitting a half-decoded guess. Mastery APKs were solved in delivery order and paired with the set ids.
 
-The method here is reconstructed from those notes and the later solver, not from a solve log.
+That method is reconstructed from those notes and the later solver, not from a solve log.
 
-The prompt described runtime behaviour; the answer sat in an asset file.
+The prompt described runtime behaviour, but the answer was sitting in an asset file.

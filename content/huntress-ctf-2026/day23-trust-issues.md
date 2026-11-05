@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 23 asked 276 fields: everything from Days 1 to 22 plus 12 about anti-analysis recognition in a .NET managed assembly that carries environment and clock checks. The notes say nothing about what the new questions looked like. This one was routine.
+Day 23 asked 276 fields: everything from Days 1 to 22, plus 12 about anti-analysis recognition in a .NET managed assembly that carries environment and clock checks. The notes don't record what the new questions looked like, and the day was routine.
 
 ## The solve
 
-The pipeline solved it unattended. The single and the time trial each resolved 276 of 276, and the mastery resolved 1,932 of 1,932 over seven sets. The log has the mastery fetch at 9.0 seconds and the solve at 29.1 seconds, and it was the day's critical path at about a minute from release. The single was confirmed at 09:00:09, the time trial at 09:00:18 and the mastery at 09:00:59.
+The pipeline solved it unattended. The single and the time trial each resolved 276 of 276, and the mastery resolved 1,932 of 1,932 over seven sets. The log has the mastery fetch at 9.0 seconds and the solve at 29.1 seconds, which made it the day's critical path at about a minute from release. The single was confirmed at 09:00:09, the time trial at 09:00:18 and the mastery at 09:00:59.
 
-Day 28 later re-asked two of the Day 23 fields. One was the CLI runtime version. The other was whether the assembly contains a decoy branch, which `binsolve.py` answers by looking for the word *decoy* in the member as Latin-1 or UTF-16LE text.
+Day 28 later re-asked two of the Day 23 fields: the CLI runtime version, and whether the assembly contains a decoy branch. `binsolve.py` answers the second by looking for the word *decoy* in the member as Latin-1 or UTF-16LE text.
 
-Nothing here needed a fix. The notes have no more to say about this day than that.
+Nothing needed a fix, and the notes say nothing more about the day.

@@ -32,8 +32,8 @@ Day 22 moved to NSIS installer scripts. The prompt asked for real setup actions 
 
 ## The solve
 
-The 09:00 cron handled all three modes with the existing script modules. The single was confirmed at 09:00:07, the Time Trial at 09:00:10 and the mastery at 09:00:17, and the supervisor logged its summary at 09:00:32. The notes put the automatic lanes as banked about 22 seconds after the release was seen. The convention notes record the day as 21 of 21 modes correct, four of the standard lanes among them automatic.
+The 09:00 cron handled all three modes with the existing script modules. The single was confirmed at 09:00:07, the Time Trial at 09:00:10 and the mastery at 09:00:17, and the supervisor logged its summary at 09:00:32. The notes have the automatic lanes banked about 22 seconds after the release was seen. The convention notes record the day as 21 of 21 modes correct, four of the standard lanes among them automatic.
 
 No solver change is recorded. The extra set count made the mastery larger but not different in kind.
 
-A bigger mastery did not slow a pipeline that was already deriving every answer from the bundle.
+The set count didn't matter to a pipeline that derived every answer from the bundle.

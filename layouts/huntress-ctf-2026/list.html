@@ -41,7 +41,7 @@
   {{/* ---- 1. Header: title, eyebrow, intro ---- */}}
   <header class="article-header">
     <h1>{{ .Title }}</h1>
-    <p class="ctf-eyebrow mono">{{ with $ev.name }}{{ replace . ": " " · " }}{{ else }}Huntress CTF 2026{{ end }}{{ with $ev.start }}{{ $start := . }}{{ with $ev.end }} · {{ time.Format "2" $start }}–{{ time.Format "2 Jan 2006" . }}{{ end }}{{ end }}</p>
+    <p class="ctf-eyebrow mono">{{ with $ev.name }}{{ replace . ": " " · " }}{{ else }}Huntress CTF 2026{{ end }}{{ with $ev.start }}{{ $start := . }}{{ with $ev.end }} · {{ time.Format "2" $start }}-{{ time.Format "2 Jan 2006" . }}{{ end }}{{ end }}</p>
     {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
   </header>
 
@@ -111,7 +111,7 @@
       <dd><span class="ctf-chips" aria-hidden="true"><span class="ctf-chip is-release is-first-blood">S</span></span> A gold ring marks a first blood: the first of all {{ with hugo.Data.huntress_ctf_2026.event.teams }}{{ lang.FormatNumberCustom 0 . }} {{ end }}teams to solve that mode, per the official scoreboard. {{ . }} in all.</dd>
       {{- end }}
       <dt>Chips</dt>
-      <dd><span class="ctf-chips" aria-hidden="true"><span class="ctf-chip is-release">S</span><span class="ctf-chip is-later">TT</span><span class="ctf-chip is-open">M</span><span class="ctf-chip is-none">M</span></span> S / TT / M = Single Solve / Time Trial / Mastery. Green, solid: solved on the release morning (09:00–11:59 ET). Amber, ringed: solved later, or the time was not recorded. Red outline: unsolved. Grey, dashed: the challenge has no such mode.</dd>
+      <dd><span class="ctf-chips" aria-hidden="true"><span class="ctf-chip is-release">S</span><span class="ctf-chip is-later">TT</span><span class="ctf-chip is-open">M</span><span class="ctf-chip is-none">M</span></span> S / TT / M = Single Solve / Time Trial / Mastery. Green, solid: solved on the release morning (09:00 to 11:59 ET). Amber, ringed: solved later, or the time was not recorded. Red outline: unsolved. Grey, dashed: the challenge has no such mode.</dd>
       {{- /* the month grid's row labels: one entry per scoring lane, then the orientation line with its days from the catalog */ -}}
       {{- $parts := slice }}
       {{- range $idx.lanes }}

@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asked which generated dependency flaw was reachable from an exported mobile surface, and the question wanted the backend's answer code. It was routine. Nothing broke and nothing needed fixing.
+The prompt asked which generated dependency flaw was reachable from an exported mobile surface, and the question wanted the backend's answer code. It was routine: nothing broke and nothing needed fixing.
 
 ## The solve
 
@@ -36,4 +36,4 @@ The pipeline solved all three modes unattended with the code folded in over Days
 
 The 11-set mastery mixed earlier templates, which you can tell from the file sizes. One set was the size of Day 10's app, one matched Day 20's, and one was a split bundle like Day 26's. The notes do not say which decode path each mode or set took, so I won't guess.
 
-Its only value is as evidence that the previous days' fixes generalised to a new day's apps without anyone touching them.
+What the day shows is that the previous days' fixes generalised to a new day's apps without anyone touching them.

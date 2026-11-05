@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 24 asked for the exact backend answer code per mode, with a prompt about defeating app-owned environment checks on the same pinned emulator used by the solve oracle. The twist was not the puzzle but the morning: the laptop was off at 09:00.
+Day 24 asked for the exact backend answer code per mode, with a prompt about defeating app-owned environment checks on the same pinned emulator used by the solve oracle. What made it worth a note was the morning: the laptop was off at 09:00.
 
 ## The solve
 
-A systemd persistent timer caught up at 09:14:20 and the run saw the release at 09:14:31. The single came back correct at 09:14:32, but only through the last-resort fallback, which accepts a code only when exactly one answer-shaped literal appears in the package. The time trial and mastery APKs use an "analysis" codec: the code is computed by the app's DEX behind environment checks, with decoy literals around. The time trial returned nothing and the mastery was not attempted, because each mode is locked behind the previous one.
+A systemd persistent timer caught up at 09:14:20, and the run saw the release at 09:14:31. The single came back correct at 09:14:32, but only through the last-resort fallback, which accepts a code only when exactly one answer-shaped literal appears in the package. The time trial and mastery APKs use an "analysis" codec, where the app's DEX computes the code behind environment checks and decoy literals sit around it. The time trial returned nothing, and since each mode is locked behind the one before it, the mastery was never attempted.
 
-The Day 23 emulator already solved these APKs. Claude Code's fix was to wire `mobemu.solve_apk` into `mobsolve.solve_apk` ahead of the literal fallback, and the time trial and mastery were then submitted in session, at 09:29:53 and 09:29:57.
+The Day 23 emulator already solved these APKs. Claude Code wired `mobemu.solve_apk` into `mobsolve.solve_apk` ahead of the literal fallback, and the time trial and mastery were submitted in session at 09:29:53 and 09:29:57.
 
-The lesson: a fallback that passes is not the same as a solver that works.
+The single's pass said nothing about whether the solver could read these apps; the fallback had covered for it.

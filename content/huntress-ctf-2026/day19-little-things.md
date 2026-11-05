@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-Each blob was a run of numbered chunks, and Day 19's encoding decided the answer slug. The encoding was routine: hex of UTF-16LE text, starting with a byte-order mark. The interesting part was getting it into the solver.
+Each blob was a run of numbered chunks, and Day 19's encoding decided the answer slug. The encoding itself was routine, hex of UTF-16LE text starting with a byte-order mark. Getting it into the solver took longer.
 
 ## The solve
 
 At release the single stayed unsolved. Hex decoding produced bytes full of NULs, and the solver's printable-ASCII filter threw them away, so it never reached the text. Claude Code added a UTF-16 detector to `wusolve.py` (a byte-order mark, or an all-zero high or low byte plane) and two steps that use it. The single was fixed by 09:01:07, and the time trial and the 93-blob mastery were correct on their first submit.
 
-The commit was harder than the solve. The pre-commit replay gate re-solves every past case with the learned-key cache cleared, and it blocked the commit twice. First, with the new steps among the first-pass steps, the beam stacked a second cipher on the UTF-16 output and flooded with junk slug tails, which regressed all 93 mastery chunks. A UTF-16 decode is terminal, so it now sits outside the first-pass set. Second, a six-character slug chunk needed a three-rail rail fence, which had only ever been reachable through the cache. Bounded rail fence and columnar searches went into the always-tried steps in `kpa.py`.
+Committing the fix was harder. The pre-commit replay gate re-solves every past case with the learned-key cache cleared, and it blocked the commit twice. The first time, the new steps were among the first-pass steps, so the beam stacked a second cipher on the UTF-16 output and flooded with junk slug tails, which regressed all 93 mastery chunks. A UTF-16 decode is terminal, so it now sits outside the first-pass set. The second time, a six-character slug chunk needed a three-rail rail fence, which had only ever been reachable through the cache. Bounded rail fence and columnar searches went into the always-tried steps in `kpa.py`.
 
-The submits were right all along. The gate was protecting tomorrow's unattended run, not the score.
+The live submits were already right; what the gate protected was the next unattended run.

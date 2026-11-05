@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 14 asked 140 fields, Days 1 to 13 plus ten for an Objective-C binary with its raw config in a dedicated `.hcfg` section. The reverse engineering was routine. The mastery failing at release was the story.
+Day 14 asked 140 fields, Days 1 to 13 plus ten for an Objective-C binary with its raw config in a dedicated `.hcfg` section. The reverse engineering was routine, and the interesting part was the mastery failing at release.
 
 ## The solve
 

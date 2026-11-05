@@ -14,7 +14,7 @@ skills = ["Malware Analysis"]
 toc = true
 +++
 
-Expansion Pack was the script lane's first Batch day, and the puzzle the lane kept coming back to. Decoding nine Batch files without running them was routine. Naming how each one expanded its variables was not: the obvious reading was wrong, the right one came from the event's Homebase AI (GPT-6 Luna), and two files built on the same FOR loop took different labels. The part worth showing is that last gap, where the solver was made to answer nothing rather than guess.
+Expansion Pack was the script lane's first Batch day, and the puzzle the lane kept coming back to. Decoding nine Batch files without running them was routine. Naming how each one expanded its variables was not: the obvious reading was wrong, the right one came from the event's Homebase AI (GPT-6 Luna), and two files built on the same FOR loop took different labels. That last gap is the part worth showing, because there the solver was made to answer nothing instead of guessing.
 
 ## The challenge
 
@@ -22,7 +22,7 @@ Script Analysis was cumulative. The Day 3 bundle re-asked Day 1's three PowerShe
 
 ## Reading the prompt
 
-The prompt reads like a description of cmd.exe. It turned out to describe the generator.
+The prompt reads like a description of cmd.exe, but it turned out to describe the generator.
 
 | Phrase | Implication | What the solver did |
 |---|---|---|
@@ -89,7 +89,7 @@ def unwrap(raw: bytes):
 
 ## Timed modes
 
-The time trial, the same questions on a fresh bundle, came back CORRECT at 15:54:37 on 7 October, run by the agent in its timed-modes session. The mastery was another matter: timed submits were all-or-nothing, the Batch expansion fields now blocked every script mastery, and I put every script mastery and retry on hold until the Homebase AI came back with a mapping.
+The time trial, the same questions on a fresh bundle, came back CORRECT at 15:54:37 on 7 October, run by the agent in its timed-modes session. The mastery took longer. Timed submits were all-or-nothing, the Batch expansion fields now blocked every script mastery, and I put every script mastery and retry on hold until the Homebase AI came back with a mapping.
 
 The same day the two Day 3 FOR-loop rebuilds were compared side by side:
 
@@ -102,7 +102,7 @@ The first is `host-context.cmd` (`for_indirect`), the second the launcher (`call
 
 I approved a capped two-try, committed at 01:33 on 8 October: submit `for_indirect`, then `call_double` only on the expansion fields the Game Master still reports open; never a third label, never another field.
 
-By 09:02 on 8 October the Homebase AI's own engine had solved the Day 4–7 script masteries from fresh bytes the evening before, and its note named the Day 3 difference: the indexed variable's name, `fragment…` for `for_indirect`, `h…` for `call_double`. That rule never went into `bat_expansion`; the two-try stayed, and cleared 12 such fields on the Day 10 mastery.
+By 09:02 on 8 October the Homebase AI's own engine had solved the Day 4 to 7 script masteries from fresh bytes the evening before, and its note named the Day 3 difference: the indexed variable's name, `fragment…` for `for_indirect`, `h…` for `call_double`. That rule never went into `bat_expansion`; the two-try stayed, and cleared 12 such fields on the Day 10 mastery.
 
 The Day 3 mastery was still listed open at 09:15 on 10 October. A 13:14 commit that day records the script backlog CORRECT, already solved when checked. The submit was at 20:43:56 on 7 October; who made it is not recorded.
 
@@ -117,5 +117,5 @@ The Day 3 mastery was still listed open at 09:15 on 10 October. A 13:14 commit t
 
 1. **Label where the value is used, not where it is built.** The scored expansion form sat on the `echo(!var!)` line, not the rebuild line.
 2. **Quote the source before theorising.** The Game Master's sentence mirrored the generator's categories; leading with it got short labels back.
-3. **When the solver can't decide, make it say so.** `None` kept guesses out of timed submits; the capped two-try made the remaining one explicit, bounded and approved.
+3. **When the solver can't decide, make it say so.** `None` kept guesses out of timed submits, and the one guess left went through a two-try that was capped and that I approved.
 4. **Timestamp your evidence.** The key moved with the generator, not the day, and only each replay case's recorded time told the eras apart.

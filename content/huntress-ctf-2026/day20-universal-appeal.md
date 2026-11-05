@@ -36,6 +36,6 @@ The Mach-O parser had read only a thin image's header since 14 October. It was e
 
 The declared format said only "JSON array", so the element spelling came from rejections. An array of architecture names was rejected, and so was an array of raw integers. What the grader accepted was each CPU type as `0x` plus eight lowercase hex digits. The single was correct at 09:12:21, and the Time Trial and Mastery followed at 09:13:19 and 09:13:22.
 
-Later that day the lesson became general. The guess function now returns the canonical render first and then a fan of alternative representations. Measured with a heal audit that treats every corpus field name as unseen, unattended recovery rose from 77.5% to 93.2%.
+Later that day the fix was made general: the guess function now returns the canonical render first and then a fan of alternative representations. Measured with a heal audit that treats every corpus field name as unseen, unattended recovery rose from 77.5% to 93.2%.
 
 When the declared format leaves the element type open, the grader's rejections are the spec.

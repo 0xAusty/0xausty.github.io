@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asks for application state admitted by a flawed backup boundary. Day 5 is where the puzzle encoding changed to a split: the answer comes as `parts` plus an `order` list. This was the first mobile miss on record, on the first morning the supervisor log covers.
+The prompt asks for application state admitted by a flawed backup boundary. Day 5 is where the puzzle encoding changed to a split, with the answer coming as `parts` plus an `order` list. It was the first mobile miss on record, on the first morning the supervisor log covers.
 
 ## The solve
 
-Day 5 was released before 09:00 and the runner only saw it at 09:05:15, because it was waiting for the wrong day. At release the mobile solver returned no value and the runner declined to submit. Time trial and mastery stayed unattempted because the single gates them. That early release led to the fix of remembering the last processed day and polling every 10 seconds.
+Day 5 came out before 09:00, and the runner only saw it at 09:05:15 because it was waiting for the wrong day. At release the mobile solver returned no value, so the runner declined to submit. The time trial and mastery stayed unattempted, since the single gates them. The early release led to a fix: remember the last processed day and poll every 10 seconds.
 
-The `order` list is ambiguous: it could be a sequence of part indices or the target position of each part. `mobsolve.py` joins the parts under both readings and returns a result only if exactly one gives a valid answer code. That branch is in the first committed `mobsolve.py`, from 5 October. All three modes were correct that morning, the single at 09:06:51, the time trial at 09:06:53 and the mastery at 09:06:55, but the notes do not record who solved them.
+The `order` list is ambiguous. It could be a sequence of part indices or the target position of each part, so `mobsolve.py` joins the parts under both readings and only returns a result if exactly one gives a valid answer code. That branch is in the first committed `mobsolve.py`, from 5 October. All three modes were correct that morning, the single at 09:06:51, the time trial at 09:06:53 and the mastery at 09:06:55, but the notes don't record who solved them.
 
-When the solver cannot be sure, it should refuse rather than guess.
+A solver that can't be sure should refuse to answer.

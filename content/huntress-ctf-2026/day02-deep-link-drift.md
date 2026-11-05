@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asks you to tell verified deep-link routing from a scheme and host that wave everybody through, but the APK only needed its asset puzzle decoded. Day 2's codec is a reversal of the `data` string. The decode is routine. The first day the clock bit is the interesting part.
+The prompt asks you to tell verified deep-link routing from a scheme and host that wave everybody through. The APK only needed its asset puzzle decoded, and Day 2's codec reverses the `data` string. The decode was routine. The interesting part is that this was the first day the clock bit.
 
 ## The solve
 
-On 2 October the early harness swept all five Day 2 time trials in sequence with timed challenges switched on, before any analysis was ready. The deadlines were only about 5 to 8 seconds, so every one expired, mobile included. The handoff note from that day says to avoid starting a timer while analysis is still underway. The analysts spawned for the mobile APK also produced no usable result.
+On 2 October the early harness swept all five Day 2 time trials in sequence, with timed challenges switched on, before any analysis was ready. The deadlines were only about 5 to 8 seconds, so every one expired, mobile included. That day's handoff note says not to start a timer while analysis is still underway. The analysts spawned for the mobile APK didn't produce a usable result either.
 
-On 4 October the time trial and mastery were solved in one session. `mobsolve.py` reverses the string and accepts it only as a whole answer code. The notes credit that session with the mobile time trials and mastery runs, and the solvers were committed the next morning in a commit Claude Code co-authored. The single was already correct on 2 October, but the notes do not record who solved it.
+On 4 October one session solved the time trial and mastery. `mobsolve.py` reverses the string and only accepts it as a whole answer code. The notes credit that session with the mobile time trials and mastery runs, and the solvers went in the next morning in a commit Claude Code co-authored. The single was already correct on 2 October, but the notes don't record who solved it.
 
 Never start the timer before the solver exists.

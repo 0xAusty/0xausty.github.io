@@ -6,7 +6,7 @@ params.kind = "challenge"
 catalog_key = "day01-welcome-robots"
 depth = "note"
 featured = false
-description = "An orientation task worth no points, with nothing in my notes about what it asked or who completed it, so this note records the gap instead of guessing."
+description = "An orientation task worth no points, and my notes say nothing about what it asked or who completed it, so this page records only that gap."
 solved_by = []
 tools = []
 tags = []
@@ -22,4 +22,4 @@ My notes do not record what the instructions asked, how the task was completed o
 
 I'm not going to reconstruct a solve from that. The notes do discuss a different orientation item, read-the-rules, which the Game Master kept as unsolved for the whole month. That is a separate challenge, so I'm leaving it out of this one.
 
-A page this thin is here for completeness: every task in the month gets an entry, even when the record is empty.
+Every task in the month gets an entry, even when the record is this thin.

@@ -32,8 +32,8 @@ This was a **local file inclusion** challenge. A PHP viewer page included a file
 
 ## The solve
 
-The reasoning started from the home page, which offered a sample link that exposed the endpoint and parameter name. A viewer that simply joins the parameter onto a directory can be walked out of that directory to a file elsewhere in the container, and the proof lived in a fixed objective file.
+The home page offered a sample link that exposed the endpoint and parameter name. A viewer that simply joins the parameter onto a directory can be walked out of that directory to a file elsewhere in the container, and the proof lived in a fixed objective file.
 
-The notes record the Day 20 web misses as fixed in the coding-agent session and folded into `websolve.py` as `solve_lfi`. Because mastery mixes types, `classify()` dispatches each target on its own, and the endpoint and parameter are discovered from the page rather than hardcoded. On release morning the time trial was confirmed at 09:18:37 and mastery at 09:21:26.
+The Day 20 web misses were fixed in the coding-agent session and folded into `websolve.py` as `solve_lfi`. Because mastery mixes types, `classify()` dispatches each target on its own, and the endpoint and parameter are discovered from the page rather than hardcoded. On release morning the time trial was confirmed at 09:18:37 and mastery at 09:21:26.
 
 The defence is to resolve the final path and check it stays inside the intended directory, or to map names to files from an allow-list.

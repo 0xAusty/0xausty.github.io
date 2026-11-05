@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-A blob of space-separated octal numbers, and one question: what slug does its last decoded line tell you to submit? Routine, and I'll say so: the interesting part was that nobody touched it.
+A blob of space-separated octal numbers, and one question: what slug does its last decoded line tell you to submit? It was routine, and nobody touched it.
 
 ## The solve
 
 The `octal` step in `wusolve.py` (base-8 numbers below 256, read as bytes) was already in the first committed decoder, so there was nothing to write. The supervisor, `daily.py`, picked up the release at 09:00:09 and had the single, the Time Trial and the 28-blob mastery all marked CORRECT by 09:00:21. Each blob is six chunks, and chunk *i* uses Day *i*'s encoding, so Day 6's octal ends up inside the slug.
 
-I didn't solve anything here. This was the first warmups day the pipeline cleared with no one at the keyboard, which is why it matters more for the lane story than for the cipher.
+I didn't solve anything here. This was the first warmups day the pipeline cleared with no one at the keyboard, so it matters more to the lane's story than the cipher does.
 
 The answer is the slug alone, never the decoded sentence.

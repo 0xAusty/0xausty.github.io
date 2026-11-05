@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asked for only the strings that reach security-sensitive Android and backend APIs. The answer format was the usual single `answer` field. This was a routine day with nothing to fix.
+The prompt asked for only the strings that reach security-sensitive Android and backend APIs, and the answer format was the usual single `answer` field. It was a routine day, and nothing needed fixing.
 
 ## The solve
 
 `daily.py` ran `mobsolve.py`'s static decode on all three modes, about 0.7 to 1.6 s after each started, and submitted all three. The submissions were correct at 09:00:03, 09:00:05 and 09:00:07, with the supervisor's summary at 09:00:44. The notes count it among the nine modes the pipeline took on its own that morning, alongside the warmups and binary lanes.
 
-The notes do not record the codec the puzzle used, so there is nothing more to say about the mechanism.
+The notes do not record the codec the puzzle used, so I can't say anything about how it was encoded.
 
-An unattended day is the result the solver was built for.
+Nobody had to touch the solver that morning, which is the job it was built to do.

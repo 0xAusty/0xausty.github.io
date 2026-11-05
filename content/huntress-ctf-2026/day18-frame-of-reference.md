@@ -6,7 +6,7 @@ params.kind = "challenge"
 catalog_key = "day18-frame-of-reference"
 depth = "note"
 featured = false
-description = "The accepted video geometry was the coded size from the MP4 sample entry as WxH, not the display size, rotation or aspect ratio."
+description = "The accepted video geometry was the coded size from the MP4 sample entry as WxH; the display size, rotation and aspect ratio were other fields."
 solved_by = ["agent"]
 tools = ["metaformats.py", "python"]
 tags = ["forensics", "metadata", "time-trial", "mastery"]
@@ -18,7 +18,7 @@ The single asked for the primary video dimensions of an MP4 as WxH, hidden among
 
 ## The solve
 
-The media parser from the day before knew only audio streams. The closest-name guess therefore returned the video codec's name, and the uppercase re-spelling was rejected too, so the single stood as incorrect at 09:00:44.
+The media parser from the day before knew only audio streams, so the closest-name guess returned the video codec's name. The uppercase re-spelling was rejected too, and the single stood as incorrect at 09:00:44.
 
 Claude Code extended `parse_media` for video. For MP4 it reads the track header's display size and rotation matrix, the visual sample entry's coded size, the pixel aspect box, the AVC profile and level, and the frame rate and count from the sample tables. For Matroska it reads the pixel and display dimensions. The accepted `primary_video_dimensions` is the coded size from the sample entry.
 

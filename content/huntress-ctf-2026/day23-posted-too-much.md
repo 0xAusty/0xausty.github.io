@@ -11,7 +11,7 @@ catalog_key = "day23-posted-too-much"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "Mass assignment: the API bound every posted field onto the account object, so a privilege the form never offered could be set by the client; the fix is an allow-list."
+description = "Mass assignment: the API bound every posted field onto the account object, so the client could set a privilege the form never offered; the fix is an allow-list."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -32,10 +32,10 @@ This was a mass-assignment challenge. The visible form asked only for a name, bu
 
 ## The solve
 
-The reasoning is the usual one for this class: if the form shows one field and the server binds everything, the interesting field is the one the form leaves out. A Claude Code subagent solved it live on the release morning, working through single, time trial and mastery in turn. Single, time trial and mastery were confirmed at 09:10:04, 09:10:18 and 09:10:35 on 23 October.
+If the form shows one field and the server binds everything, the interesting field is the one the form leaves out. That's the usual reasoning for this class. A Claude Code subagent solved it live on the release morning, working through the modes in turn: the single was confirmed at 09:10:04, the time trial at 09:10:18 and mastery at 09:10:35 on 23 October.
 
-The notes record the prompt and the times but little else, so I can't say which extra field the subagent used or how long it spent finding it. It was also not folded into `websolve.py`, so the bug class has no dedicated branch there.
+The notes record the prompt and the times but little else, so I can't say which extra field the subagent used or how long it spent finding it. It was never folded into `websolve.py` either, so the bug class has no dedicated branch there.
 
-The 09:00 first pass showed the single as unsolved. That was expected for a web shape the pipeline hadn't met, not a failure.
+The 09:00 first pass showed the single as unsolved, which was expected for a web shape the pipeline hadn't met.
 
-The defence is to bind only an explicit allow-list of fields, and never let a request set roles or flags.
+The defence is to bind only an explicit allow-list of fields and never let a request set roles or flags.

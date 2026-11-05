@@ -28,13 +28,13 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was an object API whose authorisation was enforced per field and per action, with an inventory route that listed the routes, fields, actions and object ids. It is a broken object-level authorisation bug, and the weakness was one action nobody had locked down.
+This was an object API whose authorisation was enforced per field and per action, with an inventory route that listed the routes, fields, actions and object ids. It was a broken object-level authorisation bug: one action nobody had locked down.
 
 ## The solve
 
-A Claude Code subagent read the inventory first. Then it tried every action and field pairing on the protected object, starting with the actions that aren't a plain read, until one pairing returned the proof. Authorisation was applied per pairing, so an unusual action leaked what the obvious ones refused. That logic became `solve_bola` in `websolve.py`.
+A Claude Code subagent read the inventory first. Then it tried every action and field pairing on the protected object, starting with the actions that aren't a plain read, until one pairing returned the proof. Because authorisation was applied per pairing, an unusual action leaked what the obvious ones refused. That logic became `solve_bola` in `websolve.py`.
 
-The pipeline's first classifier sent this day's two new web shapes down the generic admin path, and that failed. Dedicated branches went in ahead of the admin fallthrough. The proof also came back in a JSON evidence field, not as a token, so a scan for a token's shape would have missed it.
+The pipeline's first classifier sent this day's two new web shapes down the generic admin path, where they failed, so dedicated branches went in ahead of the admin fallthrough. The proof also came back in a JSON evidence field, not as a token, so a scan for a token's shape would have missed it.
 
 The 09:00 run started late because the laptop was asleep. The time trial was confirmed at 09:24:15 and mastery at 09:25:32 on 24 October.
 

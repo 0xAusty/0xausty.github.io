@@ -28,7 +28,7 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-A Base32 blob ("smaller alphabet" in the prompt), with the usual warmups question. The decoder already handled Base32. The bug was the dictionary, not the crypto.
+A Base32 blob ("smaller alphabet" in the prompt), with the usual warmups question. The decoder already handled Base32, so the bug was in the dictionary check.
 
 ## The solve
 

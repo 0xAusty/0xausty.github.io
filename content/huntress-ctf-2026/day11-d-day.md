@@ -36,4 +36,4 @@ The Day 10 generic handler resolved all 110 fields in the 09:00 sweep, and the s
 
 The fixes went in that morning. A token bucket in a lock-protected file is now shared by every lane, and a POST that gets a 429 waits for `Retry-After` and resends. A 429 is rejected before processing, so resending is safe; a 5xx stays ambiguous and is never blindly resent. A standalone watcher with no Claude in the loop then polled both modes every 5 minutes and recovered them. The time trial went CORRECT at 18:32:48 on 13 October and the mastery at 23:28:18 that night.
 
-A correct solver was locked out by a herd it created itself.
+The solver had every answer right, and its own lane processes locked it out.

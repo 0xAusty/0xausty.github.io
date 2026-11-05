@@ -28,14 +28,14 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-The hint was a familiar wrapper with something compressed inside. The single was Base64 around a gzip stream. The day had two problems, and the obvious suspect for the second was innocent.
+The hint was a familiar wrapper with something compressed inside, and the single was Base64 around a gzip stream. The day needed two fixes, and the second had nothing to do with gzip.
 
 ## The solve
 
-At release the single stayed unsolved. Claude Code added a decompress step to `wusolve.py` that picks gzip, bz2, xz or zlib by magic bytes, plus a combined Base64-then-decompress step. It had to be combined: Base64's output here is unprintable, and the chunk search does not recurse into unprintable text.
+At release the single stayed unsolved. Claude Code added a decompress step to `wusolve.py` that picks gzip, bz2, xz or zlib by magic bytes, plus a combined Base64-then-decompress step. It had to be combined because Base64's output here is unprintable, and the chunk search does not recurse into unprintable text.
 
-Then the replay gate flagged four keyed-transposition slug chunks. The gzip change was the first suspect, and it was not the cause. In the mastery, some fixed-width sentence windows carry a rail-fence or columnar transposition that includes a leading space. The bounded transposition search in `kpa.py` had been run on the stripped token with spaces gated out, so the first slug word came out scrambled. The fix was to search the raw chunk and allow a space in the gate. The replay then showed no regressions across the warmups and mobile cases.
+Then the replay gate flagged four keyed-transposition slug chunks. The gzip change was the first suspect, but the cause was elsewhere. In the mastery, some fixed-width sentence windows carry a rail-fence or columnar transposition that includes a leading space. The bounded transposition search in `kpa.py` had been run on the stripped token with spaces gated out, so the first slug word came out scrambled. The fix was to search the raw chunk and allow a space in the gate. The replay then showed no regressions across the warmups and mobile cases.
 
 The time trial and mastery were solved by 09:10:59, after the single was fixed.
 
-Stripping whitespace before a transposition search quietly changes the length it has to fit.
+Stripping whitespace before a transposition search changes the length the search has to fit.

@@ -21,19 +21,19 @@ description = "A delegated service boundary trusted a header asserting the end u
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["web-exploitation"]
 skills = ["Web Application Security"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-This was a small Axum service ("Caller Courier") with one feature route sitting behind a delegated service boundary. The boundary believed a request header that named the end user, and never checked that the caller was allowed to say so. The single and time trial asked for one proof field, mastery for a bundle of five.
+This was a small Axum service ("Caller Courier") with one feature route behind a delegated service boundary. The boundary believed a request header that named the end user and never checked that the caller was allowed to say so. The single and time trial asked for one proof field, mastery for a bundle of five.
 
 ## The solve
 
-An identity directory showed the caller's role and the owner of the privileged records. Requesting the feature route with no identity header returned a 403, and its **Vary** response header named the header the service trusted. The solver, `solve_passidentity` in `websolve.py`, replays the feature request with that header set to the privileged owner, then falls back to any directory identity that isn't its own role. The proof came back in the evidence field.
+An identity directory showed the caller's role and the owner of the privileged records. A request to the feature route with no identity header got a 403, and its Vary response header named the header the service trusted. The solver, `solve_passidentity` in `websolve.py`, replays the feature request with that header set to the privileged owner, then falls back to any directory identity that isn't its own role. The proof came back in the evidence field.
 
-The agent added the function in session and the supervisor hot-reloaded it. An earlier 09:00 pass had misclassified the target as SSRF, before the function existed. The single was correct at 09:02:03 on the release morning.
+The agent added the function in session and the supervisor hot-reloaded it. An earlier 09:00 pass, before the function existed, had misclassified the target as SSRF. The single was correct at 09:02:03 on the release morning.
 
 The defence is to have the edge authenticate and set the identity header itself, and to strip it from anything a client sends.

@@ -11,7 +11,7 @@ catalog_key = "day29-fraternal-twins"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A variant-diffing day that looked like binary analysis but came down to picking the right member by the question's own basename hint, format-aware across ELF and PE."
+description = "A variant-diffing day that came down to picking the right member by the question's own basename hint, format-aware across ELF and PE."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -21,20 +21,20 @@ description = "A variant-diffing day that looked like binary analysis but came d
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["binsolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["binsolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["reverse-engineering", "diffing", "elf", "pe"]
 skills = ["Reverse Engineering"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-Day 29 asked for fields about two builds of one source, an -O3 and an -O0 build, under role-prefixed names: format, machine and config for each. The interesting part was small. The solve was member selection, not analysis.
+Day 29 asked about two builds of one source, an -O3 and an -O0 build, under role-prefixed names: format, machine and config for each. Most of the work was picking the right member for each role.
 
 ## The solve
 
-The pipeline banked 400 of 406 fields at release. The six misses were the formats of both roles and the config of the -O3 build. Claude Code fixed it in session: `_fill_variant_roles` in `binsolve.py` now picks each role's member from the question's own "basename ends" hint, falling back to the O3/O0 convention, and answers from that member. The fill is format-aware, reading ELF `e_machine` or the PE COFF machine field, and matches by stem so a PE variant still resolves.
+The pipeline banked 400 of 406 fields at release. The six misses were the formats of both roles and the config of the -O3 build. Claude Code fixed it in session. `_fill_variant_roles` in `binsolve.py` now picks each role's member from the question's own "basename ends" hint, falls back to the O3/O0 convention, and answers from that member. The fill is format-aware: it reads ELF `e_machine` or the PE COFF machine field, and it matches by stem so a PE variant still resolves.
 
-The mastery pass was 78 fields short at 09:16:25: the same six role fields in all 13 sets. The supervisor gave up after three passes without progress, and the mastery was correct at 09:17:50. The single was correct at 09:14:45 and the time trial at 09:15:37.
+The single was correct at 09:14:45 and the time trial at 09:15:37. At 09:16:25 the mastery pass was 78 fields short, the same six role fields in all 13 sets. The supervisor gave up after three passes without progress, and the mastery was correct at 09:17:50.
 
 The notes don't say whether the day's own role members shipped as PE.
 

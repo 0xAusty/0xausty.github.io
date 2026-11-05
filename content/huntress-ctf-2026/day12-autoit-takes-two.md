@@ -11,7 +11,7 @@ catalog_key = "day12-autoit-takes-two"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "The single was automatic. The Time Trial and mastery hit rate limits at 09:00 and were recovered that afternoon and the next evening; the notes don't say by whom."
+description = "The single solved itself, but the Time Trial and mastery hit rate limits at 09:00 and were recovered that afternoon and the next evening, by whom the notes don't say."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,14 +28,14 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 12 added AutoIt polyglots, two inert AutoIt workflows presented as a matched pair, with a prompt asking which pairing is genuine. The single asked 855 fields. Routine for the lane: no script code change is recorded.
+Day 12 added AutoIt polyglots: two inert AutoIt workflows presented as a matched pair, with a prompt asking which pairing is genuine. The single asked 855 fields. It was routine for the lane, and no script code change is recorded.
 
 ## The solve
 
-The supervisor solved the single at release. It banked the confirmed fields, then resolved the ambiguous loop-expansion fields with the capped two-try. The single was CORRECT at 09:00:08; the summary logged it at 09:00:55, a time the 429 retries had delayed.
+The supervisor solved the single at release. It banked the confirmed fields, then resolved the ambiguous loop-expansion fields with the capped two-try. The single was CORRECT at 09:00:08, though the summary didn't log it until 09:00:55 because the 429 retries held it up.
 
 The Time Trial ended at 9:00 with a rate-limit error on its POST, and the mastery's GET hit HTTP 429 as well. The Day 11 shared limiter was in place by then, but the burst still got through. The adaptive, deadline-aware limiter only arrived on 14 October.
 
-The notes say the script lane was recovered the same day; the scoreboard has the Time Trial at 14:17:26 that afternoon and the mastery not until 18:24:25 on 13 October. The notes do not record who ran the Time Trial and mastery recovery, so `solved_by` lists only the pipeline's automatic single.
+The notes say the script lane was recovered the same day. The scoreboard has the Time Trial at 14:17:26 that afternoon, but the mastery not until 18:24:25 on 13 October. Who ran the Time Trial and mastery recovery isn't recorded, so `solved_by` lists only the pipeline's automatic single.
 
-Even with a shared limiter, the 9:00 burst still cost this lane its timed modes.
+A shared limiter wasn't enough on its own to keep the timed modes clear of the 9:00 burst.

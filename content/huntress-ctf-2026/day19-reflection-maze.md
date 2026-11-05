@@ -34,6 +34,6 @@ Day 19 asked for one `answer` per mode: the exact backend answer code for a name
 
 `daily.py` found the release, ran each APK through `mobsolve.py`'s static decode and submitted the single, the time trial and the five-APK mastery. All three came back correct, and the supervisor's summary line is stamped 09:00:26. The notes do not record which codec the puzzle used, so I won't guess at it.
 
-The reflection theme mattered later. On Day 25 one mastery set was a Day 19-style app whose router method reaches its target methods through `Class.forName`, `getDeclaredMethod` and `Method.invoke`. The emulator could not follow that chain until Claude Code added reflection support, which is told on the [Day 25 note](/huntress-ctf-2026/day25-integrity-signals/).
+The reflection theme came back on Day 25. One mastery set that day was a Day 19-style app whose router method reaches its target methods through `Class.forName`, `getDeclaredMethod` and `Method.invoke`. The emulator could not follow that chain until Claude Code added reflection support, which is told on the [Day 25 note](/huntress-ctf-2026/day25-integrity-signals/).
 
-A clean unattended day, and a puzzle shape worth remembering for what it cost the emulator six days on.
+The day itself needed nobody, but its puzzle shape cost the emulator a fix six days on.

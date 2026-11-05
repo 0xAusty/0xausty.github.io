@@ -210,7 +210,7 @@
    "title": "You Must Be This Hash to Ride",
    "emoji": "🔎",
    "gm_id": "metadata-forensics-day-01-hash-to-ride",
-   "prompt": "Three ordinary files arrived without trustworthy labels. Build an identity inventory from the bytes themselves and prove which labels can—and cannot—be trusted.",
+   "prompt": "Three ordinary files arrived without trustworthy labels. Build an identity inventory from the bytes themselves and prove which labels can, and cannot, be trusted.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -971,7 +971,7 @@
    "title": "Deep Link Drift",
    "emoji": "📱",
    "gm_id": "mobile-android-day-02-deep-link-drift",
-   "prompt": "Day 1 taught you the roads. Now learn which ones are actually guarded — tell verified routing apart from a scheme and host that wave everybody through.",
+   "prompt": "Day 1 taught you the roads. Now learn which ones are actually guarded: tell verified routing apart from a scheme and host that wave everybody through.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -1230,7 +1230,7 @@
    "title": "Expansion Pack",
    "emoji": "📜",
    "gm_id": "script-analysis-day-03-batch-expansion",
-   "prompt": "cmd.exe expands percents, delays expansion, CALLs twice, and bends FOR loops into indirection. Reconstruct every variable exactly as the interpreter would see it — without executing a single line — then follow the staged chain to its final handoff.",
+   "prompt": "cmd.exe expands percents, delays expansion, CALLs twice, and bends FOR loops into indirection. Reconstruct every variable exactly as the interpreter would see it (without executing a single line), then follow the staged chain to its final handoff.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -1327,7 +1327,7 @@
    "title": "Table Manners",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-03-managed-configuration",
-   "prompt": "A .NET binary is a database wearing a trench coat. Read the CLI metadata tables — methods, strings, signatures — and find where the configuration is stashed. `ilspycmd` and `strings` are your friends.",
+   "prompt": "A .NET binary is a database wearing a trench coat. Read the CLI metadata tables (methods, strings, signatures) and find where the configuration is stashed. `ilspycmd` and `strings` are your friends.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -2810,7 +2810,7 @@
    "title": "Pool Party",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-06-java-bytecode-loader",
-   "prompt": "Every Java class file carries its own phone book: the constant pool. Names, methods, invocations — it's all in there. Dive in and take attendance.",
+   "prompt": "Every Java class file carries its own phone book: the constant pool. Names, methods, invocations: it's all in there. Dive in and take attendance.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -3175,7 +3175,7 @@
    "title": "Node by Node",
    "emoji": "📜",
    "gm_id": "script-analysis-day-07-node-operation-graphs",
-   "prompt": "Eight Node.js operation graphs that will never execute. Spot the indirect expansions and token fragmentation, then sort each graph into its role — benign, staging, dropping, downloading, uploading, launching, scheduled, or multi-stage — from the final bytes alone.",
+   "prompt": "Eight Node.js operation graphs that will never execute. Spot the indirect expansions and token fragmentation, then sort each graph into its role (benign, staging, dropping, downloading, uploading, launching, scheduled, or multi-stage) from the final bytes alone.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -3274,7 +3274,7 @@
    "title": "Routine Check",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-07-kotlin-staging-logic",
-   "prompt": "Kotlin coroutines don't run — they suspend, resume, and hop between states. Reconstruct the state machine from the metadata and figure out what this one was staging.",
+   "prompt": "Kotlin coroutines don't run; they suspend, resume, and hop between states. Reconstruct the state machine from the metadata and figure out what this one was staging.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -5238,7 +5238,7 @@
    "title": "D-Day",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-11-d-collection-planner",
-   "prompt": "D templates generate code the way a printing press generates pages — fast, and everywhere. Trace the runtime's template expansions back to the collection config they built.",
+   "prompt": "D templates generate code the way a printing press generates pages: fast, and everywhere. Trace the runtime's template expansions back to the collection config they built.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -5526,7 +5526,7 @@
    "title": "Managed Expectations",
    "emoji": "🔎",
    "gm_id": "metadata-forensics-day-12-managed-expectations",
-   "prompt": "The .NET assemblies share names, versions, and source ancestry—but their module identities remain distinct. Separate rebuilds from renames.",
+   "prompt": "The .NET assemblies share names, versions, and source ancestry, but their module identities remain distinct. Separate rebuilds from renames.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -6186,7 +6186,7 @@
    "title": "Crystal Clear",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-13-crystal-dns-configuration",
-   "prompt": "Crystal compiles to native code with a distinctive shine. Fingerprint the runtime, then follow the DNS labels — this one has somewhere it wants to resolve.",
+   "prompt": "Crystal compiles to native code with a distinctive shine. Fingerprint the runtime, then follow the DNS labels: this one has somewhere it wants to resolve.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -6476,7 +6476,7 @@
    "title": "The Shortcut Home",
    "emoji": "🔎",
    "gm_id": "metadata-forensics-day-14-shortcut-home",
-   "prompt": "A shortcut collection is a map of intent—if you read where each link points instead of where it sits. Reconstruct the targets and identify the impossible destination.",
+   "prompt": "A shortcut collection is a map of intent, if you read where each link points instead of where it sits. Reconstruct the targets and identify the impossible destination.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -7148,7 +7148,7 @@
    "title": "Stripped",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-15-assembly-and-symbol-loss",
-   "prompt": "No symbols. No names. Just raw assembly and the calling conventions it can't hide. Reconstruct the stripped functions from the instructions alone — the stack never lies.",
+   "prompt": "No symbols. No names. Just raw assembly and the calling conventions it can't hide. Reconstruct the stripped functions from the instructions alone. The stack never lies.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -8158,7 +8158,7 @@
    "title": "Decoder Ring",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-17-encoded-configuration-recovery",
-   "prompt": "The configuration is encoded, but the decoder ships with the binary — a ring waiting for its secret. Recover the reversible decoder and read what it was hiding.",
+   "prompt": "The configuration is encoded, but the decoder ships with the binary, a ring waiting for its secret. Recover the reversible decoder and read what it was hiding.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -9163,7 +9163,7 @@
    "title": "Jack in the Box",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-19-static-unpacking",
-   "prompt": "There's a payload hiding inside this binary, and a little decoder stub wound up to pop it out. Find the stub, watch it work, and catch what's inside — statically.",
+   "prompt": "There's a payload hiding inside this binary, and a little decoder stub wound up to pop it out. Find the stub, watch it work, and catch what's inside, statically.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -9387,7 +9387,7 @@
    "title": "Back Up a Minute",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-01-backup-exposure",
-   "prompt": "The deploy left its diary behind. Somewhere out in the open, an old backup is still telling secrets — go find the archive this site forgot to clean up.",
+   "prompt": "The deploy left its diary behind. Somewhere out in the open, an old backup is still telling secrets. Go find the archive this site forgot to clean up.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -9437,7 +9437,7 @@
    "title": "Permission to Slip",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-02-idor",
-   "prompt": "Your neighbor's records are none of your business. Pity the object API never got that memo — see if you can slip into somebody else's row.",
+   "prompt": "Your neighbor's records are none of your business. Pity the object API never got that memo. See if you can slip into somebody else's row.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -10110,7 +10110,7 @@
    "title": "Administratively Speaking",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-05-administratively-speaking",
-   "prompt": "There's a staff-only door with no lock on it — just a sign. Walk through like you own the place and prove the bouncer never existed.",
+   "prompt": "There's a staff-only door with no lock on it, just a sign. Walk through like you own the place and prove the bouncer never existed.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -10459,7 +10459,7 @@
    "title": "Shared Custody",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-21-shared-library-boundaries",
-   "prompt": "No binary is an island — this one leans on shared libraries for everything. Trace the exports, the imports, and the loader's handshake, and mind the boundaries.",
+   "prompt": "No binary is an island; this one leans on shared libraries for everything. Trace the exports, the imports, and the loader's handshake, and mind the boundaries.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -10683,7 +10683,7 @@
    "title": "Reflect Upon This",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-06-reflect-upon-this",
-   "prompt": "This page repeats everything you tell it. Make it repeat something that talks back — land the isolated callback and watch it reflect.",
+   "prompt": "This page repeats everything you tell it. Make it repeat something that talks back: land the isolated callback and watch it reflect.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -10742,7 +10742,7 @@
    "title": "Stored for Later",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-07-stored-xss",
-   "prompt": "Leave a little present in the guestbook. It only goes off when the reviewer stops by — good things come to those who wait.",
+   "prompt": "Leave a little present in the guestbook. It only goes off when the reviewer stops by. Good things come to those who wait.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -11375,7 +11375,7 @@
    "title": "Forged With Care",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-09-forged-with-care",
-   "prompt": "The browser obeys whoever asks nicely — even strangers. Forge one careful request and make the app change its mind while signed in as someone else.",
+   "prompt": "The browser obeys whoever asks nicely, even strangers. Forge one careful request and make the app change its mind while signed in as someone else.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12026,7 +12026,7 @@
    "title": "Template Temper",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-11-template-temper",
-   "prompt": "The template engine is feeling expressive today — it evaluates everything it hears. Whisper the right incantation and make the server speak in expressions.",
+   "prompt": "The template engine is feeling expressive today: it evaluates everything it hears. Whisper the right incantation and make the server speak in expressions.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12094,7 +12094,7 @@
    "title": "Ask Again Later",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-12-ask-again-later",
-   "prompt": "No answer right now? Fine. Plant your question inside the data and come back later — the delayed echo tells all.",
+   "prompt": "No answer right now? Fine. Plant your question inside the data and come back later. The delayed echo tells all.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12162,7 +12162,7 @@
    "title": "Posted Too Much",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-13-posted-too-much",
-   "prompt": "The form only asked for your name. But the API binds whatever you hand it — so hand it a promotion.",
+   "prompt": "The form only asked for your name. But the API binds whatever you hand it, so hand it a promotion.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12509,7 +12509,7 @@
    "title": "Spot the Difference",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-24-patch-diffing",
-   "prompt": "Two builds, one fix. Diff the vulnerable function against its corrected twin and pinpoint exactly what changed — then prove the old one was really broken.",
+   "prompt": "Two builds, one fix. Diff the vulnerable function against its corrected twin and pinpoint exactly what changed, then prove the old one was really broken.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12763,7 +12763,7 @@
    "title": "The API Has Opinions",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-14-the-api-has-opinions",
-   "prompt": "Take inventory of the API's little kingdom — every endpoint, every field, every function. Somewhere in there, authorization is merely a suggestion.",
+   "prompt": "Take inventory of the API's little kingdom: every endpoint, every field, every function. Somewhere in there, authorization is merely a suggestion.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -12831,7 +12831,7 @@
    "title": "Fetch Quest",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-15-fetch-quest",
-   "prompt": "The server will fetch anything you point it at — including places you can't reach yourself. Send it on a quest to the internal service and collect what it brings back.",
+   "prompt": "The server will fetch anything you point it at, including places you can't reach yourself. Send it on a quest to the internal service and collect what it brings back.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -13457,7 +13457,7 @@
    "title": "Shell Company",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-16-shell-company",
-   "prompt": "It's a shell company: all front, no substance — until your input gets a little too close to a real shell. Give it something to do and leave your mark.",
+   "prompt": "It's a shell company: all front, no substance, until your input gets a little too close to a real shell. Give it something to do and leave your mark.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -13973,7 +13973,7 @@
    "title": "Crash Course",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-26-crash-triage",
-   "prompt": "It crashed. That's the good news — the dump is a confession. Unwind the stack, find the faulting instruction, and triage what went wrong from the wreckage.",
+   "prompt": "It crashed. That's the good news: the dump is a confession. Unwind the stack, find the faulting instruction, and triage what went wrong from the wreckage.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -14664,7 +14664,7 @@
    "title": "Compiler Says What",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-27-compiler-attribution",
-   "prompt": "Every compiler signs its work. Compare the runtime and linker fingerprints across builds and name the toolchain — attribute this binary to its maker.",
+   "prompt": "Every compiler signs its work. Compare the runtime and linker fingerprints across builds and name the toolchain: attribute this binary to its maker.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -14954,7 +14954,7 @@
    "title": "Double Spent",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-21-double-spent",
-   "prompt": "One credit, two purchases. The ledger can't count what it can't see coming — race it and spend the same credit twice.",
+   "prompt": "One credit, two purchases. The ledger can't count what it can't see coming. Race it and spend the same credit twice.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -15353,7 +15353,7 @@
    "title": "Out of Order",
    "emoji": "📜",
    "gm_id": "script-analysis-day-28-terraform-cloud-timeline",
-   "prompt": "Terraform HCL describes cloud resources, expressions, and dependencies that change over time. Assemble the timeline from resources, prior scripts, and relationship evidence — without planning or applying anything — and find the change that happened out of order.",
+   "prompt": "Terraform HCL describes cloud resources, expressions, and dependencies that change over time. Assemble the timeline from resources, prior scripts, and relationship evidence (without planning or applying anything) and find the change that happened out of order.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -15455,7 +15455,7 @@
    "title": "Family Resemblance",
    "emoji": "⚙️",
    "gm_id": "binary-reverse-engineering-day-28-family-clustering",
-   "prompt": "These binaries might be related — or they might just look alike. Cluster them by behavior, watch out for false friends, and sort the family from the strangers.",
+   "prompt": "These binaries might be related, or they might just look alike. Cluster them by behavior, watch out for false friends, and sort the family from the strangers.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -15826,7 +15826,7 @@
    "title": "If a Breach Falls in a Log",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-25-if-a-breach-falls-in-a-log",
-   "prompt": "You broke in, and nobody wrote it down. Find the decisive moment the logs missed — if a breach falls in the forest, did it make a sound?",
+   "prompt": "You broke in, and nobody wrote it down. Find the decisive moment the logs missed. If a breach falls in the forest, did it make a sound?",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -16726,7 +16726,7 @@
    "title": "Seeing Double",
    "emoji": "🔎",
    "gm_id": "metadata-forensics-day-30-seeing-double",
-   "prompt": "The corpus is too large for manual browsing. Build a relationship map from exact identity, semantic identity, containment, and claimed provenance—then expose the fabricated cluster.",
+   "prompt": "The corpus is too large for manual browsing. Build a relationship map from exact identity, semantic identity, containment, and claimed provenance, then expose the fabricated cluster.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -17280,7 +17280,7 @@
    "title": "Pass the Identity",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-28-pass-the-identity",
-   "prompt": "Your identity is a hall pass — and this building accepts photocopies. Carry it across a delegated service boundary and cash it in where it doesn't belong.",
+   "prompt": "Your identity is a hall pass, and this building accepts photocopies. Carry it across a delegated service boundary and cash it in where it doesn't belong.",
    "solved": true,
    "points_available": 10,
    "modes": {
@@ -18040,7 +18040,7 @@
    "title": "Framework Roulette",
    "emoji": "🌐",
    "gm_id": "web-exploitation-day-30-framework-roulette",
-   "prompt": "New stack, no map, no familiar names. Everything you've learned, none of your crutches — prove the skills travel.",
+   "prompt": "New stack, no map, no familiar names. Everything you've learned, none of your crutches: prove the skills travel.",
    "solved": true,
    "points_available": 10,
    "modes": {

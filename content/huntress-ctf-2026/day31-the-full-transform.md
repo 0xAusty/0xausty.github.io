@@ -28,14 +28,14 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 31 was the Script lane's last challenge: XSLT polyglots in a final gauntlet that tied together all thirty-one languages and every host profile. The single had 1,846 fields and the mastery fifteen sets with 29,250. The interesting part is what did not change.
+Day 31 was the Script lane's last challenge: XSLT polyglots in a final gauntlet that tied together all thirty-one languages and every host profile. The single had 1,846 fields and the mastery fifteen sets with 29,250.
 
 ## The solve
 
 The same deterministic pipeline solved it, and the notes record no script solver commit after the Day 23 fold-in. The single was confirmed at 09:00:25, the Time Trial at 09:00:41 and the mastery at 09:03:12.
 
-The mastery was slower than before. Its solve step took about 142 seconds for 29,250 fields, against about 10 seconds for 26,572 on Day 30. The notes do not state why. They do record a stuck warmups worker pegging a core from 09:00 and a crashed coordinating session that morning.
+The mastery was slower than before. Its solve step took about 142 seconds for 29,250 fields, against about 10 seconds for 26,572 on Day 30. The notes do not say why. They do record a stuck warmups worker pegging a core from 09:00 and a crashed coordinating session that morning.
 
 The supervisor still caught the 09:00 drop and banked the deterministic singles, and the day's retro counts the day 15 of 15 recovered after the crash and a dead escalator.
 
-The takeaway is that a lane built to run unattended did, on the one morning it was tested hardest.
+The lane was built to run unattended, and on that morning, with the rest of the automation in trouble, it did.

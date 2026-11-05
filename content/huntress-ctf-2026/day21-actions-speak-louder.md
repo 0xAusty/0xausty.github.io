@@ -11,7 +11,7 @@ catalog_key = "day21-actions-speak-louder"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A routine GitHub Actions persistence morning: a 1,373-field single and its two timed modes banked by the 09:00 cron with no solver change: what a covered shape looks like."
+description = "A routine GitHub Actions persistence morning: the 09:00 cron banked a 1,373-field single and both timed modes without any change to the solver."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,7 +28,7 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-The Day 21 bundle added GitHub Actions workflow polyglots. The single asked 1,373 fields about triggers, trust boundaries and the job that keeps coming back, and the Time Trial repeated that count. This one was routine: the script solver already covered the shape, so there is little to tell beyond that.
+The Day 21 bundle added GitHub Actions workflow polyglots. The single asked 1,373 fields about triggers, trust boundaries and the job that keeps coming back, and the Time Trial repeated that count. It was routine, because the script solver already covered the shape.
 
 ## The solve
 
@@ -36,4 +36,4 @@ Nobody touched it. The 09:00 cron ran the pipeline, which read the new bundle, d
 
 No change to the solver is recorded for the day. The hand-off note for the morning says only that the script and mobile lanes banked three of three automatically.
 
-A covered shape costs nothing on the day, and the work that made it so was done on earlier ones.
+Once the solver covers a shape, the day itself costs nothing; the work was done on earlier days.

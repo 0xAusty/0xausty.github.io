@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-The alphabet got bigger, and "Adobe might recognize the neighbors" is a hint at Ascii85 with its angle-bracket framing. The notes do not name the encoding, so that is an inference from the prompt. The decoder had an Ascii85 step from its first commit.
+The alphabet got bigger, and "Adobe might recognize the neighbors" hints at Ascii85 with its angle-bracket framing. The notes don't name the encoding, so that's an inference from the prompt. The decoder had an Ascii85 step from its first commit.
 
 ## The solve
 
-The single and the time trial were decoded by the pipeline at release. The mastery banked 99 of its 113 sets and left 14 unmapped after a solve of about a minute. A Claude Code session that later died finished the rest, and the mastery was confirmed by 09:11:31. How it finished the 14 is not recorded.
+The pipeline decoded the single and the time trial at release. The mastery banked 99 of its 113 sets after a solve of about a minute and left 14 unmapped. A Claude Code session that later died finished the rest, and the mastery was confirmed by 09:11:31. How it finished the 14 isn't recorded.
 
-Two fixes came afterwards. On 28 October a commit traced Day 22 and 23 mastery stragglers to blobs whose chunk straddles the sentence and slug seam, where a rail-fence key learned in one worker never reached the others. It is likely, but not stated, that these were the same 14. On Day 24 the agent also found that the Ascii85 step stripped the Adobe frame before decoding, which drops the last byte. It decodes with the frame now, and one stored mastery golden was corrected.
+Two fixes came afterwards. On 28 October a commit traced Day 22 and 23 mastery stragglers to blobs whose chunk straddles the sentence and slug seam, where a rail-fence key learned in one worker never reached the others. These were probably the same 14, though the notes don't say so. On Day 24 the agent also found that the Ascii85 step stripped the Adobe frame before decoding, which drops the last byte. It decodes with the frame now, and one stored mastery golden was corrected.
 
 Frame characters are part of the data: strip them and you can lose the last byte.

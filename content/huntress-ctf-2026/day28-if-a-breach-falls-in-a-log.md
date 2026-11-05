@@ -28,12 +28,12 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-A different angle for the web lane: the flaw is in what the application recorded, not in what it allowed. One proof per target on a live Slim app, mastery a bundle of five.
+This one came at the web lane from a different angle: the flaw was in what the application recorded. The target was a live Slim app, with one proof per target and mastery a bundle of five.
 
 ## The solve
 
-The target had a privileged feature action and an audit route that reports discrepancies over its log. `solve_logging_gap` in `websolve.py` runs the protected export through the feature route, which returns an export id and the real operation name. It then reads the audit log, where that export appears as a harmless page view. Finally it submits the discrepancy report tying the export id to the real operation, the decisive moment the log missed, and reads the proof from the reply.
+The target had a privileged feature action and an audit route that reports discrepancies over its log. `solve_logging_gap` in `websolve.py` runs the protected export through the feature route, which returns an export id and the real operation name. Then it reads the audit log, where the same export appears as a harmless page view. Last, it submits a discrepancy report tying the export id to the real operation the log missed, and reads the proof from the reply.
 
-The solve depends on correlating the export id across the feature reply and the audit log. An agent recovery wrote it on the release morning. The single was CORRECT at 09:14:09, the time trial was recorded at 09:18:28 and mastery at 09:19:20.
+Everything depends on correlating the export id across the feature reply and the audit log. An agent recovery wrote that on the release morning. The single was CORRECT at 09:14:09, the time trial was recorded at 09:18:28 and mastery at 09:19:20.
 
-Takeaway: a privileged action that is logged as something benign is a detection gap, and the fix is to log it as itself.
+A privileged action that gets logged as something benign is a detection gap, and the fix is to log it as itself.

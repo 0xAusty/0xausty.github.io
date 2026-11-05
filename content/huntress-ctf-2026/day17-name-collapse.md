@@ -32,10 +32,10 @@ The prompt described restoring behaviour after identifier shrinking and decoy in
 
 ## The solve
 
-At release `mobsolve.py` found no answer, so nothing was submitted. Because the single gates the time trial and mastery, both showed as not attempted too. The supervisor had already exited at 09:00:24.
+At release `mobsolve.py` found no answer, so nothing was submitted. The single gates the time trial and mastery, so both showed as not attempted too. The supervisor had already exited at 09:00:24.
 
-The puzzle used a new codec the notes call `indexed`: a 20-character data string and an `order` list. Claude Code fixed it in session. Character `i` of the string belongs at position `order[i]`, but `order` could mean target position or source index. So `decode_puzzle` builds both readings (scatter and gather) and keeps the one that is a valid answer code, only if exactly one is. That avoids guessing the convention.
+The puzzle used a new codec the notes call `indexed`, a 20-character data string plus an `order` list, and Claude Code fixed it in session. Character `i` of the string belongs at position `order[i]`, but `order` could mean either the target position or the source index. Rather than pick a convention, `decode_puzzle` builds both readings (scatter and gather) and keeps the one that is a valid answer code, and only if exactly one is.
 
-The single was correct at 09:12:21, with the time trial correct at 09:12:32 and the mastery at 09:12:39. The fix was committed at 09:38.
+The single was correct at 09:12:21, the time trial at 09:12:32 and the mastery at 09:12:39. The fix was committed at 09:38.
 
-It was a one-minute fix that waited about twelve minutes behind the metadata and binary work. The rule that came out of it: read every miss first and fix the cheapest first.
+A one-minute fix waited about twelve minutes behind the metadata and binary work. The rule that came out of it is to read every miss first and fix the cheapest first.

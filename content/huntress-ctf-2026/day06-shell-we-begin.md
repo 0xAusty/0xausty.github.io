@@ -21,7 +21,7 @@ description = "The first 399-field challenge: submitting by language family and 
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["homebase", "agent"]
 
-tools  = ["bashsolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["bashsolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["malware-analysis", "bash", "xor", "time-trial"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 
@@ -34,8 +34,8 @@ Day 6 added six Bash behaviour graphs and took the challenge to 399 fields. Each
 
 `bashsolve.py` reproduces each `Recover_` function's representation and transform in Python and checks the result against the descriptor marker, never running the script. A later fallback tries every known representation and transform pair and keeps only one that yields a valid descriptor. Stage count is an explicit descriptor field, not the number of steps.
 
-One wrong field rejects the whole call, while accepted fields stay banked. So the Claude Code session submitted per family and bisected the bad ones, reaching 386 of 399 on 6 October. The last thirteen were generator labels for the Batch and VBScript wrappers, and the compound guesses at the Batch one were all rejected. The labels that finished the single on 7 October came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery at 22:13:49 on 7 October. The time trial was correct at 15:54:23 on 7 October.
+The Claude Code session submitted per language family and bisected the rejected ones, reaching 386 of 399 on 6 October. The last thirteen were generator labels for the Batch and VBScript wrappers, and the compound guesses at the Batch one were all rejected. The labels that finished the single on 7 October came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery at 22:13:49 on 7 October. The time trial was correct at 15:54:23 on 7 October.
 
 Teaching the shared decoder these codecs also lifted the still-open Day 4 and 5 singles.
 
-Submit by family, because a rejected call still keeps the accepted fields.
+Submit by family: one wrong field rejects the whole call, but the accepted fields stay banked.

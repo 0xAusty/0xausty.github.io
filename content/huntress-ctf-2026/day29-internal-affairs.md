@@ -21,19 +21,19 @@ description = "An SSRF on a public fetch route reached a loopback-only case serv
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["web-exploitation", "ssrf", "idor"]
 skills = ["Web Application Security"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-The target was a Ktor service with a public fetch route. The single and time trial asked for one proof field, mastery for a bundle of five. The bug classes were routine, but it chained two weaknesses, which is the useful part.
+The target was a Ktor service with a public fetch route. The single and time trial asked for one proof field, mastery for a bundle of five. Both bug classes were routine. The useful part is that the challenge chained them.
 
 ## The solve
 
-The service exposed a topology route that disclosed an internal case service reachable only from loopback, and a directory listing each case with its owner. The headless escalator's Claude agent folded the chain into `websolve.py` as `solve_internal_affairs`, using the **server-side request forgery** in the public fetch route to reach that internal service. It asked for a case owned by someone other than the current role. The internal service had no per-object owner check, so it returned the record, and the proof sat in the reply's evidence field. The solver tries a foreign-owned case first, then every listed one.
+A topology route disclosed an internal case service reachable only from loopback, and a directory listed each case with its owner. The headless escalator's Claude agent folded the chain into `websolve.py` as `solve_internal_affairs`. It uses the server-side request forgery in the public fetch route to reach the internal service and asks for a case owned by someone other than the current role. The internal service had no per-object owner check, so it returned the record, with the proof in the reply's evidence field. The solver tries a foreign-owned case first, then every listed one.
 
 The escalator log marks all three modes correct. The single was correct at 09:05:17 on the release morning.
 
-Two boundaries failed here: the fetch let a public caller reach an internal service, and the internal service checked no owner on what it served. The fix is an allow-list on outbound fetches plus an owner check on every object, wherever the request came from.
+Two boundaries failed here. The fetch let a public caller reach an internal service, and the internal service checked no owner on what it served. The fix is an allow-list on outbound fetches plus an owner check on every object, wherever the request came from.

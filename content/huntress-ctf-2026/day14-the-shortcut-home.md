@@ -14,7 +14,7 @@ skills = ["Digital Forensics"]
 toc = false
 +++
 
-Each mode asked for one exact-text field: where a Windows shortcut actually points, as opposed to where the file sits. The prompt hinted at an impossible destination. The parsing was routine once the format was in hand, and the day is better known for what it did to the rest of the lane.
+Each mode asked for one exact-text field: where a Windows shortcut actually points, as opposed to where the file sits. The prompt hinted at an impossible destination. Once the format was in hand the parsing was routine. The bigger change that day was to the rest of the lane.
 
 ## The solve
 

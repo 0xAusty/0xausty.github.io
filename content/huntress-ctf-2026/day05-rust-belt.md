@@ -36,4 +36,4 @@ At the 5 October release the supervisor logged no solver for the binary lane, so
 
 The last field, the Day 1 symbol list, came from the event's Homebase AI (GPT-6 Luna) on 7 October, and the agent then swept the single, time trial and mastery. The single went CORRECT at 11:00:56, the time trial at 11:02:32 and the mastery at 11:06:46.
 
-A plain find on the magic returns the decoy first. Validate the checksum, not the magic.
+A plain find on the magic returns the decoy first, so validate the checksum, not the magic.

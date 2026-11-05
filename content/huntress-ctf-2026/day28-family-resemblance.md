@@ -11,7 +11,7 @@ catalog_key = "day28-family-resemblance"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A 392-field clustering day where the first fold handled only ELF, so the time trial and mastery bundles, which shipped PE variants, needed a format-aware second pass."
+description = "A 392-field clustering day: the first fold handled only ELF, but the time trial and mastery bundles shipped PE variants and needed a format-aware second pass."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -21,19 +21,19 @@ description = "A 392-field clustering day where the first fold handled only ELF,
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["binsolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["binsolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["reverse-engineering", "elf", "pe", "time-trial", "mastery"]
 skills = ["Reverse Engineering"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-The generator went back through the previous 27 days of evidence and asked new structural facts about the earlier members: family counts, an ordered-set SHA-256 and the formats and config of three new role members. It was routine record-reading with one trap, which was that the questions defined their own counts and orderings.
+The generator went back through the previous 27 days of evidence and asked new structural facts about the earlier members: family counts, an ordered-set SHA-256 and the formats and config of three new role members. It was routine record-reading with one trap: the questions defined their own counts and orderings.
 
 ## The solve
 
 The pipeline banked 362 of 392 fields at release, with 30 unresolved: symbol counts, a section count, a vtable symbol, the d28 role formats and config. Claude Code handed the miss to a cold general-purpose subagent, which took about 24 minutes over two rounds to fold the missing pieces into `binsolve.py`.
 
-The first fold was ELF-only. The time trial and mastery bundles shipped PE variants of earlier members, so the time trial stuck at 391 of 392 on a section count and the mastery lacked the vtable symbol in five sets. The final fold made the pass format-aware: ELF section headers against the COFF section count, and a COFF symbol-table parser for the vtable symbol. It also fixed a bug where one field could take a sibling's hash. The supervisor hot-reloaded each edit. The single was correct at 09:23:06, the time trial at 09:43:21 and the mastery at 09:53:20.
+The first fold was ELF-only, but the time trial and mastery bundles shipped PE variants of earlier members. The time trial stuck at 391 of 392 on a section count, and the mastery lacked the vtable symbol in five sets. The final fold made the pass format-aware, with ELF section headers against the COFF section count and a COFF symbol-table parser for the vtable symbol. It also fixed a bug where one field could take a sibling's hash. The supervisor hot-reloaded each edit, and the single was correct at 09:23:06, the time trial at 09:43:21 and the mastery at 09:53:20.
 
 Check which container format the timed bundles ship before trusting a fold built on the single.

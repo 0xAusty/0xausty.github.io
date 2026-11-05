@@ -34,6 +34,6 @@ Day 22 asked for the main class of a Java archive, as exact text. The prompt war
 
 The JAR parser (`parse_jar` in `metaextra.py`) had been added on 14 October, in anticipation of this format. It reads `META-INF/MANIFEST.MF`, unfolds the continuation lines and exposes each header in snake case, so `Main-Class` resolves as `main_class`. The manifest value was accepted as declared, and the pipeline did the whole day without a human or an agent.
 
-What slowed the day was elsewhere. A cold binary subagent took 16.3 minutes, which produced a rule: solve deterministic misses inline, and send only web misses to agents.
+The slow part of the day was in another lane. A cold binary subagent took 16.3 minutes, which produced a rule: solve deterministic misses inline, and send only web misses to agents.
 
 Covering a format before the event asks for it is the cheapest way to win a release-time race.

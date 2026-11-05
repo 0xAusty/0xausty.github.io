@@ -38,4 +38,4 @@ The emulated code also reads a byte asset from a feature split, so `mobemu.py` g
 
 The timed run failed on every attempt from 09:07 to 09:20, six times with an integer-has-no-length error from the emulated code. An emulator fix and a reload at 09:21:45 returned one merged answer, and the time trial and mastery were correct by 09:21:50.
 
-Treat a bundle as one app, not a folder of APKs.
+An App Bundle is one app, and the solver now loads its splits that way.

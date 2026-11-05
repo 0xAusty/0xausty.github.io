@@ -28,7 +28,7 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-Same warmups shape as the days before it: decode the blob completely and submit the slug from its final non-empty line. The encoding this time was URL percent-encoding, and the prompt's line about an address bar having a moment gave it away. Routine.
+Same warmups shape as the days before it: decode the blob completely and submit the slug from its final non-empty line. The encoding this time was URL percent-encoding, given away by the prompt's line about an address bar having a moment, and the decode was routine.
 
 ## The solve
 

@@ -21,19 +21,19 @@ description = "Prefetch files answered on the first submit because the parser an
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["metaextra.py", "xpress.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["metaextra.py", "xpress.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["forensics", "prefetch"]
 skills = ["Digital Forensics"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-The single asked for `executable_name` from a prefetch file, `trace-001.pf`; the timed modes grew that to 31 and then 310 cumulative fields. Nothing about the day was hard. It was a payoff for preparation.
+The single asked for `executable_name` from a prefetch file, `trace-001.pf`; the timed modes grew that to 31 and then 310 cumulative fields. Nothing about the day was hard, because the preparation had been done well in advance.
 
 ## The solve
 
-`metaextra.parse_prefetch` already existed. The agent built it on 14 October for uncompressed SCCA versions 17, 23, 26 and 30, and on 15 October it gained version 31, following libyal's notes, and the Windows 10 compressed format, decoded by `xpress.py`, which was written from the MS-XCA pseudocode. The parser read the name from the header and the pipeline answered on the first submit, with the three modes banked at 09:00:05, 09:00:07 and 09:00:10. All three were first bloods, the first of 1,602 teams: the single landed 0.3 s ahead of the next team, the Mastery 1.3 s.
+The agent built `metaextra.parse_prefetch` on 14 October for uncompressed SCCA versions 17, 23, 26 and 30. On 15 October it gained version 31, following libyal's notes, and the Windows 10 compressed format, decoded by `xpress.py`, which was written from the MS-XCA pseudocode. The parser read the name from the header and the pipeline answered on the first submit, banking the three modes at 09:00:05, 09:00:07 and 09:00:10. All three were first bloods, the first of 1,602 teams: the single landed 0.3 s ahead of the next team, the Mastery 1.3 s.
 
-The decoder had a story. One of the spec's worked examples had lost a byte in the fetched copy, and it surfaced only because the Huffman code came out incomplete: the Kraft sum fell short of 1. With the byte restored, the example decoded to the alphabet. At that point the decoder had never seen a real prefetch file, and the notes do not record whether the Day 26 files were compressed.
+Building the decoder hit one snag. One of the spec's worked examples had lost a byte in the fetched copy, and that surfaced only because the Huffman code came out incomplete: the Kraft sum fell short of 1. With the byte restored, the example decoded to the alphabet. At that point the decoder had never seen a real prefetch file, and the notes don't record whether the Day 26 files were compressed.
 
-The takeaway: eleven days of lead time turned this into a non-event.
+Eleven days of lead time turned this into a non-event.

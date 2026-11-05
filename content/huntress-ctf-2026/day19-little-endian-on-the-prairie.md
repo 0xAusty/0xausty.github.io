@@ -28,12 +28,12 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 19 asked for the ELF machine type as a four-digit hex string in the single, with 24 fields in the Time Trial and 120 in Mastery. It looked routine, and it was: the single was correct at 09:00:05, the time trial at 09:00:08 and the mastery at 09:00:13. The interesting part came the next morning.
+Day 19 asked for the ELF machine type as a four-digit hex string in the single, with 24 fields in the Time Trial and 120 in Mastery. It looked routine, and it was: the single was correct at 09:00:05, the time trial at 09:00:08 and the mastery at 09:00:13. The trouble surfaced the next morning.
 
 ## The solve
 
-At 09:00 the engine had no field named `e_machine`. The ELF parser exposed the value only as `machine`. The guess path offered the parsed machine value, rendered at the field's u16 width (`0x` plus four hex digits), as its first suspect. It was accepted on the first submit in every mode, with no human in the loop.
+At 09:00 the engine had no field named `e_machine`, because the ELF parser exposed the value only as `machine`. The guess path offered the parsed machine value, rendered at the field's u16 width (`0x` plus four hex digits), as its first suspect. It was accepted on the first submit in every mode, with no human in the loop.
 
-That live guess hid a problem. The offline replay, which uses the deterministic solver, still returned nothing for this field, so every replay after Day 19 had quietly regressed. A preflight failure at 08:26 the next day exposed it, behind three expected web failures that a truncated output list had been hiding. The fix folded the spec names (`e_*` and `ei_*`) into `parse_elf`, with the u16 suffix on the field name driving the hex width. The preflight also stopped truncating its list.
+The live guess hid a gap. The offline replay uses the deterministic solver, which still returned nothing for this field, so every replay after Day 19 had regressed. A preflight failure at 08:26 the next day exposed it, behind three expected web failures that a truncated output list had been hiding. The fix folded the spec names (`e_*` and `ei_*`) into `parse_elf`, with the u16 suffix on the field name driving the hex width. The preflight also stopped truncating its list.
 
 A solve that only the live guess path can produce will not show up in an offline replay, and a pre-commit gate limited to changed files missed it because that commit touched no metadata solver file.

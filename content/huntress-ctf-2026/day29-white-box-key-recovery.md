@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asked for an equivalent key operation to be recovered from challenge-owned table transformations. It sounds like heavy crypto. The single's puzzle was a new **table** codec: 20 hex-encoded bytes, the length of an answer code, and a declared scalar key.
+The prompt asked for an equivalent key operation to be recovered from challenge-owned table transformations, which sounds like heavy crypto. The single's puzzle was a new **table** codec: 20 hex-encoded bytes, the length of an answer code, and a declared scalar key.
 
 ## The solve
 
 The per-position tables are equivalent to an affine operation, where each byte is the plain byte plus (key + step * position) mod 256. Every answer starts with the same known four-character prefix, so the first four bytes pin the intercept and the slope, and the declared key is the intercept. A decode is accepted only if all 20 bytes form a valid code. As a fallback, `_table_decode` in `mobsolve.py` takes the declared key as the intercept, tries slopes from -32 to 32 and accepts only a unique valid code. Nothing is hard-coded per variant.
 
-Three supervisor attempts had returned nothing at release and after two reloads. Claude Code submitted the single itself in the recovery session, outside the supervisor, at 09:11:00, and the supervisor then banked the time trial and mastery itself by 09:11:09.
+Three supervisor attempts had returned nothing at release and after two reloads. Claude Code submitted the single itself in the recovery session, outside the supervisor, at 09:11:00, and the supervisor then banked the time trial and mastery by 09:11:09.
 
-The answer format supplied the known plaintext. That the miss waited for a human is why the escalator was built that night.
+The answer format supplied the known plaintext. Because the miss waited for a human, the escalator was built that night.

@@ -14,7 +14,7 @@ skills = ["Automation & Tooling"]
 toc = false
 +++
 
-Day 5 is decimal byte values, hinted by "reduced to numbers", and it was the first morning the cron runner (`daily.py`) ran. The cipher was routine. The release timing was not.
+Day 5 is decimal byte values, hinted by "reduced to numbers", and it was the first morning the cron runner (`daily.py`) ran. The cipher was routine, and the trouble that morning was timing.
 
 ## The solve
 

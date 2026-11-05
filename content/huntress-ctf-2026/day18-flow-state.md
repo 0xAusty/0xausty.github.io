@@ -28,11 +28,11 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 18 was control-flow and call-graph reconstruction: 216 fields (Days 1 to 17 plus 12 new ones), the same 216 for the time trial, and 864 for the mastery. Routine for the pipeline, so this note is short.
+Day 18 was control-flow and call-graph reconstruction, and routine for the pipeline: 216 fields (Days 1 to 17 plus 12 new ones), the same 216 for the time trial, and 864 for the mastery.
 
 ## The solve
 
-Nothing was fixed in session. The single, the time trial and the mastery were solved automatically at release, on the per-day facts Claude Code had added in session on Day 17. The log records the single at 216 of 216 about 6 seconds after release, and the mastery was fetched, solved and accepted in about 21 seconds. All three modes were correct by 09:00:36.
+Nothing was fixed in session. The single, the time trial and the mastery were solved automatically at release, using the per-day facts Claude Code had added in session on Day 17. The log records the single at 216 of 216 about 6 seconds after release, and the mastery was fetched, solved and accepted in about 21 seconds. All three modes were correct by 09:00:36.
 
 The notes do not record what the Day 18 questions themselves asked. Day 28 later re-asked the binary through handler symbols named for success, decoy and failure events, which is the only hint of its contents.
 

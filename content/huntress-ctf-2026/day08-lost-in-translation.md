@@ -38,4 +38,4 @@ The 08:50 cron never fired, because the laptop was asleep, so Claude Code worked
 
 The platform also dropped the timers from this day, so the timed modes ran untimed by default.
 
-The lasting point is the descriptor: the same pattern carried the lane through the rest of the month.
+The descriptor pattern carried the lane through the rest of the month.

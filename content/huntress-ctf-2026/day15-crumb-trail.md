@@ -28,7 +28,7 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = true
 +++
 
-Crumb Trail is the day an answer key changed under a question the script lane had asked since Day 3. The single went through at release. The time trial, generated fresh that morning, had four of its 1,026 answers wrong, all from a rule that two weeks of accepted answers had confirmed. The recovery is the story: the grader used as an oracle, a replay corpus that stopped a fix which would have broken 140 old answers, and a self-healing submit committed by 09:52.
+Crumb Trail is the day an answer key changed under a question the script lane had asked since Day 3. The single went through at release. The time trial, generated fresh that morning, had four of its 1,026 answers wrong, all from a rule that two weeks of accepted answers had confirmed. The recovery used the grader as an oracle, leaned on a replay corpus that stopped a fix which would have broken 140 old answers, and ended in a self-healing submit committed by 09:52.
 
 ## The challenge
 
@@ -104,7 +104,7 @@ The mastery, refused in the 09:00:31 summary, could only follow the time trial, 
 
 - **Trusting a confirmed field.** The two-try covers only fields the bytes can't decide; the wrong labels were among fields earlier variants had confirmed, so it never ran.
 - **The first version of the rule.** Applied more widely, it regressed 140 past fields in the replay corpus.
-- **Reading the 409 as the single-first lock.** The 09:52 commit also ran each lane's time trial and mastery in parallel after the single. The next morning three lanes' masteries got HTTP 409: a mastery waits for its time trial. The Day-15 409 had followed a failed time trial, and in 44 solved pairs no mastery had finished first. Nobody had asked the history.
+- **Reading the 409 as the single-first lock.** The 09:52 commit also ran each lane's time trial and mastery in parallel after the single. The next morning three lanes' masteries got HTTP 409: a mastery waits for its time trial. The Day-15 409 had followed a failed time trial, and in 44 solved pairs no mastery had finished first, but nobody had checked.
 
 ## Takeaways
 

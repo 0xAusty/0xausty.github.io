@@ -28,7 +28,7 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = true
 +++
 
-The last Metadata Forensics single of the month was the lane's hardest reasoning question. A case zip held artifacts that each name the next in their own metadata, and the answer was the ordered ids of the real execution-and-delivery chain, with a decoy loop beside it. Two things make it worth writing up: the one parsing bug on record turned that loop into a fake chain, the mistake the prompt warns against, and the last morning went wrong in four separate ways.
+The last Metadata Forensics single of the month was the lane's hardest reasoning question. A case zip held artifacts that each name the next in their own metadata, and the answer was the ordered ids of the real execution-and-delivery chain, with a decoy loop beside it. It's worth writing up for two reasons. The one parsing bug on record turned that loop into a fake chain, which is the mistake the prompt warns against, and the last morning went wrong in four separate ways.
 
 ## The challenge
 
@@ -122,11 +122,11 @@ The corpus holds one attempt per mode, a time trial at 09:15:28 and a mastery at
 ## Dead ends
 
 - **A greedy pattern for edges.** It read one character past an id in a packed SQLite row and broke the decoy loop into a chain. Replaced by exact matching of the known ids.
-- **Leaving the timed modes to the supervisor.** The reload waited behind a stuck warmups worker. The same commit added `base64+decompress` and `decompress` to the first steps in `wusolve.py`, so that chunk now resolves in about 0.35 s; the reload gating and the escalator's 600-second ceiling were found that day and not fixed; it was the last release.
+- **Leaving the timed modes to the supervisor.** The reload waited behind a stuck warmups worker. The same commit added `base64+decompress` and `decompress` to the first steps in `wusolve.py`, so that chunk now resolves in about 0.35 s. The reload gating and the escalator's 600-second ceiling were found that day and not fixed, since it was the last release.
 
 ## Takeaways
 
 1. **The decoy was structural.** The unsupported conclusion was a loop with no origin and no end, so the test that mattered was the shape: one root, one path to the done marker, the leftover reported apart.
-2. **Match the identifiers you know.** When the valid ids are known in advance, search for those exact strings. A pattern for anything id-shaped read one character too far and gave the decoy the shape of the chain.
+2. **Match the identifiers you know.** The valid ids were known in advance, and a pattern for anything id-shaped still read one character too far and gave the decoy the shape of the chain.
 3. **One scan stood in for five parsers.** Every edge was an id, so a search of each artifact's raw bytes replaced a reader per channel. The cost is the check the prompt asks for: the scan can't tell an id in the defending channel from one anywhere else in the file.
 4. **Recovery paths fail too.** The escalator, the coordinating session and the supervisor's reload all failed on the last morning. The single still landed and the timed modes were CORRECT before noon, but not by the route the playbook planned.

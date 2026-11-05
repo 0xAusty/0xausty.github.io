@@ -28,14 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asks you to abuse an overbroad content-provider path and correlate its records with earlier intent evidence. Nothing about the solve needed a person. It is the first mobile day on record that the pipeline cleared untouched.
+The prompt asks you to abuse an overbroad content-provider path and correlate its records with earlier intent evidence. This is the first mobile day on record that the pipeline cleared with no person involved.
 
 ## The solve
 
-At release the daily runner took the mobile single, then the time trial, then mastery, each through `mobsolve.py`'s static puzzle decode. Each was submitted and came back correct. The log gives each solve at about one second from its start. The release was logged at 09:00:09; the single was correct at 09:00:11, the time trial at 09:00:13 and the mastery at 09:00:19, ahead of the sweep summary at 09:00:21.
+At release the daily runner took the mobile single, then the time trial, then mastery, each through `mobsolve.py`'s static puzzle decode, and each one came back correct. The log puts every solve at about one second from its start. The release was logged at 09:00:09. The single was correct at 09:00:11, the time trial at 09:00:13 and the mastery at 09:00:19, ahead of the sweep summary at 09:00:21. The notes don't record which codec Day 6 used.
 
-The time trial and mastery still carried server deadlines on Day 6. The log shows deadlines of 09:00:18 and 09:00:24, and both were met. The timers went away on Days 8 and 9 and came back on Day 10.
+The time trial and mastery still carried server deadlines on Day 6. The log shows 09:00:18 and 09:00:24, and both were met. The timers went away on Days 8 and 9 and came back on Day 10.
 
-The notes do not record which codec Day 6 used.
-
-A routine day, and the pipeline made it look like one.
+It was a routine day, and the pipeline made it look like one.

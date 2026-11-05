@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 4 grew the cumulative bundle to 32 fields: the 24 from Days 1 to 3 again, plus eight for a Go binary. Go's chatty runtime made no difference. This was routine, with the same config record as before.
+Day 4 grew the cumulative bundle to 32 fields: the 24 from Days 1 to 3 again, plus eight for a Go binary. Go's chatty runtime made no difference: it was the same config record as before, and the day was routine.
 
 ## The solve
 

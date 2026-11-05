@@ -1,6 +1,6 @@
 {{- /*
   ctf-glance.html — the generated "at a glance" card on a challenge page, plus
-  the attribution list and the flags note under it.
+  the attribution list under it.
   Context: dict  page   the challenge page
                  entry  its catalog entry (a map from hugo.Data)
                  lane   the lane page, or nil
@@ -15,7 +15,7 @@
   "When": release_morning → "at <time> on release morning"; CORRECT with a
   confirmed_at whose confirmed_source is not "harness-state" → "at <ts> ET";
   any other CORRECT mode → "not recorded" (a harness-state timestamp is when a
-  state file was written, not a solve time); otherwise "—". "At" when the
+  state file was written, not a solve time); otherwise "not solved". "At" when the
   source is the official scoreboard (an exact solve time), "by" for any other
   source, because those times are upper bounds: a status line written after the
   run, a completion summary, or a commit that reports the day complete.
@@ -100,17 +100,17 @@
       {{- $correct := eq $result "CORRECT" }}
       {{- $status := "open" }}
       {{- if .release_morning }}{{ $status = "release" }}{{ else if $correct }}{{ $status = "later" }}{{ end }}
-      {{- $when := "—" }}
+      {{- $when := "not solved" }}
       {{- $prep := cond (eq (printf "%v" (.confirmed_source | default "")) "scoreboard") "at" "by" }}
       {{- if .release_morning }}{{ $when = printf "%s %v on release morning" $prep .release_morning }}
       {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "%s %v ET" $prep .confirmed_at }}
       {{- else if $correct }}{{ $when = "not recorded" }}{{ end }}
       <tr>
         <th scope="row">{{ $m.label }}{{ with .points }} <small class="text-dim">{{ int . }} pts</small>{{ end }}</th>
-        <td data-label="Result"><span class="ctf-chip is-{{ $status }}{{ if .first_blood }} is-first-blood{{ end }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "—" }}{{ with .first_blood }} <span class="ctf-first-blood" title="First blood: the first of all teams to solve this mode{{ with .margin_s }}, {{ . }} s ahead of the next team{{ end }}">First blood</span>{{ end }}</td>
+        <td data-label="Result"><span class="ctf-chip is-{{ $status }}{{ if .first_blood }} is-first-blood{{ end }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "not recorded" }}{{ with .first_blood }} <span class="ctf-first-blood" title="First blood: the first of all teams to solve this mode{{ with .margin_s }}, {{ . }} s ahead of the next team{{ end }}">First blood</span>{{ end }}</td>
         <td data-label="When">{{ $when }}</td>
         <td data-label="Questions">
-          {{- with .questions }}{{ int . }}{{ else }}—{{ end }}
+          {{- with .questions }}{{ int . }}{{ else }}not recorded{{ end }}
           {{- with .format_kinds }}
             {{- $kinds := slice }}{{ range $k, $v := . }}{{ $kinds = $kinds | append (dict "n" (int $v) "k" (replace (printf "%v" $k) "_" " ")) }}{{ end }}
             {{- $parts := slice }}{{ range sort $kinds "n" "desc" }}{{ $parts = $parts | append (printf "%d %s" .n .k) }}{{ end }}
@@ -165,4 +165,3 @@
   {{- end }}
 </ul>
 {{- end }}
-<p class="ctf-flagnote">Flags are omitted: they were unique per team (an MD5 value) and have no spoiler value.</p>

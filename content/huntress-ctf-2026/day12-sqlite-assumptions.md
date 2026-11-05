@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 12 asked for a backend answer code by reconstructing authorisation from a synthetic SQLite cache and proving server-side impact. Unattended and routine.
+Day 12 asked for a backend answer code, reached by reconstructing authorisation from a synthetic SQLite cache and proving server-side impact. It was routine, and the pipeline solved it with nobody watching.
 
 ## The solve
 
-`daily.py` solved each mode about a second after starting it and submitted all three CORRECT: the single at 09:00:03, the time trial at 09:00:06 and the mastery at 09:00:08. The summary time was 09:00:55, 55 seconds after the release was seen, but that summary waited on slower lanes in a log full of 429 resends. The mobile time trial and mastery had deadlines of 09:00:35 and 09:00:37 and came back CORRECT inside them.
+`daily.py` solved each mode about a second after starting it and submitted all three CORRECT: the single at 09:00:03, the time trial at 09:00:06 and the mastery at 09:00:08. The mobile time trial and mastery had deadlines of 09:00:35 and 09:00:37 and came back CORRECT inside them. The summary is stamped 09:00:55, 55 seconds after the release was seen, but it waited on slower lanes in a log full of 429 resends.
 
-One later gotcha: the time trial and mastery could not be re-run for benchmarking. The 16 October sweep got HTTP 409 `retry_variants_unavailable`, the legacy-route behaviour the handoff notes describe for most of Days 1 to 12.
+The timed modes could not be re-run later for benchmarking. The 16 October sweep got HTTP 409 `retry_variants_unavailable`, the legacy-route behaviour the handoff notes describe for most of Days 1 to 12.
 
 If you want a timing for a legacy-route day, take it on the day; the server won't give you a second go.

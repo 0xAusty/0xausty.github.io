@@ -11,7 +11,7 @@ catalog_key = "day10-where-do-we-begin"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "Read the entry-point RVA from the PE optional header and pad it to the declared width: the grader rejected the minimal hex form. First parallel-subagent release."
+description = "On the first parallel-subagent release, the entry-point RVA from the PE optional header had to be padded to the declared width; the grader rejected the minimal hex form."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,7 +28,7 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Each mode asked for the PE entry-point RVA as a hex pattern field, for one executable in the single, another in the time trial, and two in the mastery. The technique is small. The day is more notable for how it was run.
+Each mode asked for the PE entry-point RVA as a hex pattern field, for one executable in the single, another in the time trial, and two in the mastery. The technique is small, and the day is more notable for how it was run.
 
 ## The solve
 

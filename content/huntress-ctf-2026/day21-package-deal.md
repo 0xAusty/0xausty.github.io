@@ -32,10 +32,8 @@ Day 21 asked for the package name of an Android APK, as exact text. The pipeline
 
 ## The solve
 
-An APK is a ZIP, and the engine had no APK parser. The generic ZIP parser claimed the bytes, and the closest-name guess offered the archive's member list as the "package". Heal then re-ordered that list four ways (sorted, descending, case-insensitive, reversed). All five submits were rejected.
-
-A spelling heal can only recover a value the parser already holds. Here no parser held the field, and the nearest thing was a different fact.
+An APK is a ZIP, and the engine had no APK parser. The generic ZIP parser claimed the bytes, and the closest-name guess offered the archive's member list as the "package". Heal then re-ordered that list four ways (sorted, descending, case-insensitive, reversed), and all five submits were rejected. A spelling heal can only recover a value the parser already holds. Here no parser held the field, and the nearest thing was a different fact.
 
 The fix was a new `parse_apk` in `metaengine.py`. It opens the APK as a ZIP, decodes the binary XML of `AndroidManifest.xml` (the string pool, then the attributes on each start element) and reads the `package` attribute of the manifest element. It also exposes the application label, the version name and code, and the minimum and target SDK. The single was correct at 09:03:04, before the Time Trial at 09:13:29, since the Time Trial stays locked until the single is accepted, and Mastery followed at 09:13:40.
 
-Self-healing recovers spellings, not formats: a new file type still needed a parser.
+Self-healing can fix a spelling, but a new file type still needed a parser.

@@ -11,7 +11,7 @@ catalog_key = "day20-the-butler-did-it"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A Jenkins Pipeline day, separating controller from agent semantics, that the pipeline cleared in all three modes at the 09:00 sweep with no code change."
+description = "A Jenkins Pipeline day about controller versus agent semantics, cleared in all three modes at the 09:00 sweep with no code change."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -34,6 +34,6 @@ Jenkins Groovy polyglots with classic and Jenkins hosts and two bash fixtures, 1
 
 The cron sweep at 09:00:19 counted nine modes solved automatically across the lanes, and this lane's three were among them. The single, Time Trial and Mastery went in at 09:00:04, 09:00:07 and 09:00:11. No script code change is recorded for the day.
 
-The pipeline's job was the same as on every other routine day: read the descriptor out of each carrier, answer the fields, submit the single, then the Time Trial, then the Mastery. The notes hold no gotcha and no dead end for this challenge.
+The pipeline did what it did on every other routine day: it read the descriptor out of each carrier, answered the fields, and submitted the single, then the Time Trial, then the Mastery. The notes hold no gotcha and no dead end for this challenge.
 
-Nothing to flag: it solved itself.
+There's nothing to flag here. The pipeline solved it on its own.

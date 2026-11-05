@@ -32,8 +32,8 @@ This was a routine day: MSBuild project polyglots plus two bash fixtures, 971 fi
 
 ## The solve
 
-The pipeline solved all three modes on its own at release. The only special handling was a capped second try for the FOR-expansion fields, the ones where the first spelling of an answer can be rejected: four in the single, four in the Time Trial and eight in the Mastery. The log shows the two-try batches for all three modes coming back correct, and the supervisor's summary at 09:00:40 had all three correct. That was 38 seconds after the release was seen.
+The pipeline solved all three modes on its own at release. The only special handling was a capped second try for the FOR-expansion fields, the ones where the first spelling of an answer can be rejected: four in the single, four in the Time Trial and eight in the Mastery. The log shows the two-try batches for all three modes coming back correct, and the supervisor's summary at 09:00:40 had all three correct, 38 seconds after the release was seen.
 
-Nothing new came out of it. The two-try rule was already in place, and this day only showed that it held.
+Nothing new came out of the day. The two-try rule was already in place, and it held.
 
-Routine days are the ones where the earlier work simply pays out.
+On a routine day, the work from earlier in the month does the solving.

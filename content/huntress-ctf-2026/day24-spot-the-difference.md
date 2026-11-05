@@ -28,14 +28,14 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 24 asked 288 fields. The 12 new ones covered patch diffing: a shared config common to both builds, and a separate set of corrected-config fields taken from the fixed jar. The bundle held a vulnerable jar and a `corrected.jar` twin, each carrying a config blob inside a class file.
+Day 24 asked 288 fields. The 12 new ones covered patch diffing: a shared config common to both builds, and a separate set of corrected-config fields taken from the fixed jar. The bundle held a vulnerable jar and a `corrected.jar` twin, each with a config blob inside a class file.
 
 ## The solve
 
 The laptop was off at 09:00. The systemd timer caught up on wake, and the supervisor saw the release at 09:14:31. By then 280 of 288 fields resolved, and the eight misses were exactly the new config fields.
 
-The agent fixed it in session. Jar entries are deflated, so a raw byte scan never sees the config. `_fill_config_from_members` now decodes the jars first. It takes the corrected-config fields from the member whose name ends in `corrected.<ext>`. The two configs are byte-equal, so the plain config is whichever role member turns up first.
+The agent fixed it in session. Jar entries are deflated, so a raw byte scan never sees the config, and `_fill_config_from_members` now decodes the jars first. It takes the corrected-config fields from the member whose name ends in `corrected.<ext>`. The two configs are byte-equal, so the plain config comes from whichever role member turns up first.
 
-The single was confirmed at 09:21:11, the time trial at 09:23:40 and the mastery at 09:24:03. The time trial and mastery had shown "not attempted" until the single passed, because one missed single blocks three modes. Day 28 later re-asked the vulnerable-config fields.
+The single was confirmed at 09:21:11, the time trial at 09:23:40 and the mastery at 09:24:03. Until the single passed, the time trial and mastery showed "not attempted", because one missed single blocks three modes. Day 28 later re-asked the vulnerable-config fields.
 
-Compressed containers hide things from a raw byte scan, and a late start made this miss expensive.
+A raw byte scan can't see inside a compressed container, and the late start made this miss expensive.

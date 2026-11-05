@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-URL-safe Base64 this time, and the warmups question unchanged. The cipher was the easy part. The mastery's 53 blobs decoded correctly and still lost, because the clock ran out.
+This time it was URL-safe Base64, with the warmups question unchanged. Every one of the mastery's 53 blobs decoded correctly, and the mastery still missed at release because the solve ran out of time.
 
 ## The solve
 
-The supervisor submitted the single and the Time Trial at release, and they were CORRECT at 09:00:02 and 09:00:04. At release the serial 53-blob mastery solve finished at t+12.37 s against a deadline of roughly 7-10 s, and the submit hit an HTTP 429 in that morning's burst of parallel lane processes.
+The supervisor submitted the single and the Time Trial at release, and both came back CORRECT, at 09:00:02 and 09:00:04. The mastery decoded its 53 blobs one after another and finished at t+12.37 s, against a deadline of roughly 7-10 s. Its submit also hit an HTTP 429 in that morning's burst of parallel lane processes.
 
-A fresh Claude Code session fixed it (commit 09:16:08). `timed.solve_artifact` now decodes a zip of more than four blobs across a fork `ProcessPoolExecutor`, and `wusolve.py` got a cached translate table per Caesar shift plus an ASCII and printable check in place of per-character loops. That's about 3.6x per blob, byte-identical over 180 differential trials. The re-run reported the submit CORRECT at t+4.00 s, before that commit.
+A fresh Claude Code session fixed it (commit 09:16:08). `timed.solve_artifact` now decodes a zip of more than four blobs across a fork `ProcessPoolExecutor`. `wusolve.py` got a cached translate table per Caesar shift and an ASCII and printable check in place of the per-character loops, which gave about 3.6x per blob, byte-identical over 180 differential trials. The re-run, which came before that commit, reported the submit CORRECT at t+4.00 s.
 
-On a timed mode, throughput is part of correctness. Ask for fork explicitly: Python 3.14 defaults to forkserver on Linux.
+On a timed mode, throughput is part of correctness. If you want fork, ask for it explicitly: Python 3.14 defaults to forkserver on Linux.

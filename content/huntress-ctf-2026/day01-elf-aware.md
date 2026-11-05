@@ -28,14 +28,14 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The first binary challenge was a primer: nine header-level facts about one plain C ELF, such as class, byte order, machine, object type, a custom section's string, whether a symbol table survives and the entry point. It was routine, and the time trial and mastery just repeated the same nine facts, four and eight times over.
+The first binary challenge was a primer: nine header-level facts about one plain C ELF, such as class, byte order, machine, object type, a custom section's string, whether a symbol table survives and the entry point. It was routine. The time trial and mastery asked the same nine facts again, four and eight times over.
 
 ## The solve
 
-The notes do not record who solved Day 1 or how; the scoreboard dates all three modes to the morning of 2 October, between 09:06:02 and 09:28:33. The only line is a later hand-off note listing the Day 1 mastery fields among those with no code in the repo, so I'm not going to guess at a method.
+The notes don't record who solved Day 1 or how. The scoreboard dates all three modes to the morning of 2 October, between 09:06:02 and 09:28:33, and the only line in the notes is a later hand-off note that lists the Day 1 mastery fields among those with no code in the repo. I'm not going to guess at a method.
 
-What the notes do show is how the same facts were automated later. The `binsolve.py` branch for this ELF emits the class, byte order, object type and machine as fixed text, reads the entry point from `e_entry` and whether a `.symtab` exists, and lists the section names in header order. A shared helper reads the `recover_code` constant and accepts it only when the symbol and a byte-pattern search of `.text` agree.
+The notes do show how the same facts were automated later. The `binsolve.py` branch for this ELF emits the class, byte order, object type and machine as fixed text, reads the entry point from `e_entry` and whether a `.symtab` exists, and lists the section names in header order. A shared helper reads the `recover_code` constant and accepts it only when the symbol and a byte-pattern search of `.text` agree.
 
 The same ELF rides along in every later cumulative bundle, so these fields kept coming back.
 
-The spelling is text here, not integers: later days asked the same facts with integer kinds.
+Here the facts were spelled as text. Later days asked for the same ones with integer kinds.

@@ -21,7 +21,7 @@ description = "Node.js operation graphs decoded with a shared regex-based decode
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent", "homebase"]
 
-tools  = ["nodesolve.py", "bashsolve.py", "scriptsolve.py", "vbsolve.py"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["nodesolve.py", "bashsolve.py", "scriptsolve.py", "vbsolve.py"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["malware-analysis", "nodejs", "bash", "obfuscation"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 

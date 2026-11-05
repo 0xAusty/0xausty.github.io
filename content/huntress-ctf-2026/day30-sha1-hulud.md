@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = true
 +++
 
-SHA1-Hulud, a standalone reverse-engineering single on Day 30, is the one miss of my month: 560 of 561 modes went CORRECT, and this was the 561st. My own ChatGPT account, two Claude Code takeovers and the event's Homebase AI (GPT-6 Luna) were all put on it, and none produced a flag. It's written up because the miss is instructive: a confident "one-way" verdict that was wrong, two sessions reading the same code two ways, and an emulator bug behind a long detour.
+SHA1-Hulud, a standalone reverse-engineering single on Day 30, is the one miss of my month: 560 of 561 modes went CORRECT, and this was the 561st. My own ChatGPT account, two Claude Code takeovers and the event's Homebase AI (GPT-6 Luna) were all put on it, and none produced a flag. What went wrong is worth the space: a confident "one-way" verdict that was wrong, two sessions reading the same code two ways, and an emulator bug behind a long detour.
 
 ## The challenge
 
@@ -36,7 +36,7 @@ The binary lane's daily challenges hid the same XOR'd, CRC32-checked configurati
 
 ## Reading the prompt
 
-The prompt, on the card above, is theme more than instruction. The agent's notes tie the title to the Shai-Hulud npm supply-chain worm and take "SHA1" literally, which the binary bore out; TeamPCP and "Wonder Wall" became guesses.
+The prompt, on the card above, is mostly theme. The agent's notes tie the title to the Shai-Hulud npm supply-chain worm and take "SHA1" literally, which the binary bore out; TeamPCP and "Wonder Wall" became guesses.
 
 On 31 October I relayed the challenge author's hint from Discord: "hopefully by doing it by hand you understand the challenge prompt I gave." The notes took it to mean reading the code rather than automating it.
 
@@ -60,7 +60,7 @@ input -> lower-cased -> "flag{" + input + "}"
       -> bytewise masked compare against expected bytes generated at run time
 ```
 
-Both passes invert: every round step (key material added or XOR'd in, a Klimov–Shamir T-function, x + (x² OR 5), rotations, xorshifts) can be undone, and pass 1's key for a block depends only on earlier plaintext.
+Both passes invert: every round step (key material added or XOR'd in, a Klimov-Shamir T-function, x + (x² OR 5), rotations, xorshifts) can be undone, and pass 1's key for a block depends only on earlier plaintext.
 
 ## The attempt
 
@@ -75,7 +75,7 @@ You've hit your session limit · resets 1:30pm (America/New_York)
 
 With my Claude usage limit hit, I took the binary to my own ChatGPT account. That session built an offline Unicorn emulator, `emu_clean.py`, and an inverse of the input transform, and captured seven "candidates" at a compare site. None decoded.
 
-**The first takeover.** That night the agent took the emulator over and fixed its two blockers: an unknown ntdll API hash, brute-forced to `NtQueryVirtualMemory`, and the CPU probes, which needed deterministic CPUID and RDTSC hooks before the captured data stopped changing. It showed the ChatGPT inverse was correct but no help: applied to the transformed input, it only ever gave back what was typed. It read the capture site as a SwissTable hash-map probe (Rust's hashbrown), which made the candidates noise. Its handoff, written by about 23:15, set a rule: "Do not submit a guessed flag; submit only a value verified against the binary's own check."
+**The first takeover.** That night the agent took the emulator over and fixed its two blockers: an unknown ntdll API hash, brute-forced to `NtQueryVirtualMemory`, and the CPU probes, which needed deterministic CPUID and RDTSC hooks before the captured data stopped changing. It showed the ChatGPT inverse was correct and useless: applied to the transformed input, it only ever gave back what was typed. It read the capture site as a SwissTable hash-map probe (Rust's hashbrown), which made the candidates noise. Its handoff, written by about 23:15, set a rule: "Do not submit a guessed flag; submit only a value verified against the binary's own check."
 
 **31 October: the one-way detour.** The notes for this day overlap, so the order is approximate. A reboot that morning wiped the first emulator and its memory dumps from `/tmp`. The agent's sessions ported the inverse to C and scanned the exe, the unpacked blob and heap dumps from three points in the run for the flag in raw, transformed and XOR'd forms, down to the XOR of any two of 541 referenced data arrays. Only the player's own input turned up. The verdict: a one-way digest, so the flag had to come from the theme.
 
@@ -87,7 +87,7 @@ The notes also record AI sessions tripping a safety classifier on the worm-theme
 
 **The second takeover.** A later session rebuilt the harness in four stages, `emu.py` to `emu4.py`, ending with native ports of three SHA-1 variants and both time-lock loops, each checked against emulation. It decoded both cipher passes and wrote their inverses in `cipher.py`, round-trip tested. It read the capture address, `0x140059cd9`, as the final masked compare with expected bytes generated at run time: nothing stored to find, and a cipher that runs backwards. Its note says the one-way note's "inference was wrong".
 
-It also found why, through a long detour, the gate stayed shut and the cipher never ran: the binary hashes its `.text` up to `SizeOfRawData`, but the harness's PE loader zero-filled the 138 raw bytes past `VirtualSize`, which changed the hash and the keys. With the file's bytes in place, the gate opened.
+After a long detour it also found why the gate stayed shut and the cipher never ran: the binary hashes its `.text` up to `SizeOfRawData`, but the harness's PE loader zero-filled the 138 raw bytes past `VirtualSize`, which changed the hash and the keys. With the file's bytes in place, the gate opened.
 
 There it ran out of time, four steps short: make sure the gate opens (which the same note says the loader fix already does), capture the expected bytes, invert pass 2 and then pass 1 with per-block keys from the emulator, and submit. On 2 November the Game Master answered HTTP 403 `event_closed`.
 

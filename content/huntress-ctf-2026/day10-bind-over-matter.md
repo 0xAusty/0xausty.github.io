@@ -38,4 +38,4 @@ The mastery (two sets, 1,506 fields) failed at 9:00 with HTTP 429, because the p
 
 Timers returned on this day, with a script window of about 31 to 32 seconds, so the live deadline had to be read on every start. The two-try wasn't automatic without its flag, and `scripttimed.py` did not un-nest the zip-of-zips masteries.
 
-Routine for the lane. The interesting part was the pipeline: this was the first release where subagents took over what the sweep left.
+The analysis was routine for the lane. What was new was the pipeline: this was the first release where subagents took over what the sweep left.

@@ -34,6 +34,6 @@ The prompt asked for obfuscation, native indirection, runtime decryption and int
 
 `mobsolve.py` peels the blob breadth-first. It starts from the base64, hex and raw readings and applies primitive steps up to depth 3: reverse, a 16-bit swap, and XOR, add or subtract with the key, the key plus the position, the key times the position or the position alone. The shallowest depth that yields a valid answer code decides, and only if the code is unique at that depth. If two differ, the decoder returns nothing rather than guess. Nothing is variant-specific, so a different key or layer order resolves the same way.
 
-The fix came from a headless Claude Code agent the supervisor launched itself. It kicked the escalator at 09:00:31, built the night before, and after four reloads that still left the single unsolved, the one at 09:04:54 banked all three modes by 09:05:06. The escalator then hit a Claude session limit at 09:07:26, after the fix had landed.
+The fix came from a headless Claude Code agent that the supervisor launched on its own. It kicked the escalator, built the night before, at 09:00:31. Four reloads still left the single unsolved, and the reload at 09:04:54 banked all three modes by 09:05:06. The escalator then hit a Claude session limit at 09:07:26, after the fix had landed.
 
-First morning the escalator ran, and nobody launched recovery by hand.
+It was the escalator's first morning, and nobody launched recovery by hand.

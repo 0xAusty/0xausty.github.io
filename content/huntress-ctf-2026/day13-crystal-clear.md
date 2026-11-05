@@ -38,4 +38,4 @@ It was the first binary day banked in every mode at the release with nobody in t
 
 The notes keep only family counts for this day's questions, so I can't say more about the fields beyond the usual set.
 
-New language, no new code: that was the point of the Day 10 handler.
+This is what the Day 10 handler was for: a new language that needed no new code.

@@ -64,7 +64,7 @@ Right next to the real literal sits a "dynamic trace" scaffold: a `HUNTRESS_HOST
 
 The Day 1 to 7 members went through the branches `binsolve.py` already had, extended with the new fields. The Swift member needed two new pieces.
 
-The first is the header fields. The d08 branch reads the ELF class byte at offset 4 and writes the bit width it stands for, not the byte; reads the `e_machine` half-word at offset 18 and writes it in decimal; and writes `architecture` as text, in the spelling the lane had settled on. One header, three encodings, each picked by the declared format rather than the field's name.
+The first is the header fields. The d08 branch reads the ELF class byte at offset 4 and writes the bit width it stands for, not the byte; reads the `e_machine` half-word at offset 18 and writes it in decimal; and writes `architecture` as text, in the spelling the lane had settled on. So one header gave three encodings, each picked by the declared format rather than the field's name.
 
 The second is the config. Following the symbols showed what to look for, but the solver doesn't disassemble anything. `_hcfg_b64`, as committed for Day 8, decodes every base64 run of 300 characters or more and keeps the first that starts with `HCFG` and survives `hcfg_from`:
 

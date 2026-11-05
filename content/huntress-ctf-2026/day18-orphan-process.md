@@ -38,4 +38,4 @@ Claude Code fixed the rest in session. The `.gs` carriers mark the descriptor wi
 
 Fixes went cheapest first, so the metadata single was done before this one.
 
-A SPLIT marker means the payload is an array to join, and joining it was the whole fix.
+When a carrier has a SPLIT marker, the payload is an array to join before decoding.

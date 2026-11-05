@@ -14,7 +14,7 @@ skills = ["Automation & Tooling"]
 toc = false
 +++
 
-Day 3 is hex, hinted by "sixteen fingers". The decode was never the problem. The Day 3 single was rejected once because the answer was too long.
+Day 3 is hex, hinted by "sixteen fingers". The hex decoded fine, and the Day 3 single was still rejected once because the answer was too long.
 
 ## The solve
 

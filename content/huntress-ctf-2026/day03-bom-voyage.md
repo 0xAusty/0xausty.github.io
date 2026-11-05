@@ -11,7 +11,7 @@ catalog_key = "day03-bom-voyage"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A true-or-false check for a UTF-8 byte-order mark, where the interesting detail was where the grader declares its accepted values."
+description = "A true-or-false check for a UTF-8 byte-order mark, whose one wrinkle was that the grader declares its accepted values in the start response, not the status call."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -32,7 +32,7 @@ Day 3 asked one enum question per mode: does a named text member start with a UT
 
 ## The solve
 
-The solver checks whether the member begins with the three bytes EF BB BF and answers true or false, in `mfsolve.py`. From Day 3 on, each day's new metadata question took the form "Determine format.field for member", which the later metadata engine was built around.
+The check in `mfsolve.py` looks for the three bytes EF BB BF at the start of the member and answers true or false. From Day 3 on, each day's new metadata question took the form "Determine format.field for member", which the later metadata engine was built around.
 
 The accepted values are the lowercase strings true and false. They appear in the `answer_format` of the start and submit response, not in the status call. The agent's memory file lists this field among the solved examples whose format was confirmed.
 

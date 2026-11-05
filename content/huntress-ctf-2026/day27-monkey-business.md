@@ -21,7 +21,7 @@ description = "Ook! is Brainfuck spelled in token pairs; the decoder the agent h
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["encoding", "brainfuck"]
 skills = ["Automation & Tooling"]  # groups it on /portfolio/
 
@@ -32,8 +32,8 @@ Day 27's warmup was an Ook! blob, which is Brainfuck with each command spelled a
 
 ## The solve
 
-The `ook` step in `wusolve.py` maps token pairs to Brainfuck commands and reuses the interpreter from Day 26. It only runs when the text is nothing but Ook tokens in pairs. The agent (Claude Code) had added it the afternoon before, with the commit message "Extends the Day-26 Brainfuck family ahead of release", as a guess at the generator's next move.
+The `ook` step in `wusolve.py` maps token pairs to Brainfuck commands and reuses the Day 26 interpreter. It only runs when the text is nothing but Ook tokens in pairs. The agent (Claude Code) had added it the afternoon before as a guess at the generator's next move, with the commit message "Extends the Day-26 Brainfuck family ahead of release".
 
 The guess was right. The pipeline's autopilot solved the single at 09:00:08, the Time Trial at 09:00:14 and the Mastery at 09:00:18, and the agent's session notes put every deterministic lane as banked by 09:00:46.
 
-Covering the next likely shape the day before turned a scramble into a non-event.
+Because the next likely shape was covered the day before, there was nothing to fix at release.

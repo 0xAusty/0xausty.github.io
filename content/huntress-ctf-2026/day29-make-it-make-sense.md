@@ -28,7 +28,7 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 29 added Makefile polyglots. The prompt asked for variants and their earlier-language build chains to be diffed, keeping only conclusions that held across every variant. The solve itself was routine; the footnote is a bug in the automation around it.
+Day 29 added Makefile polyglots. The prompt asked for variants and their earlier-language build chains to be diffed, keeping only conclusions that held across every variant. The solve was routine, but the automation around it had a bug.
 
 ## The solve
 
@@ -36,6 +36,6 @@ The autopilot banked the single at 09:00:10, the Time Trial at 09:00:14 and the 
 
 The supervisor's first-pass report fired at 09:00:04 and listed script among the misses. It had counted every "running" lane as missed, and the script lane's three modes banked between 6 and 24 seconds later. That morning it was only a noisy notification.
 
-The risk was that evening: the report had been wired to kick the escalator, so the same bug could have launched recovery agents on lanes seconds from CORRECT. It was fixed the next morning with a 90 second wait.
+The risk came that evening, when the report was wired to kick the escalator. The same bug could then have launched recovery agents on lanes seconds from CORRECT. It was fixed the next morning with a 90 second wait.
 
-The takeaway is that a false alarm in the monitor can be more dangerous than a slow solver.
+A false alarm in the monitor can do more damage than a slow solver.

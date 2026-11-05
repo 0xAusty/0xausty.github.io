@@ -28,7 +28,7 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Ruby polyglots and a Ruby host this time, 1,095 fields, and a prompt about which obfuscated variants are semantically equivalent. The interesting part was not the Ruby. The answer key for the expansion question had changed again.
+Ruby polyglots and a Ruby host this time, 1,095 fields, and a prompt about which obfuscated variants are semantically equivalent. What mattered was the answer key for the expansion question, which had changed again.
 
 ## The solve
 

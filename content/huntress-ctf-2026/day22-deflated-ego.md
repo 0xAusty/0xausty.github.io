@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-Another familiar wrapper, and this one needed "a little inflation", which points to a deflate-family stream. For the warmups lane it was a quiet day.
+Another familiar wrapper, and this one needed "a little inflation", which points to a deflate-family stream. It was a quiet day for the warmups lane.
 
 ## The solve
 
-The pipeline solved all three modes unattended at release, and the notes record the automatic lanes as banked by 09:00:22. They do not name the encoding. I am inferring that Day 21's decompress step, which chooses gzip, bz2, xz or zlib by magic bytes, and its combined Base64 step already covered it.
+The pipeline solved all three modes unattended at release, and the notes have the automatic lanes banked by 09:00:22. They don't name the encoding. My inference is that Day 21's decompress step, which picks gzip, bz2, xz or zlib by magic bytes, and its combined Base64 step already covered it.
 
-A flaw in the mastery solver only showed up later. The mastery solver fans blobs out to parallel worker processes, and each worker confirmed keyed ciphers on its own. A per-day rail fence proven on one blob never reached the blobs whose chunk straddles the seam where the sentence ends and the slug begins. On 28 October a commit made the parent process re-learn every solved blob's keys and retry the unsolved ones once, which brought Days 22 and 23 mastery back to full.
+A flaw in the mastery solver showed up later. It fans blobs out to parallel worker processes, and each worker confirmed keyed ciphers on its own, so a per-day rail fence proven on one blob never reached the blobs whose chunk straddles the seam where the sentence ends and the slug begins. On 28 October a commit made the parent process re-learn every solved blob's keys and retry the unsolved ones once, which brought Days 22 and 23 mastery back to full.
 
 Keys proven in one worker are lost unless the parent collects them.

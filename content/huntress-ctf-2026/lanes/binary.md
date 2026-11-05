@@ -13,7 +13,7 @@ skills = ["Reverse Engineering"]
 toc    = true
 +++
 
-Day 1 was a plain C ELF asked about its headers and symbols. From Day 2 on, every daily challenge hid the same thing, a configuration record the lane called HCFG, XOR'd JSON behind a 12-byte CRC-checked header, in a new language and container each day. C++ on ELF and MinGW PE. .NET. Java and Kotlin, as Base64 inside the class-file constant pool. Go. Rust, which ships a decoy record that fails its CRC. Swift and Nim, as a Base64 string literal. Zig, in a section literally named `.hcfg`. D, Pascal, Crystal, Objective-C and WebAssembly. Overlays, a plug-in, a managed/native bridge, Neko bytecode, and two new magics. Later days added crash triage, diffing, compiler attribution and family clustering.
+Day 1 was a plain C ELF asked about its headers and symbols. From Day 2 on, every daily challenge hid the same thing, a configuration record the lane called HCFG, XOR'd JSON behind a 12-byte CRC-checked header, in a new language and container each day. The run went from C++ on ELF and MinGW PE through .NET, Java and Kotlin (as Base64 inside the class-file constant pool), Go, Rust (which ships a decoy record that fails its CRC), Swift and Nim (as a Base64 string literal), Zig (in a section literally named `.hcfg`), D, Pascal, Crystal, Objective-C and WebAssembly, then overlays, a plug-in, a managed/native bridge, Neko bytecode and two new magics. Later days added crash triage, diffing, compiler attribution and family clustering.
 
 The bundles were cumulative from Day 3, so `binsolve.py` had to keep every earlier day's answers right while adding the new day's. On Day 8, `binmastery.py` fetched five bundles, each with a 67 MB Swift binary, solved them in parallel and submitted 400 answers in one call, about 21 s inside a roughly 27 s window.
 
@@ -25,7 +25,7 @@ Per member, a fixed template: a SHA-256, the format and machine or architecture,
 
 ## The record: HCFG
 
-The locator's heart in `binsolve.py`, cut to its core:
+The core of the locator in `binsolve.py`:
 
 ```python
 def hcfg(b, i):                       # i: offset of the magic
@@ -86,5 +86,5 @@ Day 16's WebAssembly pair was a format the handler didn't know; a Claude Code se
 - **Find the invariant, then the carriers.** One record format meant one module.
 - **Validate with the checksum, not the magic.** The CRC alone beat the Rust and Nim decoys.
 - **The declared format picks the spelling.** A right fact in the wrong vocabulary is a wrong answer.
-- **Structure beat disassembly.** A 12-byte layout and a CRC check, not a disassembler, found the record everywhere.
+- **Structure beat disassembly.** A 12-byte layout and a CRC check found the record everywhere.
 - **A miss costs more than slow solving.** Day 15's 09:18:55 finish moved the board from 55th to 34th; Day 17's binary, solved by only eight teams, took it to 5th.

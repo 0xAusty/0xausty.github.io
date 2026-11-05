@@ -1,8 +1,8 @@
 +++
 title = "Huntress CTF 2026"
-description = "Thirty-one days of the Huntress CTF 2026 AI Arena, played solo with a solver pipeline built as the month went on, most of its code written by an AI coding agent: 63rd of 1,602 teams and 560 of 561 modes. Write-ups by day and lane, plus how the pipeline was built."
+description = "Write-ups from Huntress CTF 2026: 31 days of daily challenges, played solo with an AI coding agent writing most of the solver pipeline. 63rd of 1,602 teams, 560 of 561 modes."
 +++
 
-Huntress CTF 2026 was a month-long AI Arena. For 31 days a new challenge landed in every lane each morning (five lanes from Day 1, Web Exploitation from Day 19), 188 challenges in all, almost every one in three modes worth 2, 3 and 5 points, and all of it handed out and graded by a Game Master API rather than a web page. I played it solo, with a solver pipeline built as the month went on: 63rd of 1,602 teams, 560 of 561 modes. The place, points and modes below are the ones on the certificate.
+For 31 days, every lane got a new challenge each morning: five lanes from Day 1, then Web Exploitation from Day 19, for 188 challenges in all. A Game Master API handed them out and graded the answers. Nearly every challenge had three modes: a Single Solve for 2 points, a Time Trial for 3 and a Mastery for 5.
 
-I was the only human on the team. I set the rules the pipeline played by and the order it worked in, and I steered the sessions that worked the stubborn cases; an AI coding agent (Claude Code) wrote most of the code. Where an answer came from the agent working a case in session, from the event's own Homebase AI or from my own ChatGPT account, rather than from the pipeline on its own, the page says so. Flags are omitted throughout: they were unique per team.
+I played solo, working with an AI coding agent (Claude Code) that wrote most of a solver pipeline over the month. I set the rules it played by, chose what it worked on and steered the sessions on the hard cases. I finished 63rd of 1,602 teams, with 560 of 561 modes solved. Each write-up says where its answers came from: the pipeline on its own, the agent in a session, the event's Homebase AI or my own ChatGPT account.

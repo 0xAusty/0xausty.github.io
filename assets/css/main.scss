@@ -748,7 +748,6 @@ mark { background: var(--accent-soft); color: var(--text); padding: 0 2px; borde
 .ctf-attrib li { margin: 0.2em 0; }
 .ctf-attrib li::before { content: "▸ "; color: var(--accent); }
 [data-theme="light"] .ctf-attrib li::before { color: var(--link); }   // the accent marker is 1.5:1 on white
-.ctf-flagnote { margin: var(--sp-2) 0 0; font-size: 0.8rem; color: var(--text-dim); }
 
 // -- Footer pager: two rows (same day / same lane), a label and then only the links that exist (no separators)
 .ctf-pager {

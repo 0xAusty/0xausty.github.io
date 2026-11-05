@@ -21,7 +21,7 @@ Whatever the prompts said about anti-debug and root checks, no solve on record r
 
 ## What the lane kept asking for
 
-Every mode asked the same one-field question: a case reference, the app's package, an attack story and a request for the backend answer code for that case. The field was `answer`, matched exactly: a fixed four-character prefix and 16 uppercase hex digits. The solver held its output to the same regex: a right code or nothing.
+Every mode asked the same one-field question: a case reference, the app's package, an attack story and a request for the backend answer code for that case. The field was `answer`, matched exactly: a fixed four-character prefix and 16 uppercase hex digits. The solver returned nothing that failed the same regex.
 
 The code was always in the package: one APK for the single, a fresh one for the time trial, one per `setN.answer` for the mastery, which held three or five APKs until Day 21 and then grew by one a day from Day 22's six to Day 31's fifteen, the later ones re-implementing earlier days' mechanisms.
 

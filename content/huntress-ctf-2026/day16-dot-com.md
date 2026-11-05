@@ -28,7 +28,7 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 16 was the first two-step single: Morse code that spells hex, which spells the sentence. The decoder for each step existed. What failed was the search.
+Day 16 was the first two-step single: Morse code that spells hex, which spells the sentence. Both decoders already existed, but the search never got to use the second one.
 
 ## The solve
 

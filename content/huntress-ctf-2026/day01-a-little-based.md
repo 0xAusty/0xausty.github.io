@@ -14,7 +14,7 @@ skills = ["Automation & Tooling"]
 toc = false
 +++
 
-The warmups lane opened with a Base64 blob, a hint in the prompt ("sixty-four") and a strict answer format: the slug alone, never the decoded sentence. It is routine decoding. What made it worth a note is the fixed sentence inside the blob, which every later warmup decodes to as well.
+The warmups lane opened with a Base64 blob, a hint in the prompt ("sixty-four") and a strict answer format: the slug alone, never the decoded sentence. The decoding is routine, but the fixed sentence inside the blob comes back in every later warmup.
 
 ## The solve
 

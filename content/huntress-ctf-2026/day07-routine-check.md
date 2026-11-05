@@ -11,7 +11,7 @@ catalog_key = "day07-routine-check"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "A Kotlin jar hid its config blob among thousands of stdlib classes, and the day the binary lane for Days 1 to 7 closed at 100%."
+description = "A Kotlin jar hid its config blob among thousands of stdlib classes, on the day the binary lane for Days 1 to 7 closed at 100%."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 7 asked 56 fields: Days 1 to 6 plus eight for a Kotlin jar. The jar was about 5 MB, and the config sat base64-encoded in one class's constant pool, among more than 3,000 stdlib classes. Routine once you know where to look, and notable mostly as the day the lane closed.
+Day 7 asked 56 fields: Days 1 to 6 plus eight for a Kotlin jar. The jar was about 5 MB, and the config sat base64-encoded in one class's constant pool, among more than 3,000 stdlib classes. It was routine once you knew where to look, and it's notable mostly as the day the lane closed.
 
 ## The solve
 
 The challenge was released at 09:00:08 on 7 October and the binary lane was skipped at release. Claude Code changed `binsolve.py` to scan every class in the jar for the base64 blob rather than assuming one, which gave 55 of 56 with only the Day 1 symbol list open.
 
-That field came from the event's Homebase AI (GPT-6 Luna), and the agent then swept every cumulative single, time trial and mastery for Days 3 to 7. The lane stood at 100% for Days 1 to 7 by the 11:43 commit. The single went CORRECT at 11:00:58, the time trial at 11:02:41 and the mastery at 11:06:57.
+That field came from the event's Homebase AI (GPT-6 Luna), and the agent then swept every cumulative single, time trial and mastery for Days 3 to 7. The single went CORRECT at 11:00:58, the time trial at 11:02:41 and the mastery at 11:06:57, and the lane stood at 100% for Days 1 to 7 by the 11:43 commit.
 
 In the mastery, a second set shipped the config binaries as byte-patched Windows PE copies, so the solver dispatches by day prefix, not file extension.

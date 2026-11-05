@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 25 asked 300 fields: Days 1 to 24 plus 12 about the root cause of a synthetic vulnerability, with a vulnerable and a corrected build supplied as a pair. The notes don't record what the new questions looked like. It was routine.
+Day 25 asked 300 fields: Days 1 to 24 plus 12 about the root cause of a synthetic vulnerability, with a vulnerable and a corrected build supplied as a pair. The notes don't record what the new questions looked like, and the day was routine.
 
 ## The solve
 
@@ -38,4 +38,4 @@ The laptop had been off, so the agent ran preflight itself before the drop inste
 
 Day 28 later re-asked the vulnerable role's config.
 
-A solver that already knew the family left little else to say about the day.
+The solver already knew the family, which left little else to say about the day.

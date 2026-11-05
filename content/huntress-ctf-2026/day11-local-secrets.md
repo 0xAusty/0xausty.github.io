@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 11 asked for a backend answer code by separating active credentials from decoys across generated local stores. Routine for mobile.
+Day 11 asked for a backend answer code by separating active credentials from decoys across generated local stores. For mobile it was routine.
 
 ## The solve
 
-`daily.py` solved each mode about 0.65 seconds after starting it and submitted all three CORRECT through the static decode in `mobsolve.py`. The single was CORRECT at 09:00:02, the time trial at 09:00:04 and the mastery at 09:00:05; the summary time was 09:00:30, 29 seconds after the release was seen. The time trial and mastery had deadlines of 09:00:10 and 09:00:12 and came back CORRECT inside them.
+`daily.py` solved each mode about 0.65 seconds after starting it and submitted all three through the static decode in `mobsolve.py`. All three came back CORRECT: the single at 09:00:02, the time trial at 09:00:04 and the mastery at 09:00:05. The summary time was 09:00:30, 29 seconds after the release was seen. The time trial and mastery had deadlines of 09:00:10 and 09:00:12, and both landed inside them.
 
-The same morning the parallel sweep hit its own rate limit (HTTP 429) and the binary lane lost its timed modes. Mobile banked all three regardless, while transient GET and start retries filled the log.
+The same morning the parallel sweep hit its own rate limit (HTTP 429) and the binary lane lost its timed modes. Mobile banked all three anyway, while transient GET and start retries filled the log.
 
-Nothing about the day was specific to mobile; the deterministic solver simply wasn't affected by the noise around it.
+None of that noise reached the deterministic solver.

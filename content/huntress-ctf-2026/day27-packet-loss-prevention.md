@@ -21,19 +21,19 @@ description = "A routine capture-file day: the pcap parser added on 14 October c
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["metaextra.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["metaextra.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["forensics", "pcap"]
 skills = ["Digital Forensics"]  # groups it on /portfolio/
 
 toc = false
 +++
 
-The single asked for `packet_count` from `capture-001.pcap`, as an integer; the timed modes widened it to 32 and then 352 cumulative fields. This was a routine automatic day, and the notes flag nothing else about it.
+The single asked for `packet_count` from `capture-001.pcap`, as an integer; the timed modes widened it to 32 and then 352 cumulative fields. It was a routine automatic day, and the notes record nothing else about it.
 
 ## The solve
 
-The parser for PCAP and pcapng files, `metaextra.parse_pcap`, had gone in on 14 October. It walks the capture's record headers rather than decoding any packets, and it exposes `packet_count` directly. The pipeline answered on the first submit, and the three modes were banked at 09:00:06, 09:00:09 and 09:00:13.
+`metaextra.parse_pcap`, the parser for PCAP and pcapng files, had gone in on 14 October. It walks the capture's record headers without decoding any packets and exposes `packet_count` directly. The pipeline answered on the first submit and banked the three modes at 09:00:06, 09:00:09 and 09:00:13.
 
-The day's critical path was elsewhere: three new web challenge shapes needed attention, not this one.
+The day's critical path was in the web lane, where three new challenge shapes needed attention.
 
-The only lesson is the dull one. A parser written for a field two weeks before the field was asked for is what makes a lane look effortless on the day.
+The lesson is a dull one: a parser written for a field two weeks before anyone asked for that field is what makes a lane look effortless on the day.

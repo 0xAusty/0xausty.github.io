@@ -28,12 +28,12 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 24 added JSP webshell-source polyglots and a JSP host. The single asked 1,516 fields and the Time Trial 1,560, in the hex-id shape that had needed a long recovery the day before. The prompt asked for requests and stages to be ordered and for inert fixture behaviour to be separated from real execution primitives. The interesting part is when it ran.
+Day 24 added JSP webshell-source polyglots and a JSP host. The single asked 1,516 fields and the Time Trial 1,560, in the hex-id shape that had needed a long recovery the day before. The prompt asked for requests and stages to be ordered and for inert fixture behaviour to be separated from real execution primitives. The solve took seconds. It just started late.
 
 ## The solve
 
-The Day 23 refactor was already on disk, uncommitted until 10:08 that morning, so nothing new was needed. The laptop was off at 09:00, so the cron did not run on time. The systemd timer caught up when the machine woke, and the release was seen at 09:14:31.
+The Day 23 refactor was already on disk (uncommitted until 10:08 that morning), so nothing new was needed. The laptop was off at 09:00 and the cron did not run on time. When the machine woke, the systemd timer caught up and saw the release at 09:14:31.
 
-The single was confirmed at 09:14:34, the Time Trial at 09:14:37 and the mastery (eight sets, 12,480 fields) at 09:14:42, with the supervisor summary at 09:14:58. That is 3, 6 and 11 seconds after the release was seen. In that run the supervisor banked 6 of 21 modes in 38 seconds, the three script modes among them.
+The single was confirmed at 09:14:34, the Time Trial at 09:14:37 and the mastery (eight sets, 12,480 fields) at 09:14:42. That is 3, 6 and 11 seconds after the release was seen. The supervisor summary followed at 09:14:58, and in that run it banked 6 of 21 modes in 38 seconds, the three script modes among them.
 
-The solver was fast; the lateness came from the machine being off, and the score clock does not wait for a laptop to wake.
+The lateness came from the machine being off, and the score clock does not wait for a laptop to wake.

@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 22 asked for the exact backend answer code per mode, with a prompt about modelling and bypassing several synthetic root signals without patching success globally. The mastery grew to six APKs. The pipeline treated it as routine.
+Day 22 asked for the exact backend answer code per mode, with a prompt about modelling and bypassing several synthetic root signals without patching success globally. The mastery grew to six APKs, and the pipeline treated it as routine.
 
 ## The solve
 
 `daily.py` solved and submitted the single, the time trial and the mastery through `mobsolve.py`'s static decode, and the supervisor's summary at 09:00:32 shows all three modes correct. The puzzle sat in `assets/huntress_puzzle.json`; the notes do not record the codec.
 
-The day matters mainly as an edge. It closed a five-day run, Days 18 to 22, in which the supervisor banked all three mobile modes at release with the static decoder, before any emulator existed. From Day 23 on, every mobile release except Day 27 missed at least one mode at 09:00, starting with a Day 23 time trial that returned nothing.
+The day closed a five-day run, Days 18 to 22, in which the supervisor banked all three mobile modes at release with the static decoder, before any emulator existed. From Day 23 on, every mobile release except Day 27 missed at least one mode at 09:00, starting with a Day 23 time trial that returned nothing.
 
-The easy streak ended here, and the emulator work that followed was a response to it.
+The emulator work that followed was a response to the end of that streak.

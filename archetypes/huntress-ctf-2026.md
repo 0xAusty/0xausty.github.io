@@ -39,7 +39,7 @@ description = "One line: the key insight or the skill this shows. Used in lists,
 # (the chips and the glance card's When column say when it was solved)
 solved_by = {{ if eq (printf "%v" $entry.solved) "false" }}[]   # TODO: unsolved in the catalog{{ else }}["autopilot"]{{ end }}
 
-tools  = []                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = []                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = [{{ with index $tags $lane }}"{{ . }}"{{ end }}]
 skills = [{{ with index $skills $lane }}"{{ . }}"{{ end }}]   # groups it on /portfolio/
 

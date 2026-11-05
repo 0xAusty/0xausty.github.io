@@ -45,7 +45,7 @@ One clue names both the cipher and the key.
 | "Caesar" | The new layer is a Caesar shift. | Nothing new: the decoder already tried all 25 shifts on every chunk. |
 | "took a week off" | Seven days, so the shift is 7. | Nothing at release. From 11:02 that morning, `kpa.hint_steps` offers prompt numbers and number words ("week" is 7) as candidate keys, still validated by the search. |
 
-The prompt was never the obstacle. The decoder could already undo both ciphers; what it could not do was tell a decoded slug from an undecoded one.
+The decoder could already undo both ciphers. It had no way to tell a decoded slug from an undecoded one.
 
 ## What was in the files
 
@@ -76,9 +76,9 @@ The supervisor saw the release at 09:00:02. The single and the time trial went t
   warmups-day-14/mastery: incorrect
 ```
 
-For many blobs the submitted slug began in plaintext and ended in Atbash or Caesar ciphertext. That morning I was working with Claude Code in a local session, and the agent traced the miss to two parts of `wusolve.py`.
+For many blobs the submitted slug began in plaintext and ended in Atbash or Caesar ciphertext. I was working with Claude Code in a local session that morning, and the agent traced the miss to two parts of `wusolve.py`.
 
-The first was the ranking. `solve_lines` is a beam search: for each chunk it tries the chunk as it stands (`plain`), every decode step and every two-step chain, drops readings that break the known sentence, and keeps the 50 cheapest paths by decode-step count. `plain` costs nothing, and past the sentence an undecoded slug chunk passed the only check there was, as did every other shift of it. So the readings that decoded nothing were the cheapest, and the real one, two steps dearer, fell out of the beam.
+The first was the ranking. `solve_lines` is a beam search: for each chunk it tries the chunk as it stands (`plain`), every decode step and every two-step chain, drops readings that break the known sentence, and keeps the 50 cheapest paths by decode-step count. `plain` costs nothing, and past the sentence an undecoded slug chunk passed the only check there was, as did every other shift of it. The readings that decoded nothing were therefore the cheapest, and the real one, two steps dearer, fell out of the beam.
 
 The second was the fallback added for [Day 10](/huntress-ctf-2026/day10-thirty-two-below/), after a correct decode was rejected because "zesty" is missing from the laptop's word list. When no reading passes the dictionary, it accepts the strictly cheapest slug-shaped one. On Day 14 that was the undecoded reading.
 
@@ -94,25 +94,25 @@ if u is None: continue
 key = (u, cost(used + [n]))
 ```
 
-Three blobs still had true ties, two shifts of the last chunk giving dictionary words at the same cost (Caesar-3 "step" against Caesar-7 "opal" in the notes' example). The bundle settled them. `_bundle_schedule` returns the per-chunk path the resolved blobs share, only if at least three resolved and all agree, and the other 65 did. `timed.solve_artifact` then solves each tied blob again with that schedule, and a tied reading is accepted only if it alone follows it.
+Three blobs still had true ties, two shifts of the last chunk giving dictionary words at the same cost (Caesar-3 "step" against Caesar-7 "opal" in the notes' example), and the bundle settled them. `_bundle_schedule` returns the per-chunk path the resolved blobs share, only if at least three resolved and all agree, and the other 65 did. `timed.solve_artifact` then solves each tied blob again with that schedule, and a tied reading is accepted only if it alone follows it.
 
-The mastery was CORRECT at 09:27:55, before the fix and the notes recording Days 12 to 14 at 15 of 15 were committed at 09:32:44.
+The mastery was CORRECT at 09:27:55. The fix, and the notes recording Days 12 to 14 at 15 of 15, were committed after that, at 09:32:44.
 
 ## Making it deterministic
 
 The fix came with a regression test: `tests/test_wusolve.py` builds a Day-14-style blob (Base64 chunks for the sentence; reverse, Atbash and Caesar+7 for the slug), and the commit notes that it fails on the old search. Two smaller tests pin `_tail_unknowns` and the three-blob, all-agree schedule rule.
 
-At 10:06 the agent added a replay corpus and a pre-commit gate: every recorded attempt is re-solved through the live code, and a changed or lost answer blocks the commit. The hand-off notes cite this Day 10 to Day 14 chain as their example. The gate only checks the past, but with Day 14 recorded, letting undecoded chunks win again would now fail it.
+At 10:06 the agent added a replay corpus and a pre-commit gate: every recorded attempt is re-solved through the live code, and a changed or lost answer blocks the commit. The hand-off notes cite this Day 10 to Day 14 chain as their example. The gate only checks the past, but Day 14 is now part of that past, so letting undecoded chunks win again would fail it.
 
-On 15 October the schedule became the fast path: one full search teaches the per-chunk path and the rest of the bundle decodes directly, accepted only as the exact sentence plus an all-dictionary slug, else back to the full search. Day 13 to 15 mastery solves fell from 2.4–4.4 s to 0.06–0.09 s.
+On 15 October the schedule became the fast path: one full search teaches the per-chunk path and the rest of the bundle decodes directly, accepted only as the exact sentence plus an all-dictionary slug, else back to the full search. Day 13 to 15 mastery solves fell from 2.4-4.4 s to 0.06-0.09 s.
 
 ## Timed modes
 
-The time trial's deadline was 09:00:36 and the mastery's 09:00:38. The clock was not the problem: the mastery was graded, and graded incorrect.
+The time trial's deadline was 09:00:36 and the mastery's 09:00:38. The mastery was graded, and graded incorrect, so the clock was not what failed.
 
-The fix still had to fit the clock: warmups mastery windows had run roughly 7 to 13 seconds on Days 10 and 11. `6e23eb3` also hoisted `_chunk_cands` out of the per-path loop, decoding each chunk once instead of once per beam path: 0.28 s to 0.094 s a blob, 4.3 s for all 68.
+The fix still had to fit inside the clock, since warmups mastery windows had run roughly 7 to 13 seconds on Days 10 and 11. `6e23eb3` also hoisted `_chunk_cands` out of the per-path loop, decoding each chunk once instead of once per beam path: 0.28 s to 0.094 s a blob, 4.3 s for all 68.
 
-On 28 October, in a broad pass on the speed boards, a ranked Day 14 time trial and mastery both came back CORRECT, with board times the log estimated at about 1.12–2.41 s and 1.25–2.46 s.
+On 28 October, in a broad pass on the speed boards, a ranked Day 14 time trial and mastery both came back CORRECT, with board times the log estimated at about 1.12-2.41 s and 1.25-2.46 s.
 
 ## Dead ends
 

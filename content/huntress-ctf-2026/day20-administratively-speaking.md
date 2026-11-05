@@ -28,12 +28,12 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-The simplest of the web lane's early challenges, and a useful contrast with the others. The target was a Django-style app with a staff-only feature route, and the weakness was **broken access control**: the door had a sign on it and no lock.
+The simplest of the web lane's early challenges, and a useful contrast with the others. The target was a Django-style app with a staff-only feature route, and the weakness was **broken access control**.
 
 ## The solve
 
 A clues endpoint disclosed the route, and a plain GET of it returned the proof in a JSON response, because nothing enforced authorisation there. That is forced browsing: the route was protected only by being unadvertised.
 
-The notes record the Day 20 web misses as fixed in the coding-agent session and folded into `websolve.py` as `solve_admin`. The one gotcha repeated across the lane is that on many classes the proof is a JSON `evidence` field rather than a bare token with the usual proof prefix, so a scan for the token shape would miss it. On release morning the time trial was confirmed at 09:18:56 and mastery at 09:19:04.
+The Day 20 web misses were fixed in the coding-agent session and folded into `websolve.py` as `solve_admin`. The one gotcha repeated across the lane is that on many classes the proof is a JSON `evidence` field rather than a bare token with the usual proof prefix, so a scan for the token shape would miss it. On release morning the time trial was confirmed at 09:18:56 and mastery at 09:19:04.
 
 The defence is to enforce authorisation on every route on the server, since a hidden URL is not a control.

@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 20 asked for the exact backend answer code for a case and app package, one `answer` field per mode. The prompt was about analysing a challenge-signed secondary DEX and recovering the module contract. Routine for the pipeline, and I had nothing to do with the solve.
+Day 20 asked for the exact backend answer code for a case and app package, one `answer` field per mode. The prompt was about analysing a challenge-signed secondary DEX and recovering the module contract. It was routine for the pipeline, and I had nothing to do with the solve.
 
 ## The solve
 
 `daily.py` solved and submitted the single, the time trial and the five-APK mastery through `mobsolve.py`'s static decode. All three modes came back correct, and the supervisor's summary is stamped 09:00:19. As with the neighbouring days, the notes do not say which codec the puzzle used.
 
-The mechanism came back on Day 31, where one mastery set was a Day 20-style app that loads a second DEX from its assets at runtime. It was the one set the emulator reported as not complete until it learned to load a second DEX.
+The mechanism came back on Day 31, where one mastery set was a Day 20-style app that loads a second DEX from its assets at runtime. It was the only set the emulator reported as not complete, until it learned to load a second DEX.
 
-A routine release morning, whose interest is in what the same shape did to the emulator eleven days later.
+The release morning was routine, and the same shape tripped the emulator eleven days later.

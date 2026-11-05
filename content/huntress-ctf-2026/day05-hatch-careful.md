@@ -21,7 +21,7 @@ description = "A tiny syntax-tree evaluator reads literals out of fourteen kinds
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent", "homebase"]
 
-tools  = ["pysolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["pysolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["malware-analysis", "python", "obfuscation", "deobfuscation"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 
@@ -34,6 +34,6 @@ Day 5 added Python: nine behaviours packaged in fourteen kinds of carrier (sourc
 
 At release on 5 October the supervisor didn't submit, because no Python or VBScript solver existed yet. The Claude Code session then wrote `pysolve.py`, which walks each file's syntax tree with a small evaluator. It understands only literals, tuples and lists, string concatenation, `str.join`, `format` with literal dicts and `tuple()`; anything else yields nothing, so no code is imported or executed. It decodes the plan, and the plan states the syntax, obfuscation, carrier and Windows-chain labels outright. Role comes from the decoded steps, not the file name. That banked 343 of 357 the same day, and the Day 6 codecs lifted it to 346.
 
-The VBScript control labels came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery at 22:10:56 on 7 October. The single's last field, a Batch expansion, closed at 17:15:15 on 7 October, and the notes don't say who closed it. The time trial, submitted at 20:36:55 on 7 October, was found correct by 10 October, and the notes don't say who submitted it.
+The VBScript control labels came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery at 22:10:56 on 7 October. The single's last field, a Batch expansion, closed at 17:15:15 on 7 October. The time trial went in at 20:36:55 on 7 October and was found correct by 10 October. The notes don't say who made either submission.
 
 The Python relay role is plain `relay`, unlike JScript, where the same role is `staged_chain`.

@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 10 asked for a backend answer code by diffing manifest and Network Security Config variants to find the true transport exception. Routine: the APKs were slightly larger than the usual template, and the notes do not say what the extra bytes hold. The answer still came from the static puzzle decode.
+Day 10 asked for a backend answer code by diffing manifest and Network Security Config variants to find the true transport exception. The solve was routine. The APKs were slightly larger than the usual template, and the notes don't say what the extra bytes hold, but the answer still came from the static puzzle decode.
 
 ## The solve
 
 The cron sweep solved and submitted all three modes through `mobsolve.py`, each about a second after starting. The single was CORRECT at 09:00:04, the time trial at 09:00:06 and the mastery at 09:00:08, with the summary at 09:00:21, 20 seconds after the release was seen.
 
-The time trial and mastery had deadlines again after two untimed days (09:00:18 and 09:00:17), so the runner had to read the live deadline on every start. Both came back CORRECT inside them.
+After two untimed days the time trial and mastery had deadlines again (09:00:18 and 09:00:17), so the runner had to read the live deadline on every start. Both came back CORRECT inside them.
 
-This was also the first release run with one subagent per open lane. Mobile needed none, because the deterministic sweep had already banked it.
+This was also the first release run with one subagent per open lane. Mobile didn't need one, because the deterministic sweep had already banked it.

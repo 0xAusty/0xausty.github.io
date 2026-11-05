@@ -11,7 +11,7 @@ catalog_key = "day14-predictable-crypto"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "Routine at release, but the replay gate caught a new rot5 step in the warmups code that produced a second, deeper answer on Days 7 and 14."
+description = "Routine at release, but the replay gate caught a second, deeper answer on Days 7 and 14 once a new rot5 step landed in the warmups code."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt talked about seeded nonces and weak derivation, but the pipeline never had to reason about either. The puzzle sat in the APK's asset file in a shape the generic decode search already handled, so the day was routine live. The interesting part came later.
+The prompt talked about seeded nonces and weak derivation. The pipeline never had to reason about either, because the puzzle sat in the APK's asset file in a shape the generic decode search already handled. Live, the day was routine. The replay gate found something later.
 
 ## The solve
 
@@ -36,6 +36,6 @@ The prompt talked about seeded nonces and weak derivation, but the pipeline neve
 
 On 14 October the replay gate showed a problem. Once the warmups solver gained a rot5 step, the same real code decoded to a second, deeper answer-shaped string on Days 7 and 14. The old rule demanded uniqueness at every depth, so it now refused. The fix lets the shallowest depth decide, provided it is unique there, so a deeper decoy cannot win.
 
-The catch happened before it could cost a live answer. The gate replays mobile whenever the warmups code changes, because `mobsolve.py` reuses its decode steps.
+The gate replays mobile whenever the warmups code changes, because `mobsolve.py` reuses its decode steps. That is why this was caught before it could cost a live answer.
 
 Shared helpers couple lanes, so the replay corpus has to cross lane boundaries too.

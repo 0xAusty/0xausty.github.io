@@ -32,10 +32,10 @@ The hint was to count carefully, because the comma knows where to stop. The blob
 
 ## The solve
 
-The 09:00 run did not start on time. The laptop was off, and the systemd timer caught up on wake, so the supervisor saw the release at 09:14:31. The single was unsolved at first and was correct by 09:18:32. The mastery was correct by 09:39:17. The time trial was correct at 09:34:19.
+The 09:00 run didn't start on time. The laptop was off and the systemd timer caught up on wake, so the supervisor saw the release at 09:14:31. The single was unsolved at first and correct by 09:18:32. The time trial was correct at 09:34:19 and the mastery by 09:39:17.
 
-Claude Code added a run-length step to `wusolve.py`, in the first-pass steps. It splits on count and character pairs, not on commas, and only fires when the text round-trips exactly through its canonical re-encoding, which keeps it from matching ordinary text by accident.
+Claude Code added a run-length step to `wusolve.py`, in the first-pass steps. It splits on count and character pairs instead of on commas, and it only fires when the text round-trips exactly through its canonical re-encoding, which keeps it from matching ordinary text by accident.
 
-The same session found a latent Ascii85 bug, present since the first committed decoder. The step stripped the Adobe frame before decoding and dropped the last byte, and one stored golden answer was wrong as a result. It was corrected.
+The same session found a latent Ascii85 bug that had been there since the first committed decoder. The step stripped the Adobe frame before decoding and dropped the last byte, which had left one stored golden answer wrong. That answer was corrected.
 
-When the separator is also legal data, parse the structure, not the delimiter.
+When the separator can also be data, read the count and character pairs and check the round trip.

@@ -28,12 +28,12 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was a guestbook that renders the message field raw, with a moderator-only data route and a reviewer bot that visits the notes. Single and Time Trial asked for one proof field, and Mastery bundled it with earlier web types. The interesting part was not the injection but the wait.
+This was a guestbook that renders the message field raw, with a moderator-only data route and a reviewer bot that visits the notes. Single and Time Trial asked for one proof field, and Mastery bundled it with earlier web types. The wait was more interesting than the injection.
 
 ## The solve
 
 The bug is **stored XSS**: the note body is not escaped, so script in it runs for whoever views the page. The reviewer bot is logged in and the script runs same-origin, so it can read the moderator-only route that an outsider cannot. It then posts what it read back as a public note where the solver can see it.
 
-The agent (Claude Code) added `solve_stored_xss` to `websolve.py` in the parallel web-days run. The payload does nothing until the bot arrives, which the notes put at under 15 seconds, so the solver waits and polls the notes above its own. A later fix added a second branch for a variant that delivers the data through a per-note receipt route instead of a re-posted note. The Time Trial was confirmed at 09:21:04 on release day, the latest of that day's three web times, because the bot wait sits on the critical path.
+The agent (Claude Code) added `solve_stored_xss` to `websolve.py` in the parallel web-days run. The payload does nothing until the bot arrives, under 15 seconds by the notes, so the solver waits and polls the notes above its own. A later fix added a second branch for a variant that delivers the data through a per-note receipt route instead of a re-posted note. The Time Trial was confirmed at 09:21:04 on release day, the latest of that day's three web times, because the bot wait sits on the critical path.
 
-The fix is output encoding on the message field, and keeping privileged routes out of reach of script in a page a reviewer opens. The gotcha was patience: an inert-looking note is not a failed one.
+The fix is output encoding on the message field, and keeping privileged routes out of reach of script in a page a reviewer opens. The gotcha was patience: the note looks inert until the bot opens it.

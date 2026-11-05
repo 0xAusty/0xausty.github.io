@@ -28,7 +28,7 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was an app that stores input and evaluates it later through a delayed path. Single and Time Trial asked for one proof field, and Mastery was a three-target bundle. The notes keep the prompt and the times but not the mechanism, so I will not claim more than that.
+This was an app that stores input and evaluates it later through a delayed path. Single and Time Trial asked for one proof field, and Mastery was a three-target bundle. The notes keep the prompt and the times, not the mechanism, so I will not claim more than that.
 
 ## The solve
 

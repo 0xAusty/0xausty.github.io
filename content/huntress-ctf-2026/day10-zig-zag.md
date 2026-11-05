@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The questions grew to 100 fields: Days 1 to 9 again, plus the new Zig binary, which stores its raw config blob in a dedicated section named `.hcfg`. One new field asked, literally, whether a section with that name exists. The Zig day itself was routine; what followed it wasn't.
+The questions grew to 100 fields: Days 1 to 9 again, plus the new Zig binary, which stores its raw config blob in a dedicated section named `.hcfg`. One new field asked, literally, whether a section with that name exists. The Zig day itself was routine. The lasting result was the generic handler the agent wrote straight after it.
 
 ## The solve
 

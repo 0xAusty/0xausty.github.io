@@ -21,7 +21,7 @@ description = "Nine VBScript files decoded statically, where the hard part was m
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent", "homebase"]
 
-tools  = ["vbsolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["vbsolve.py", "scriptsolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["malware-analysis", "vbscript", "obfuscation", "xor"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 
@@ -36,4 +36,4 @@ Day 4 added nine VBScript files, taking the single to 231 fields: role, techniqu
 
 The grader wanted the generator's own short names, and several guessed names were rejected first. The label map that settled it came from the event's Homebase AI (GPT-6 Luna), and the session then encoded it. The same AI solved the mastery at 22:09:53 on 7 October. The time trial, submitted at 17:43:38 on 7 October, was found already correct on 10 October, and the notes don't say who submitted it.
 
-An `If True Then` is transparent: label by the construct inside it. A byte-decoding `For` loop is not a wrapper. One Batch label was left unguessed under the no-brute-force rule.
+An `If True Then` is transparent, so label by the construct inside it, and a byte-decoding `For` loop is not a wrapper at all. One Batch label was left unguessed under the no-brute-force rule.

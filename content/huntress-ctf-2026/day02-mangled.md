@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = true
 +++
 
-Day 2 of the binary lane asked for 17 facts about two binaries: a C ELF in the style of Day 1, and a C++ build with vtables, RTTI and the config record the lane kept hiding from then on. Most of it was parsing. The part worth writing up is two mastery fields, where one set's C++ binary was a MinGW-built Windows PE. The grader rejected the mangled names that binary plainly contained, and the fields sat open until 7 October. The answer turned on the container, not the class.
+Day 2 of the binary lane asked for 17 facts about two binaries: a C ELF in the style of Day 1, and a C++ build with vtables, RTTI and the config record the lane kept hiding from then on. Most of it was parsing. The part worth writing up is two mastery fields, where one set's C++ binary was a MinGW-built Windows PE. The grader rejected the mangled names that binary plainly contained, and the fields sat open until 7 October. The answer depended on the container.
 
 ## The challenge
 
@@ -38,7 +38,7 @@ Only `cpp_format` declared its vocabulary: ELF or PE "from the final bytes", in 
 
 ## Reading the prompt
 
-The prompt, quoted in the card above, reads like a checklist:
+The prompt reads like a checklist:
 
 | Phrase | Implication | What the solver did |
 |---|---|---|
@@ -80,7 +80,7 @@ The mastery's PE was a byte-patched copy of one MinGW build, and the patch touch
 
 ## The solve
 
-**The single, 2 October.** The pipeline had no binary solver yet. The single was worked in an AI chat session on the Homebase VM. That session's handoff records all five Day 2 singles CORRECT, this one at 13:22:04 ET on the scoreboard, but not which analysis produced which binary answer.
+**The single, 2 October.** The pipeline had no binary solver yet, so the single was worked in an AI chat session on the Homebase VM. That session's handoff records all five Day 2 singles CORRECT, this one at 13:22:04 ET on the scoreboard, but not which analysis produced which binary answer.
 
 **The time trial, 4 October.** After the first attempt expired, Claude Code wrote `bresolve.py` in a session on 4 October, and the time trial went CORRECT there at 18:11:27. The handoff committed at 11:19 ET on 5 October lists the mastery as an open blocker.
 
@@ -122,7 +122,7 @@ The mastery was timed too, and all-or-nothing. Partial submits persisted within 
 ## Dead ends
 
 - **The bare names on the PE.** Accepted on the ELF set and in the time trial, rejected on the PE set. So was `none`.
-- **A renamed class or a repointed vtable.** The byte-level check found two RTTI type strings, every mangled token belonged to those two classes, and the vtable's slots resolved to the derived class's own entries: "there is no alternate artifact-derived value to submit". True of what it searched for.
+- **A renamed class or a repointed vtable.** The byte-level check found two RTTI type strings, every mangled token belonged to those two classes, and the vtable's slots resolved to the derived class's own entries: "there is no alternate artifact-derived value to submit". That held for what it searched for.
 - **Cycling spellings, ruled out.** The note's two ideas, the base class or a Windows- or COFF-specific decoration, were for the Homebase AI to weigh, not for the grader.
 - **Analysts against the clock.** On 2 October the chat session's binary analysis produced nothing usable in time; the local record said "no confident solver".
 - **"Set 1 is always a PE."** The 5 October handoff said so; by 7 October the PE had turned up in set 1 and in set 2. The solver never relied on it.

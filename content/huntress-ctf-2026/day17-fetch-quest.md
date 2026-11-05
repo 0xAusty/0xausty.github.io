@@ -28,7 +28,7 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-AutoHotkey polyglots this time, with a prompt about reconciling the fetch targets a script declares against the generated network evidence, and finding the indicator seen on only one side. The single asked 1,139 fields, in the usual shape, so this note is mostly about speed.
+AutoHotkey polyglots this time, with a prompt about reconciling the fetch targets a script declares against the generated network evidence, and finding the indicator seen on only one side. The single asked 1,139 fields in the usual shape, and what stood out was how fast they went in.
 
 ## The solve
 
@@ -36,4 +36,4 @@ Nothing needed fixing. The pre-warmed script lane (workers started at 08:59:30 a
 
 It was the lane's best finish up to then, and it came on a morning when four other lanes changed their questions.
 
-The speed work paid off here, and the lane had no analysis story that day.
+The speed work paid off on a day with no analysis story.

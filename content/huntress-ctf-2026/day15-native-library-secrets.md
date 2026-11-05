@@ -11,7 +11,7 @@ catalog_key = "day15-native-library-secrets"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "The solve was automatic; the day's real result was the lane's first ranked time-trial run, which placed eighth on the speed board."
+description = "The solve was automatic, and that afternoon a re-run gave the lane its first ranked time-trial run, which placed eighth on the speed board."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asked for configuration split between the DEX code and a native library the challenge shipped. The notes do not describe what the original Day 15 APKs contained, and the solve did not depend on it: it was automatic.
+The prompt asked for configuration split between the DEX code and a native library the challenge shipped. The notes do not describe what the original Day 15 APKs contained. The solve didn't need to know, because it was automatic.
 
 ## The solve
 
@@ -36,6 +36,6 @@ The prompt asked for configuration split between the DEX code and a native libra
 
 That afternoon `bench.py` re-ran the Day 15 time trials and masteries, mobile's included, on fresh regular variants. The first ranked attempt the team was granted was this time trial, at 12:42:43. An attempt 22 seconds earlier had asked for a ranked run and was not granted.
 
-The result was #8 at 0.553 s against a leader at 0.391 s, with 1.66 s measured client-side. Board time is roughly artifact download plus solve plus submit, and each request cost about 150 ms of server time, so the solver was no longer the slow part.
+It placed #8 at 0.553 s against a leader at 0.391 s, with 1.66 s measured client-side. Board time is roughly artifact download plus solve plus submit, and each request cost about 150 ms of server time, so the solver was no longer the slow part.
 
 Regular play scores points and is never ranked. A speed-board attempt has to ask for it with `run_for_time: true`.

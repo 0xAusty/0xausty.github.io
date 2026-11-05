@@ -28,7 +28,7 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was a "Resume Room" site with a landing route that accepts a session id and a second route gated on the session. Single and Time Trial asked for one proof field, and Mastery bundled it with earlier web types. It is an old bug, and it still works.
+This was a "Resume Room" site with a landing route that accepts a session id and a second route gated on the session. Single and Time Trial asked for one proof field, and Mastery bundled it with earlier web types.
 
 ## The solve
 

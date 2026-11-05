@@ -21,7 +21,7 @@ description = "A Brainfuck blob solved by adding a guarded interpreter to the wa
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent", "autopilot"]
 
-tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["encoding", "brainfuck"]
 skills = ["Automation & Tooling"]  # groups it on /portfolio/
 
@@ -32,9 +32,9 @@ The Day 26 warmup was a Brainfuck program whose output is the sentence carrying 
 
 ## The solve
 
-The first pass at 09:00 missed. The agent (Claude Code) wrote a full interpreter into `wusolve.py`: balanced brackets, a pointer that may not go negative and a 20-million-step cap. A guard keeps it away from ordinary text by requiring that the blob holds only Brainfuck command characters, with at least one `.` and a `+` or `-`. The day's blob used only `+`, `-` and `.`. The single was CORRECT by 09:04:15.
+The first pass at 09:00 missed. The agent (Claude Code) wrote a full interpreter into `wusolve.py`, with balanced brackets, a pointer that may not go negative and a 20-million-step cap. To keep it away from ordinary text, a guard requires that the blob holds only Brainfuck command characters, with at least one `.` and a `+` or `-`. The day's blob used only `+`, `-` and `.`. The single was CORRECT by 09:04:15.
 
-The Time Trial first came back unsolved. After a solver save at 09:13:13 the supervisor re-ran the open modes and the Time Trial and Mastery banked by 09:13:18. That this save added the Brainfuck step is likely, because the step was committed that afternoon, but the log does not say so.
+The Time Trial first came back unsolved. After a solver save at 09:13:13 the supervisor re-ran the open modes, and the Time Trial and Mastery banked by 09:13:18. The save probably added the Brainfuck step, since the step was committed that afternoon, but the log doesn't say so.
 
 The retro called Brainfuck foreseeable. I told the agent that speed comes from covering each lane's likely shapes ahead of time, not from more infrastructure. That afternoon it also added the Ook! dialect, which is the next day's warmup.
 

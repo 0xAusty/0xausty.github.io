@@ -32,7 +32,7 @@ Day 1 asked five identity questions about a named member of a small evidence zip
 
 ## The solve
 
-The work is choosing the right member and hashing its exact bytes. The solver reads the member the question names, then reports its basename, byte length and the three digests. These plain questions are handled by suffix handlers in `mfsolve.py`, which stayed in the pipeline as the fallback behind the later metadata engine.
+The work is picking the right member and hashing its exact bytes. The solver reads the member the question names and reports its basename, byte length and three digests. Suffix handlers in `mfsolve.py` answer these plain questions, and they stayed in the pipeline as the fallback behind the later metadata engine.
 
 The notes do not record what produced any of the three answers. The scoreboard dates the single to 21:15:51 on 1 October and the time trial and mastery to 21:23:44 and 21:25:35 the same evening, before the 4 October Claude Code session that the notes had credited with the timed modes.
 

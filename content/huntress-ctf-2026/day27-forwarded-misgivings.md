@@ -36,4 +36,6 @@ The feature route answers that it is loopback-only and reports the client addres
 
 The agent folded it in with the other release-day web solvers (commit 57be6d0). The notes call it the fastest of the three Day 27 web challenges. The single was CORRECT at 09:07:24, the time trial at 09:08:36 and mastery at 09:09:02.
 
-Note that the web lane counted this as its day 23, while it was released on calendar Day 27. The defence is to strip client-supplied forwarding headers at the edge and trust them only from the known proxy.
+The web lane counted this as its day 23, though it was released on calendar Day 27.
+
+The defence is to strip client-supplied forwarding headers at the edge and trust them only from the known proxy.

@@ -34,6 +34,6 @@ Day 26 added Erlang escript polyglots. The prompt asked for message flow to be t
 
 The pipeline banked all three modes at release with no intervention and no recorded solver change. The single was confirmed at 09:00:06, the Time Trial at 09:00:09 and the mastery at 09:00:15, and the log shows all three correct by 09:00:18.
 
-The day mattered more as a data point than as a puzzle. The Day 26 retro cites the metadata and script lanes as proof that when a shape is covered, the answers arrive in seconds. The time lost that day came from new shapes in other lanes and from web challenges, not from here.
+The Day 26 retro uses the day as evidence. It cites the metadata and script lanes as proof that when a shape is covered, the answers arrive in seconds. The time lost that day came from new shapes in other lanes and from the web challenges.
 
-The Erlang decoys were only a hazard for a solver that had not seen the shape, and this one had.
+The collision decoys only trap a solver that has not seen the shape before, and this one had.

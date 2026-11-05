@@ -36,4 +36,4 @@ Day 21 asked for one `answer` per mode, the exact backend code for a case and ap
 
 The handoff file sums the morning up in one line: script and mobile, three of three, automatic.
 
-Nothing to flag here, and nothing I would claim as mine.
+There was nothing to flag, and nothing in the solve I would claim as mine.

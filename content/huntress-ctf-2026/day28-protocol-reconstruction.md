@@ -34,6 +34,6 @@ The prompt asked for the app-to-backend protocol to be reconstructed with its no
 
 The release run found nothing and was unsolved at 09:00:08. The plain hex path fails here, because the framing bytes make the decoded text differ from the answer code. Claude Code added a packet branch to `decode_puzzle` in `mobsolve.py`. It hex-decodes the frame, takes the length-prefixed payload after the magic and length byte, and reads the code from it in frame order. If that fails, it falls back to an order-preserving scan of the whole frame.
 
-The prompt's phrase about ordering was the warning: never reverse or re-sort the payload. The supervisor's hot reload at 09:15:30 banked the time trial and mastery by 09:15:37, and the single was correct at 09:14:33. The notes do not say who submitted the single.
+The prompt's phrase about ordering was the warning: never reverse or re-sort the payload. The single was correct at 09:14:33, though the notes do not say who submitted it. The supervisor's hot reload at 09:15:30 then banked the time trial and mastery by 09:15:37.
 
 About 11 minutes were lost because recovery waited until I noticed the misses.

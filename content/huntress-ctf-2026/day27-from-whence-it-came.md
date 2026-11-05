@@ -28,12 +28,12 @@ skills = ["Malware Analysis"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 27 added Dockerfile polyglots to the Script Analysis lane. The questions were the usual long run of fields about the specimens' build stages, semantics and hand-offs, and a few ATT&CK-id fields. It was routine for the pipeline, so this note is short.
+Day 27 added Dockerfile polyglots to the Script Analysis lane. The questions were the usual long run of fields about the specimens' build stages, semantics and hand-offs, plus a few ATT&CK-id fields. For the pipeline it was routine.
 
 ## The solve
 
-The autopilot solved all three modes at the 09:00 release: the single at 09:00:06, the Time Trial at 09:00:10 and the mastery (eleven sets, 18,249 fields) at 09:00:21. No new solver code was needed. The notes record the day as fully automatic.
+The autopilot solved all three modes at the 09:00 release: the single at 09:00:06, the Time Trial at 09:00:10 and the mastery (eleven sets, 18,249 fields) at 09:00:21. No new solver code was needed, and the notes record the day as fully automatic.
 
-The one oddity was the Time Trial. It reused the single's question set, 1,659 fields with the ATT&CK-id fields, rather than the hex-id set the Time Trials since Day 23 had used. The pipeline took that in its stride.
+The one oddity was the Time Trial. It reused the single's question set, 1,659 fields with the ATT&CK-id fields, instead of the hex-id set that every Time Trial since Day 23 had used. The pipeline took that in its stride.
 
-Nothing went wrong. The takeaway is that the work happened on earlier days, and this one only collected it.
+Nothing went wrong. The work had happened on earlier days, and this one only collected it.

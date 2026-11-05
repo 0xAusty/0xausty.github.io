@@ -21,7 +21,7 @@ description = "A routine warmup: the prompt hints at hex plus a reversal, and th
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["encoding"]
 skills = ["Automation & Tooling"]  # groups it on /portfolio/
 
@@ -34,6 +34,6 @@ Day 28's warmup was another decode-and-find-the-slug blob, tiny at 220 bytes for
 
 The autopilot banked the single at 09:00:07, the Time Trial at 09:00:10 and the Mastery at 09:00:14. No session was involved.
 
-The notes do not name the encoding. The prompt points to hex combined with a reversal, and both `reverse` and `hex` are in the first-step set of `wusolve.py`, so the per-chunk search could have chained them. The prompt's "sixteen-fingered friend" reads as hex and "walking backwards" as a reversal. That is my inference from the prompt and the solver, not something the logs confirm. The Mastery was 138 blobs of 28 chunks each, and it went through the same way as the single.
+The notes don't name the encoding. The prompt's "sixteen-fingered friend" reads as hex and "walking backwards" as a reversal, and both `reverse` and `hex` are in the first-step set of `wusolve.py`, so the per-chunk search could have chained them. That's my inference from the prompt and the solver, not something the logs confirm. The Mastery was 138 blobs of 28 chunks each, and it went through the same way as the single.
 
 Nothing here needed a fix, which was the point of the earlier days' coverage work.

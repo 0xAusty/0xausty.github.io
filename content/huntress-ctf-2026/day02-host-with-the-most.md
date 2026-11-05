@@ -21,7 +21,7 @@ description = "JScript samples were read safely by running only their inert deco
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["jsan.js", "scriptsolve.py", "node", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["jsan.js", "scriptsolve.py", "node", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["malware-analysis", "jscript", "nodejs", "obfuscation", "time-trial"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 
@@ -36,6 +36,6 @@ Day 2 added nine JScript files to the PowerShell set. Each file asks for a role,
 
 The notes credit the time trial and mastery to the Claude Code laptop session of 4 October. The single was accepted by 2 October, but the notes don't say whose solver did it, and I don't claim it.
 
-That day also taught a timing lesson. A sweep opened all five time trials before analysis was ready, and the 5 to 8 second timers expired.
+That day a sweep also opened all five time trials before analysis was ready, and their 5 to 8 second timers expired.
 
 Prepare the decoding before you open a timer.

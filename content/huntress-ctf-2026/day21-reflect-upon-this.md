@@ -32,8 +32,8 @@ This target was a Fastify app called "Search Mirror", with a route that reflects
 
 ## The solve
 
-The two gates were a disclosed callback nonce and a `Referer` whose path was the reflection route. Both are ordinary HTTP values, so the solver sets them directly and no browser is needed. That was the reasoning: the callback was meant to be reached by a page, but it only checked what that page would have sent, and a client can send the same thing.
+The two gates were a disclosed callback nonce and a `Referer` whose path was the reflection route. Both are ordinary HTTP values, so the solver sets them directly and no browser is needed. The callback was meant to be reached by a page, but it only checked what that page would have sent, and a client can send the same thing.
 
-The notes record the Day 21 web challenges as solved by three parallel subagents and folded into `websolve.py` as `solve_reflect`. On release morning the time trial was confirmed at 09:19:13.
+Three parallel subagents solved the Day 21 web challenges, and this one was folded into `websolve.py` as `solve_reflect`. On release morning the time trial was confirmed at 09:19:13.
 
 The defence is not to rely on `Referer` for authorisation, since the client controls it, and to bind a callback to a server-side session or token.

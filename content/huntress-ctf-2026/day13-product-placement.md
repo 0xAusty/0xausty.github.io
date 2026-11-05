@@ -14,7 +14,7 @@ skills = ["Digital Forensics"]
 toc = false
 +++
 
-The packages were small Windows Installer files that had been copied, renamed and repackaged, and each mode asked for one field, the product code GUID. It's a routine extraction. What makes it worth a note is the spelling the grader wanted.
+The packages were small Windows Installer files that had been copied, renamed and repackaged, and each mode asked for one field, the product code GUID. The extraction was routine; the spelling the grader wanted was not.
 
 ## The solve
 

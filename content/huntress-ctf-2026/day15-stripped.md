@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 15 shipped two builds of one program, a symbolised ELF and a stripped one, and asked 150 fields: Days 1 to 14 plus tagged fields such as the architecture, format, machine and config for each build. The two-build tagging was routine; the ranking lesson was not.
+Day 15 shipped two builds of one program, a symbolised ELF and a stripped one, and asked 150 fields: Days 1 to 14 plus tagged fields such as the architecture, format, machine and config for each build. The tagging itself was routine. What the day taught was how the ranking works.
 
 ## The solve
 
 At release the supervisor resolved 141 of 150 fields and banked each earlier day's group. The nine tagged Day 15 fields were left unresolved, so only 7 of 15 modes were automatic at 09:00:31. The agent fixed it in the session: a tagged-variant branch in `binsolve.py` runs the generic handler once per build and maps the tag into the field name. The SHA-256 numbering follows zip order, so `_1` is the symbolised build and `_2` the stripped one. The single was CORRECT at 09:14:03, the time trial at 09:14:19 and the mastery at 09:14:46, and the day was 15 of 15 at 09:18:55.
 
-That gap is what made the ranking click. Ties are broken by the time of the day's last CORRECT, so one 14-minute miss outweighs any amount of shaved latency.
+That gap made the ranking rule clear. Ties are broken by the time of the day's last CORRECT, so one 14-minute miss outweighs any amount of shaved latency.
 
 A miss costs far more than slow solving.

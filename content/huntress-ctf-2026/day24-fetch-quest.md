@@ -28,11 +28,11 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = false
 +++
 
-This was a textbook server-side request forgery. A feature route fetched an absolute URL on the server's behalf, and a second, internal-only service sat behind it, reachable only from the app's own loopback. The routine part was the bug class. The part to remember is that the internal service trusted anything that appeared to come from loopback.
+This was a textbook server-side request forgery. A feature route fetched an absolute URL on the server's behalf, and a second, internal-only service sat behind it, reachable only from the app's own loopback. The bug class was routine. What's worth remembering is that the internal service trusted anything that appeared to come from loopback.
 
 ## The solve
 
-A parallel Claude Code subagent solved it. The idea was to make the fetch route request the internal service on the app's own port, so the source address check passed, and then read the proof from the response. The solver tries the container's own HTTP port first, then a short fallback list. That became `solve_ssrf` in `websolve.py`.
+A parallel Claude Code subagent solved it by making the fetch route request the internal service on the app's own port, so the source address check passed, and then reading the proof from the response. The solver tries the container's own HTTP port first, then a short fallback list. That became `solve_ssrf` in `websolve.py`.
 
 The first classifier labelled it as a generic admin challenge and failed, so a dedicated SSRF branch was added. As with the previous challenge that day, the proof arrived as a JSON evidence field rather than a token.
 

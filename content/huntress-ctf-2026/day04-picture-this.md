@@ -36,6 +36,6 @@ The solver in `mfsolve.py` walks the JPEG marker segments until it reaches the f
 
 The notes do not name who solved the single, which the scoreboard puts at 11:09:24 on the release morning, with the time trial and mastery at 18:07:18 and 18:07:48 that evening. They do say the 4 October Claude Code session solved all the metadata time trials and masteries that day, and that all modes were correct by the 14 October backfill.
 
-The gotcha is the order. The start-of-frame segment stores height before width, but the accepted spelling is width first. The agent's memory file confirms this as a solved example.
+The gotcha is the order: the start-of-frame segment stores height before width, but the accepted spelling is width first. The agent's memory file confirms this as a solved example.
 
 Swap the two numbers on the way out.

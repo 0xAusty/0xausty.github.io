@@ -14,7 +14,7 @@ skills = ["Digital Forensics"]
 toc = false
 +++
 
-The single asked for the primary audio codec name of a voice note that had been transcoded, renamed and embedded in mail. The timed modes were cumulative bundles of 22 and 110 fields. The twist was whose vocabulary the grader used.
+The single asked for the primary audio codec name of a voice note that had been transcoded, renamed and embedded in mail. The timed modes were cumulative bundles of 22 and 110 fields. What mattered was which tool's names the grader used.
 
 ## The solve
 
@@ -22,6 +22,6 @@ The pipeline's closest-name guess returned the WAV format tag's generic PCM name
 
 Claude Code added `metaformats.parse_media` in session. It sniffs the real container from the bytes, whatever the extension claims, and reports ffprobe's names on top of the container fields. It covers WAV and RF64, Ogg, FLAC, MP4, Matroska, AIFF, AU, AMR, CAF, ASF and MPEG audio, and it was committed with tests.
 
-The single was correct at 09:01:38, the time trial at 09:04:52 and the mastery at 09:04:59. Four lanes changed their questions that day, and the day's finish came from the binary lane, not this one.
+The single was correct at 09:01:38, the time trial at 09:04:52 and the mastery at 09:04:59. Four lanes changed their questions that day, and the last solve of the day came from the binary lane.
 
 When a grader quotes a tool's output, answer in that tool's vocabulary.

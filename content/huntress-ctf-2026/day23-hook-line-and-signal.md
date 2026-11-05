@@ -89,7 +89,7 @@ The session left the three tools untracked in `solvers/`, wired into neither `mo
 
 The wiring landed the next morning, 24 October, at 10:02:59 in `d0624a1`: `mobsolve.py` now hands any APK whose puzzle file declares the `analysis` codec to `mobemu.solve_apk` before trying to decode the file. The comment on that branch names a second kind of decoy, `ANS` literals elsewhere in the package. They make the solver's old last resort, a scan that accepts a code only when exactly one appears, ambiguous, so the emulator runs first.
 
-That was a release late. `d0624a1` is the Day 24 fold-in, and its message lists this wiring among the fixes for five Day 24 shapes that no solver had handled at that morning's sweep ([Emulator Alibi](/huntress-ctf-2026/day24-emulator-alibi/) is that day, and its sweep went like Day 23's: single banked, time trial empty). The emulator was on disk; the pipeline didn't call it.
+That was a release late. `d0624a1` is the Day 24 fold-in, and its message lists this wiring among the fixes for five Day 24 shapes that no solver had handled at that morning's sweep ([Emulator Alibi](/huntress-ctf-2026/day24-emulator-alibi/) is that day, and its sweep went like Day 23's: single banked, time trial empty).
 
 The commit also left out `nativemix.py`, a gap the agent's note flagged: a fresh clone, or the next mobile challenge with a native library, would break. It followed at 10:08:30 in `e21f6fe`, imported only when an APK bundles a `.so`. `mobemu.py` kept growing in the Day 25, 26 and 31 fold-ins, and `nativemix.py`, written for strictly linear code, gained compares and conditional jumps on Day 25.
 
@@ -97,7 +97,7 @@ The commit also left out `nativemix.py`, a gap the agent's note flagged: a fresh
 
 Neither mode had a clock in regular play: the log shows `deadline None` for the time trial, and the Game Master's guidance for both said a correct untimed solve still earns the flag and the points. Only the ranked Hall of Fame versions were timed, at 50 s and 230 s.
 
-What mattered was the order. The pipeline runs a lane's time trial only after its single, and its mastery only after its time trial, because the Game Master refuses them otherwise; one time-trial miss cost the mastery its morning run. Finishing at 09:58 rather than 09:02 cost no points, but on a scoreboard that breaks ties by who reached the score first, it cost time. The mastery's seven mechanisms, one of them native, needed no per-day code: the emulator ran whatever `Release.code()` did.
+The order of the modes did the damage. The pipeline runs a lane's time trial only after its single, and its mastery only after its time trial, because the Game Master refuses them otherwise; one time-trial miss cost the mastery its morning run. Finishing at 09:58 rather than 09:02 cost no points, but on a scoreboard that breaks ties by who reached the score first, it cost time. The mastery's seven mechanisms, one of them native, needed no per-day code: the emulator ran whatever `Release.code()` did.
 
 ## Dead ends
 

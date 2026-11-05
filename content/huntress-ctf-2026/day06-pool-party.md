@@ -14,7 +14,7 @@ skills = ["Reverse Engineering"]
 toc = true
 +++
 
-Pool Party was the [binary lane](/huntress-ctf-2026/lanes/binary/)'s sixth day and its turning point. Five of the six binaries in its bundle carry the same kind of configuration record, so instead of code for the new day alone, Claude Code built one extractor for the whole bundle, `binsolve.py`. It banked 47 of the 48 fields on 6 October. The last field, a list of symbols from the Day 1 ELF, had been rejected five times; the answer came on 7 October from the event's Homebase AI (GPT-6 Luna).
+Pool Party was the [binary lane](/huntress-ctf-2026/lanes/binary/)'s sixth day. Five of the six binaries in its bundle carry the same kind of configuration record, so Claude Code built one extractor for the whole bundle, `binsolve.py`, instead of code for the new day alone. It banked 47 of the 48 fields on 6 October. The last field, a list of symbols from the Day 1 ELF, had been rejected five times; the answer came on 7 October from the event's Homebase AI (GPT-6 Luna).
 
 ## The challenge
 
@@ -29,7 +29,7 @@ The title is the hint: the party is in the constant pool.
 | Phrase | Implication | What the solver did |
 |---|---|---|
 | "its own phone book: the constant pool" | The record is a constant in a class file, readable without running anything. | `_hcfg_from_class` walks the pool, stepping over other entries by size (`Long` and `Double` take two slots), and Base64-decodes each long, Base64-only `CONSTANT_Utf8` string, keeping the one that decodes to the HCFG magic. |
-| "Names, methods, invocations — it's all in there. Dive in and take attendance." | An inventory of the pool's class, method and call-site names. | Nothing on Day 6: none of the eight Java fields asked for one. The [Day 17](/huntress-ctf-2026/day17-decoder-ring/) bundle came back for the main class's method names. |
+| "Names, methods, invocations: it's all in there. Dive in and take attendance." | An inventory of the pool's class, method and call-site names. | Nothing on Day 6: none of the eight Java fields asked for one. The [Day 17](/huntress-ctf-2026/day17-decoder-ring/) bundle came back for the main class's method names. |
 
 ## What was in the files
 
@@ -55,7 +55,7 @@ The release runner saw Day 6 at 09:00:09 on 6 October and logged "no solver for 
 
 `binsolve.py` decrypts the zip and answers each member by day prefix and file type: a SHA-256 per file, the formats and headers, the .NET metadata version from the BSJB metadata root, and the five HCFG records (the jar's through `hcfg_jar` and `_hcfg_from_class`).
 
-The single was untimed, and the grader scores each submit atomically but keeps accepted answers, so the agent banked one day-group at a time and split any rejected group. Half the battle was pinning down spellings from those rejections: `x86-64` for the Go and Rust architecture, not `amd64` or `x86_64`; a lowercase `i386` for the .NET machine; the compound `pe_cli` for the .NET format.
+The single was untimed, and the grader scores each submit atomically but keeps accepted answers, so the agent banked one day-group at a time and split any rejected group. Much of the work was pinning down spellings from those rejections: `x86-64` for the Go and Rust architecture, not `amd64` or `x86_64`; a lowercase `i386` for the .NET machine; the compound `pe_cli` for the .NET format.
 
 On 6 October the single stood at 47 of 48, and the same module took the older cumulative singles to 23 of 24 (Day 3, up from 20), 31 of 32 (Day 4) and 39 of 40 (Day 5). Each was short by the same field.
 

@@ -11,7 +11,7 @@ catalog_key = "day31-framework-roulette"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "An unfamiliar ASP.NET Blazor Server target fell to two stacked header-trust gates, showing the lane's forwarded-header skill transfers to an unseen framework."
+description = "An unfamiliar ASP.NET Blazor Server target fell to two stacked header-trust gates; the lane's forwarded-header skill carried over to a framework the solver had never seen."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -21,7 +21,7 @@ description = "An unfamiliar ASP.NET Blazor Server target fell to two stacked he
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["agent"]
 
-tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["websolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["web-exploitation"]
 skills = ["Web Application Security"]  # groups it on /portfolio/
 
@@ -32,7 +32,7 @@ The organisers pitched this as a new stack with none of the usual names: an ASP.
 
 ## The solve
 
-The feature route sat behind two gates, both driven by headers the app trusts. The app took the client address from the leftmost entry of a forwarded-for header, so a forged value passed the first, loopback-style gateway check. Only then did a staff-policy gate appear, and its response named the privileged role header in Vary. Setting that header passed it, and the proof was in the evidence field. The order matters: the second header can only be discovered with the first already set.
+The feature route sat behind two gates, both driven by headers the app trusts. The app took the client address from the leftmost entry of a forwarded-for header, so a forged value passed the first, loopback-style gateway check. Only then did a staff-policy gate appear, and its response named the privileged role header in Vary. Setting that header passed it, and the proof was in the evidence field. The order matters, because the second header only shows up once the first is set.
 
 That day went badly. The headless escalator died at a 600-second background-wait ceiling and the coordinating session crashed. Three fresh subagents were spawned by hand, one of them on this target, and the fix became `solve_roulette` in `websolve.py`. The catalog records the single correct at 09:18:18, the time trial at 09:19:51 and mastery at 09:21:50.
 

@@ -11,7 +11,7 @@ catalog_key = "day08-entity-relations"
 depth = "note"                     # "full" (curated write-up) | "note" (short field note)
 featured = false                   # true → appears in the hub's "Start here"
 
-description = "HTML entities were a new encoding for the decoder, but the day's real lesson was that a laptop in suspend made plain cron skip the 08:50 run entirely."
+description = "HTML entities were a new encoding for the decoder, and the same morning a laptop in suspend made plain cron skip the 08:50 run entirely."
 
 # Who got it, most important first: autopilot | agent | homebase | chatgpt
 #   autopilot → "Solved by the pipeline, no human in the loop"
@@ -28,7 +28,7 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-The warmups ask was unchanged: decode the blob, submit the slug. The encoding was HTML numeric and named entities, a new one for the decoder. The cipher was trivial. What went wrong that morning was the schedule.
+The warmups ask was unchanged: decode the blob, submit the slug. The encoding was HTML numeric and named entities, a new one for the decoder. The cipher was trivial; the schedule was what broke that morning.
 
 ## The solve
 

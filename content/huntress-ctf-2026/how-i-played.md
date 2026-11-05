@@ -47,7 +47,7 @@ Five lanes times three modes is **15 solves a day**. The rules around those cloc
 
 ### The pipeline
 
-The hot path has no model in it. Each lane has a **deterministic solver**: given the artifact's bytes and the question text, it produces the answers or gives up. A generic timed runner goes from `start` to download, solve and `submit` in about 1.5–3 seconds, which is what a 5–8 second timer demands. The AI's job is to *write* solvers, not to answer questions live.
+The hot path has no model in it. Each lane has a **deterministic solver**: given the artifact's bytes and the question text, it produces the answers or gives up. A generic timed runner goes from `start` to download, solve and `submit` in about 1.5 to 3 seconds, which is what a 5 to 8 second timer demands. The AI's job is to *write* solvers, not to answer questions live.
 
 A **daily runner** wakes up at 8:50 ET from both cron and a systemd user timer, so a missed wake-up still gets caught. It polls the Game Master until the new day appears, then runs every lane in parallel. Within each lane it does the single first, then the time trial and mastery once the single comes back correct. Whatever the sweep can't solve goes to triage: first an agent per lane, then a live session with me at the laptop, steering the agent or putting the question to the Homebase AI.
 
@@ -61,7 +61,7 @@ The pipeline submits only when **every** field has an answer it actually derived
 
 That rule cost points. Some fields sat unanswered for days while plausible guesses were right there. It also forced the pipeline to *understand* every answer it gave, and that understanding is what let it fix itself later in the month. The line got finer as the month went on, between guessing a *fact* and trying another *spelling* of a fact the solver had already derived. That's its own section below.
 
-Three exceptions carry my approval on record: on 7 October a capped two-try for the one Batch label the bytes could not decide (never a third label), and on 15 October the self-healing submit (format variants and the other allowed values of fixed-choice fields) and closest-name guesses for unknown metadata and binary fields, built only from values parsed from the artifact.
+Three exceptions carry my approval on record. On 7 October I approved a capped two-try for the one Batch label the bytes could not decide (never a third label). On 15 October I approved the self-healing submit (format variants and the other allowed values of fixed-choice fields) and closest-name guesses for unknown metadata and binary fields, built only from values parsed from the artifact.
 
 Two places went further with no approval recorded. `binsolve.py` maps each file's machine code to the grader's spelling of the architecture, but only three spellings are confirmed; for any other it submits the spelling that follows their style, then alternates (an ARM64 build goes in as `aarch64`, then `arm64`). The machine code comes from the bytes; only the spelling is a guess. It may fall under the format-variants approval, and I'm comfortable with it: it re-spells a derived fact rather than inventing one.
 
@@ -88,8 +88,6 @@ Answers came from four places, and each challenge page's card names the ones beh
 <!-- Austin: confirm -->
 
 ## Six lanes, one secret in different clothes
-
-Each lane kept one thing constant and changed its clothes every day.
 
 **[Warmups](/huntress-ctf-2026/lanes/warmups/).** Every blob decoded to the same 87-character prefix plus a three-word slug, with a new encoding added each day, so decoding became checking: `wusolve.py` tests each reading against the known sentence and `kpa.py` recovers cipher keys from it. [Seven Steps](/huntress-ctf-2026/day14-seven-steps/) is the day an old fallback accepted gibberish.
 
@@ -123,7 +121,7 @@ Then speed bit. On Day 11 five lane processes hit the Game Master at once and tr
 
 Day 15's automated pass had 7 of 15 modes by 09:00:31 and fixes in session finished at 09:18:55, moving us to 34th; the leader had finished all 15 in under two minutes. Day 16, 15/15 by 09:05:09, put us 13th. Day 17 finished by 09:33:55 but took us to 5th: its binary was the separator, solved by only eight teams when I checked.
 
-The OpenAPI description held a surprise of its own: a request must set `run_for_time: true` to get a ranked, timed attempt, so three days of "Hall of Fame ineligible" were simply our runners never asking. The first ranked run placed 8th at 0.553 s against a 0.391 s leader. I approved a capped ranked loop and stopped it on 16 October, once more shots were mostly measuring the server.
+The OpenAPI description explained another gap. A request must set `run_for_time: true` to get a ranked, timed attempt, so three days of "Hall of Fame ineligible" were simply our runners never asking. The first ranked run placed 8th at 0.553 s against a 0.391 s leader. I approved a capped ranked loop and stopped it on 16 October, once more shots were mostly measuring the server.
 
 By late October a release morning was built to run itself: preflight at 08:45, lane workers warm before the drop, a headless escalator spawning one agent per first-pass miss, and a supervisor that re-solved the affected modes within about 10 to 30 seconds of a saved fix.
 
@@ -131,15 +129,15 @@ By late October a release morning was built to run itself: preflight at 08:45, l
 
 Most of the worst moments were self-inflicted, and each one left a rule behind.
 
-**A full disk that wasn't the disk.** On Day 14 the binary mastery died with `Errno 122` on a drive 8% used: `/tmp` was a tmpfs with a per-user quota, holding about 6.1 GB of evidence folders the solvers never deleted. An `rmtree` in a `finally` fixed it. Check every mount, not just `/`.
+On Day 14 the binary mastery died with `Errno 122` on a drive 8% used: `/tmp` was a tmpfs with a per-user quota, holding about 6.1 GB of evidence folders the solvers never deleted. An `rmtree` in a `finally` fixed it. Check every mount, not just `/`.
 
-**A fork that shared a socket.** Forking the timed modes after the single had opened a keep-alive TLS connection left both children on one socket, and every first request failed and backed off. Each child now gets its own connection pool.
+Forking the timed modes after the single had opened a keep-alive TLS connection left both children on one socket, and every first request failed and backed off. Each child now gets its own connection pool.
 
-**A rule nobody had tested.** On Day 16, starting time trials and masteries together got three masteries an HTTP 409: the mastery unlocks only once the time trial is CORRECT. In 44 solved pairs, no mastery had ever finished first. We hadn't asked the data that question.
+On Day 16, starting time trials and masteries together got three masteries an HTTP 409: the mastery unlocks only once the time trial is CORRECT. In 44 solved pairs, no mastery had ever finished first. We hadn't asked the data that question.
 
-**A gate that caught what the live run didn't.** Every attempt went into a replay corpus (691 attempts by 31 October), and a pre-commit hook re-solved past attempts with the learned keys cleared. On Day 19 it blocked the fold-in commit twice, on two faults the live run had hidden. The day's score was never at risk; the gate was protecting the solver, not the result.
+Every attempt went into a replay corpus (691 attempts by 31 October), and a pre-commit hook re-solved past attempts with the learned keys cleared. On Day 19 it blocked the fold-in commit twice, on two faults the live run had hidden. The day's score was never at risk; the gate was protecting the solver, not the result.
 
-**Operations, late in the month.** A Day 27 supervisor was found still holding the lock that would have silently skipped Day 28, and the escalator failed twice: on a Claude session limit on Day 30, and at a 600-second ceiling, with its five agents, on Day 31.
+Late in the month the trouble was operational. A Day 27 supervisor was found still holding the lock that would have silently skipped Day 28, and the escalator failed twice: on a Claude session limit on Day 30, and at a 600-second ceiling, with its five agents, on Day 31.
 
 ## Results and lessons
 

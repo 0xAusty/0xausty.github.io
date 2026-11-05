@@ -28,12 +28,12 @@ skills = ["Automation & Tooling"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 12 was the standard warmups shape: decode a blob of numbered lines and submit the slug its last line asks for. The clue hinted at reversed text, and that was the only twist. It was routine.
+Day 12 had the standard warmups shape: decode a blob of numbered lines and submit the slug its last line asks for. The clue hinted at reversed text, and that was the only twist.
 
 ## The solve
 
-The reverse step was already in the first committed decoder, so the pipeline solved all three modes at the 09:00 release run without help. The mastery had 58 blobs of twelve chunks each, and by the lane's rule chunk 12 uses Day 12's encoding, so that encoding lands in the slug. The mastery's answers were ready about 5 seconds into its run.
+The first committed decoder already had the reverse step, so the pipeline solved all three modes at the 09:00 release run without help. The mastery had 58 blobs of twelve chunks each. By the lane's rule chunk 12 uses Day 12's encoding, so that encoding lands in the slug. The mastery's answers were ready about 5 seconds into its run.
 
-The only friction that morning was elsewhere: the 09:00 burst hit HTTP 429 rate limits on the script and binary lanes, not on this one. A later sweep could not re-run the time trial or mastery, because the server answered 409 and offered no fresh variants.
+The 09:00 burst did hit HTTP 429 rate limits that morning, but on the script and binary lanes. A later sweep could not re-run the time trial or mastery, because the server answered 409 and offered no fresh variants.
 
-Nothing to add: a known encoding, solved by the pipeline at release.
+The reverse step from the first decoder was all this day needed.

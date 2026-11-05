@@ -28,12 +28,12 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The prompt asks for attacker-controlled extras traced through an internal navigation boundary. The APK itself only needed its asset puzzle decoded, and Day 3's codec is base64. Routine, with no incident on record.
+The prompt asks for attacker-controlled extras traced through an internal navigation boundary. The APK itself only needed its asset puzzle decoded, and Day 3's codec is base64. It was routine, and the notes record no incident.
 
 ## The solve
 
-`mobsolve.py` base64-decodes the puzzle's `data` field and accepts the result only if it is a whole answer code. If the one-step decode does not give exactly that, it falls through to a generic decode search, which insists on the same whole-string match.
+`mobsolve.py` base64-decodes the puzzle's `data` field and only accepts the result if it's a whole answer code. If the one-step decode doesn't give exactly that, it falls through to a generic decode search, which insists on the same whole-string match.
 
-The time trial and mastery were solved on 4 October in one session, which the notes describe as going from 25 to 48 of 62 and clearing all the mobile, warm-up and metadata time trials and mastery runs. The solvers were committed on 5 October in a commit Claude Code co-authored. The scoreboard puts the single at 18:01:34 on 4 October, the time trial at 18:02:36 and the mastery at 18:03:26, but the notes do not say who solved the single, so I make no claim for it.
+One session on 4 October solved the time trial and mastery. The notes say it went from 25 to 48 of 62 and cleared all the mobile, warm-up and metadata time trials and mastery runs. The solvers were committed on 5 October in a commit Claude Code co-authored. The scoreboard puts the single at 18:01:34 on 4 October, the time trial at 18:02:36 and the mastery at 18:03:26. The notes don't say who solved the single, so I make no claim for it.
 
-The whole-string check is what keeps a decoder honest.
+The whole-string check is what stops a decoder from submitting a partial result.

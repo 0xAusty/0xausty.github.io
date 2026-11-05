@@ -32,8 +32,8 @@ Day 25 asked for the exact backend answer code per mode, with a prompt about for
 
 ## The solve
 
-This was the hot-reload supervisor's first morning: each time Claude Code saved an emulator fix, the supervisor re-solved the affected modes within seconds. Each failure named the next gap. First a native call with two arguments and the packed-switch opcode. Then an unhandled x86 `cmp` and the check-cast opcode. Then an XOR on a value the emulator had not produced.
+This was the hot-reload supervisor's first morning: each time Claude Code saved an emulator fix, the supervisor re-solved the affected modes within seconds, and each failure named the next gap. The first was a native call with two arguments and the packed-switch opcode, the next an unhandled x86 `cmp` and the check-cast opcode, and then an XOR on a value the emulator had not produced.
 
-The agent's fixes in `mobemu.py` added packed and sparse switches, check-cast as a no-op, the `Long` helpers and Java reflection, resolved to a direct call on the named sibling method. `nativemix.py` went from a linear executor to an instruction-pointer interpreter with a flags model, because the Day 16-style set gated on a 16-bit compare. Set 6 cleared at 09:20:44 and the reload at 09:24:54 solved all nine; the mastery was accepted at 09:24:57.
+The agent's fixes in `mobemu.py` added packed and sparse switches, check-cast as a no-op, the `Long` helpers and Java reflection, resolved to a direct call on the named sibling method. `nativemix.py` went from a linear executor to an instruction-pointer interpreter with a flags model, because the Day 16-style set depended on a 16-bit compare. Set 6 cleared at 09:20:44 and the reload at 09:24:54 solved all nine; the mastery was accepted at 09:24:57.
 
 Banking the confident sets first meant the fix only had to supply two.

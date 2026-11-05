@@ -21,7 +21,7 @@ description = "A routine warmup: URL percent-encoding applied twice, reachable b
 # (the chips and the glance card's When column say when it was solved)
 solved_by = ["autopilot"]
 
-tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = ["wusolve.py", "python"]                        # e.g. ["python", "binsolve.py"]: shown at the bottom + browsable
 tags   = ["encoding"]
 skills = ["Automation & Tooling"]  # groups it on /portfolio/
 
