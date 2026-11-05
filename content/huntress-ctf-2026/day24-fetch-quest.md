@@ -36,6 +36,6 @@ A parallel Claude Code subagent solved it. The idea was to make the fetch route 
 
 The first classifier labelled it as a generic admin challenge and failed, so a dedicated SSRF branch was added. As with the previous challenge that day, the proof arrived as a JSON evidence field rather than a token.
 
-The time trial was correct by 09:25 and mastery by 09:26 on 24 October, on a morning when the cron had run late.
+The time trial was correct at 09:25:16 and mastery at 09:25:48 on 24 October, on a morning when the cron had run late.
 
 The fix is to restrict what the fetcher may reach, and to require authentication on internal services instead of trusting network position.

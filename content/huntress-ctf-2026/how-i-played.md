@@ -19,7 +19,7 @@ Huntress CTF 2026 was billed as an **AI Arena**. Every player got an *AI Homebas
 
 An event built around an API is an invitation to automate, so that's what I did. I built a pipeline that grabs each challenge the moment it drops, solves it with deterministic code and submits the answer. An AI coding agent, Claude Code, wrote most of that code and extended it every day as new formats appeared.
 
-The result: 63rd of 1,602 teams (2,304 players), with 1,880 of 1,885 points and 560 of 561 modes. The one miss was SHA1-Hulud, a standalone reverse-engineering challenge added on Day 30, still unsolved when the event closed. The fastest complete release morning was Day 18: all 15 modes CORRECT by 09:03:46.
+The result: 63rd of 1,602 teams (2,304 players), with 1,880 of 1,885 points and 560 of 561 modes. The one miss was SHA1-Hulud, a standalone reverse-engineering challenge added on Day 30, still unsolved when the event closed. The fastest complete release morning was Day 18: all 15 modes CORRECT by 09:03:45.
 
 This isn't a story about an AI winning a CTF while I watched. The agent wrote most of the code: 146 of the repo's 153 commits carry Claude's co-author line. My job was the part that decides whether automation is any good: the rules it plays by, the order it does things in, when to stop guessing, and where to take a question the pipeline couldn't answer. I didn't solve any challenge by hand. Where an answer came from the agent in a live session, from the Homebase AI or from my own ChatGPT account rather than from the pipeline, I'll say so.
 
@@ -79,7 +79,7 @@ On the last day the rule broke outright. With SHA1-Hulud open and submissions fr
 
 Answers came from four places, and each challenge page's card names the ones behind it:
 
-- **The pipeline, on its own:** the daily runner and the lane solvers, with nobody in the loop. On Day 27 it banked every mode of the five standard lanes by 09:00:46.
+- **The pipeline, on its own:** the daily runner and the lane solvers, with nobody in the loop. On Day 27 it banked every mode of the five standard lanes by 09:00:43.
 - **Claude Code, in session:** wrote and extended the solvers, chased down rejections, and kept a replay corpus of every past attempt so a fix for today couldn't break yesterday. It also fixed release-morning misses live with me at the laptop (the notes say "hand-fixed"; the hands were the agent's).
 - **The event's Homebase AI:** some answers were short labels from the challenge generator's own vocabulary, like the form a Batch variable expansion takes. Asking it with the challenge's exact wording, framed as "what's the short label for this," got answers neither of us could derive. It also supplied the script control-flow labels and masteries for Days 4 to 7, the Day 1 ELF symbol field, the PE symbol spelling in the [Mangled](/huntress-ctf-2026/day02-mangled/) mastery and the [Trust the Webhook](/huntress-ctf-2026/day26-trust-the-webhook/) recipe.
 - **My own ChatGPT account,** used when Claude hit its usage limit. It built SHA1-Hulud's first emulator and, with the Homebase AI, produced the Day 23 script time trial and mastery ([Press Start to Decode](/huntress-ctf-2026/day23-press-start-to-decode/)) after the agent's own attempt stalled.
@@ -121,7 +121,7 @@ The schedule failed first. On Day 8 the 08:50 cron never fired, because the lapt
 
 Then speed bit. On Day 11 five lane processes hit the Game Master at once and tripped each other into HTTP 429s; a 429 on a *submit* failed the binary time trial, and with no fresh variant published, the mastery behind it was locked too. That morning the agent added a token bucket shared by every lane, and a POST that draws a 429 now waits and resends. Concurrency without a shared throttle is a self-inflicted outage.
 
-Day 15's automated pass had 7 of 15 modes by 09:00:31 and fixes in session finished at 09:18:56, moving us to 34th; the leader had finished all 15 in under two minutes. Day 16, 15/15 by 09:05:09, put us 13th. Day 17 finished by 09:33:57 but took us to 5th: its binary was the separator, solved by only eight teams when I checked.
+Day 15's automated pass had 7 of 15 modes by 09:00:31 and fixes in session finished at 09:18:55, moving us to 34th; the leader had finished all 15 in under two minutes. Day 16, 15/15 by 09:05:09, put us 13th. Day 17 finished by 09:33:55 but took us to 5th: its binary was the separator, solved by only eight teams when I checked.
 
 The OpenAPI description held a surprise of its own: a request must set `run_for_time: true` to get a ranked, timed attempt, so three days of "Hall of Fame ineligible" were simply our runners never asking. The first ranked run placed 8th at 0.553 s against a 0.391 s leader. I approved a capped ranked loop and stopped it on 16 October, once more shots were mostly measuring the server.
 
@@ -145,7 +145,9 @@ Most of the worst moments were self-inflicted, and each one left a rule behind.
 
 After 5th on Day 17, rank slid to 66th by Day 26 on late finishes and ended at 63rd.
 
-From Day 16 on, the day's last CORRECT came by 09:05:19 on Days 16, 18 and 19, and by about 09:25 on six more (Day 30 not counting SHA1-Hulud). The slow days were the label probe (Day 17, 09:33:57), web (Day 21, about 09:50), a session that died (Day 23, 10:33:12), the laptop off at 9:00 and five new shapes (Day 24, 09:39:17), Trust the Webhook (Day 26, the afternoon), an idle gap and a binary fix that missed the PE builds (Day 28, 09:53:22), and a crash-and-recover finale (Day 31, about 09:34 by the agent's note; the only record for eight of its modes is a summary stamped 11:58:29). Most of these times are upper bounds.
+From Day 16 on, the day's last CORRECT came by 09:05:09 on Days 16 and 18, and by 09:26:14 on seven more (Day 30 not counting SHA1-Hulud). The slow days were the label probe (Day 17, 09:33:55), web (Day 19, 10:16:22), a session that died (Day 23, 10:32:39), the laptop off at 9:00 and five new shapes (Day 24, 09:39:17), Trust the Webhook (Day 26, 12:30:09), an idle gap and a binary fix that missed the PE builds (Day 28, 09:53:20), and a crash-and-recover finale (Day 31, 09:33:08).
+
+The official scoreboard also records five first bloods, the first of 1,602 teams to solve a mode, all in the metadata lane: the Day 23 [Page Me Maybe](/huntress-ctf-2026/day23-page-me-maybe/) time trial and mastery, about a minute ahead of the next team, and all three modes of Day 26 [Before You Go](/huntress-ctf-2026/day26-before-you-go/), the single 0.3 s ahead.
 
 The miss, [SHA1-Hulud](/huntress-ctf-2026/day30-sha1-hulud/), was a stripped Rust PE with string encryption, anti-debugging and modified SHA-1 functions. After my own ChatGPT account built the first offline Unicorn emulator, Claude Code took it over: one session concluded the check was a one-way gate, and a later one showed that was wrong, found the emulator bug behind a long detour, and stopped a few steps from the end. I also put it to the Homebase AI. It stayed open.
 

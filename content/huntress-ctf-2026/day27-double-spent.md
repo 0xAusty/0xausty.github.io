@@ -23,7 +23,7 @@ skills = ["Web Application Security"]  # groups it on /portfolio/
 toc = true
 +++
 
-Double Spent was the [Web Exploitation](/huntress-ctf-2026/lanes/web/) lane's twenty-first challenge and the slowest of the lane to fall. Its single asked for one proof from one live target, and the prompt gave the method away: a ledger that cannot count a credit spent twice. The interest is in the trap around it. The credit is one-shot, so the first careless request spends it and bricks the instance. That is exactly what happened on the first run, and it turned a one-line bug into the long pole of the morning.
+Double Spent was the [Web Exploitation](/huntress-ctf-2026/lanes/web/) lane's twenty-first challenge and the slowest of its morning to fall. Its single asked for one proof from one live target, and the prompt gave the method away: a ledger that cannot count a credit spent twice. The interest is in the trap around it. The credit is one-shot, so the first careless request spends it and bricks the instance. That is exactly what happened on the first run, and it turned a one-line bug into the long pole of the morning.
 
 ## The challenge
 
@@ -67,9 +67,9 @@ It heals a target it has already spent. Because a spent single leaves a bricked 
 
 ## Timed modes
 
-Both timed modes used the same race. The time trial asked the one field under the clock and came back CORRECT by 09:24:51, a little over a minute after the single. The mastery was a compounding bundle of four targets — the day's double-spend alongside siblings of earlier types — and each was classified independently; the first submit was accepted with three of its proofs rejected before the bundle went CORRECT.
+Both timed modes used the same race. The time trial asked the one field under the clock and came back CORRECT at 09:24:22, a little over a minute after the single. The mastery was a compounding bundle of four targets — the day's double-spend alongside siblings of earlier types — and each was classified independently; the first submit was accepted with three of its proofs rejected before the bundle went CORRECT.
 
-Double Spent was the long pole of the morning. Its single did not bank until 09:23:18, roughly twenty-three minutes after the drop, while the rest of the day's fifteen deterministic modes had finished by 09:00:46. The mastery's exact time was not recorded.
+Double Spent was the long pole of the morning. Its single did not bank until 09:22:56, roughly twenty-three minutes after the drop, while the rest of the day's fifteen deterministic modes had finished by 09:00:43. The mastery went CORRECT at 09:26:14.
 
 ## Dead ends
 

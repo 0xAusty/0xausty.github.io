@@ -34,6 +34,6 @@ This was the lane's first cumulative inventory. Single and time trial asked 12 f
 
 The 8 October cron did not fire because the laptop was asleep, so the day was solved in a Claude Code session. The agent extended `mfsolve.py` with member size and the three hashes, parsed the member names from the `PK 01 02` central-directory records, and added a filename handler that takes the first matching member's basename. The untimed mastery was solved in full and submitted once.
 
-The notes do not record the solve times; the supervisor's run on 9 October only found all three modes already CORRECT.
+The scoreboard puts the single at 09:08:44, the time trial at 09:25:18 and the mastery at 09:30:52; the supervisor's run on 9 October only found all three modes already CORRECT.
 
 The gotcha came later. The field is declared as an array with exact values and order, and Day 8 accepted central-directory order. On Day 23 and Day 24 the grader accepted only the alphabetical listing, and the parser now emits that.

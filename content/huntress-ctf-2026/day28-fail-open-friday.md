@@ -34,6 +34,6 @@ A live ASP.NET Core Razor Pages target, one proof per target and a bundle of fiv
 
 The access check consults a remote policy decoder. A policy-format route documents the parameter name and the shape of a valid value: a prefix followed by an encoded JSON payload. `solve_failopen` in `websolve.py` reads those from the format route, sends the correct prefix with a payload that cannot be decoded, and the decoder throws. The broken check then fails open, and the feature route returns a proof in its `evidence` field.
 
-The single first showed unsolved on the 09:00 pass, as new web shapes did before a solver existed. It was CORRECT by 09:15:29 after an agent recovery on the release morning. The time trial was recorded at 09:17:40 and mastery at 09:18:24.
+The single first showed unsolved on the 09:00 pass, as new web shapes did before a solver existed. It was CORRECT at 09:12:23 after an agent recovery on the release morning. The time trial was recorded at 09:17:40 and mastery at 09:18:24.
 
 The error path is the vulnerability. Authorisation code should deny when it fails, and a test should feed it malformed input.

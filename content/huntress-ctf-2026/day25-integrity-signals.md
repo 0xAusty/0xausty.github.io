@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 25 asked for the exact backend answer code per mode, with a prompt about forging or replaying a bounded integrity statement. The single and time trial were correct by 09:00:11. The nine-APK mastery mixed earlier mechanisms and came back seven of nine, and the supervisor banked the seven it was confident in.
+Day 25 asked for the exact backend answer code per mode, with a prompt about forging or replaying a bounded integrity statement. The single and time trial were correct at 09:00:04 and 09:00:06. The nine-APK mastery mixed earlier mechanisms and came back seven of nine, and the supervisor banked the seven it was confident in.
 
 ## The solve
 

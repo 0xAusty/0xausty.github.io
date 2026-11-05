@@ -32,7 +32,7 @@ The same bar as Day 19, and the prompt said the big one goes first. That points 
 
 ## The solve
 
-The pipeline solved all three modes on its own at release, with the catalog recording them by 09:00:19. The notes do not name Day 20's encoding. My reading is an inference from the prompt and the code: the UTF-16 detector in `wusolve.py` already accepted a big-endian byte-order mark or an all-zero high-byte plane, and `wusolve.py` had no commits between the Day 19 fold-in and 21 October, so Day 20 ran on that code.
+The pipeline solved all three modes on its own at release, with the catalog recording them at 09:00:04, 09:00:06 and 09:00:09. The notes do not name Day 20's encoding. My reading is an inference from the prompt and the code: the UTF-16 detector in `wusolve.py` already accepted a big-endian byte-order mark or an all-zero high-byte plane, and `wusolve.py` had no commits between the Day 19 fold-in and 21 October, so Day 20 ran on that code.
 
 I can't show the decode step from the logs, only that the day ran unattended and came out correct.
 

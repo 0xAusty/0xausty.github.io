@@ -47,7 +47,7 @@ The first Batch solver, written by Claude Code, the coding agent that built most
 
 By 11:19 on 5 October the single stood at 149 of 159, and the notes list only generator labels as blocking it: the nine control-flow forms and the launcher's expansion. Several answers had already been rejected. The pipeline's rule was never to guess, and the notes called cycling wordings brute force under the competition rules, so the way forward had to be information about the intended format. Expansion Pack "was stuck for hours".
 
-What the notes credit to me is the framing: quoting the Game Master's prompt to the Homebase AI word for word. The prompt mirrors the generator's categories, and the answers turned out to be short generic labels, not descriptions. The Homebase AI got `if_guard` accepted for the files with an `if defined` guard and gave `call_double` for the launcher. The single was CORRECT by 13:24 on 5 October, and the notes record it as solved by the Homebase AI. That afternoon the agent wrote the construct-to-label table into the solver.
+What the notes credit to me is the framing: quoting the Game Master's prompt to the Homebase AI word for word. The prompt mirrors the generator's categories, and the answers turned out to be short generic labels, not descriptions. The Homebase AI got `if_guard` accepted for the files with an `if defined` guard and gave `call_double` for the launcher. The single was CORRECT at 13:19:34 on 5 October, and the notes record it as solved by the Homebase AI. That afternoon the agent wrote the construct-to-label table into the solver.
 
 ## Making it deterministic
 
@@ -89,7 +89,7 @@ def unwrap(raw: bytes):
 
 ## Timed modes
 
-The time trial, the same questions on a fresh bundle, came back CORRECT by 16:15 on 7 October, run by the agent in its timed-modes session. The mastery was another matter: timed submits were all-or-nothing, the Batch expansion fields now blocked every script mastery, and I put every script mastery and retry on hold until the Homebase AI came back with a mapping.
+The time trial, the same questions on a fresh bundle, came back CORRECT at 15:54:37 on 7 October, run by the agent in its timed-modes session. The mastery was another matter: timed submits were all-or-nothing, the Batch expansion fields now blocked every script mastery, and I put every script mastery and retry on hold until the Homebase AI came back with a mapping.
 
 The same day the two Day 3 FOR-loop rebuilds were compared side by side:
 
@@ -102,9 +102,9 @@ The first is `host-context.cmd` (`for_indirect`), the second the launcher (`call
 
 I approved a capped two-try, committed at 01:33 on 8 October: submit `for_indirect`, then `call_double` only on the expansion fields the Game Master still reports open; never a third label, never another field.
 
-By 09:02 on 8 October the Homebase AI's own engine had solved the Day 4–7 script masteries from fresh bytes, and its note named the Day 3 difference: the indexed variable's name, `fragment…` for `for_indirect`, `h…` for `call_double`. That rule never went into `bat_expansion`; the two-try stayed, and cleared 12 such fields on the Day 10 mastery.
+By 09:02 on 8 October the Homebase AI's own engine had solved the Day 4–7 script masteries from fresh bytes the evening before, and its note named the Day 3 difference: the indexed variable's name, `fragment…` for `for_indirect`, `h…` for `call_double`. That rule never went into `bat_expansion`; the two-try stayed, and cleared 12 such fields on the Day 10 mastery.
 
-The Day 3 mastery was still listed open at 09:15 on 10 October. A 13:14 commit that day records the script backlog CORRECT, already solved when checked; when it was submitted, and by whom, is not recorded.
+The Day 3 mastery was still listed open at 09:15 on 10 October. A 13:14 commit that day records the script backlog CORRECT, already solved when checked. The submit was at 20:43:56 on 7 October; who made it is not recorded.
 
 ## Dead ends
 

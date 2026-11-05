@@ -32,7 +32,7 @@ Day 15 was the standard decode-the-blob question. The prompt said even the punct
 
 ## The solve
 
-The existing decoder solved all three modes at release. ROT47 had been added to `kpa.py`'s extra steps the day before, which is the likely reason, though no note says so. The corpus recorded the CORRECT attempts between 09:00:08 and 09:00:19.
+The existing decoder solved all three modes at release. ROT47 had been added to `kpa.py`'s extra steps the day before, which is the likely reason, though no note says so. The single was CORRECT at 09:00:07, the time trial at 09:00:11 and the mastery at 09:00:19.
 
 The more useful work came that afternoon. Every warmups mastery blob shares one encoding schedule, so one full search teaches the path for the rest. The speed loop's second iteration made the mastery schedule-driven: later blobs decode directly with `wusolve.decode_with`, which accepts only the exact prefix and an all-dictionary slug, and otherwise falls back to the search. Days 13 to 15 mastery solves went from 2.4-4.4 s to 0.06-0.09 s.
 

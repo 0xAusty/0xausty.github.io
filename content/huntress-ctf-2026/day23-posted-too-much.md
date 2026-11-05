@@ -32,7 +32,7 @@ This was a mass-assignment challenge. The visible form asked only for a name, bu
 
 ## The solve
 
-The reasoning is the usual one for this class: if the form shows one field and the server binds everything, the interesting field is the one the form leaves out. A Claude Code subagent solved it live on the release morning, working through single, time trial and mastery in turn. Single, time trial and mastery were confirmed at 09:10:06, 09:10:18 and 09:10:36 on 23 October.
+The reasoning is the usual one for this class: if the form shows one field and the server binds everything, the interesting field is the one the form leaves out. A Claude Code subagent solved it live on the release morning, working through single, time trial and mastery in turn. Single, time trial and mastery were confirmed at 09:10:04, 09:10:18 and 09:10:35 on 23 October.
 
 The notes record the prompt and the times but little else, so I can't say which extra field the subagent used or how long it spent finding it. It was also not folded into `websolve.py`, so the bug class has no dedicated branch there.
 

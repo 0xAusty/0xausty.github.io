@@ -32,8 +32,8 @@ Day 12 asked 120 fields, Days 1 to 11 plus ten for a Pascal ELF. Its raw config 
 
 ## The solve
 
-The generic handler from Day 10 did it again. The single resolved all 120 fields and was CORRECT by 09:00:55, while the other lanes' submits, starts and practice calls were being rate-limited around it. The shared limiter from the day before was in place, but the 09:00 burst still drew 429s: the binary time trial's submit was one, and the mastery found no live or practice window.
+The generic handler from Day 10 did it again. The single resolved all 120 fields and was CORRECT at 09:00:13, while the other lanes' submits, starts and practice calls were being rate-limited around it. The shared limiter from the day before was in place, but the 09:00 burst still drew 429s: the binary time trial's submit was one, and the mastery found no live or practice window.
 
-Both were run in the morning catch-up session on 14 October with the unchanged solver: the time trial resolved 120 of 120, and the mastery 360 of 360 inside a window of about 30 seconds. Exact times for those two aren't recorded.
+Both were run in the morning catch-up session on 14 October with the unchanged solver: the time trial resolved 120 of 120, and the mastery 360 of 360 inside a window of about 30 seconds. The time trial went CORRECT at 09:20:20 and the mastery at 09:20:38.
 
 The answers were right on the day and then waited two days for a window.

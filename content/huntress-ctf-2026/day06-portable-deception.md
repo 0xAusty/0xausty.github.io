@@ -34,6 +34,6 @@ Day 6 asked for the PDF header version of a named document. The bundle mixed rea
 
 The handler is the `pdf-header-version` suffix in `mfsolve.py`. The versions rotated between 1.4 and 1.7 across variants, so nothing could be hard-coded. The later metadata engine also exposes the catalog's own /Version entry separately, which this question did not want.
 
-Two of the project's notes, both written in agent sessions, say the 09:00 sweep solved Day 6. The supervisor's log says otherwise: it fetched the single, produced no answer and reported it unsolved, with the time trial and mastery not attempted. The new handler reached the repo in a commit co-authored by Claude on 7 October. The handoff committed with it reports all three modes correct by 11:24 that day. The first-correct time is not recorded.
+Two of the project's notes, both written in agent sessions, say the 09:00 sweep solved Day 6. The supervisor's log says otherwise: it fetched the single, produced no answer and reported it unsolved, with the time trial and mastery not attempted. The new handler reached the repo in a commit co-authored by Claude on 7 October. The handoff committed with it reports all three modes correct. The scoreboard puts them at 09:03:23, 09:05:08 and 09:05:16 on 6 October, the release morning.
 
 Trust the log over the summary notes.

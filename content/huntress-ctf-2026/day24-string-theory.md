@@ -32,7 +32,7 @@ The hint was to count carefully, because the comma knows where to stop. The blob
 
 ## The solve
 
-The 09:00 run did not start on time. The laptop was off, and the systemd timer caught up on wake, so the supervisor saw the release at 09:14:31. The single was unsolved at first and was correct by 09:18:32. The mastery was correct by 09:39:17. The time trial's first correct time is not recorded.
+The 09:00 run did not start on time. The laptop was off, and the systemd timer caught up on wake, so the supervisor saw the release at 09:14:31. The single was unsolved at first and was correct by 09:18:32. The mastery was correct by 09:39:17. The time trial was correct at 09:34:19.
 
 Claude Code added a run-length step to `wusolve.py`, in the first-pass steps. It splits on count and character pairs, not on commas, and only fires when the text round-trips exactly through its canonical re-encoding, which keeps it from matching ordinary text by accident.
 

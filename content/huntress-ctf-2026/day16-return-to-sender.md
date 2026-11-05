@@ -20,6 +20,6 @@ The single asked for the Message-ID of one message in a mailbox export full of r
 
 The EML parser added on 14 October (`metaextra.parse_eml`, built on Python's `email` package) already exposed the message ID. The release-time supervisor therefore answered the single and the time trial on its first submit, with no human fix. The raw header value was accepted, angle brackets included.
 
-The mastery came back with an HTTP 409. It is locked until the time trial is correct, and the new parallel pipeline had started both together. The mastery was correct by 09:01:40, and the pipeline now runs single, then time trial, then mastery in sequence. The notes do not say who re-ran it.
+The mastery came back with an HTTP 409. It is locked until the time trial is correct, and the new parallel pipeline had started both together. The mastery was correct at 09:01:39, and the pipeline now runs single, then time trial, then mastery in sequence. The notes do not say who re-ran it.
 
 The sequencing rule was already in the history: across 44 solved pairs, no mastery had been solved before its time trial.

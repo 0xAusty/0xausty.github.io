@@ -38,4 +38,4 @@ The storage labels were the hard part, because nothing showed their vocabulary. 
 
 The time trial needed one more rule. Its Day 1 binary was stripped, and the grader wanted `none` for the recover code, not the constant a byte search still found.
 
-The label hunt made binary the day's critical path, with its last mode correct by 09:33:57. I had approved closest-name guessing two days earlier.
+The label hunt made binary the day's critical path, with its last mode correct at 09:33:55. I had approved closest-name guessing two days earlier.

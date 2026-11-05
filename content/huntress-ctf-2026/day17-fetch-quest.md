@@ -32,7 +32,7 @@ AutoHotkey polyglots this time, with a prompt about reconciling the fetch target
 
 ## The solve
 
-Nothing needed fixing. The pre-warmed script lane (workers started at 08:59:30 and 08:59:57, warm node servers, and the solve trim from 16 October) submitted the single, the Time Trial and the Mastery correctly on the first try. The records put them at 09:00:05, 09:00:09 and 09:00:19, with the supervisor's summary at 09:00:23. No script fix is listed for the day.
+Nothing needed fixing. The pre-warmed script lane (workers started at 08:59:30 and 08:59:57, warm node servers, and the solve trim from 16 October) submitted the single, the Time Trial and the Mastery correctly on the first try. The records put them at 09:00:05, 09:00:08 and 09:00:19, with the supervisor's summary at 09:00:23. No script fix is listed for the day.
 
 It was the lane's best finish up to then, and it came on a morning when four other lanes changed their questions.
 

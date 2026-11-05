@@ -117,7 +117,7 @@ The fix went into commit `7fff503` at 09:45:03 with the morning's other fold-ins
 
 Gating meant the supervisor opened only the single at 09:00. The plan was fold-in-first: the agent saves its fix, and the supervisor's hot reload re-attempts the next modes within about 10 to 30 seconds. The reload never came. The supervisor reloads solvers and opens new work only when no worker is running, and a warmups mastery worker stuck in the old `wusolve.py` deep search pegged a core from 09:00 and kept every lane from reopening. `daily.log` is silent from 09:03:36 to 09:38:06, and at 09:40 the supervisor was stopped at my request: "just kill it, no more drops".
 
-The corpus holds one attempt per mode, a time trial at 09:15:28 and a mastery at 09:17:45, both stored as unsolved. Neither appears in the supervisor's log, and the notes don't say who ran them. Both modes were CORRECT by 11:58:29, the `daily.log` summary that lists only two modes still open, neither of them these. Their submit times weren't recorded.
+The corpus holds one attempt per mode, a time trial at 09:15:28 and a mastery at 09:17:45, both stored as unsolved. Neither appears in the supervisor's log, and the notes don't say who ran them. The time trial was CORRECT at 09:17:09 and the mastery at 09:19:19, well before the 11:58:29 `daily.log` summary that lists only two modes still open, neither of them these.
 
 ## Dead ends
 

@@ -32,8 +32,8 @@ The questions grew to 100 fields: Days 1 to 9 again, plus the new Zig binary, wh
 
 ## The solve
 
-The binary lane had no solver for Day 10 at the release, so it was skipped. The parallel run that morning gave each open lane to its own subagent. The binary one added a Day 10 branch: format from the magic bytes, machine from the ELF header or the PE COFF header, and the config blob picked by its CRC, which tells the real one from decoys. That branch was committed at 09:08, and the day was complete by 09:15.
+The binary lane had no solver for Day 10 at the release, so it was skipped. The parallel run that morning gave each open lane to its own subagent. The binary one added a Day 10 branch: format from the magic bytes, machine from the ELF header or the PE COFF header, and the config blob picked by its CRC, which tells the real one from decoys. That branch was committed at 09:08, and the single was correct at 09:07:34, the time trial at 09:07:52 and the mastery at 09:08:09.
 
-Straight afterwards the agent generalised it. `_find_hcfg` in `binsolve.py` looks for the blob raw, as base64 in a string literal, in a named section, or single-byte XORed, and accepts only a CRC-valid one. `_generic_binary_day` then answers from the declared answer format, and the agent checked it offline against Days 4, 5, 8, 9 and 10. Per-mode times weren't recorded.
+Straight afterwards the agent generalised it. `_find_hcfg` in `binsolve.py` looks for the blob raw, as base64 in a string literal, in a named section, or single-byte XORed, and accepts only a CRC-valid one. `_generic_binary_day` then answers from the declared answer format, and the agent checked it offline against Days 4, 5, 8, 9 and 10.
 
 Timed mastery also came back this day after two untimed ones, so the live deadline had to be read every time. Days 11 to 14 then solved with no new code.

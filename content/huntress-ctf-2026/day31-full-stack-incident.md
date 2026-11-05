@@ -70,7 +70,7 @@ Because web targets expire, none of this replays from a static corpus the way th
 
 ## Timed modes
 
-The timed modes reused the same chain. The time trial's single field came back CORRECT at 09:12:28, the one exact time recorded for the challenge. The untimed single and the mastery are logged CORRECT by 11:58:29 — upper bounds from the supervisor's end-of-morning summary, after the automated first pass at 09:00:41 had missed. The agent's own notes put the finish in the crash-recovery window around 09:34.
+The timed modes reused the same chain. The time trial's single field came back CORRECT at 09:12:28. The untimed single went CORRECT at 09:07:40 and the mastery at 09:28:58, after the automated first pass at 09:00:41 had missed. The agent's own notes put the finish in the crash-recovery window.
 
 ## Dead ends
 

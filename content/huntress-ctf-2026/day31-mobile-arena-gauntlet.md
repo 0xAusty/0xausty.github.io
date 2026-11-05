@@ -28,7 +28,7 @@ skills = ["Reverse Engineering"]  # groups it on /portfolio/
 toc = false
 +++
 
-The last mobile day was a mass-generated campaign composing every earlier mobile primitive. The single and time trial were routine and solved by the pipeline at release, by 09:00:24. The 15 mastery apps mixed earlier templates.
+The last mobile day was a mass-generated campaign composing every earlier mobile primitive. The single and time trial were routine and solved by the pipeline at release, at 09:00:13 and 09:00:23. The 15 mastery apps mixed earlier templates.
 
 ## The solve
 
@@ -36,4 +36,4 @@ Fourteen of the mastery sets solved unattended. Set 10 was a Day 20-style app th
 
 Claude Code extended `mobemu.py` inline. It added runtime second-DEX loading, with the asset stream read into a byte array and handed to a class loader whose methods are registered so reflection can reach them, plus array-copy, buffer and string methods. It also made the if-test compares treat a null reference as 0. Dalvik compares a null against zero, and a Python model of registers has to do the same.
 
-The mastery's exact time is not recorded. The catalog carries the supervisor's 11:58:29 summary, but the 09:45 fold-in commit already reports every Day 31 lane banked. The escalator only fires on unsolved singles, so a mastery-only miss never triggered it.
+The mastery was accepted at 09:10:13, before the 09:45 fold-in commit that reports every Day 31 lane banked. The escalator only fires on unsolved singles, so a mastery-only miss never triggered it.

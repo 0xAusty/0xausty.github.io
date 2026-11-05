@@ -34,6 +34,6 @@ Day 5 took the cumulative bundle to 40 fields, with eight new ones for a Rust bi
 
 At the 5 October release the supervisor logged no solver for the binary lane, so it was skipped. Claude Code's `binsolve.py` handled it on 6 October with the same branch as Go. It searches for every config magic and keeps the record whose CRC32 over the decoded payload matches the header, which rejects the decoy. That reached 39 of 40.
 
-The last field, the Day 1 symbol list, came from the event's Homebase AI (GPT-6 Luna) on 7 October, and the agent then swept the single, time trial and mastery. The notes record no per-mode times.
+The last field, the Day 1 symbol list, came from the event's Homebase AI (GPT-6 Luna) on 7 October, and the agent then swept the single, time trial and mastery. The single went CORRECT at 11:00:56, the time trial at 11:02:32 and the mastery at 11:06:46.
 
 A plain find on the magic returns the decoy first. Validate the checksum, not the magic.

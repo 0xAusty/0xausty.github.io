@@ -34,6 +34,6 @@ Day 5 asked for the width and height of a named PNG, as WxH. The prompt talked a
 
 The handler in `mfsolve.py` reads the width and height from the IHDR chunk that follows the 8-byte PNG signature. The later metadata engine also walks every chunk and records chunk types, text chunks and trailing bytes after IEND, though this question needed none of that.
 
-The challenge was released before 9 am, and the supervisor's pass at 09:05 on 5 October logged "NOT SUBMITTING (unmapped)". The single was left unsolved, and the time trial and mastery were not attempted. The IHDR handler first appears in a commit co-authored by Claude at 11:19 that day, and the handoff committed with it lists metadata as solved for all modes. So the answers came from an in-session fix between those two points, which is why the label reads agent. The notes do not narrate that fix, and they record no first-correct time.
+The challenge was released before 9 am, and the supervisor's pass at 09:05 on 5 October logged "NOT SUBMITTING (unmapped)". The single was left unsolved, and the time trial and mastery were not attempted. The IHDR handler first appears in a commit co-authored by Claude at 11:19 that day, and the handoff committed with it lists metadata as solved for all modes. So the answers came from an in-session fix between those two points, which is why the label reads agent. The notes do not narrate that fix; the scoreboard puts the three modes correct at 09:06:57, 09:06:59 and 09:07:01.
 
 The answer is the header value, not a rendered size.

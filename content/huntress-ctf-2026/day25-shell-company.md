@@ -34,6 +34,6 @@ This was OS command injection. A feature route ran a shell command over user inp
 
 The 09:00 first pass classified it wrongly and failed, because `solve_cmdi` didn't exist yet. One of three parallel Claude Code subagents built it, and the supervisor hot-reloaded it. The solver keeps the disclosed example path so the normal listing still succeeds, then chains a read of the proof file and a dump of the environment into the same request. The proof file's path is named by an environment variable, so the dump is how it finds the file.
 
-The single was correct by 09:07:24 and the time trial by 09:08:38 on 25 October. The solver is in `websolve.py`.
+The single was correct at 09:07:12 and the time trial at 09:08:37 on 25 October. The solver is in `websolve.py`.
 
 Blocklists on shell metacharacters rarely hold, because the shell has more ways to chain and expand than a filter lists. The fix is never to build a shell string from input: pass arguments as a list, or avoid the shell entirely.

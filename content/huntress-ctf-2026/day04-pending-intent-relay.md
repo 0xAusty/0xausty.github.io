@@ -34,7 +34,7 @@ The prompt asks you to recover and redirect a mutable PendingIntent while preser
 
 `mobsolve.py` base64-decodes `data`, XORs every byte with the puzzle's `key`, and accepts the result only as a whole answer code. The order matters: the XOR comes after the base64 unwrap.
 
-The time trial and mastery were solved on 4 October, in the same session that cleared the other mobile, warm-up and metadata time trials and mastery runs. The solvers were committed the next morning in a commit Claude Code co-authored. I have no per-mode times, and the notes do not say who solved the single.
+The time trial and mastery were solved on 4 October, in the same session that cleared the other mobile, warm-up and metadata time trials and mastery runs. The solvers were committed the next morning in a commit Claude Code co-authored. The scoreboard puts the single at 18:01:43 on 4 October, the time trial at 18:02:43 and the mastery at 18:03:29, but the notes do not say who solved the single.
 
 Day 4 was released on a day when the Game Master also returned a 503 release-unavailable error for hours, so the release itself was the awkward part.
 

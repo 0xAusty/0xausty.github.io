@@ -34,7 +34,7 @@ Day 6 added six Bash behaviour graphs and took the challenge to 399 fields. Each
 
 `bashsolve.py` reproduces each `Recover_` function's representation and transform in Python and checks the result against the descriptor marker, never running the script. A later fallback tries every known representation and transform pair and keeps only one that yields a valid descriptor. Stage count is an explicit descriptor field, not the number of steps.
 
-One wrong field rejects the whole call, while accepted fields stay banked. So the Claude Code session submitted per family and bisected the bad ones, reaching 386 of 399 on 6 October. The last thirteen were generator labels for the Batch and VBScript wrappers, and the compound guesses at the Batch one were all rejected. The labels that finished the single on 7 October came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery on 8 October. The time trial was correct by 16:15 on 7 October.
+One wrong field rejects the whole call, while accepted fields stay banked. So the Claude Code session submitted per family and bisected the bad ones, reaching 386 of 399 on 6 October. The last thirteen were generator labels for the Batch and VBScript wrappers, and the compound guesses at the Batch one were all rejected. The labels that finished the single on 7 October came from the event's Homebase AI (GPT-6 Luna), which also solved the mastery at 22:13:49 on 7 October. The time trial was correct at 15:54:23 on 7 October.
 
 Teaching the shared decoder these codecs also lifted the still-open Day 4 and 5 singles.
 

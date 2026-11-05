@@ -32,7 +32,7 @@ The Day 21 bundle added GitHub Actions workflow polyglots. The single asked 1,37
 
 ## The solve
 
-Nobody touched it. The 09:00 cron ran the pipeline, which read the new bundle, derived the answers with the existing script modules and submitted them. The single was confirmed by 09:00:07, the Time Trial by 09:00:09 and the mastery by 09:00:14, with the supervisor's summary at 09:00:21. The mastery was five sets and 6,865 fields, and it went in the same way.
+Nobody touched it. The 09:00 cron ran the pipeline, which read the new bundle, derived the answers with the existing script modules and submitted them. The single was confirmed at 09:00:06, the Time Trial at 09:00:09 and the mastery at 09:00:13, with the supervisor's summary at 09:00:21. The mastery was five sets and 6,865 fields, and it went in the same way.
 
 No change to the solver is recorded for the day. The hand-off note for the morning says only that the script and mobile lanes banked three of three automatically.
 

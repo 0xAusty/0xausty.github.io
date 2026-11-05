@@ -32,7 +32,7 @@ Day 10 asked for a backend answer code by diffing manifest and Network Security 
 
 ## The solve
 
-The cron sweep solved and submitted all three modes through `mobsolve.py`, each about a second after starting. All three were CORRECT by 09:00:21, the summary time, 20 seconds after the release was seen. That is an upper bound for each mode, since the log gives offsets rather than clock times.
+The cron sweep solved and submitted all three modes through `mobsolve.py`, each about a second after starting. The single was CORRECT at 09:00:04, the time trial at 09:00:06 and the mastery at 09:00:08, with the summary at 09:00:21, 20 seconds after the release was seen.
 
 The time trial and mastery had deadlines again after two untimed days (09:00:18 and 09:00:17), so the runner had to read the live deadline on every start. Both came back CORRECT inside them.
 

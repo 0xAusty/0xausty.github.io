@@ -32,7 +32,7 @@ The prompt was about a Java-to-native type or length assumption changing backend
 
 ## The solve
 
-The single and time trial were answered at release, at 09:00:08 and 09:00:11. The mastery failed with HTTP 409. The previous day's optimisation started the time trial and mastery in parallel, but the server only unlocks the mastery once the time trial is correct. The notes show 44 solved pairs where no mastery had ever been solved before its time trial. The data already held the rule; nobody had asked it.
+The single and time trial were answered at release, at 09:00:09 and 09:00:11. The mastery failed with HTTP 409. The previous day's optimisation started the time trial and mastery in parallel, but the server only unlocks the mastery once the time trial is correct. The notes show 44 solved pairs where no mastery had ever been solved before its time trial. The data already held the rule; nobody had asked it.
 
 Claude Code re-ran the mastery in session and it landed at 09:00:58, 47 seconds after the time trial. Three lanes lost their mastery the same way. The fix made `daily.py` run single, time trial and mastery strictly in sequence, with a test.
 

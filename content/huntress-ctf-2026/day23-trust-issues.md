@@ -32,7 +32,7 @@ Day 23 asked 276 fields: everything from Days 1 to 22 plus 12 about anti-analysi
 
 ## The solve
 
-The pipeline solved it unattended. The single and the time trial each resolved 276 of 276, and the mastery resolved 1,932 of 1,932 over seven sets. The log has the mastery fetch at 9.0 seconds and the solve at 29.1 seconds, and it was the day's critical path at about a minute from release. All three modes were confirmed by 09:02.
+The pipeline solved it unattended. The single and the time trial each resolved 276 of 276, and the mastery resolved 1,932 of 1,932 over seven sets. The log has the mastery fetch at 9.0 seconds and the solve at 29.1 seconds, and it was the day's critical path at about a minute from release. The single was confirmed at 09:00:09, the time trial at 09:00:18 and the mastery at 09:00:59.
 
 Day 28 later re-asked two of the Day 23 fields. One was the CLI runtime version. The other was whether the assembly contains a decoy branch, which `binsolve.py` answers by looking for the word *decoy* in the member as Latin-1 or UTF-16LE text.
 

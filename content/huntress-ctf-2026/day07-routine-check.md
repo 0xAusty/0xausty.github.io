@@ -34,6 +34,6 @@ Day 7 asked 56 fields: Days 1 to 6 plus eight for a Kotlin jar. The jar was abou
 
 The challenge was released at 09:00:08 on 7 October and the binary lane was skipped at release. Claude Code changed `binsolve.py` to scan every class in the jar for the base64 blob rather than assuming one, which gave 55 of 56 with only the Day 1 symbol list open.
 
-That field came from the event's Homebase AI (GPT-6 Luna), and the agent then swept every cumulative single, time trial and mastery for Days 3 to 7. The lane stood at 100% for Days 1 to 7 by the 11:43 commit. Per-mode times are not recorded.
+That field came from the event's Homebase AI (GPT-6 Luna), and the agent then swept every cumulative single, time trial and mastery for Days 3 to 7. The lane stood at 100% for Days 1 to 7 by the 11:43 commit. The single went CORRECT at 11:00:58, the time trial at 11:02:41 and the mastery at 11:06:57.
 
 In the mastery, a second set shipped the config binaries as byte-patched Windows PE copies, so the solver dispatches by day prefix, not file extension.

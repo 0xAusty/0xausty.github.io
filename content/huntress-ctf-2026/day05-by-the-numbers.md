@@ -18,8 +18,8 @@ Day 5 is decimal byte values, hinted by "reduced to numbers", and it was the fir
 
 ## The solve
 
-Day 5 was released before 09:00, and the runner was waiting for the wrong day. It saw the release at 09:05:15, and the single and the time trial were both correct by 09:05:27, the run's summary time. The submits themselves returned CORRECT 1.65 s into the single and 1.54 s into the time trial. `wusolve.py` handles the decimal step by turning numbers below 256 into bytes.
+Day 5 was released before 09:00, and the runner was waiting for the wrong day. It saw the release at 09:05:15, and the single and the time trial were correct at 09:05:17 and 09:05:26, before the run's summary at 09:05:27. The submits themselves returned CORRECT 1.65 s into the single and 1.54 s into the time trial. `wusolve.py` handles the decimal step by turning numbers below 256 into bytes.
 
-The mastery went worse. The run decoded only 2 of 23 blobs, and under the rule to submit only when every answer is solved, it submitted nothing. Why the per-chunk search failed on the other 21 is not recorded. The mastery was complete by the 11:19 handoff commit that morning, so I put it down to that Claude Code session, but no note says how it was fixed.
+The mastery went worse. The run decoded only 2 of 23 blobs, and under the rule to submit only when every answer is solved, it submitted nothing. Why the per-chunk search failed on the other 21 is not recorded. The mastery was correct at 09:07:30, before the 11:19 handoff commit that morning, so I put it down to that Claude Code session, but no note says how it was fixed.
 
 The fix for the early release was remembering the last processed day and polling every 10 seconds.

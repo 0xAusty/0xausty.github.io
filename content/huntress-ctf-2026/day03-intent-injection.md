@@ -34,6 +34,6 @@ The prompt asks for attacker-controlled extras traced through an internal naviga
 
 `mobsolve.py` base64-decodes the puzzle's `data` field and accepts the result only if it is a whole answer code. If the one-step decode does not give exactly that, it falls through to a generic decode search, which insists on the same whole-string match.
 
-The time trial and mastery were solved on 4 October in one session, which the notes describe as going from 25 to 48 of 62 and clearing all the mobile, warm-up and metadata time trials and mastery runs. The solvers were committed on 5 October in a commit Claude Code co-authored. I have no per-mode times, and the notes do not say who solved the single, so I make no claim for it.
+The time trial and mastery were solved on 4 October in one session, which the notes describe as going from 25 to 48 of 62 and clearing all the mobile, warm-up and metadata time trials and mastery runs. The solvers were committed on 5 October in a commit Claude Code co-authored. The scoreboard puts the single at 18:01:34 on 4 October, the time trial at 18:02:36 and the mastery at 18:03:26, but the notes do not say who solved the single, so I make no claim for it.
 
 The whole-string check is what keeps a decoder honest.

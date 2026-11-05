@@ -32,9 +32,9 @@ Day 29 added Makefile polyglots. The prompt asked for variants and their earlier
 
 ## The solve
 
-The autopilot banked the single by 09:00:10, the Time Trial by 09:00:15 and the mastery (thirteen sets, 23,829 fields) by 09:00:29, all at the release. No solver changes were needed.
+The autopilot banked the single at 09:00:10, the Time Trial at 09:00:14 and the mastery (thirteen sets, 23,829 fields) at 09:00:28, all at the release. No solver changes were needed.
 
-The supervisor's first-pass report fired at 09:00:04 and listed script among the misses. It had counted every "running" lane as missed, and the script lane's three modes banked between 6 and 26 seconds later. That morning it was only a noisy notification.
+The supervisor's first-pass report fired at 09:00:04 and listed script among the misses. It had counted every "running" lane as missed, and the script lane's three modes banked between 6 and 24 seconds later. That morning it was only a noisy notification.
 
 The risk was that evening: the report had been wired to kick the escalator, so the same bug could have launched recovery agents on lanes seconds from CORRECT. It was fixed the next morning with a 90 second wait.
 

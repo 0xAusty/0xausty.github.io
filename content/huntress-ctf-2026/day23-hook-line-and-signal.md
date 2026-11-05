@@ -81,7 +81,7 @@ With `objdump` on the laptop but no DEX tooling, the agent wrote three tools:
 - **`mobemu.py`**, in its own docstring a "Tiny Dalvik emulator". It wraps `long` and `int` arithmetic the way Java does, handles arrays, static fields and branches, recurses into the app's own static methods, and stubs the few framework calls its docstring names: `StringBuilder`, `String.charAt`, `Long.toHexString`. An unknown opcode raises `NotImplementedError`. Its `solve_apk` calls each method named `code` and keeps a result only if it starts with the `ANS` prefix.
 - **`nativemix.py`**, for the native step. It disassembles the bundled library with `objdump` and interprets the named `Java_` function top to bottom: `mov`, `add`, `xor`, `imul`, `rol`, `ror`, the shifts and a few more; anything it doesn't model raises. JNI puts the `JNIEnv` pointer and the calling class or object in `rdi` and `rsi`, so the `jlong` argument arrives in `rdx`, and the result is `rax` at `ret`. `mobemu.py` registers each `Java_` function under its Java method name, so `nativeShare` is called like any other method.
 
-A small script in the session's scratchpad, `mobmaster.py`, reconnected to the mastery attempt, matched each set's question to its APK by package and file name, and submitted all seven codes, which were accepted. The card has no time for the last two modes; the server's final challenge list has the time trial solved at 09:22:31 and the mastery at 09:58:28.
+A small script in the session's scratchpad, `mobmaster.py`, reconnected to the mastery attempt, matched each set's question to its APK by package and file name, and submitted all seven codes, which were accepted. The scoreboard has the time trial solved at 09:22:32 and the mastery at 09:58:29.
 
 ## Making it deterministic
 
@@ -103,7 +103,7 @@ What mattered was the order. The pipeline runs a lane's time trial only after it
 
 - **Static decoding.** It had worked for 22 days; on the time trial it found nothing to decode, and the pipeline, which submits only when every answer id has an answer, moved on.
 - **The first recovery session.** It got the time trial through and then died, and the rest of the work moved to a fresh local session.
-- **A mastery attempt at 09:40:41.** The attempt records mark it unsolved, ahead of the emulator-based submit at 09:58:28.
+- **A mastery attempt at 09:40:41.** The attempt records mark it unsolved, ahead of the emulator-based submit at 09:58:29.
 
 ## Takeaways
 

@@ -32,7 +32,7 @@ The prompt asked for configuration split between the DEX code and a native libra
 
 ## The solve
 
-`daily.py` ran `mobsolve.py`'s static decode on all three modes at release. The recorded submissions are correct by 09:00:12, and the supervisor's summary at 09:00:31 agrees. The DEX emulator did not exist yet.
+`daily.py` ran `mobsolve.py`'s static decode on all three modes at release. The submissions were correct at 09:00:06, 09:00:08 and 09:00:11, and the supervisor's summary at 09:00:31 agrees. The DEX emulator did not exist yet.
 
 That afternoon `bench.py` re-ran the Day 15 time trials and masteries, mobile's included, on fresh regular variants. The first ranked attempt the team was granted was this time trial, at 12:42:43. An attempt 22 seconds earlier had asked for a ranked run and was not granted.
 

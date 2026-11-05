@@ -32,7 +32,7 @@ Day 9 asked for a backend answer code by exploiting a challenge CA accepted by a
 
 ## The solve
 
-The 08:50 run targeted a stale Day 8 marker, re-confirmed Day 8 and exited without trying Day 9. A `daily.py` run at 09:02 then saw the new release and solved and submitted the single, time trial and mastery through the static decode in `mobsolve.py`. All three were CORRECT by 09:02:17, the summary time, 14 seconds after that run saw the release. The log gives offsets rather than clock times, so that is an upper bound for each mode. The notes do not say who started the 09:02 run.
+The 08:50 run targeted a stale Day 8 marker, re-confirmed Day 8 and exited without trying Day 9. A `daily.py` run at 09:02 then saw the new release and solved and submitted the single, time trial and mastery through the static decode in `mobsolve.py`. The single was CORRECT at 09:02:06, the time trial at 09:02:08 and the mastery at 09:02:10, with the summary at 09:02:17, 14 seconds after that run saw the release. The notes do not say who started the 09:02 run.
 
 The time trial and mastery were untimed again, as on Day 8.
 

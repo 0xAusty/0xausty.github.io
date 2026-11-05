@@ -34,7 +34,7 @@ Day 17's prompt described sixteen guests with five little a's and b's apiece: a 
 
 At release the single stayed unsolved, and the time trial and mastery were not attempted. The classic step maps five bits to a letter and did not produce the sentence. Here each group is a hex nibble, with a=0 and b=1 and the first bit always a, so two groups make one byte.
 
-Claude Code added `kpa._bacon_bits` in session, with a nibble step and an 8-bit step. The line-oriented solve took 0.03 s, and the time trial and mastery then solved with no further change. The single was in by 09:01:30 and the mastery by 09:02:34, the quickest fix among the lanes that changed their question that morning.
+Claude Code added `kpa._bacon_bits` in session, with a nibble step and an 8-bit step. The line-oriented solve took 0.03 s, and the time trial and mastery then solved with no further change. The single was in at 09:01:29 and the mastery at 09:02:34, the quickest fix among the lanes that changed their question that morning.
 
 The gate also matters. Each mode unlocks the next, so one missed single blocks all three.
 

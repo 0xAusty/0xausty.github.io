@@ -32,9 +32,9 @@ Day 13 asked the usual warmups question over blobs of thirteen chunks, and the c
 
 ## The solve
 
-Atbash was in the first decoder, so the single and time trial were CORRECT by 09:00:44. The mastery's release run produced shape-valid slugs that were not dictionary words for several blobs, and no reading at all for 11 of the 63. Many of the rest were garbled, with slug words still reversed or Atbash-encoded. The pipeline did not submit it.
+Atbash was in the first decoder, so the single and time trial were CORRECT at 09:00:06 and 09:00:08. The mastery's release run produced shape-valid slugs that were not dictionary words for several blobs, and no reading at all for 11 of the 63. Many of the rest were garbled, with slug words still reversed or Atbash-encoded. The pipeline did not submit it.
 
-The notes say only that the mastery was then solved outside the repo, with no solver change committed. They do not record who solved it or when, and the only time on file, from a 16 October sweep, is a re-run, not the first solve. The autopilot label covers the single and time trial only.
+The notes say only that the mastery was then solved outside the repo, with no solver change committed. They do not record who solved it, and the only time in my notes, from a 16 October sweep, is a re-run; the scoreboard puts the first solve at 09:17:01 that morning. The autopilot label covers the single and time trial only.
 
 The general fix came the next morning with Day 14: score slug words against the dictionary during the search, and refuse the cheapest-shape fallback.
 

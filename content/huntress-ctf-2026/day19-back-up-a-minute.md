@@ -34,6 +34,6 @@ This was one of three web challenges that appeared with no release timer, which 
 
 The reasoning is the usual reconnaissance order. `robots.txt` lists paths the owner would rather crawlers skipped, and one of them was a directory the deploy had forgotten to clean up. Listing it showed a `.bak` file, and the proof was inside.
 
-The notes record it as worked through live in an AI coding session on 19 October, then folded into `solve_backup` in `websolve.py` as a coding-agent fix, with the time trial confirmed at 16:58:38 that evening. The app name, routes and parameter names were randomised on every attempt, so the solver discovers them from the target instead of hardcoding anything.
+The notes record it as worked through live in an AI coding session on 19 October, then folded into `solve_backup` in `websolve.py` as a coding-agent fix, with the time trial confirmed at 09:42:39 that morning. The app name, routes and parameter names were randomised on every attempt, so the solver discovers them from the target instead of hardcoding anything.
 
 The fix is housekeeping: keep backups and editor leftovers out of the web root, and don't treat `robots.txt` as access control, because it is a map for anyone who reads it.

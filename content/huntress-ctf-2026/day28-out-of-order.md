@@ -32,7 +32,7 @@ Day 28 brought Terraform HCL polyglots. The prompt asked for a cloud timeline as
 
 ## The solve
 
-The autopilot banked all three modes at the release: the single by 09:00:08, the Time Trial by 09:00:11 and the mastery (twelve sets, 21,372 fields) by 09:00:22. The notes record it as fully automatic, with no new code.
+The autopilot banked all three modes at the release: the single at 09:00:08, the Time Trial at 09:00:11 and the mastery (twelve sets, 21,372 fields) at 09:00:21. The notes record it as fully automatic, with no new code.
 
 The Time Trial this time carried 1,781 fields, a different set from the single's 1,703, and had no ATT&CK-id fields.
 

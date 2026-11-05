@@ -34,6 +34,6 @@ This was a site whose template engine evaluates expressions in user-controlled i
 
 The bug class is **server-side template injection**. The usual approach is to confirm it first with an expression that can only be evaluated on the server, such as simple arithmetic, and only then reach for the engine's context to read the proof. The notes describe that technique, not the exact steps taken here.
 
-What they do record is who and how. `websolve.py` has a generic `solve_ssti`, but this challenge was not added to its list of known challenges. A subagent in the session solved it live against the game master, so there is no committed solver for it. Single, Time Trial and Mastery were confirmed at 09:10:30, 09:10:42 and 09:10:58 on release day.
+What they do record is who and how. `websolve.py` has a generic `solve_ssti`, but this challenge was not added to its list of known challenges. A subagent in the session solved it live against the game master, so there is no committed solver for it. Single, Time Trial and Mastery were confirmed at 09:10:29, 09:10:41 and 09:10:57 on release day.
 
 The fix is never to build a template from user input; pass user data in only as a variable. The gotcha is a process one: a one-off live solve leaves no reusable code behind.

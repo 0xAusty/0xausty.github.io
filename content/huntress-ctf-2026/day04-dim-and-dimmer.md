@@ -34,6 +34,6 @@ Day 4 added nine VBScript files, taking the single to 231 fields: role, techniqu
 
 `vbsolve.py` reassembles the `Material_` constant, converts it by the named representation (decimal with several separators, hex, base64), applies the named transform (reverse, XOR, add or subtract modulo 256, rolling XOR) and keeps the candidate that decodes to a valid descriptor. It labels the `Recover_` wrapper from the construct around it. The Claude Code session banked 215 of 231 on 5 October and 222 after the Day 6 codecs.
 
-The grader wanted the generator's own short names, and several guessed names were rejected first. The label map that settled it came from the event's Homebase AI (GPT-6 Luna), and the session then encoded it. The same AI solved the mastery on 8 October. The time trial was found already correct on 10 October, and the notes don't say who submitted it.
+The grader wanted the generator's own short names, and several guessed names were rejected first. The label map that settled it came from the event's Homebase AI (GPT-6 Luna), and the session then encoded it. The same AI solved the mastery at 22:09:53 on 7 October. The time trial, submitted at 17:43:38 on 7 October, was found already correct on 10 October, and the notes don't say who submitted it.
 
 An `If True Then` is transparent: label by the construct inside it. A byte-decoding `For` loop is not a wrapper. One Batch label was left unguessed under the no-brute-force rule.

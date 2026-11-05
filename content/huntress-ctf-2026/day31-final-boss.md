@@ -34,7 +34,7 @@ Day 31 asked for 14 new fields built around an **HGAU** record, with the config 
 
 The pipeline banked 423 of 434 fields at release, with closest-name guesses for some earlier machine fields. A warmups worker stuck in a deep search had blocked the supervisor from reopening work. The escalator launched five agents at 09:01:38, but all were killed at the 600-second background-wait ceiling and the coordinating session crashed.
 
-Recovery used three fresh general-purpose subagents, one for this binary, which reconnected to the open attempt instead of starting another. The fold-in added HGAU to the config-record magics and flattened nested objects into `analysis_config_*` and `analysis_gauntlet_*` fields in `binsolve.py`. The single was correct by 09:11:25, the time trial by 09:18:24 and the mastery by 09:33:24.
+Recovery used three fresh general-purpose subagents, one for this binary, which reconnected to the open attempt instead of starting another. The fold-in added HGAU to the config-record magics and flattened nested objects into `analysis_config_*` and `analysis_gauntlet_*` fields in `binsolve.py`. The single was correct at 09:11:25, the time trial at 09:18:23 and the mastery at 09:33:08.
 
 The mastery download took about 374 seconds, and the submit then failed twice with an SSL error. `binmastery` didn't retry a dropped submit and exited with nothing sent.
 

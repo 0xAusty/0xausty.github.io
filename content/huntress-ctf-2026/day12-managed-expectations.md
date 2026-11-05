@@ -32,7 +32,7 @@ Each mode asked for the MVID of a small .NET assembly. The assemblies shared nam
 
 ## The solve
 
-The notes do not record who solved it. The release sweep left it unsolved, and the agent's handoff says only that it was solved outside the repo, with no solver change committed. All modes were CORRECT by 09:32 on 14 October, when a commit reports Days 12 to 14 at 15 of 15 each. The individual solve times are not recorded.
+The notes do not record who solved it. The release sweep left it unsolved, and the agent's handoff says only that it was solved outside the repo, with no solver change committed. All modes were CORRECT on the release morning, the single at 09:01:32 and the time trial and mastery at 09:04:29 and 09:04:39; a commit at 09:32 on 14 October reports Days 12 to 14 at 15 of 15 each.
 
 Two days later the repo gained `dotnetmeta.py`, a reader for the .NET metadata format: PE data directory 14, the CLI header, the metadata root, the table stream, then the Module table's Mvid taken from the GUID heap. It answered the MVID question in later cumulative time trials.
 

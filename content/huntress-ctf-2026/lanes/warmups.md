@@ -46,7 +46,7 @@ The clocks moved: 2 October's time-trial timers expired about 5–8 s after star
 - **Day 16 · [Dot Com](/huntress-ctf-2026/day16-dot-com/)**: hex in Morse fell past a 400-wide frontier; the fuzzer it prompted found 16 more.
 - **Day 19 · [Little Things](/huntress-ctf-2026/day19-little-things/)**: a correct live fix that the regression gate refused twice, rightly.
 - **Day 25 · [You Have a Point](/huntress-ctf-2026/day25-you-have-a-point/)**: hot reload turned "fix the solver" into "save the file"; the time trial and mastery banked two seconds apart.
-- **Day 27 · [Monkey Business](/huntress-ctf-2026/day27-monkey-business/)**: Ook! added the afternoon before as proactive coverage; all three modes banked by 09:00:19.
+- **Day 27 · [Monkey Business](/huntress-ctf-2026/day27-monkey-business/)**: Ook! added the afternoon before as proactive coverage; all three modes banked by 09:00:18.
 - **Day 31 · [One More Thing](/huntress-ctf-2026/day31-one-more-thing/)**: one missing first step turned a sub-second decode into a wedged worker that froze the supervisor.
 
 ## What the lane taught

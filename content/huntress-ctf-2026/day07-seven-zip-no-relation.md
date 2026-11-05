@@ -34,6 +34,6 @@ Each mode asked for one integer: the total-entries field of a named inner archiv
 
 The 09:00 sweep fetched the single and left it unsolved, and the time trial and mastery were not attempted. Claude Code then worked it in session. The handler finds the `PK 05 06` signature and reads the 16-bit total-entries value at offset 10. For the mastery, the lookup in `mfsolve.py` had to recurse from the outer zip into `evidence-0N.zip` and then into the named drop.
 
-All three modes were CORRECT by 11:24 on 7 October, the time of the commit that reports them. The notes do not record the individual solve times.
+All three modes were CORRECT by 11:24 on 7 October, the time of the commit that reports them: the single at 10:39:23, the time trial at 10:52:24 and the mastery at 10:53:25.
 
 The question wants the number the record claims. The agent's notes warn that this census does not always match the real file count, which is the forensic point of the challenge.

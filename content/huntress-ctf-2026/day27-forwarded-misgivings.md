@@ -34,6 +34,6 @@ One proof per target behind a reverse proxy, mastery a bundle of five. Routine o
 
 The feature route answers that it is loopback-only and reports the client address it evaluated. `solve_forwarded` in `websolve.py` supplies a forwarded header that names loopback, trying both the `X-Forwarded-For` and `Forwarded` syntaxes, and the JSON reply's `evidence` field is the proof. It is a read-only GET.
 
-The agent folded it in with the other release-day web solvers (commit 57be6d0). The notes call it the fastest of the three Day 27 web challenges. The single was CORRECT by 09:07:50, the time trial by 09:08:37 and mastery by 09:09:03.
+The agent folded it in with the other release-day web solvers (commit 57be6d0). The notes call it the fastest of the three Day 27 web challenges. The single was CORRECT at 09:07:24, the time trial at 09:08:36 and mastery at 09:09:02.
 
 Note that the web lane counted this as its day 23, while it was released on calendar Day 27. The defence is to strip client-supplied forwarding headers at the edge and trust them only from the known proxy.

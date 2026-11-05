@@ -34,6 +34,6 @@ This one was a clean **insecure direct object reference**, also called broken ob
 
 The reasoning was to look at what the app already tells every user. The activity feed referenced a row owned by someone else, which leaked a valid identifier, so no id guessing was needed. Asking the object API for that row worked, because it enforced no owner check.
 
-The notes record it as solved live in an AI coding session on 19 October, then folded into `solve_idor` in `websolve.py` as a coding-agent fix. The solver reads the API template and the feed from the pages themselves, because routes were randomised per attempt. The time trial was confirmed at 16:58:46 that evening.
+The notes record it as solved live in an AI coding session on 19 October, then folded into `solve_idor` in `websolve.py` as a coding-agent fix. The solver reads the API template and the feed from the pages themselves, because routes were randomised per attempt. The time trial was confirmed at 09:49:49 that morning.
 
 The defence is to check ownership on the server for every object request, and to treat an identifier in a feed as public the moment it is shown.

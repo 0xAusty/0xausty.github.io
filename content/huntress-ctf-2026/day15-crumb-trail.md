@@ -65,7 +65,7 @@ At 09:00 the supervisor ran the lane unattended. The single went through under t
 
 The rest was fixed in session by Claude Code, the coding agent that built most of the pipeline, using the grader itself. One wrong field rejects a whole submit and banks nothing, but an all-correct partial submit is accepted and stays banked, so any subset of answers can be tested. Bisecting the submission found the four bad fields in about 20 submits and 40 seconds; checking the fields one at a time had taken more than eight minutes.
 
-They were Batch expansion labels. The fresh time trial scored the rebuild line's form, where the static single and every attempt since Day 3 had scored the echo line's. The agent switched on `RECON_STATEMENT` in `scriptsolve.py` for timed attempts from Day 15, which makes the expansion field read the rebuild line, and all nine of the time trial's expansion labels were confirmed. The mastery, five sets of the same questions, was CORRECT by 09:18:56. It was the last of the day's 15 modes, and finishing then moved us from 55th to 34th.
+They were Batch expansion labels. The fresh time trial scored the rebuild line's form, where the static single and every attempt since Day 3 had scored the echo line's. The agent switched on `RECON_STATEMENT` in `scriptsolve.py` for timed attempts from Day 15, which makes the expansion field read the rebuild line, and all nine of the time trial's expansion labels were confirmed. The mastery, five sets of the same questions, was CORRECT at 09:18:55. It was the last of the day's 15 modes, and finishing then moved us from 55th to 34th.
 
 {{< callout type="warning" title="Same question, two answer keys" >}}
 Two weeks of accepted answers confirmed the echo-line rule only for variants generated before the key changed. The static single, made ahead of release, was one; the time trial and mastery weren't.
@@ -98,7 +98,7 @@ The rule lasted a day. The handoff had said to try the rebuild-line rule if a Da
 
 The time trial had no clock of its own (`deadline None` above): the runners weren't yet setting `run_for_time`, the flag for a ranked, timed attempt, found in the API's OpenAPI description later that day. The clock that mattered was the board's: ties on points go to whoever got there first, which I explained to the agent that day. Before Day 15 we were 55th of 86 teams tied at 720 points, and the leader finished all 15 Day-15 modes in under two minutes. One miss costs more than any amount of shaved latency saves.
 
-The mastery, refused in the 09:00:31 summary, could only follow the time trial, so the time trial was CORRECT by 09:18:56 as well; the notes don't record its own time. A 12:27 CORRECT recorded for it that afternoon is a later `bench.py` re-run on a fresh variant, unranked and scoring nothing: one submit, 6.4 seconds end to end.
+The mastery, refused in the 09:00:31 summary, could only follow the time trial, which was CORRECT at 09:17:52. A 12:27 CORRECT recorded for it that afternoon is a later `bench.py` re-run on a fresh variant, unranked and scoring nothing: one submit, 6.4 seconds end to end.
 
 ## Dead ends
 

@@ -34,7 +34,7 @@ Day 19 hid the HCFG config inside a packed overlay at the end of an ELF. Two new
 
 At release 220 of 228 fields were banked. The eight misses were the config fields, its version and the two overlay fields. The question described the format: find the last `PK19` marker, read two one-byte keys, a packed length and a SHA-256 of the unpacked bytes from the header, then unpack each byte as a rotate-right-by-3 of the byte XORed with the second key, XORed with the first key. The HCFG sits at offset 0 of the result.
 
-Claude Code transcribed that into `binsolve._overlay`, which uses the unpacked HCFG only when its SHA-256 matches the stored digest. The overlay size is the member length minus the overlay offset. The single was fixed in session and correct by 09:02:41; the time trial and mastery followed on the first submit by 09:03:52, and the day was 15 of 15 by 09:05:19.
+Claude Code transcribed that into `binsolve._overlay`, which uses the unpacked HCFG only when its SHA-256 matches the stored digest. The overlay size is the member length minus the overlay offset. The single was fixed in session and correct by 09:02:41; the time trial and mastery followed on the first submit by 09:03:52, and the day was 15 of 15 by 09:05:18.
 
 The static unpack needed no execution: the overlay's own header was enough to reverse the packer.
 

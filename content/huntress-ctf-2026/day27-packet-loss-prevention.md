@@ -32,7 +32,7 @@ The single asked for `packet_count` from `capture-001.pcap`, as an integer; the 
 
 ## The solve
 
-The parser for PCAP and pcapng files, `metaextra.parse_pcap`, had gone in on 14 October. It walks the capture's record headers rather than decoding any packets, and it exposes `packet_count` directly. The pipeline answered on the first submit, and all three modes were banked by 09:00:14.
+The parser for PCAP and pcapng files, `metaextra.parse_pcap`, had gone in on 14 October. It walks the capture's record headers rather than decoding any packets, and it exposes `packet_count` directly. The pipeline answered on the first submit, and the three modes were banked at 09:00:06, 09:00:09 and 09:00:13.
 
 The day's critical path was elsewhere: three new web challenge shapes needed attention, not this one.
 

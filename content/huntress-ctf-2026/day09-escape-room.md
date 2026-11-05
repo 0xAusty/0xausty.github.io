@@ -32,7 +32,7 @@ Another warmups blob, this time written in escape sequences: a quoted string of 
 
 ## The solve
 
-At release the supervisor had no decode for it and reported the single unsolved at 09:02:17. It had picked the day up two minutes late: the 08:50 run had re-confirmed the already-solved Day 8, because the marker was stale. In a Claude Code session the agent added a `unicode_escape` step to `wusolve.py`: `json.loads` when the text starts with a double quote, otherwise Python's `unicode_escape` codec, which also covers hex escapes. All three modes were CORRECT by the 09:25:00 commit; exact submit times aren't recorded.
+At release the supervisor had no decode for it and reported the single unsolved at 09:02:17. It had picked the day up two minutes late: the 08:50 run had re-confirmed the already-solved Day 8, because the marker was stale. In a Claude Code session the agent added a `unicode_escape` step to `wusolve.py`: `json.loads` when the text starts with a double quote, otherwise Python's `unicode_escape` codec, which also covers hex escapes. All three modes were CORRECT before the 09:25:00 commit: the single at 09:03:49, the Time Trial at 09:03:52 and the mastery at 09:04:49.
 
 `timed.py` maps each blob to its question by artifact name, so the mastery solved as soon as the single's encoding decoded. The Time Trial and mastery questions carried an appended artifact hash in their text, but the answer was still the slug alone.
 

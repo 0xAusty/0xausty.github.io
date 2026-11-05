@@ -18,7 +18,7 @@ Day 4 is binary, hinted by "only two sides", and it is routine. My notes hold no
 
 ## The solve
 
-The decode is eight-bit groups to bytes, then the slug. `wusolve.py` accepts that step only when the text is nothing but 0 and 1 and the length is a multiple of eight. The time trial and mastery were solved in the 4 October Claude Code session. Nothing records who submitted the single, and no solve times were captured.
+The decode is eight-bit groups to bytes, then the slug. `wusolve.py` accepts that step only when the text is nothing but 0 and 1 and the length is a multiple of eight. The time trial and mastery were solved in the 4 October Claude Code session. Nothing records who submitted the single; the scoreboard puts it at 11:07:05 that morning, the time trial at 18:04:25 and the mastery at 18:06:19 that evening.
 
 The day around it is the interesting part. On 4 October the Game Master returned 503 release_unavailable for hours from both endpoints, and that one session took the board from 25 to 48 of 62 modes.
 

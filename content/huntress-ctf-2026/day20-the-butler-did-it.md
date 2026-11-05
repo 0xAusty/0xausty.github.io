@@ -32,7 +32,7 @@ Jenkins Groovy polyglots with classic and Jenkins hosts and two bash fixtures, 1
 
 ## The solve
 
-The cron sweep at 09:00:19 counted nine modes solved automatically across the lanes, and this lane's three were among them. According to the export timestamps the single, Time Trial and Mastery were all in by 09:00:12. No script code change is recorded for the day.
+The cron sweep at 09:00:19 counted nine modes solved automatically across the lanes, and this lane's three were among them. The single, Time Trial and Mastery went in at 09:00:04, 09:00:07 and 09:00:11. No script code change is recorded for the day.
 
 The pipeline's job was the same as on every other routine day: read the descriptor out of each carrier, answer the fields, submit the single, then the Time Trial, then the Mastery. The notes hold no gotcha and no dead end for this challenge.
 

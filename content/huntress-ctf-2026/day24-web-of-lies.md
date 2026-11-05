@@ -34,6 +34,6 @@ Day 24 added JSP webshell-source polyglots and a JSP host. The single asked 1,51
 
 The Day 23 refactor was already on disk, uncommitted until 10:08 that morning, so nothing new was needed. The laptop was off at 09:00, so the cron did not run on time. The systemd timer caught up when the machine woke, and the release was seen at 09:14:31.
 
-The single was confirmed by 09:14:38, the Time Trial by 09:14:40 and the mastery (eight sets, 12,480 fields) by 09:14:46, with the supervisor summary at 09:14:58. That is roughly 7, 9 and 15 seconds after the release was seen. In that run the supervisor banked 6 of 21 modes in 38 seconds, the three script modes among them.
+The single was confirmed at 09:14:34, the Time Trial at 09:14:37 and the mastery (eight sets, 12,480 fields) at 09:14:42, with the supervisor summary at 09:14:58. That is 3, 6 and 11 seconds after the release was seen. In that run the supervisor banked 6 of 21 modes in 38 seconds, the three script modes among them.
 
 The solver was fast; the lateness came from the machine being off, and the score clock does not wait for a laptop to wake.

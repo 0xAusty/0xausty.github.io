@@ -21,7 +21,7 @@ description = "A routine header-reading primer on one plain C ELF, whose symbol 
 # (the chips and the glance card's When column say when it was solved)
 solved_by = []
 
-tools  = ["python"]
+tools  = []
 tags   = ["reverse-engineering", "elf"]
 skills = ["Reverse Engineering"]  # groups it on /portfolio/
 
@@ -32,7 +32,7 @@ The first binary challenge was a primer: nine header-level facts about one plain
 
 ## The solve
 
-The notes do not record who solved Day 1 or how. The only line is a later hand-off note listing the Day 1 mastery fields among those with no code in the repo, so I'm not going to guess at a method.
+The notes do not record who solved Day 1 or how; the scoreboard dates all three modes to the morning of 2 October, between 09:06:02 and 09:28:33. The only line is a later hand-off note listing the Day 1 mastery fields among those with no code in the repo, so I'm not going to guess at a method.
 
 What the notes do show is how the same facts were automated later. The `binsolve.py` branch for this ELF emits the class, byte order, object type and machine as fixed text, reads the entry point from `e_entry` and whether a `.symtab` exists, and lists the section names in header order. A shared helper reads the `recover_code` constant and accepts it only when the symbol and a byte-pattern search of `.text` agree.
 

@@ -34,6 +34,6 @@ This was an ASP.NET app with a preferences page. The state-changing route accept
 
 The bug is **cross-site request forgery**. The token just echoes the session cookie, so anyone who can read the page can read the token, and it defends nothing. The server only granted the proof when it saw the change arrive from another site.
 
-The agent folded `solve_csrf` into `websolve.py`, in the same commit as the next challenge. The solver reads the token and the external destination off the preferences page, then repeats the state-changing request with Referer and Origin headers pointing off-site. That flips the server's cross-site check, and the evidence shows in the response. The Time Trial was confirmed at 09:07:52 on release day. Day 22 as a whole ran slowly only because of a cold binary subagent, not the web pair.
+The agent folded `solve_csrf` into `websolve.py`, in the same commit as the next challenge. The solver reads the token and the external destination off the preferences page, then repeats the state-changing request with Referer and Origin headers pointing off-site. That flips the server's cross-site check, and the evidence shows in the response. The Time Trial was confirmed at 09:04:17 on release day. Day 22 as a whole ran slowly only because of a cold binary subagent, not the web pair.
 
 The defence is a real anti-forgery token that cannot be derived from the cookie, SameSite cookies, and never changing state on GET. The gotcha was that the grader judged the origin headers, not the token.

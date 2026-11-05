@@ -34,7 +34,7 @@ Day 4 asked for the true dimensions of a named JPEG as WIDTHxHEIGHT. The photogr
 
 The solver in `mfsolve.py` walks the JPEG marker segments until it reaches the first start-of-frame marker, skipping the marker codes in that range that are not frame headers (DHT, JPG and DAC). It reads height and width from that segment and answers width by height. The time trial and mastery used the same handler on other files.
 
-The notes do not name who solved the single, and they record no times. They do say the 4 October Claude Code session solved all the metadata time trials and masteries that day, and that all modes were correct by the 14 October backfill.
+The notes do not name who solved the single, which the scoreboard puts at 11:09:24 on the release morning, with the time trial and mastery at 18:07:18 and 18:07:48 that evening. They do say the 4 October Claude Code session solved all the metadata time trials and masteries that day, and that all modes were correct by the 14 October backfill.
 
 The gotcha is the order. The start-of-frame segment stores height before width, but the accepted spelling is width first. The agent's memory file confirms this as a solved example.
 

@@ -34,7 +34,7 @@ Day 26 asked 312 fields. The 12 new ones covered crash triage on a jar holding a
 
 310 of 312 resolved at release. The misses were those two fields, and the agent fixed them in session. The faulting method is the first string in the trace's frames. The predicate compares every frame against the method names of the primary, non-inner class, read directly from the constant pool and methods table, so no JDK is involved. It went in as `_fill_crash_from_members`.
 
-The single was CORRECT by 09:06:55. The time trial stayed at 310 of 312 across four supervisor passes until the edited solver was hot-reloaded. The time trial and mastery were then banked by 09:15, a quarter of an hour after release.
+The single was CORRECT by 09:06:55. The time trial stayed at 310 of 312 across four supervisor passes until the edited solver was hot-reloaded. The time trial was then banked at 09:13:59 and the mastery at 09:14:16, a quarter of an hour after release.
 
 The backdrop was that day's retro. Rank had slipped from 5th to 66th on late finishes, and my correction was that the lever is solver coverage, not infrastructure.
 

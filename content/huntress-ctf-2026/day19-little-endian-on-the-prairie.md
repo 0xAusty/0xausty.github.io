@@ -28,7 +28,7 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 19 asked for the ELF machine type as a four-digit hex string in the single, with 24 fields in the Time Trial and 120 in Mastery. It looked routine, and it was: all three modes were correct by 09:00:26. The interesting part came the next morning.
+Day 19 asked for the ELF machine type as a four-digit hex string in the single, with 24 fields in the Time Trial and 120 in Mastery. It looked routine, and it was: the single was correct at 09:00:05, the time trial at 09:00:08 and the mastery at 09:00:13. The interesting part came the next morning.
 
 ## The solve
 

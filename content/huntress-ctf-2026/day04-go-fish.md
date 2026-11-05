@@ -34,7 +34,7 @@ Day 4 grew the cumulative bundle to 32 fields: the 24 from Days 1 to 3 again, pl
 
 The `binsolve.py` branch for Days 4 and 5 takes the format from the magic bytes, reports the architecture, and scans for the config magic, keeping the record whose CRC32 matches. That brought the single to 31 of 32 on 6 October.
 
-The one open field was the Day 1 symbol list, which came from the event's Homebase AI (GPT-6 Luna) on 7 October. The agent then swept the single, time trial and mastery. The notes record no solve time for Day 4 itself.
+The one open field was the Day 1 symbol list, which came from the event's Homebase AI (GPT-6 Luna) on 7 October. The agent then swept the single, time trial and mastery. The single went CORRECT at 11:00:55, the time trial at 11:02:28 and the mastery at 11:08:23.
 
 Mastery sets could swap the ELF for a byte-patched Windows PE copy, so the config is read from raw bytes whatever the container.
 

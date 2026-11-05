@@ -36,7 +36,7 @@ The SQLite header parser had been built on 14 October. It reads the big-endian u
 
 The Time Trial was cumulative, so it also carried older fields. The ZIP member-names field from Day 8 was rejected in central-directory order and was healed automatically to an alphabetically sorted array.
 
-The day's long tail was in other lanes. A script Time Trial and Mastery were only recovered at 10:33, while the metadata lane had banked its modes in 13 seconds.
+The day's long tail was in other lanes. A script Time Trial and Mastery were only recovered at 10:31:16 and 10:32:39, while the metadata lane had banked its modes in 13 seconds.
 
 This field later made up about 200 of the "latent" cases in a generality audit. The agent investigated and judged them not a real miss risk, because the parser already emits the value and the event's field naming is stable.
 

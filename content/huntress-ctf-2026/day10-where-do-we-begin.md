@@ -32,7 +32,7 @@ Each mode asked for the PE entry-point RVA as a hex pattern field, for one execu
 
 ## The solve
 
-The release sweep left the day unsolved. It was the first real run of the "Auto, all lanes" routine: one Claude Code subagent per open lane, four in parallel, about 10 minutes of wall-clock. The metadata subagent finished all modes CORRECT, and its handler commit is stamped 09:08. The notes do not record per-mode times.
+The release sweep left the day unsolved. It was the first real run of the "Auto, all lanes" routine: one Claude Code subagent per open lane, four in parallel, about 10 minutes of wall-clock. The metadata subagent finished all modes CORRECT, and its handler commit is stamped 09:08. The scoreboard puts the single at 09:05:52, the time trial at 09:07:17 and the mastery at 09:08:17.
 
 The handler reads the little-endian 32-bit AddressOfEntryPoint at `e_lfanew` + 40 in `mfsolve.py`. That afternoon the agent generalised the PE header reads into a table of spec offsets, so new header questions resolve without new code.
 

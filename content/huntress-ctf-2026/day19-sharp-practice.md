@@ -34,6 +34,6 @@ A Roslyn C# script hosted inside an inline ASPX page, 1,249 fields. The prompt a
 
 In this carrier the `.csx` sits inside a C# string literal inside an ASPX `<script runat="server">` block. The `HUNTRESS_ANALYSIS_V1:HEX-` payload therefore ran straight into a literal backslash-n escape and picked up stray hex letters from it, so the decode failed and 9 fields were left unanswered. The supervisor's heal had recovered the role and technique from the enum alternates, but it can't recover free-text fields.
 
-Claude Code fixed it in session: `polysolve.fields` now ends the payload at the first escape sequence or quote. That gave 1,249 of 1,249, and the Time Trial and Mastery passed on their first submits. The records put the single at 09:04:16 and the other two by 09:05:19.
+Claude Code fixed it in session: `polysolve.fields` now ends the payload at the first escape sequence or quote. That gave 1,249 of 1,249, and the Time Trial and Mastery passed on their first submits. The records put the single at 09:04:16 and the other two at 09:05:13 and 09:05:18.
 
 When a carrier embeds the payload in a string literal, the host language's escape sequences are part of what you parse.

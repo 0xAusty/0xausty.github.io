@@ -21,7 +21,7 @@ description = "Three PowerShell samples hide their indicators in a base64 JSON b
 # (the chips and the glance card's When column say when it was solved)
 solved_by = []
 
-tools  = ["scriptsolve.py", "aeszip.py", "python"]                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
+tools  = []                        # e.g. ["python", "binsolve.py"] — shown at the bottom + browsable
 tags   = ["malware-analysis", "powershell", "base64", "mitre-attack"]
 skills = ["Malware Analysis"]  # groups it on /portfolio/
 
@@ -34,7 +34,7 @@ The first Script Analysis challenge gave me three PowerShell samples and asked f
 
 `scriptsolve.py` decodes the JSON and picks each indicator by its shape: a URL, a wallet prefix, a mutex name, a user-agent string, a leading-dot extension, a recovery-note filename. It answers only when exactly one decoded value fits, and otherwise declines. Scenario and technique come from a fixed per-sample table. The evidence zip is encrypted with the usual malware-sample password, and `aeszip.py` opens it.
 
-The notes do not record who solved Day 1 or how. The laptop pipeline didn't exist yet, and the earliest work ran through other tooling. What I can say is that the solver encodes the family as it stood by 5 October. The catalog's three timestamps are one second apart, which looks like a state sync, so I give no solve times.
+The notes do not record who solved Day 1 or how. The laptop pipeline didn't exist yet, and the earliest work ran through other tooling. What I can say is that the solver encodes the family as it stood by 5 October. The scoreboard dates all three modes to the evening of 1 October: the single at 21:18:10, the time trial at 21:24:07 and the mastery at 21:26:00.
 
 These fifteen fields came back inside later cumulative challenges. On Day 23 they returned under opaque ids, and the grader settled that the collection sample's "first filename" means the first entry of the decoded file list, not the separate archive name.
 

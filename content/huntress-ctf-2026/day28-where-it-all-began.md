@@ -34,7 +34,7 @@ The single asked for `partition_start_lba_sequence` from `disk-001.img`, as JSON
 
 Claude Code wrote a new disk-image parser, `metaengine.parse_disk`. If an `EFI PART` header follows the protective MBR (sector size 512 or 4096) it reads GPT. Otherwise it reads the legacy MBR's primary entries in on-disk order and splices in each extended container's EBR chain, where a logical partition's start is the EBR's LBA plus its relative offset. The answer is that list of starting LBAs as stored, not sorted.
 
-The agent submitted the single from the session, which was correct by 09:11:31. Saving the parser triggered the supervisor's hot-reload, which then banked the time trial and mastery by about 09:15. Five of that day's lanes needed new shapes.
+The agent submitted the single from the session, which was correct by 09:11:31. Saving the parser triggered the supervisor's hot-reload, which then banked the time trial and mastery at 09:15:33 and 09:15:37. Five of that day's lanes needed new shapes.
 
 Recovery started late. About 11 minutes were lost to an idle gap because the recovery launch waited until I noticed the misses.
 

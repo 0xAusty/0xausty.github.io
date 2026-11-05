@@ -32,7 +32,7 @@ A reuse day. The bundle held executables for several architectures, plus decoys 
 
 ## The solve
 
-The release sweep fetched all 13 ids but left the single unsolved, and the other modes were not attempted. Claude Code solved it in session by the 09:25 commit that reports Day 9 complete (15 of 15). The new handler reads `e_lfanew` at offset 0x3c, then the 16-bit machine value at the PE signature plus 4. Everything else came from the Day 8 toolkit. The notes do not record per-mode times.
+The release sweep fetched all 13 ids but left the single unsolved, and the other modes were not attempted. Claude Code solved it in session by the 09:25 commit that reports Day 9 complete (15 of 15). The new handler reads `e_lfanew` at offset 0x3c, then the 16-bit machine value at the PE signature plus 4. Everything else came from the Day 8 toolkit. The scoreboard puts the single at 09:05:51 and the time trial and mastery at 09:06:03 and 09:06:06.
 
 The next day the agent turned PE header reads into a table in `mfsolve.py`, taking the hex width from the field name's suffix, so later header questions needed no new code.
 

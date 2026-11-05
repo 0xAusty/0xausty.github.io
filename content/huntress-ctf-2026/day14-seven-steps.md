@@ -96,7 +96,7 @@ key = (u, cost(used + [n]))
 
 Three blobs still had true ties, two shifts of the last chunk giving dictionary words at the same cost (Caesar-3 "step" against Caesar-7 "opal" in the notes' example). The bundle settled them. `_bundle_schedule` returns the per-chunk path the resolved blobs share, only if at least three resolved and all agree, and the other 65 did. `timed.solve_artifact` then solves each tied blob again with that schedule, and a tied reading is accepted only if it alone follows it.
 
-The mastery was CORRECT by 09:32:44, when the fix and the notes recording Days 12 to 14 at 15 of 15 were committed; the submit time itself was not recorded.
+The mastery was CORRECT at 09:27:55, before the fix and the notes recording Days 12 to 14 at 15 of 15 were committed at 09:32:44.
 
 ## Making it deterministic
 

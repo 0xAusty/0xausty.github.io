@@ -34,7 +34,7 @@ Day 29 asked for fields about two builds of one source, an -O3 and an -O0 build,
 
 The pipeline banked 400 of 406 fields at release. The six misses were the formats of both roles and the config of the -O3 build. Claude Code fixed it in session: `_fill_variant_roles` in `binsolve.py` now picks each role's member from the question's own "basename ends" hint, falling back to the O3/O0 convention, and answers from that member. The fill is format-aware, reading ELF `e_machine` or the PE COFF machine field, and matches by stem so a PE variant still resolves.
 
-The mastery pass was 78 fields short at 09:16:25: the same six role fields in all 13 sets. The supervisor gave up after three passes without progress, and the log first shows the mastery correct at 09:17:59. The single was correct by 09:14:57 and the time trial by 09:16:25.
+The mastery pass was 78 fields short at 09:16:25: the same six role fields in all 13 sets. The supervisor gave up after three passes without progress, and the mastery was correct at 09:17:50. The single was correct at 09:14:45 and the time trial at 09:15:37.
 
 The notes don't say whether the day's own role members shipped as PE.
 

@@ -34,6 +34,6 @@ This was an app that stores input and evaluates it later through a delayed path.
 
 The class is **second-order injection**. The request that plants the data looks inert and nothing comes back. The effect only shows when a later process reads the data, so the proof is retrieved on a follow-up read rather than in the first response. The prompt said as much, with its hint that the delayed echo tells all.
 
-A subagent in the session solved it live against the game master. It was not added to `websolve.py`, so no committed solver exists. Single, Time Trial and Mastery were confirmed at 09:14:40, 09:14:57 and 09:15:07 on release day. The exact payload and back-end are not recorded, and I have not reconstructed them.
+A subagent in the session solved it live against the game master. It was not added to `websolve.py`, so no committed solver exists. Single, Time Trial and Mastery were confirmed at 09:14:38, 09:14:56 and 09:15:06 on release day. The exact payload and back-end are not recorded, and I have not reconstructed them.
 
 The defence is to treat stored data as untrusted every time it is read, not only on the way in. The gotcha: a blank response to the first request is not a failed one.

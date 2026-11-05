@@ -80,9 +80,9 @@ The mastery's PE was a byte-patched copy of one MinGW build, and the patch touch
 
 ## The solve
 
-**The single, 2 October.** The pipeline had no binary solver yet. The single was worked in an AI chat session on the Homebase VM. That session's handoff records all five Day 2 singles CORRECT by about 13:35 ET, but not which analysis produced which binary answer.
+**The single, 2 October.** The pipeline had no binary solver yet. The single was worked in an AI chat session on the Homebase VM. That session's handoff records all five Day 2 singles CORRECT, this one at 13:22:04 ET on the scoreboard, but not which analysis produced which binary answer.
 
-**The time trial, 4 October.** After the first attempt expired, Claude Code wrote `bresolve.py` in a session on 4 October, and the time trial went CORRECT there; the time wasn't recorded. The handoff committed at 11:19 ET on 5 October lists the mastery as an open blocker.
+**The time trial, 4 October.** After the first attempt expired, Claude Code wrote `bresolve.py` in a session on 4 October, and the time trial went CORRECT there at 18:11:27. The handoff committed at 11:19 ET on 5 October lists the mastery as an open blocker.
 
 **The mastery, 5 to 7 October.** `bresolve.solve_day2` ran once per set and banked 32 of the 34 fields. The two left were the PE set's `mangled_score_symbol` and `vtable_symbol`, where the bare Itanium names and `none` were all rejected.
 

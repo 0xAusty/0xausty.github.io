@@ -32,7 +32,7 @@ Day 9 asked 90 fields: Days 1 to 8 plus ten for a Nim ELF, including a new integ
 
 ## The solve
 
-The binary lane was skipped at the 9 October release (09:02:03). Claude Code solved it in session that morning, and the day was complete by 09:25, with the single, time trial and mastery all correct by then.
+The binary lane was skipped at the 9 October release (09:02:03). Claude Code solved it in session that morning: the single was correct at 09:14:40, the time trial at 09:16:05 and the mastery at 09:16:37, which completed the day.
 
 The config is base64 in a string literal. Plaintext config strings in the binary are decoys, as is a dynamic-trace block. The `binsolve.py` helper finds the one base64 run that decodes to a record with a valid CRC32 and returns its file offset too, which answers the offset question. The mastery still went through `binmastery.py`.
 

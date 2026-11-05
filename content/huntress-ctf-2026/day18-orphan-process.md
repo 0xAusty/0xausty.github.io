@@ -34,7 +34,7 @@ Google Apps Script polyglots and a Google Docs sidebar host, 1,194 fields, and a
 
 At release 40 fields were unmapped. The supervisor banked the rest, and its heal fixed 8 of the 13 rejected fields. Those were all role and technique enums, found by trying the accepted alternates. Five free-text fields (adapter, host profile, URL) stayed unfixed, because heal can only cycle through enum values.
 
-Claude Code fixed the rest in session. The `.gs` carriers mark the descriptor with a `// HUNTRESS_ANALYSIS_V1:SPLIT` line and spread the payload across a joined array of string literals. `polysolve._split_payload` joins the array after the marker and decodes as before, which gave 1,194 of 1,194 without guessing. The Time Trial and Mastery then passed on their first submits. The records put the single at 09:03:30 and the Mastery at 09:03:46.
+Claude Code fixed the rest in session. The `.gs` carriers mark the descriptor with a `// HUNTRESS_ANALYSIS_V1:SPLIT` line and spread the payload across a joined array of string literals. `polysolve._split_payload` joins the array after the marker and decodes as before, which gave 1,194 of 1,194 without guessing. The Time Trial and Mastery then passed on their first submits. The records put the single at 09:03:30 and the Mastery at 09:03:45.
 
 Fixes went cheapest first, so the metadata single was done before this one.
 

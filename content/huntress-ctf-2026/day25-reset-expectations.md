@@ -34,6 +34,6 @@ This was a broken password-recovery flow with a request route that issues a rese
 
 The redeem route never checked that the token had been issued for the account it was being redeemed against. So the solver requests a token for the self-service account, spends that same token against the privileged account, and gets that account's proof back. This is a sideways account takeover. Three parallel Claude Code subagents handled the day's web shapes, and this one became `solve_reset` in `websolve.py`. If the guide hides which account is the self-service one, the solver falls back to probing each listed id as the token source.
 
-The single was correct by 09:08:17 on 25 October, the time trial by 09:08:29 and mastery by 09:08:40.
+The single was correct at 09:08:17 on 25 October, the time trial at 09:08:27 and mastery at 09:08:39.
 
 The token was genuine, which is why this is easy to miss in review: nothing was forged. The fix is to bind a reset token to the account and purpose it was issued for, and to check that binding at redemption.

@@ -19,9 +19,9 @@ description = "The opener of the metadata lane: filename, size and three digests
 #   homebase  → "The event's Homebase AI (GPT-6 Luna) supplied the key"
 #   chatgpt   → "ChatGPT, on my own account, supplied the key"
 # (the chips and the glance card's When column say when it was solved)
-solved_by = ["agent"]
+solved_by = []
 
-tools  = ["mfsolve.py", "python"]
+tools  = []
 tags   = ["metadata", "forensics"]
 skills = ["Digital Forensics"]  # groups it on /portfolio/
 
@@ -34,7 +34,7 @@ Day 1 asked five identity questions about a named member of a small evidence zip
 
 The work is choosing the right member and hashing its exact bytes. The solver reads the member the question names, then reports its basename, byte length and the three digests. These plain questions are handled by suffix handlers in `mfsolve.py`, which stayed in the pipeline as the fallback behind the later metadata engine.
 
-The notes do not record how the original single was produced. The time trial and mastery were solved in the 4 October Claude Code session, when the notes say the score went "from 25 to 48 of 62 in one session".
+The notes do not record what produced any of the three answers. The scoreboard dates the single to 21:15:51 on 1 October and the time trial and mastery to 21:23:44 and 21:25:35 the same evening, before the 4 October Claude Code session that the notes had credited with the timed modes.
 
 The filename answer is the basename of the member that matches the question's stem. Later cumulative masteries let a global name search bleed one set's filename onto every set. The fix scoped the lookup to each set's own archive, and the first version of it broke this day, whose note has no id suffix.
 

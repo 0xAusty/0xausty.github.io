@@ -32,7 +32,7 @@ Day 25 asked 300 fields: Days 1 to 24 plus 12 about the root cause of a syntheti
 
 ## The solve
 
-The pipeline did all of it. The single and the time trial each resolved 300 of 300, and the mastery resolved 2,700 of 2,700 over nine sets, with a 39.7 second fetch and a 2.1 second solve. By the bench timings the three modes were CORRECT 12.6, 21.9 and 66.8 seconds after release, so the last one was in by about 09:01.
+The pipeline did all of it. The single and the time trial each resolved 300 of 300, and the mastery resolved 2,700 of 2,700 over nine sets, with a 39.7 second fetch and a 2.1 second solve. By the bench timings the three modes were CORRECT 12.6, 21.9 and 66.8 seconds after release, so the last one was in at 09:01:07.
 
 The laptop had been off, so the agent ran preflight itself before the drop instead of leaving it to the timer. That is the only manual step the notes record.
 

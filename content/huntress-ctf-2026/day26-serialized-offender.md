@@ -34,6 +34,6 @@ Each variant asked for one proof from a live target; mastery was a bundle of fou
 
 The target disclosed a state-format route that gave the request field, the encoding and a sample state, all randomised per attempt. `solve_serialized` in `websolve.py` reads those live, decodes the sample, raises the role value, re-encodes it and sends it back. The reply carries the proof.
 
-Claude Code folded this in after a parallel helper subagent solved it on release morning. The single first showed as unsolved on the 09:00 pass, which was expected: it was a brand-new web shape with no solver yet. It was CORRECT by 09:02:12, the time trial by 09:03:22 and mastery by 09:03:45.
+Claude Code folded this in after a parallel helper subagent solved it on release morning. The single first showed as unsolved on the 09:00 pass, which was expected: it was a brand-new web shape with no solver yet. It was CORRECT at 09:01:58, the time trial at 09:03:21 and mastery at 09:03:45.
 
 The prompt's phrase "sign nothing" was literal. The fix is to sign or encrypt session state, or better, keep the role on the server and send only an opaque session id.

@@ -34,6 +34,6 @@ The organisers pitched this as a new stack with none of the usual names: an ASP.
 
 The feature route sat behind two gates, both driven by headers the app trusts. The app took the client address from the leftmost entry of a forwarded-for header, so a forged value passed the first, loopback-style gateway check. Only then did a staff-policy gate appear, and its response named the privileged role header in Vary. Setting that header passed it, and the proof was in the evidence field. The order matters: the second header can only be discovered with the first already set.
 
-That day went badly. The headless escalator died at a 600-second background-wait ceiling and the coordinating session crashed. Three fresh subagents were spawned by hand, one of them on this target, and the fix became `solve_roulette` in `websolve.py`. The catalog records all three modes correct by 11:58:29, an upper bound.
+That day went badly. The headless escalator died at a 600-second background-wait ceiling and the coordinating session crashed. Three fresh subagents were spawned by hand, one of them on this target, and the fix became `solve_roulette` in `websolve.py`. The catalog records the single correct at 09:18:18, the time trial at 09:19:51 and mastery at 09:21:50.
 
 The defence is to trust forwarding headers only from a known proxy, and never to let a header grant a role.

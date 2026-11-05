@@ -34,6 +34,6 @@ Day 27 asked 324 fields: Days 1 to 26 plus 12 about compiler and toolchain attri
 
 The pipeline solved everything on its own. The single and the time trial each resolved 324 of 324, and the mastery resolved 3,564 of 3,564 over eleven sets, with a 15.5 second fetch and a 1.8 second solve. The single's 324 fields were resolved about 9 seconds after release and the time trial's about 7 seconds after.
 
-By the bench timings the three modes were CORRECT 11.3, 19.8 and 42.3 seconds after release, so all were confirmed by 09:01. The status note for the morning says all five deterministic lanes had solved themselves by then.
+By the bench timings the three modes were CORRECT 11.3, 19.8 and 42.3 seconds after release, so all were confirmed by 09:00:43. The status note for the morning says all five deterministic lanes had solved themselves by then.
 
 Routine, and undocumented beyond the timings.

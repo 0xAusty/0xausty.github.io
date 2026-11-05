@@ -32,7 +32,7 @@ The single asked for one registry field, the name of a hive's root key, from a f
 
 ## The solve
 
-No parser field had that name at 09:00. The pipeline's closest-name guess path, built for exactly this, offered three suspects: the hive's root key name, the file name embedded in the hive header, and a lowercased variant. The first was correct, and all three modes were accepted by 09:00:17 with nobody touching anything.
+No parser field had that name at 09:00. The pipeline's closest-name guess path, built for exactly this, offered three suspects: the hive's root key name, the file name embedded in the hive header, and a lowercased variant. The first was correct, and the three modes were accepted at 09:00:04, 09:00:09 and 09:00:16 with nobody touching anything.
 
 Later that morning `metaextra.parse_regf` began exposing `hive_root_name`, read straight from the root `nk` cell, so the field now solves offline. That mattered for a dull reason: a live-only guess shows up as a regression in the replay gate until it is folded into the parser, and it did in the Day 25 preflight.
 

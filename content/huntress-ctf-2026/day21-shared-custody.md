@@ -36,7 +36,7 @@ The four misses were the config's campaign, domain, mutex and URL fields, which 
 
 The scan is scoped to the day's members on purpose. The cumulative bundle also holds every earlier day's configs, and an unscoped search could pick one of those by mistake.
 
-The single was correct at 09:04:35, the time trial at 09:08:11 and the mastery at 09:08:20.
+The single was correct at 09:04:34, the time trial at 09:08:11 and the mastery at 09:08:19.
 
 A small follow-up: on Day 22 the members were renamed with a sample tag, and the plugin-tagged Day 21 fields broke for a day.
 

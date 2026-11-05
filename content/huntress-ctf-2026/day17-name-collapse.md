@@ -36,6 +36,6 @@ At release `mobsolve.py` found no answer, so nothing was submitted. Because the 
 
 The puzzle used a new codec the notes call `indexed`: a 20-character data string and an `order` list. Claude Code fixed it in session. Character `i` of the string belongs at position `order[i]`, but `order` could mean target position or source index. So `decode_puzzle` builds both readings (scatter and gather) and keeps the one that is a valid answer code, only if exactly one is. That avoids guessing the convention.
 
-The single was fixed at about 09:12, with the time trial correct at 09:12:32 and the mastery at 09:12:39. The fix was committed at 09:38.
+The single was correct at 09:12:21, with the time trial correct at 09:12:32 and the mastery at 09:12:39. The fix was committed at 09:38.
 
 It was a one-minute fix that waited about twelve minutes behind the metadata and binary work. The rule that came out of it: read every miss first and fix the cheapest first.

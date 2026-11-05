@@ -32,8 +32,8 @@ This was a D-language ELF with the config as a base64 string literal, and 110 fi
 
 ## The solve
 
-The Day 10 generic handler resolved all 110 fields in the 09:00 sweep, and the single came back CORRECT by 09:00:30. The time trial also resolved 110 of 110, but its submit got an HTTP 429: five lane processes were firing at the release and rate-limiting each other. The timed window is one-shot, so it expired. That day's retry rotation wasn't published either, so retry, practice and start on it all returned a stable 409, and the mastery stayed gated behind the time trial.
+The Day 10 generic handler resolved all 110 fields in the 09:00 sweep, and the single came back CORRECT at 09:00:07. The time trial also resolved 110 of 110, but its submit got an HTTP 429: five lane processes were firing at the release and rate-limiting each other. The timed window is one-shot, so it expired. That day's retry rotation wasn't published either, so retry, practice and start on it all returned a stable 409, and the mastery stayed gated behind the time trial.
 
-The fixes went in that morning. A token bucket in a lock-protected file is now shared by every lane, and a POST that gets a 429 waits for `Retry-After` and resends. A 429 is rejected before processing, so resending is safe; a 5xx stays ambiguous and is never blindly resent. A standalone watcher with no Claude in the loop then polled both modes every 5 minutes and recovered them. The first CORRECT times for those two aren't recorded.
+The fixes went in that morning. A token bucket in a lock-protected file is now shared by every lane, and a POST that gets a 429 waits for `Retry-After` and resends. A 429 is rejected before processing, so resending is safe; a 5xx stays ambiguous and is never blindly resent. A standalone watcher with no Claude in the loop then polled both modes every 5 minutes and recovered them. The time trial went CORRECT at 18:32:48 on 13 October and the mastery at 23:28:18 that night.
 
 A correct solver was locked out by a herd it created itself.

@@ -36,6 +36,6 @@ The laptop was off at 09:00. The systemd timer caught up on wake, and the superv
 
 The agent fixed it in session. Jar entries are deflated, so a raw byte scan never sees the config. `_fill_config_from_members` now decodes the jars first. It takes the corrected-config fields from the member whose name ends in `corrected.<ext>`. The two configs are byte-equal, so the plain config is whichever role member turns up first.
 
-The single, time trial and mastery were confirmed by 09:25. The time trial and mastery had shown "not attempted" until the single passed, because one missed single blocks three modes. Day 28 later re-asked the vulnerable-config fields.
+The single was confirmed at 09:21:11, the time trial at 09:23:40 and the mastery at 09:24:03. The time trial and mastery had shown "not attempted" until the single passed, because one missed single blocks three modes. Day 28 later re-asked the vulnerable-config fields.
 
 Compressed containers hide things from a raw byte scan, and a late start made this miss expensive.

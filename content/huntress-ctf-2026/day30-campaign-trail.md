@@ -32,8 +32,8 @@ Day 30 asked for the formats of a loader, a library and a config-capsule member,
 
 ## The solve
 
-The Neko members carry an **HGRF** record: the same 12-byte XOR-plus-CRC layout as HCFG, but the JSON is a campaign graph with the config nested under a `config` key. The pipeline banked 409 of 420 fields at release. The escalator was kicked at 09:00:31, but its headless Claude hit a session limit at 09:07:26, so the coordinating session solved it inline. HGRF went into the config-record magics, the Neko magic was recognised, and `loader.n`, `library.n` and `config.n` were mapped to the three roles. Nested config is flattened so both spellings answer, and flat keys win over nested ones.
+The Neko members carry an **HGRF** record: the same 12-byte XOR-plus-CRC layout as HCFG, but the JSON is a campaign graph with the config nested under a `config` key. The pipeline banked 409 of 420 fields at release. The escalator was kicked at 09:00:31, and its headless Claude hit a session limit at 09:07:26. The single and time trial were already correct by then, at 09:05:51 and 09:06:39, and the coordinating session solved the mastery inline at 09:12:13. HGRF went into the config-record magics, the Neko magic was recognised, and `loader.n`, `library.n` and `config.n` were mapped to the three roles. Nested config is flattened so both spellings answer, and flat keys win over nested ones.
 
-Neko's format token is `neko_bytecode`, and VM bytecode has no machine field. The single was correct by 09:06:28 and the time trial by 09:08:17. The mastery's first passes were 126 and then 70 fields short before the final fold.
+Neko's format token is `neko_bytecode`, and VM bytecode has no machine field. The single was correct at 09:05:51 and the time trial at 09:06:39. The mastery's first passes were 126 and then 70 fields short before the final fold, and it was correct at 09:12:13.
 
 A new container usually hides the same record format.

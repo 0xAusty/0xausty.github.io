@@ -34,6 +34,6 @@ This target was a POST-only GraphQL endpoint with no REST route. The prompt aske
 
 A parallel Claude Code subagent solved it. The approach is to introspect the schema for the object resolver that takes an id, then read every scalar field on the protected reference, falling back to each id in the index. That became `solve_graphql` in `websolve.py`. The classifier also had to tell GraphQL apart from the plain object-access shape, since both expose a protected reference, and it did so with the framework fingerprint.
 
-The single was correct by 09:07:26 on 25 October. Mastery shows how bundles bank: the first attempt came back accepted with three proofs still pending, and it only turned correct once the fourth target came in.
+The single was correct at 09:07:19 on 25 October. Mastery shows how bundles bank: the first attempt came back accepted with three proofs still pending, and it only turned correct once the fourth target came in.
 
 Hiding a field from a list view isn't authorisation. Every resolver needs its own check, because introspection hands the caller the whole schema.

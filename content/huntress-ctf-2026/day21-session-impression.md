@@ -34,6 +34,6 @@ This was a "Resume Room" site with a landing route that accepts a session id and
 
 The bug is **session fixation**. The server takes the session id from a request parameter and does not issue a new one when a user authenticates. It had also pre-authenticated a reviewer against the id the challenge disclosed. So the solver only has to get that id set as its own session, then read the gated route with the resulting cookie, which is now privileged.
 
-The agent wrote `solve_session` in `websolve.py` as part of the three-subagent run over web days 6 to 8. It plants the disclosed id through the landing route and requests the gated route with the cookie. The Time Trial was confirmed at 09:45:14 on release day.
+The agent wrote `solve_session` in `websolve.py` as part of the three-subagent run over web days 6 to 8. It plants the disclosed id through the landing route and requests the gated route with the cookie. The Time Trial was confirmed at 09:18:55 on release day.
 
 The fix is to rotate the session id on every privilege change and to refuse ids the client supplied. The gotcha was how little there was: no cracking and no guessing, just a server trusting an id it should have issued itself.

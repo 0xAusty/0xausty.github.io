@@ -32,7 +32,7 @@ The executables had randomised on-disk names, and each mode asked for the origin
 
 ## The solve
 
-The release sweep left it unsolved. A fresh session then ran one Claude Code subagent per lane that was not fully CORRECT, and metadata was the only lane needing new code. The agent wrote a static reader in `mfsolve.py`: section table, `.rsrc`, the version resource, then the UTF-16 string pairs, each DWORD-aligned. The answer id suffix is matched to the resource's own key name, so other keys resolve without a table. The commit is stamped 09:15; per-mode times are not recorded.
+The release sweep left it unsolved. A fresh session then ran one Claude Code subagent per lane that was not fully CORRECT, and metadata was the only lane needing new code. The agent wrote a static reader in `mfsolve.py`: section table, `.rsrc`, the version resource, then the UTF-16 string pairs, each DWORD-aligned. The answer id suffix is matched to the resource's own key name, so other keys resolve without a table. The commit is stamped 09:15; the scoreboard puts the single at 09:11:34, the time trial at 09:11:44 and the mastery at 09:14:36.
 
 The first mastery submit scored incorrect. The member lookup searched only the outer zip, so both sets were answered from set 1's executable.
 

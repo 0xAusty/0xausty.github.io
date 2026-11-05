@@ -34,6 +34,6 @@ Day 25 added Elixir polyglots and a Phoenix-hosted Elixir stage. The prompt aske
 
 What was new was the supervisor. Day 25 was the first day under the long-running `daily.py`, which hot-reloads the solvers and writes progress checkpoints, and the catalog's confirmed source switches to those checkpoints from this day. The notes say it banked the automatic lanes and polled across the 09:00 drop.
 
-The single was confirmed by 09:00:06, the Time Trial by 09:00:10 and the mastery by 09:00:19. The log shows all three correct at release. No solver change is recorded for the script lane.
+The single was confirmed at 09:00:06, the Time Trial at 09:00:09 and the mastery at 09:00:18. The log shows all three correct at release. No solver change is recorded for the script lane.
 
 The thing to take from the day is the supervisor, not the Elixir: the same solver modules, a better loop around them.

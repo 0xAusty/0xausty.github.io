@@ -32,7 +32,7 @@ Day 31 was the Script lane's last challenge: XSLT polyglots in a final gauntlet 
 
 ## The solve
 
-The same deterministic pipeline solved it, and the notes record no script solver commit after the Day 23 fold-in. The single was confirmed by 09:00:28, the Time Trial by 09:00:43 and the mastery by 09:03:34.
+The same deterministic pipeline solved it, and the notes record no script solver commit after the Day 23 fold-in. The single was confirmed at 09:00:25, the Time Trial at 09:00:41 and the mastery at 09:03:12.
 
 The mastery was slower than before. Its solve step took about 142 seconds for 29,250 fields, against about 10 seconds for 26,572 on Day 30. The notes do not state why. They do record a stuck warmups worker pegging a core from 09:00 and a crashed coordinating session that morning.
 

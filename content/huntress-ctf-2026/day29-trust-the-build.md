@@ -34,6 +34,6 @@ A live Fiber updater serving a signed package manifest and an update policy. One
 
 The manifest covers the artifact bytes with a SHA-256 that the signature is over. The updater activates a signed manifest but never re-verifies the bytes against that hash. `solve_trustbuild` in `websolve.py` takes the routine manifest, changes its artifact hook to the restricted privileged hook that the update policy names, keeps the original signature, and submits it. The unverified update activates and the reply carries the proof.
 
-This was the first web recovery run end to end by the escalator, `run-escalate.sh`, which spawns a headless Claude agent after a first-pass miss, rather than a subagent spawned from the coordinating session. The single was CORRECT by 09:05:12. The time trial was recorded at 09:06:29 and mastery at 09:06:30. The escalator's log reports all modes correct on this and another web challenge by 09:08.
+This was the first web recovery run end to end by the escalator, `run-escalate.sh`, which spawns a headless Claude agent after a first-pass miss, rather than a subagent spawned from the coordinating session. The single was CORRECT at 09:04:39. The time trial was recorded at 09:05:50 and mastery at 09:06:25. The escalator's log reports all modes correct on this and another web challenge by 09:08.
 
 Verify the hash after activation, not just the signature.

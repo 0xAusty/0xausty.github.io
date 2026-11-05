@@ -29,7 +29,7 @@ The three modes were gated: a time trial would not open until its single was COR
 
 ## How the solver took shape
 
-The lane arrived on 19 October, its first three challenges backfilled with no release clock. They were worked that evening and folded the same day into `websolve.py` (commit `2e8c821`), which classifies a live target and dispatches it to a proven procedure under the same `run()` contract the other five lanes use. The blind-SQLi extractor was the one piece with real engineering: a per-character search parallelised across threads to finish inside the target's short TTL.
+The lane arrived on 19 October, its first three challenges backfilled with no release clock. They were worked that morning and folded the same day into `websolve.py` (commit `2e8c821`), which classifies a live target and dispatches it to a proven procedure under the same `run()` contract the other five lanes use. The blind-SQLi extractor was the one piece with real engineering: a per-character search parallelised across threads to finish inside the target's short TTL.
 
 The rule was to solve each shape once, fold in one concrete proof-recovery solver, and never pre-build a generic web-attack framework — the speculative offensive pieces added no value without a live target and kept tripping the safety classifier. From 20 October the challenges came two or three a morning, and release-day misses went to parallel subagents, one per open challenge.
 

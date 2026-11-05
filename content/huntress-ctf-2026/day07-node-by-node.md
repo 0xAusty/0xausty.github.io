@@ -32,7 +32,7 @@ Day 7 added eight Node.js operation graphs and two "advanced Bash syntax" fixtur
 
 ## The solve
 
-At release on 7 October the single was unsolved. The Claude Code session wrote `nodesolve.py`, which pulls the `Material_` and `Codec_` literals out with an escape-aware regex, un-escapes them, and reuses the Bash decoder, checked against the descriptor marker. New codec spellings went into the shared decoder. It reached 459 of 469 that day. The Batch loop label and the VBScript label map, which came from the event's Homebase AI (GPT-6 Luna), were then encoded, and the single was fully correct by about 11:48 on 7 October. The same AI solved the mastery on 8 October. The time trial's first solve time is not recorded.
+At release on 7 October the single was unsolved. The Claude Code session wrote `nodesolve.py`, which pulls the `Material_` and `Codec_` literals out with an escape-aware regex, un-escapes them, and reuses the Bash decoder, checked against the descriptor marker. New codec spellings went into the shared decoder. It reached 459 of 469 that day. The Batch loop label and the VBScript label map, which came from the event's Homebase AI (GPT-6 Luna), were then encoded, and the single was fully correct at 11:47:01 on 7 October. The same AI solved the mastery at 22:16:08 on 7 October. The time trial went in at 17:41:54 on 7 October.
 
 The tells: a Node persistence adapter called itself systemd, but its schedule path was a cron path, so the technique is cron. And for a staged chain that dispatches a process, the technique is the interpreter, even when the config also names a cron path or a service.
 

@@ -34,6 +34,6 @@ This was a small Axum service ("Caller Courier") with one feature route sitting 
 
 An identity directory showed the caller's role and the owner of the privileged records. Requesting the feature route with no identity header returned a 403, and its **Vary** response header named the header the service trusted. The solver, `solve_passidentity` in `websolve.py`, replays the feature request with that header set to the privileged owner, then falls back to any directory identity that isn't its own role. The proof came back in the evidence field.
 
-The agent added the function in session and the supervisor hot-reloaded it. An earlier 09:00 pass had misclassified the target as SSRF, before the function existed. The single was correct by 09:02:17 on the release morning.
+The agent added the function in session and the supervisor hot-reloaded it. An earlier 09:00 pass had misclassified the target as SSRF, before the function existed. The single was correct at 09:02:03 on the release morning.
 
 The defence is to have the edge authenticate and set the identity header itself, and to strip it from anything a client sends.

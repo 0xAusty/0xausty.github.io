@@ -34,6 +34,6 @@ This was a Pyramid job queue with an enqueue route, an audit route that reports 
 
 The flaw was an **owner-binding** one: the queue took the job's owner from a field the client supplied, not from the caller's own role. `solve_queue_binding` in `websolve.py` enqueues a job naming the restricted owner from the directory, then asks the audit route for that job's outcome. The proof is in the evidence field. The field and parameter names came from each route's own error response to a plain GET.
 
-The agent folded the solver in and the supervisor banked it. The single was correct by 09:02:31. The time trial was the long pole of the morning: it was retried repeatedly and the supervisor logged it far more than any other challenge, with the first correct by 09:07:58 alongside mastery.
+The agent folded the solver in and the supervisor banked it. The single was correct at 09:02:14. The time trial was the long pole of the morning: it was retried repeatedly and the supervisor logged it far more than any other challenge, with the first correct at 09:07:21 and mastery at 09:07:56.
 
 The fix is to derive ownership from the session and ignore any owner the request names.

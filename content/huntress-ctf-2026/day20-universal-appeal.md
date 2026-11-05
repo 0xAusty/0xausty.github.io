@@ -34,7 +34,7 @@ Day 20 asked for the set of CPU types in a macOS binary, as a JSON array. The ca
 
 The Mach-O parser had read only a thin image's header since 14 October. It was extended to list every CPU type in a carrier: one for a thin image, one per `fat_arch` entry for a universal binary (the fat header is always big-endian on disk), and one per Mach-O member of an `ar` archive, found by walking the 60-byte member headers. The answer is the distinct values, sorted.
 
-The declared format said only "JSON array", so the element spelling came from rejections. An array of architecture names was rejected, and so was an array of raw integers. What the grader accepted was each CPU type as `0x` plus eight lowercase hex digits. The single was correct between 09:09 and 09:13, and the Time Trial and Mastery followed at 09:13.
+The declared format said only "JSON array", so the element spelling came from rejections. An array of architecture names was rejected, and so was an array of raw integers. What the grader accepted was each CPU type as `0x` plus eight lowercase hex digits. The single was correct at 09:12:21, and the Time Trial and Mastery followed at 09:13:19 and 09:13:22.
 
 Later that day the lesson became general. The guess function now returns the canonical render first and then a fan of alternative representations. Measured with a heal audit that treats every corpus field name as unseen, unattended recovery rose from 77.5% to 93.2%.
 

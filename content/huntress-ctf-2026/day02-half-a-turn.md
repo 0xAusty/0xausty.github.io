@@ -18,7 +18,7 @@ The cipher here is ROT13, hinted by "thirteen steps forward", and it is trivial.
 
 ## The solve
 
-For the single, my notes only say it was already correct by about 17:35 UTC on 2 October. That came from a handoff written by a chat AI session, so who solved it is not recorded. The time trial and mastery were solved in the 4 October Claude Code session. For the mastery, `wusolve.py` decodes each chunk separately and keeps only readings that match the known sentence prefix and contain dictionary slug words, because a ROT13'd slug still looks like a slug.
+For the single, the scoreboard puts the correct submit at 12:51:07 on 2 October. My notes only mention it in a handoff written by a chat AI session, so who solved it is not recorded. The time trial and mastery were solved in the 4 October Claude Code session. For the mastery, `wusolve.py` decodes each chunk separately and keeps only readings that match the known sentence prefix and contain dictionary slug words, because a ROT13'd slug still looks like a slug.
 
 The lessons came from the first time trial. Timers ran about 5-8 seconds after start, too short for live analysis. A slug decoded from the original 107-byte artifact was submitted after a retry and came back incorrect, because the retry had served a different 109-byte file.
 

@@ -68,9 +68,9 @@ Day 16's WebAssembly pair was a format the handler didn't know; a Claude Code se
 
 **8 to 10 October.** `_hcfg_b64` for Swift and `binmastery.py` for the clock; on Day 10, Zig's section from a per-lane subagent by 09:08, the generic `_find_hcfg` handler by 09:25, then the daily sweep.
 
-**11 to 18 October.** D solved itself, CORRECT by 09:00:30, then lost its time-trial window to a self-inflicted 429 ([How I played](/huntress-ctf-2026/how-i-played/) has that story). Day 13 was the first binary day banked in all three modes with nobody in the loop, by 09:00:44.
+**11 to 18 October.** D solved itself, CORRECT at 09:00:07, then lost its time-trial window to a self-inflicted 429 ([How I played](/huntress-ctf-2026/how-i-played/) has that story). Day 13 was the first binary day banked in all three modes with nobody in the loop, by 09:00:43.
 
-**19 to 31 October.** Each new twist became a day-level pass; the last two days added the HGRF and HGAU magics. Days 23, 25 and 27 ran clean at release; Day 31 finished by 09:33:24.
+**19 to 31 October.** Each new twist became a day-level pass; the last two days added the HGRF and HGAU magics. Days 23, 25 and 27 ran clean at release; Day 31 finished at 09:33:08.
 
 ## Days worth knowing
 
@@ -87,4 +87,4 @@ Day 16's WebAssembly pair was a format the handler didn't know; a Claude Code se
 - **Validate with the checksum, not the magic.** The CRC alone beat the Rust and Nim decoys.
 - **The declared format picks the spelling.** A right fact in the wrong vocabulary is a wrong answer.
 - **Structure beat disassembly.** A 12-byte layout and a CRC check, not a disassembler, found the record everywhere.
-- **A miss costs more than slow solving.** Day 15's 09:18:56 finish moved the board from 55th to 34th; Day 17's binary, solved by only eight teams, took it to 5th.
+- **A miss costs more than slow solving.** Day 15's 09:18:55 finish moved the board from 55th to 34th; Day 17's binary, solved by only eight teams, took it to 5th.

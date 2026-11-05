@@ -34,6 +34,6 @@ This was the one early web challenge with real engineering in the solver. The ta
 
 That left boolean-blind extraction: ask a yes/no question about one character of the hidden value, and binary-search each position from the page's truthy or falsy response. Done one request at a time that is slow, and the live target expired after a short time with nothing to replay offline.
 
-So `solve_sqli` in `websolve.py` keeps the search lean and spreads it across worker threads, and the lane runner reconnects once if a pass comes back incomplete. The notes record it as solved live in an AI coding session on 19 October and then folded into the solver by the coding agent, with the time trial confirmed at 16:58:58.
+So `solve_sqli` in `websolve.py` keeps the search lean and spreads it across worker threads, and the lane runner reconnects once if a pass comes back incomplete. The notes record it as solved live in an AI coding session on 19 October and then folded into the solver by the coding agent, with the time trial confirmed at 10:15:21.
 
 The defence is parameterised queries. The gotcha was the clock, not the injection.

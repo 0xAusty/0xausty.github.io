@@ -32,9 +32,9 @@ Day 11 added TypeScript polyglots and two more advanced bash fixtures. The promp
 
 ## The solve
 
-The supervisor solved the single and the Time Trial at release, resolving the ambiguous loop-expansion fields with the capped two-try, and both were CORRECT by 09:00:30.
+The supervisor solved the single and the Time Trial at release, resolving the ambiguous loop-expansion fields with the capped two-try, and they were CORRECT at 09:00:06 and 09:00:12.
 
-The mastery (two sets, 1,622 fields) never downloaded. Its GET failed with HTTP 429 after retries, because five lane processes had hit the Game Master at once. A Claude Code subagent banked 1,614 deterministic fields in one submit, then cleared the 8 ambiguous loop-expansion fields with the capped two-try, 6 on the first label and 2 on the second, about 10.4 seconds inside the window. The exact time isn't recorded, only that it came before the 09:27 results commit.
+The mastery (two sets, 1,622 fields) never downloaded. Its GET failed with HTTP 429 after retries, because five lane processes had hit the Game Master at once. A Claude Code subagent banked 1,614 deterministic fields in one submit, then cleared the 8 ambiguous loop-expansion fields with the capped two-try, 6 on the first label and 2 on the second, about 10.4 seconds inside the window. It was CORRECT at 09:06:31, before the 09:27 results commit.
 
 The same burst failed the binary lane's Time Trial outright. The fix, in a later commit, was a shared cross-process token bucket plus waiting and resending when a POST returns 429, since a 429 is rejected before processing.
 

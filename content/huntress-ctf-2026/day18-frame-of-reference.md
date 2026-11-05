@@ -22,6 +22,6 @@ The media parser from the day before knew only audio streams. The closest-name g
 
 Claude Code extended `parse_media` for video. For MP4 it reads the track header's display size and rotation matrix, the visual sample entry's coded size, the pixel aspect box, the AVC profile and level, and the frame rate and count from the sample tables. For Matroska it reads the pixel and display dimensions. The accepted `primary_video_dimensions` is the coded size from the sample entry.
 
-The single was correct before the time trial at 09:02:20; its exact time isn't recorded. The mastery followed at 09:02:27 and the day was complete by 09:03:46.
+The single was correct at 09:01:28, before the time trial at 09:02:19. The mastery followed at 09:02:27 and the day was complete by 09:03:45.
 
 Coded size, display size and rotation are different fields, and the grader asked for the first.

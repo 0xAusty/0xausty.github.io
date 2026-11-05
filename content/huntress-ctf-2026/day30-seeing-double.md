@@ -34,7 +34,7 @@ The single asked for `identical_sha256_groups` from `cluster-001.zip`, as case-i
 
 Claude Code computed it directly from the zip. It grouped the members by the SHA-256 of their content and answered each group as member basenames, with the `artifacts/` prefix stripped, each group sorted and the groups sorted. It was never folded into a parser.
 
-The agent's coordinating session solved metadata inline within about five minutes of release. The single was correct by 09:03:11 and the time trial by 09:04:05. The exact mastery time is not recorded; the supervisor's own mastery attempt was still unsolved at 09:04:49, so the inline submission landed shortly after. One earlier submission, at 09:02:42, was rejected, and its form is not recorded.
+The agent's coordinating session solved metadata inline within about five minutes of release. The single was correct at 09:02:54 and the time trial at 09:04:00. The mastery was correct at 09:04:51; the supervisor's own mastery attempt was still unsolved at 09:04:49, so the inline submission landed shortly after. One earlier submission, at 09:02:42, was rejected, and its form is not recorded.
 
 That morning's earlier fixes held: the first-pass report fired once, at 09:00:31, and listed only real misses.
 

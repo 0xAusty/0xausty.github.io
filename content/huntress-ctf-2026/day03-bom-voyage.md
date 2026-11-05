@@ -36,6 +36,6 @@ The solver checks whether the member begins with the three bytes EF BB BF and an
 
 The accepted values are the lowercase strings true and false. They appear in the `answer_format` of the start and submit response, not in the status call. The agent's memory file lists this field among the solved examples whose format was confirmed.
 
-The notes record no solve time for any mode. They do say that all metadata time trials and masteries were solved in the 4 October Claude Code session, and that all three modes were correct by the 14 October corpus backfill. No per-day note names who solved the single.
+The scoreboard dates the single to 11:09:25 on 4 October, the day after release, and the time trial and mastery to 18:07:16 and 18:07:46 that evening. The notes say that all metadata time trials and masteries were solved in the 4 October Claude Code session, and that all three modes were correct by the 14 October corpus backfill. No per-day note names who solved the single.
 
 Read the declared format from the start response, not from the status.

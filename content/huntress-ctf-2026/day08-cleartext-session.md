@@ -34,7 +34,7 @@ Day 8 asked for a backend answer code after recovering a synthetic session from 
 
 The existing `mobsolve.py` handled all three modes as it was. What went wrong was the schedule. The 08:50 cron never fired on 8 October because the laptop was in S3 suspend, and a plain user cron does not run jobs it missed while the machine sleeps. So Claude Code ran the lanes by hand in the session. "By hand" in the notes means run manually instead of by cron; the answer still came from the solver.
 
-The exact solve times are not recorded. The catalog's 9 October 08:50 entry is the next morning's run re-confirming a state that was already CORRECT.
+The single was accepted at 09:03:43 and the time trial and mastery at 09:25:12 and 09:25:15, all on 8 October; the next morning's 08:50 run only re-confirmed a state that was already CORRECT.
 
 This was the first day the time trial and mastery came back untimed, with no deadline from the Game Master. The timers returned on Day 10.
 

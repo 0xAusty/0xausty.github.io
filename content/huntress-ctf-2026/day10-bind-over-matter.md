@@ -32,9 +32,9 @@ Day 10 added WMI MOF polyglots and two more advanced bash fixtures. The prompt f
 
 ## The solve
 
-The new polyglot families and hosts went through the existing `polysolve.py` and `scriptsolve` dispatch. The supervisor solved the single and the Time Trial at release, resolving the ambiguous loop-expansion fields with the capped two-try, and both were CORRECT by 09:00:21.
+The new polyglot families and hosts went through the existing `polysolve.py` and `scriptsolve` dispatch. The supervisor solved the single and the Time Trial at release, resolving the ambiguous loop-expansion fields with the capped two-try, and they were CORRECT at 09:00:09 and 09:00:14.
 
-The mastery (two sets, 1,506 fields) failed at 9:00 with HTTP 429, because the parallel sweep was contending with itself. A per-lane Claude Code subagent finished it by running `timed.py --two-try`, which cleared 12 loop-expansion fields. It was CORRECT by about 09:15; the exact time isn't recorded.
+The mastery (two sets, 1,506 fields) failed at 9:00 with HTTP 429, because the parallel sweep was contending with itself. A per-lane Claude Code subagent finished it by running `timed.py --two-try`, which cleared 12 loop-expansion fields. It was CORRECT at 09:11:47.
 
 Timers returned on this day, with a script window of about 31 to 32 seconds, so the live deadline had to be read on every start. The two-try wasn't automatic without its flag, and `scripttimed.py` did not un-nest the zip-of-zips masteries.
 

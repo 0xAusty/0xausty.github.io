@@ -20,7 +20,7 @@ Day 3 is hex, hinted by "sixteen fingers". The decode was never the problem. The
 
 One of the harness's generic decoders submitted the entire decoded string, and the Game Master rejected it. My notes do not record which decoder fired. The fix was a slug extractor: `wusolve.py` looks for three lowercase words and two digits after "Game Master:" and answers with only that. It is also what let the timed modes run without anyone watching.
 
-A Claude Code memory from 4 October records the wrong submit and the need for the extractor. The time trial and mastery were solved in that same session. Who submitted the accepted single is not recorded, and the catalogue has no solve time for any Day 3 mode.
+A Claude Code memory from 4 October records the wrong submit and the need for the extractor. The time trial and mastery were solved in that same session. Who submitted the accepted single is not recorded; the scoreboard puts it at 11:07:04 on 4 October, the time trial at 18:04:20 and the mastery at 18:06:17 that evening.
 
 A second trap sat nearby: the declared answer format only appears in the start and submit responses, while status shows it empty.
 

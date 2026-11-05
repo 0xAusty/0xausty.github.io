@@ -32,7 +32,7 @@ The warmups ask was unchanged: decode the blob, submit the slug. The encoding wa
 
 ## The solve
 
-The 08:50 cron job never ran: the laptop was in S3 suspend, and plain user cron doesn't run jobs missed while suspended. Day 8 was then solved in a Claude Code session instead of by the cron run. The agent added an `html_entities` step to `wusolve.py` (it unescapes when the text contains numeric or named entities), committed at 09:13 on 8 October. The notes don't record when the first answer was accepted, so I won't give a time.
+The 08:50 cron job never ran: the laptop was in S3 suspend, and plain user cron doesn't run jobs missed while suspended. Day 8 was then solved in a Claude Code session instead of by the cron run. The agent added an `html_entities` step to `wusolve.py` (it unescapes when the text contains numeric or named entities), committed at 09:13 on 8 October. The single was accepted at 09:04:51, the time trial at 09:05:16 and the mastery at 09:05:22.
 
 The stale day marker then sent the next morning's run back to Day 8. The fix was a self-healing marker, idempotent catch-up runs and a persistent systemd timer. Days 8 and 9 also came back untimed, after a week of short windows.
 

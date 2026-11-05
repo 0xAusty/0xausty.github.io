@@ -32,8 +32,8 @@ Day 9 added Lua polyglots, SCT and Lua hosts and two more advanced bash fixtures
 
 ## The solve
 
-The existing dispatch solved the single. The supervisor banked the confirmed fields in one submit, then tried each ambiguous loop-expansion field alone, at most two labels each. The single was CORRECT by 09:02:17, about two minutes after the drop, because the 08:50 run had spent itself re-confirming Day 8 on a stale marker. `daily.py` now advances past days that are already solved.
+The existing dispatch solved the single. The supervisor banked the confirmed fields in one submit, then tried each ambiguous loop-expansion field alone, at most two labels each. The single was CORRECT at 09:02:12, about two minutes after the drop, because the 08:50 run had spent itself re-confirming Day 8 on a stale marker. `daily.py` now advances past days that are already solved.
 
-At release the Time Trial was held back as unmapped and the mastery returned HTTP 409. The cause was a fixture whose codec named a keyed transform with an empty key. That raised an `IndexError` in `bashsolve._transform` before the identity path was reached. Claude Code made keyed transforms fall back to identity, and the Time Trial and mastery were both CORRECT by 09:25. The mastery's 30 loop-expansion fields went through the capped two-try.
+At release the Time Trial was held back as unmapped and the mastery returned HTTP 409. The cause was a fixture whose codec named a keyed transform with an empty key. That raised an `IndexError` in `bashsolve._transform` before the identity path was reached. Claude Code made keyed transforms fall back to identity, and the Time Trial and mastery were CORRECT at 09:08:06 and 09:09:30. The mastery's 30 loop-expansion fields went through the capped two-try.
 
 An empty key must degrade to identity, not crash.

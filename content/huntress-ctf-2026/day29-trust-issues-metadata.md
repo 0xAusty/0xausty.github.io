@@ -32,8 +32,8 @@ The single asked for the SHA-256 fingerprint of `certificate-001.pem`, matched a
 
 ## The solve
 
-The X.509 parser, built on the `cryptography` package in `metaengine._cert_fields`, exposes `sha256_fingerprint`: the SHA-256 over the certificate's DER encoding. The pipeline answered on the first submit and all three modes were banked by 09:00:17.
+The X.509 parser, built on the `cryptography` package in `metaengine._cert_fields`, exposes `sha256_fingerprint`: the SHA-256 over the certificate's DER encoding. The pipeline answered on the first submit and the three modes were banked at 09:00:07, 09:00:11 and 09:00:16.
 
-The bug was in the first-pass misses report. It fired at 09:00:04 listing every lane, metadata included, although metadata banked 13 seconds later, because it counted singles that were still running as missed. Once the escalator was wired to that report, it could have spawned deterministic-solver agents for lanes that were solving normally. The fix, a 90-second wait before the report fires, landed on Day 30.
+The bug was in the first-pass misses report. It fired at 09:00:04 listing every lane, metadata included, although metadata banked 12 seconds later, because it counted singles that were still running as missed. Once the escalator was wired to that report, it could have spawned deterministic-solver agents for lanes that were solving normally. The fix, a 90-second wait before the report fires, landed on Day 30.
 
 The lesson: a report that cries wolf is dangerous once something acts on it.

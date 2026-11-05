@@ -32,8 +32,8 @@ Day 24 asked for the record count of a Windows event log, as an integer. Two thi
 
 ## The solve
 
-The systemd timer caught up at 09:14:20. The single and the Time Trial were then correct on the first submit, at about 09:14:35 and 09:14:37. The EVTX parser walks the 64 KiB chunks that follow the 4 KiB file header and sums each chunk's last-minus-first-plus-one record numbers, rather than trusting the file header's next-record counter. It exposes both.
+The systemd timer caught up at 09:14:20. The single and the Time Trial were then correct on the first submit, at 09:14:31 and 09:14:33. The EVTX parser walks the 64 KiB chunks that follow the 4 KiB file header and sums each chunk's last-minus-first-plus-one record numbers, rather than trusting the file header's next-record counter. It exposes both.
 
-Mastery came back incorrect. Its sets repeat stems such as `roster-*` and `evidence-note-*`, so a global member-name search bled one set's filename onto all sets, and seven filename fields were wrong. Heal's uppercase re-spellings were rejected. The agent scoped the filename lookup to each set's own archive with a priority matcher. A first, naive scoping fix regressed Day 1, whose note has no id suffix, hence the priority order. Mastery was correct at 09:28:21. The seven ZIP member-name fields had been healed to sorted order automatically.
+Mastery came back incorrect. Its sets repeat stems such as `roster-*` and `evidence-note-*`, so a global member-name search bled one set's filename onto all sets, and seven filename fields were wrong. Heal's uppercase re-spellings were rejected. The agent scoped the filename lookup to each set's own archive with a priority matcher. A first, naive scoping fix regressed Day 1, whose note has no id suffix, hence the priority order. Mastery was correct at 09:28:19. The seven ZIP member-name fields had been healed to sorted order automatically.
 
 Each missed single cascades into three modes, because the Time Trial is gated on the single and Mastery on the Time Trial.

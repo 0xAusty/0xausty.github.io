@@ -36,6 +36,6 @@ A Claude Code subagent read the inventory first. Then it tried every action and 
 
 The pipeline's first classifier sent this day's two new web shapes down the generic admin path, and that failed. Dedicated branches went in ahead of the admin fallthrough. The proof also came back in a JSON evidence field, not as a token, so a scan for a token's shape would have missed it.
 
-The 09:00 run started late because the laptop was asleep. The time trial was confirmed at 09:24:16 and mastery at 09:25:33 on 24 October.
+The 09:00 run started late because the laptop was asleep. The time trial was confirmed at 09:24:15 and mastery at 09:25:32 on 24 October.
 
 The fix is to deny by default for every field and action pairing, not only the ones someone thought to test.

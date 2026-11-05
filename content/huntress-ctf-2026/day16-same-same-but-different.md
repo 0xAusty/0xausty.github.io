@@ -32,8 +32,8 @@ Ruby polyglots and a Ruby host this time, 1,095 fields, and a prompt about which
 
 ## The solve
 
-At release the supervisor's full submit was rejected. `heal.py` banked the confident fields, bisected by field family down to the two rejected `batch-*-expansion` fields, then tried the other enum values and found the right one for both. That took 23 submits and about 18 seconds, with no human involved. The single was in by 09:00:24 and the Time Trial passed on its first submit at 09:00:30.
+At release the supervisor's full submit was rejected. `heal.py` banked the confident fields, bisected by field family down to the two rejected `batch-*-expansion` fields, then tried the other enum values and found the right one for both. That took 23 submits and about 18 seconds, with no human involved. The single was in at 09:00:25 and the Time Trial passed on its first submit at 09:00:32.
 
-The Mastery was a mistake of ours. The pipeline had been changed on 15 October to start it in parallel with the Time Trial, and the server answered HTTP 409: a Mastery stays locked until its Time Trial is correct. It passed at 09:01:11. Afterwards the new answer rule went into every mode from Day 16, and `daily.lane_pipeline` now runs single, Time Trial, Mastery in sequence. The notes don't record what triggered the 09:01 re-run.
+The Mastery was a mistake of ours. The pipeline had been changed on 15 October to start it in parallel with the Time Trial, and the server answered HTTP 409: a Mastery stays locked until its Time Trial is correct. It passed at 09:01:12. Afterwards the new answer rule went into every mode from Day 16, and `daily.lane_pipeline` now runs single, Time Trial, Mastery in sequence. The notes don't record what triggered the 09:01 re-run.
 
 The lock was already visible in the earlier history, and the optimisation ran straight past it.

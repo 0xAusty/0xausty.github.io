@@ -32,7 +32,7 @@ Day 27 added Dockerfile polyglots to the Script Analysis lane. The questions wer
 
 ## The solve
 
-The autopilot solved all three modes at the 09:00 release: the single by 09:00:07, the Time Trial by 09:00:11 and the mastery (eleven sets, 18,249 fields) by 09:00:22. No new solver code was needed. The notes record the day as fully automatic.
+The autopilot solved all three modes at the 09:00 release: the single at 09:00:06, the Time Trial at 09:00:10 and the mastery (eleven sets, 18,249 fields) at 09:00:21. No new solver code was needed. The notes record the day as fully automatic.
 
 The one oddity was the Time Trial. It reused the single's question set, 1,659 fields with the ATT&CK-id fields, rather than the hex-id set the Time Trials since Day 23 had used. The pipeline took that in its stride.
 

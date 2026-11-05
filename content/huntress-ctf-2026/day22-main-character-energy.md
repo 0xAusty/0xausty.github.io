@@ -28,7 +28,7 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 22 asked for the main class of a Java archive, as exact text. The prompt warned that manifests disagree with launchers, but the question was about the manifest, and it was routine. All three modes were correct by 09:00:32.
+Day 22 asked for the main class of a Java archive, as exact text. The prompt warned that manifests disagree with launchers, but the question was about the manifest, and it was routine. The single was correct at 09:00:06, the time trial at 09:00:10 and the mastery at 09:00:14.
 
 ## The solve
 

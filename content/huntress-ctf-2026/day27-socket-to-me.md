@@ -34,6 +34,6 @@ A live Koa app, one proof per target, mastery a bundle of five. The interesting 
 
 The HTTP routes gated on role. The WebSocket upgrade did not: subscribing to a stream did no authorisation at all. A disclosed clues endpoint revealed a privileged stream reference, and only one of the query parameters on the feature route actually carried the subscription; the rest were inert. Open the socket with that reference and the first text frame holds the proof in an `evidence` field.
 
-The `requests` library can't speak WebSockets and the host had no pip. So the agent wrote `wsc.py`, a stdlib-only raw client over TLS with its own handshake and frame codec, and `solve_socket` in `websolve.py` uses it. Claude Code added both under the parallel-subagent flow. The single was CORRECT by 09:11:19 and the time trial by 09:14:46. The notes do not record a mastery time.
+The `requests` library can't speak WebSockets and the host had no pip. So the agent wrote `wsc.py`, a stdlib-only raw client over TLS with its own handshake and frame codec, and `solve_socket` in `websolve.py` uses it. Claude Code added both under the parallel-subagent flow. The single was CORRECT at 09:11:10 and the time trial at 09:14:19. Mastery followed at 09:17:45.
 
 The gotcha: here the proof is a JSON `evidence` field, so a scan for the usual token shape misses it. The fix is to authorise at subscribe time, not just on the HTTP routes.

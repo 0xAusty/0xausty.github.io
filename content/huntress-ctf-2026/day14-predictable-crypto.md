@@ -32,7 +32,7 @@ The prompt talked about seeded nonces and weak derivation, but the pipeline neve
 
 ## The solve
 
-`mobsolve.py` decoded the single, the time trial and the mastery at release, and all three were correct by 09:00:40 (the supervisor's summary time, so an upper bound). The timed modes had deadlines of 09:00:36 and 09:00:38 and came back correct inside them.
+`mobsolve.py` decoded the single, the time trial and the mastery at release, and the three were correct at 09:00:05, 09:00:07 and 09:00:12 (the supervisor's summary came at 09:00:40). The timed modes had deadlines of 09:00:36 and 09:00:38 and came back correct inside them.
 
 On 14 October the replay gate showed a problem. Once the warmups solver gained a rot5 step, the same real code decoded to a second, deeper answer-shaped string on Days 7 and 14. The old rule demanded uniqueness at every depth, so it now refused. The fix lets the shallowest depth decide, provided it is unique there, so a deeper decoy cannot win.
 

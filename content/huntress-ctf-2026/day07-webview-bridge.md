@@ -32,7 +32,7 @@ Day 7 was a single answer field: a backend answer code for a case, reached by cr
 
 ## The solve
 
-Nobody touched it at release. The puzzle sits in `assets/huntress_puzzle.json` inside a small APK, and the generic decode search in `mobsolve.py` took it through its chain of decode steps. All three modes were CORRECT by 09:00:22, against a release logged at 09:00:08. The time trial and mastery were timed, and both came back inside their deadlines.
+Nobody touched it at release. The puzzle sits in `assets/huntress_puzzle.json` inside a small APK, and the generic decode search in `mobsolve.py` took it through its chain of decode steps. The single was CORRECT at 09:00:11, the time trial at 09:00:13 and the mastery at 09:00:21, against a release logged at 09:00:08. The time trial and mastery were timed, and both came back inside their deadlines.
 
 On 14 October the replay gate flagged a regression. A new digit-rotation step (rot5) turned the real code into a second, deeper, well-formed answer-code string on Days 7 and 14. The old rule collected codes at every depth and required exactly one, so it would have refused both days. The fix, in a commit that day, makes the shallowest depth that yields a code decide, and it must be unique there. That never touched the board; the gate caught it from the corpus.
 

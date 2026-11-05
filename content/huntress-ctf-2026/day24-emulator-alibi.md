@@ -32,7 +32,7 @@ Day 24 asked for the exact backend answer code per mode, with a prompt about def
 
 ## The solve
 
-A systemd persistent timer caught up at 09:14:20 and the run saw the release at 09:14:31. The single came back correct by 09:14:58, but only through the last-resort fallback, which accepts a code only when exactly one answer-shaped literal appears in the package. The time trial and mastery APKs use an "analysis" codec: the code is computed by the app's DEX behind environment checks, with decoy literals around. The time trial returned nothing and the mastery was not attempted, because each mode is locked behind the previous one.
+A systemd persistent timer caught up at 09:14:20 and the run saw the release at 09:14:31. The single came back correct at 09:14:32, but only through the last-resort fallback, which accepts a code only when exactly one answer-shaped literal appears in the package. The time trial and mastery APKs use an "analysis" codec: the code is computed by the app's DEX behind environment checks, with decoy literals around. The time trial returned nothing and the mastery was not attempted, because each mode is locked behind the previous one.
 
 The Day 23 emulator already solved these APKs. Claude Code's fix was to wire `mobemu.solve_apk` into `mobsolve.solve_apk` ahead of the literal fallback, and the time trial and mastery were then submitted in session, at 09:29:53 and 09:29:57.
 

@@ -34,6 +34,6 @@ The target was a Ktor service with a public fetch route. The single and time tri
 
 The service exposed a topology route that disclosed an internal case service reachable only from loopback, and a directory listing each case with its owner. The headless escalator's Claude agent folded the chain into `websolve.py` as `solve_internal_affairs`, using the **server-side request forgery** in the public fetch route to reach that internal service. It asked for a case owned by someone other than the current role. The internal service had no per-object owner check, so it returned the record, and the proof sat in the reply's evidence field. The solver tries a foreign-owned case first, then every listed one.
 
-The escalator log marks all three modes correct. The single was correct by 09:07:11 on the release morning.
+The escalator log marks all three modes correct. The single was correct at 09:05:17 on the release morning.
 
 Two boundaries failed here: the fetch let a public caller reach an internal service, and the internal service checked no owner on what it served. The fix is an allow-list on outbound fetches plus an owner check on every object, wherever the request came from.

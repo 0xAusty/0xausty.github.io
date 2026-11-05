@@ -32,7 +32,7 @@ Day 30 added BeanShell polyglots inside an inert JSP host, and the JSP host fami
 
 ## The solve
 
-All three modes were banked at the release: the single by 09:00:09, the Time Trial by 09:00:12 and the mastery (fourteen sets, 26,572 fields) by 09:00:27. The notes record it as fully automatic, with no new solver code.
+All three modes were banked at the release: the single at 09:00:09, the Time Trial at 09:00:12 and the mastery (fourteen sets, 26,572 fields) at 09:00:25. The notes record it as fully automatic, with no new solver code.
 
 The supervisor's first-pass report went out at 09:00:31 and did not list script as a miss, so the false alarm from the day before had not come back.
 

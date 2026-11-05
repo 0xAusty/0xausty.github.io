@@ -34,6 +34,6 @@ This was an upload form with weak validation and a render route that serves stor
 
 The first weakness is **unrestricted file upload**: the "bouncer" accepts anything. The second is **server-side template evaluation**: the render route serves a file by its stored extension, and for an HTML preview it evaluates template fields in the content. So a note uploaded as HTML can reference the objective's field, and fetching its rendered copy returns the value the field expands to.
 
-The agent wrote `solve_upload` in `websolve.py`, folded in with the CSRF solver. It uploads an HTML note that references the field, fetches the rendered copy and reads the result. The Time Trial was confirmed at 09:07:57 on release day.
+The agent wrote `solve_upload` in `websolve.py`, folded in with the CSRF solver. It uploads an HTML note that references the field, fetches the rendered copy and reads the result. The Time Trial was confirmed at 09:04:28 on release day.
 
 The fixes are to allow-list file types and check content, to store uploads where they are never rendered, and never to run user-supplied files through a template engine. The gotcha was that neither flaw alone gets the proof.

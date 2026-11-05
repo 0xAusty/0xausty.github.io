@@ -34,7 +34,7 @@ Day 20 added one new field kind, the size of the HCFG resource inside an `RS20` 
 
 The overlay is a resource layout, not Day 19's packed one: a magic, a version, a size word at +8, a trailer-name length, a 32-byte SHA-256, then the HCFG resource (a 12-byte header plus an XOR'd payload) and a plaintext trailer. That gives three plausible sizes: the whole overlay, the HCFG payload alone, and the header word at +8, which covers the HCFG header plus its payload. The field wanted the last one.
 
-Claude Code solved it in session and added `binsolve._rs20_hcfg_resource_size`. The single was correct at 09:06:51, the time trial at 09:07:02 and the mastery at 09:07:15.
+Claude Code solved it in session and added `binsolve._rs20_hcfg_resource_size`. The single was correct at 09:06:51, the time trial at 09:07:01 and the mastery at 09:07:14.
 
 The miss was a parser gap that the heal step couldn't reach. Two days later the agent added `_overlay_int_candidates`, which offers every aligned little-endian integer in a recognised overlay header as a suspect, since the binary lane had missed almost every recent day on a structural twist.
 

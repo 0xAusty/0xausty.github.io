@@ -32,7 +32,7 @@ URL-safe Base64 this time, and the warmups question unchanged. The cipher was th
 
 ## The solve
 
-The supervisor submitted the single and the Time Trial at release, and both were CORRECT by 09:00:30. At release the serial 53-blob mastery solve finished at t+12.37 s against a deadline of roughly 7-10 s, and the submit hit an HTTP 429 in that morning's burst of parallel lane processes.
+The supervisor submitted the single and the Time Trial at release, and they were CORRECT at 09:00:02 and 09:00:04. At release the serial 53-blob mastery solve finished at t+12.37 s against a deadline of roughly 7-10 s, and the submit hit an HTTP 429 in that morning's burst of parallel lane processes.
 
 A fresh Claude Code session fixed it (commit 09:16:08). `timed.solve_artifact` now decodes a zip of more than four blobs across a fork `ProcessPoolExecutor`, and `wusolve.py` got a cached translate table per Caesar shift plus an ASCII and printable check in place of per-character loops. That's about 3.6x per blob, byte-identical over 180 differential trials. The re-run reported the submit CORRECT at t+4.00 s, before that commit.
 

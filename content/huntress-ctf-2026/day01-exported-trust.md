@@ -21,7 +21,7 @@ description = "An early Android challenge that looks like a runtime task but hid
 # (the chips and the glance card's When column say when it was solved)
 solved_by = []
 
-tools  = ["python", "mobsolve.py"]
+tools  = []
 tags   = ["android", "encoding", "time-trial"]
 skills = ["Reverse Engineering"]  # groups it on /portfolio/
 
@@ -32,7 +32,7 @@ This is the first mobile challenge. The prompt talks about invoking an exported 
 
 ## The solve
 
-The notes do not record who solved Day 1, or when. All I can say is that the three modes were already correct by the morning of 4 October, according to a status sweep.
+The notes do not record who solved Day 1. The scoreboard does record when: the single at 21:50:08 on 1 October, the time trial at 09:30:07 and the mastery at 09:30:49 on the morning of 2 October. All my notes have is a status sweep on 4 October that found the three modes already correct.
 
 What the notes do describe is a static read. Open the APK as a zip, read the puzzle file and decode its `data` field by the declared `codec`. For the plain codec the data is the code itself. The committed `mobsolve.py` accepts it only as a whole-string match of the answer-code shape, which guards against submitting a half-decoded guess. Mastery APKs were solved in delivery order and paired with the set ids.
 

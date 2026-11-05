@@ -100,7 +100,7 @@ def hcfg_from(b):
 
 Neither timed mode added a new kind of field; what changed was the order of work. The grader locks the time trial until the single is CORRECT and the mastery until the time trial is, and a timed mode is submitted only with every field solved, so both waited for the symbols field.
 
-The same runner covers every mode: `python3 binsolve.py` with `/time_trial` or `/mastery` appended sends a timed mode's fields in one call and fetches one bundle per `setN.` prefix for a mastery. Both modes were CORRECT by 11:24 on 7 October, when the commit recorded the sweep of every binary mode from Day 3 to Day 7. Per-mode times were not recorded.
+The same runner covers every mode: `python3 binsolve.py` with `/time_trial` or `/mastery` appended sends a timed mode's fields in one call and fetches one bundle per `setN.` prefix for a mastery. Both modes were CORRECT on 7 October, the time trial at 11:02:36 and the mastery at 11:06:51, before the 11:24 commit that recorded the sweep of every binary mode from Day 3 to Day 7.
 
 ## Dead ends
 

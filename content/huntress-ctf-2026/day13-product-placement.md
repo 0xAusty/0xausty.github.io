@@ -18,7 +18,7 @@ The packages were small Windows Installer files that had been copied, renamed an
 
 ## The solve
 
-The notes do not record who solved this one, or how: it was unsolved at the 09:00 run, no solver change was committed for it, and the later notes only say the day was complete by 09:32 on 14 October.
+The notes do not record who solved this one, or how: it was unsolved at the 09:00 run and no solver change was committed for it. The scoreboard puts the single at 09:09:15 and the time trial and mastery at 09:17:26 and 09:17:39, all on the release morning.
 
 What the repo does hold is `msimeta.py`, added on 14 October. It reads an MSI as an OLE compound file, decodes the compressed table stream names and the string pool, rebuilds the column-major tables and exposes the Property table as snake-cased fields, so `ProductCode` becomes `product_code`. The summary-information stream comes out of the same parser.
 

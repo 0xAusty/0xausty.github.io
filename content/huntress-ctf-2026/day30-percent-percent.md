@@ -32,7 +32,7 @@ Day 30's warmup was a 972-byte blob. It was routine, and the autopilot solved it
 
 ## The solve
 
-The single was banked by 09:00:07, the Time Trial by 09:00:09 and the Mastery by 09:00:18. The notes do not name the encoding. The prompt, about an address bar problem that "happened twice", points to URL percent-encoding applied twice, which was Day 7's encoding. The `url` step is in the first-step set of `wusolve.py`, so the per-chunk search could chain it with itself. That is an inference from the prompt and the solver, not a logged fact.
+The single was banked at 09:00:07, the Time Trial at 09:00:09 and the Mastery at 09:00:16. The notes do not name the encoding. The prompt, about an address bar problem that "happened twice", points to URL percent-encoding applied twice, which was Day 7's encoding. The `url` step is in the first-step set of `wusolve.py`, so the per-chunk search could chain it with itself. That is an inference from the prompt and the solver, not a logged fact.
 
 The first-pass report at 09:00:31 ran with the new 90-second wait. It listed binary, metadata, mobile and web, but not warmups.
 
