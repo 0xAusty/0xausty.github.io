@@ -29,6 +29,9 @@
     {{- with $ev.challenges }}
   <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}</span><span class="label">challenges</span></div>
     {{- end }}
+    {{- with $ev.first_bloods }}
+  <div class="ctf-stat"><span class="num">{{ . }}</span><span class="label">first blood{{ if ne (int .) 1 }}s{{ end }}</span></div>
+    {{- end }}
     {{- if and (isset $ctx "pages") (gt (int $ctx.pages) 0) }}
     {{- $n := int $ctx.pages }}
   <div class="ctf-stat"><span class="num">{{ $n }}</span><span class="label">{{ if lt $n (int ($ev.challenges | default 0)) }}write-up{{ if ne $n 1 }}s{{ end }} so far{{ else }}write-ups published{{ end }}</span></div>

@@ -28,7 +28,7 @@ skills = ["Digital Forensics"]  # groups it on /portfolio/
 toc = false
 +++
 
-Day 23 asked for the page size of a SQLite database, as an integer. It was routine. The bench file recorded release-to-correct times of 4.4 s for the single, 9.3 s for the Time Trial and 12.6 s for Mastery.
+Day 23 asked for the page size of a SQLite database, as an integer. It was routine. The bench file recorded release-to-correct times of 4.4 s for the single, 9.3 s for the Time Trial and 12.6 s for Mastery. The Time Trial and Mastery were first bloods: the first of 1,602 teams to solve them, about a minute ahead of the next.
 
 ## The solve
 

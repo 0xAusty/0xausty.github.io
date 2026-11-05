@@ -12,7 +12,9 @@
   a title attribute and, unless terse, as visually-hidden text (the letter is
   aria-hidden). A confirmed_at whose confirmed_source is "harness-state" is
   when a state file was written, not a solve time, so it reads "time not
-  recorded".
+  recorded". Scoreboard times are exact ("at"); other sources are upper
+  bounds ("by"). A mode with a first_blood map gets the is-first-blood class
+  and "· first blood" in its text.
 */ -}}
 {{- $e := . -}}
 {{- $terse := false -}}
@@ -26,19 +28,23 @@
 {{- range $m := slice (dict "key" "single_solve" "label" "Single Solve" "chip" "S") (dict "key" "time_trial" "label" "Time Trial" "chip" "TT") (dict "key" "mastery" "label" "Mastery" "chip" "M") -}}
   {{- $status := "none" -}}
   {{- $desc := printf "%s · not part of this challenge" $m.label -}}
+  {{- $fb := false -}}
   {{- with index $modes $m.key -}}
+    {{- if .first_blood }}{{ $fb = true }}{{ end -}}
+    {{- $prep := cond (eq (printf "%v" (.confirmed_source | default "")) "scoreboard") "at" "by" -}}
     {{- if .release_morning -}}
       {{- $status = "release" -}}
-      {{- $desc = printf "%s · CORRECT by %v on release morning" $m.label .release_morning -}}
+      {{- $desc = printf "%s · CORRECT %s %v on release morning" $m.label $prep .release_morning -}}
     {{- else if eq (printf "%v" (.result | default "")) "CORRECT" -}}
       {{- $status = "later" -}}
       {{- $desc = printf "%s · CORRECT, time not recorded" $m.label -}}
-      {{- if and .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $desc = printf "%s · CORRECT by %v ET" $m.label .confirmed_at }}{{ end -}}
+      {{- if and .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $desc = printf "%s · CORRECT %s %v ET" $m.label $prep .confirmed_at }}{{ end -}}
     {{- else -}}
       {{- $status = "open" -}}
       {{- $desc = printf "%s · %v" $m.label (.result | default "unsolved") -}}
     {{- end -}}
   {{- end -}}
-  <span class="ctf-chip is-{{ $status }}" title="{{ $desc }}"><span aria-hidden="true">{{ $m.chip }}</span>{{ if not $terse }}<span class="visually-hidden">{{ $desc }}</span>{{ end }}</span>
+  {{- if $fb }}{{ $desc = printf "%s · first blood" $desc }}{{ end -}}
+  <span class="ctf-chip is-{{ $status }}{{ if $fb }} is-first-blood{{ end }}" title="{{ $desc }}"><span aria-hidden="true">{{ $m.chip }}</span>{{ if not $terse }}<span class="visually-hidden">{{ $desc }}</span>{{ end }}</span>
 {{- end -}}
 </span>

@@ -771,3 +771,14 @@ mark { background: var(--accent-soft); color: var(--text); padding: 0 2px; borde
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
   overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
+
+// First blood (the official scoreboard's first solver of a mode): a gold ring on the chip, and a small badge in the glance table.
+// The droplet is an inline SVG (red drop, thin dark outline so it reads on the green chip in both themes); the words
+// "first blood" are in the chip's title and hidden text, so the droplet itself is decorative.
+$first-blood-drop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 20'%3E%3Cpath d='M8 1.5C8 1.5 2.5 9 2.5 13.2a5.5 5.5 0 0 0 11 0C13.5 9 8 1.5 8 1.5Z' fill='%23e11d48' stroke='%23111827' stroke-width='1.2'/%3E%3C/svg%3E");
+.ctf-chip.is-first-blood { position: relative; overflow: visible; box-shadow: 0 0 0 2px #f5c518; }
+.ctf-chip.is-first-blood::after { content: ""; position: absolute; top: -7px; right: -7px; width: 10px; height: 13px; background: $first-blood-drop no-repeat center / contain; pointer-events: none; }
+[data-theme="light"] .ctf-chip.is-first-blood { box-shadow: 0 0 0 2px #b45309; }
+.ctf-first-blood { display: inline-block; margin-left: .35rem; padding: 0 .45rem 0 .35rem; border: 1px solid #f5c518; border-radius: 999px; color: #f5c518; font-family: var(--font-mono, monospace); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; white-space: nowrap; }
+.ctf-first-blood::before { content: ""; display: inline-block; width: 8px; height: 11px; margin-right: .3rem; vertical-align: -1px; background: $first-blood-drop no-repeat center / contain; }
+[data-theme="light"] .ctf-first-blood { border-color: #b45309; color: #b45309; }

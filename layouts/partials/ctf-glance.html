@@ -12,12 +12,15 @@
   when a mode exists, the artifacts block only when an artifact does, and the
   card itself only when it has at least one of those to show.
 
-  "When": release_morning → "by <time> on release morning"; CORRECT with a
-  confirmed_at whose confirmed_source is not "harness-state" → "by <ts> ET";
+  "When": release_morning → "at <time> on release morning"; CORRECT with a
+  confirmed_at whose confirmed_source is not "harness-state" → "at <ts> ET";
   any other CORRECT mode → "not recorded" (a harness-state timestamp is when a
-  state file was written, not a solve time); otherwise "—". "By", because many
-  recorded times are upper bounds: a status line written after the run, a
-  completion summary, or a commit that reports the day complete.
+  state file was written, not a solve time); otherwise "—". "At" when the
+  source is the official scoreboard (an exact solve time), "by" for any other
+  source, because those times are upper bounds: a status line written after the
+  run, a completion summary, or a commit that reports the day complete.
+  A mode whose first_blood map is set (the first of all teams to solve it, per
+  the scoreboard) shows a "First blood" badge after its result.
 
   The prompt is third-party text: raw HTML is escaped and markdown link/image
   syntax (inline and reference-style definitions) is broken up before
@@ -98,12 +101,13 @@
       {{- $status := "open" }}
       {{- if .release_morning }}{{ $status = "release" }}{{ else if $correct }}{{ $status = "later" }}{{ end }}
       {{- $when := "—" }}
-      {{- if .release_morning }}{{ $when = printf "by %v on release morning" .release_morning }}
-      {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "by %v ET" .confirmed_at }}
+      {{- $prep := cond (eq (printf "%v" (.confirmed_source | default "")) "scoreboard") "at" "by" }}
+      {{- if .release_morning }}{{ $when = printf "%s %v on release morning" $prep .release_morning }}
+      {{- else if and $correct .confirmed_at (ne (printf "%v" (.confirmed_source | default "")) "harness-state") }}{{ $when = printf "%s %v ET" $prep .confirmed_at }}
       {{- else if $correct }}{{ $when = "not recorded" }}{{ end }}
       <tr>
         <th scope="row">{{ $m.label }}{{ with .points }} <small class="text-dim">{{ int . }} pts</small>{{ end }}</th>
-        <td data-label="Result"><span class="ctf-chip is-{{ $status }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "—" }}</td>
+        <td data-label="Result"><span class="ctf-chip is-{{ $status }}{{ if .first_blood }} is-first-blood{{ end }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "—" }}{{ with .first_blood }} <span class="ctf-first-blood" title="First blood: the first of all teams to solve this mode{{ with .margin_s }}, {{ . }} s ahead of the next team{{ end }}">First blood</span>{{ end }}</td>
         <td data-label="When">{{ $when }}</td>
         <td data-label="Questions">
           {{- with .questions }}{{ int . }}{{ else }}—{{ end }}
