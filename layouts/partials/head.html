@@ -62,5 +62,16 @@
 })();
 </script>
 
+{{/* ---- Analytics: GoatCounter, no cookies. Loaded only by production builds and only when
+     params.goatcounter is set, so `hugo server` previews never count. The pinned count.v5.js is
+     checked with SRI like the stylesheet; to move to a newer version, take its tag and hash
+     from https://www.goatcounter.com/help/countjs-versions ---- */}}
+{{- with site.Params.goatcounter }}
+{{- if not (findRE `^[a-z0-9-]+$` .) }}{{ errorf "params.goatcounter must be just the account name, like \"0xausty\" for 0xausty.goatcounter.com (got %q)" . }}{{ end }}
+{{- if hugo.IsProduction }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"></script>
+{{- end }}
+{{- end }}
+
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/schema.html" . }}

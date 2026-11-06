@@ -113,6 +113,12 @@ summaryLength   = 30
   showReadingTime = true
   enableSearch    = true
 
+  # ---- Analytics ---------------------------------------------------------
+  # GoatCounter account name: the "0xausty" in 0xausty.goatcounter.com. Empty =
+  # no analytics. Only production builds (what CI deploys) load the script, so
+  # `hugo server` previews never count as visits.
+  goatcounter = "0xausty"
+
 # -----------------------------------------------------------------------------
 #  Top navigation. Reorder / add / remove freely. `weight` sets the order.
 # -----------------------------------------------------------------------------

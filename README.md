@@ -288,6 +288,7 @@ Almost everything is in **`hugo.toml`** under `[params]`:
 | Starting theme | `params.defaultTheme` (`"dark"` or `"light"`) |
 | Top navigation | the `[menu]` block |
 | SEO description / keywords / social image | `params.description`, `params.keywords`, `params.ogImage` |
+| Analytics (GoatCounter, no cookies) | `params.goatcounter`: the account name, the `0xausty` in 0xausty.goatcounter.com (empty `""` = off; production builds only) |
 | Your bio, skills, certs | `content/about.md` |
 
 Deeper design changes (spacing, fonts, extra colours) live as **design tokens** at the
