@@ -195,10 +195,14 @@ main { flex: 1 0 auto; padding: var(--sp-7) 0 var(--sp-8); }
     flex-direction: column; align-items: stretch;
     background: var(--bg-elev); border-bottom: 1px solid var(--border);
     padding: var(--sp-3); gap: var(--sp-1);
-    transform: translateY(-120%); transition: transform .2s ease;
+    // Closed: lifted by its own height plus the 4rem header offset, so it ends exactly above the
+    // viewport whatever its height (a fixed -120% left a short drawer's bottom edge over the header).
+    // Hidden too, so the off-screen links are not focusable; visibility flips after the slide-up.
+    transform: translateY(calc(-100% - 4rem)); visibility: hidden;
+    transition: transform .2s ease, visibility 0s linear .2s;
     margin-left: 0;
   }
-  .nav.open { transform: translateY(0); }
+  .nav.open { transform: translateY(0); visibility: visible; transition: transform .2s ease; }
   .nav a { padding: var(--sp-3); }
   .nav .icon-btn { display: none; }   // theme toggle stays in header on mobile
 }
