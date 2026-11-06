@@ -133,7 +133,7 @@ From Day 16 on, the day's last CORRECT came by 09:05:09 on Days 16 and 18, and b
 
 The official scoreboard also records five first bloods, the first of 1,602 teams to solve a mode, all in the metadata lane: the Day 23 [Page Me Maybe](/huntress-ctf-2026/day23-page-me-maybe/) time trial and mastery, about a minute ahead of the next team, and all three modes of Day 26 [Before You Go](/huntress-ctf-2026/day26-before-you-go/), the single 0.3s ahead.
 
-The miss, [SHA1-Hulud](/huntress-ctf-2026/day30-sha1-hulud/), was a stripped Rust PE with string encryption, anti-debugging and modified SHA-1 functions. After my own ChatGPT account built the first offline Unicorn emulator, Claude Code took it over: one session concluded the check was a one-way gate, and a later one showed that was wrong, found the emulator bug behind a long detour, and stopped a few steps from the end. I also put it to the Homebase AI. It stayed open.
+The miss, [SHA1-Hulud](/huntress-ctf-2026/day30-sha1-hulud/), was a stripped Rust PE with string encryption, anti-debugging and modified SHA-1 functions. It came out the morning I left for a camping trip, and I spent the 31st in the Appalachian Mountains on campground wifi, with far less time at the laptop than the rest of the month. After my own ChatGPT account built the first offline Unicorn emulator, Claude Code took it over: one session concluded the check was a one-way gate, and a later one showed that was wrong, found the emulator bug behind a long detour, and stopped a few steps from the end. I also put it to the Homebase AI. It stayed open.
 
 What I'd take into the next one:
 

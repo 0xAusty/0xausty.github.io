@@ -64,7 +64,7 @@ Both passes invert: every round step (key material added or XOR'd in, a Klimov-S
 
 ## The attempt
 
-The laptop had no Ghidra, IDA, angr or Wine, so the work was mostly offline emulation.
+I left for a camping trip on the morning of 30 October and spent the 31st in the Appalachian Mountains on campground wifi, so I had far less time at the laptop, and a far worse connection, than during the rest of the month. The laptop had no Ghidra, IDA, angr or Wine, so the work was mostly offline emulation.
 
 **30 October.** The pipeline's supervisor logged `resolved 0 / 1` on every pass that morning. The escalator, a headless Claude Code run started on first-pass misses, took it up at 09:00:31 and died at 09:07:26:
 
