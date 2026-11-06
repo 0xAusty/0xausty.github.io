@@ -81,9 +81,9 @@ summaryLength   = 30
   author   = "0xAusty"
   tagline  = "Cybersecurity specialist"
   # One-line bio for the homepage hero:
-  heroBio  = "Four years in security, seven in enterprise IT. I own security baselines built on CIS Benchmarks and NIST SP 800-53 at work, and build solvers, detections and write-ups on my own time."
+  heroBio  = "Four years in security, seven in enterprise IT. At work I own security baselines built on CIS Benchmarks and NIST SP 800-53. On my own time I play CTFs and write up how each challenge was solved, most recently Huntress CTF 2026."
   # Longer bio (also used on the About page intro & meta description):
-  bio      = "Cybersecurity specialist: security baselines by day, security tooling and CTF write-ups on my own time."
+  bio      = "Cybersecurity specialist: security baselines at work, CTFs and challenge write-ups on my own time."
 
   # ---- Contact / social links --------------------------------------------
   # Leave a value empty ("") to hide that link everywhere.
