@@ -2,7 +2,7 @@
 # --- Filled from data/huntress_ctf_2026.json when the file name is a catalog key ---
 title = "Uploading Expectations"
 date = 2026-10-22  # the challenge's release date (today's date when the file name is not a catalog key)
-draft = true                       # set to false when the write-up is ready
+draft = false                       # set to false when the write-up is ready
 params.kind = "challenge"           # "kind" on its own is reserved by Hugo (removed in v0.144): keep the params. prefix
 catalog_key = "day22-uploading-expectations"
 # From the catalog (read-only; the templates pull these from data/huntress_ctf_2026.json):

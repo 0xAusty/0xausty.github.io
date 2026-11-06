@@ -1,7 +1,7 @@
 +++
 title = "Hex Appeal"
 date = 2026-10-03
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day03-hex-appeal"
 depth = "note"

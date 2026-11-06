@@ -1,7 +1,7 @@
 +++
 title = "Frame of Reference"
 date = 2026-10-18
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day18-frame-of-reference"
 depth = "note"

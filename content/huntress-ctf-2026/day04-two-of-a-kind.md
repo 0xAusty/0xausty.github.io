@@ -1,7 +1,7 @@
 +++
 title = "Two of a Kind"
 date = 2026-10-04
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day04-two-of-a-kind"
 depth = "note"

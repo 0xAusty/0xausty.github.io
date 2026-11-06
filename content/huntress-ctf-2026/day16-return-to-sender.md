@@ -1,7 +1,7 @@
 +++
 title = "Return to Sender"
 date = 2026-10-16
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day16-return-to-sender"
 depth = "note"

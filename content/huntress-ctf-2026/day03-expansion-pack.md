@@ -1,7 +1,7 @@
 +++
 title = "Expansion Pack"
 date = 2026-10-03
-draft = true
+draft = false
 params.kind = "challenge"  # Hugo reserves a top-level "kind" (removed in v0.144); this still reads as .Params.kind
 catalog_key = "day03-expansion-pack"
 depth = "full"

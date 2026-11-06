@@ -1,7 +1,7 @@
 +++
 title = "By the Numbers"
 date = 2026-10-05
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day05-by-the-numbers"
 depth = "note"

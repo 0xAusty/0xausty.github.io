@@ -1,7 +1,7 @@
 +++
 title = "Warmups"
 date = 2026-11-02
-draft = true
+draft = false
 layout = "lane"
 lane = "warmups"
 weight = 10

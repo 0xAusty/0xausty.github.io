@@ -1,7 +1,7 @@
 +++
 title = "Trust the Webhook"
 date = 2026-10-26
-draft = true
+draft = false
 params.kind = "challenge"  # Hugo reserves a top-level "kind" (removed in v0.144); this still reads as .Params.kind
 catalog_key = "day26-trust-the-webhook"
 depth = "full"

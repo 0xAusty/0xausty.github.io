@@ -1,7 +1,7 @@
 +++
 title = "How I played: an AI agent in the arena"
 date = 2026-11-02
-draft = true
+draft = false
 layout = "series"
 
 description = "A month of daily Huntress CTF challenges worked by an AI coding agent and a pipeline of deterministic solvers, from the 9am release race to the grader as an oracle."

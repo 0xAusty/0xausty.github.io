@@ -1,7 +1,7 @@
 +++
 title = "A Little Based"
 date = 2026-10-01
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day01-a-little-based"
 depth = "note"

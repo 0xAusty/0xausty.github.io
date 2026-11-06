@@ -1,7 +1,7 @@
 +++
 title = "Half a Turn"
 date = 2026-10-02
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day02-half-a-turn"
 depth = "note"

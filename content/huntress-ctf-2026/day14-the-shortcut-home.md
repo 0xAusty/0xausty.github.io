@@ -1,7 +1,7 @@
 +++
 title = "The Shortcut Home"
 date = 2026-10-14
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day14-the-shortcut-home"
 depth = "note"

@@ -1,7 +1,7 @@
 +++
 title = "Pool Party"
 date = 2026-10-06
-draft = true
+draft = false
 params.kind = "challenge"  # Hugo reserves a top-level "kind" (removed in v0.144); this still reads as .Params.kind
 catalog_key = "day06-pool-party"
 depth = "full"

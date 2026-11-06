@@ -1,7 +1,7 @@
 +++
 title = "A Word to the Wise"
 date = 2026-10-15
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day15-a-word-to-the-wise"
 depth = "note"

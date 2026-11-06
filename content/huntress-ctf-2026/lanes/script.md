@@ -1,7 +1,7 @@
 +++
 title = "Script Analysis"
 date = 2026-11-02
-draft = true
+draft = false
 layout = "lane"
 lane = "script"
 weight = 30

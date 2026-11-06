@@ -1,7 +1,7 @@
 +++
 title = "Hear Me Out"
 date = 2026-10-17
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day17-hear-me-out"
 depth = "note"

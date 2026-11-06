@@ -1,7 +1,7 @@
 +++
 title = "Product Placement"
 date = 2026-10-13
-draft = true
+draft = false
 params.kind = "challenge"
 catalog_key = "day13-product-placement"
 depth = "note"

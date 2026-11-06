@@ -1,7 +1,7 @@
 +++
 title = "Web Exploitation"
 date = 2026-11-02
-draft = true
+draft = false
 layout = "lane"
 lane = "web"
 weight = 60
