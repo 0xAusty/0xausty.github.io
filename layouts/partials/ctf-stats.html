@@ -6,7 +6,7 @@
   Context: a dict with optional keys
      pages    number of published challenge write-ups   (hub only; 0 is left out)
      days     number of event days                      (hub only)
-     compact  true → place, points and modes only       (homepage feature block)
+     compact  true → place, points, modes and first bloods (homepage feature block)
 */ -}}
 {{- $ctx := . | default dict -}}
 {{- with hugo.Data.huntress_ctf_2026 -}}
@@ -22,15 +22,15 @@
   {{- with $ev.modes_solved }}
   <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}{{ with $ev.modes_total }} / {{ lang.FormatNumberCustom 0 . }}{{ end }}</span><span class="label">modes solved</span></div>
   {{- end }}
+  {{- with $ev.first_bloods }}
+  <div class="ctf-stat"><span class="num">{{ . }}</span><span class="label">first blood{{ if ne (int .) 1 }}s{{ end }}</span></div>
+  {{- end }}
   {{- if not $ctx.compact }}
     {{- with $ctx.days }}
   <div class="ctf-stat"><span class="num">{{ . }}</span><span class="label">days</span></div>
     {{- end }}
     {{- with $ev.challenges }}
   <div class="ctf-stat"><span class="num">{{ lang.FormatNumberCustom 0 . }}</span><span class="label">challenges</span></div>
-    {{- end }}
-    {{- with $ev.first_bloods }}
-  <div class="ctf-stat"><span class="num">{{ . }}</span><span class="label">first blood{{ if ne (int .) 1 }}s{{ end }}</span></div>
     {{- end }}
     {{- if and (isset $ctx "pages") (gt (int $ctx.pages) 0) }}
     {{- $n := int $ctx.pages }}

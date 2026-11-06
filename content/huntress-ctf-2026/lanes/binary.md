@@ -15,7 +15,7 @@ toc    = true
 
 Day 1 was a plain C ELF asked about its headers and symbols. From Day 2 on, every daily challenge hid the same thing, a configuration record the lane called HCFG, XOR'd JSON behind a 12-byte CRC-checked header, in a new language and container each day. The run went from C++ on ELF and MinGW PE through .NET, Java and Kotlin (as Base64 inside the class-file constant pool), Go, Rust (which ships a decoy record that fails its CRC), Swift and Nim (as a Base64 string literal), Zig (in a section literally named `.hcfg`), D, Pascal, Crystal, Objective-C and WebAssembly, then overlays, a plug-in, a managed/native bridge, Neko bytecode and two new magics. Later days added crash triage, diffing, compiler attribution and family clustering.
 
-The bundles were cumulative from Day 3, so `binsolve.py` had to keep every earlier day's answers right while adding the new day's. On Day 8, `binmastery.py` fetched five bundles, each with a 67 MB Swift binary, solved them in parallel and submitted 400 answers in one call, about 21 s inside a roughly 27 s window.
+The bundles were cumulative from Day 3, so `binsolve.py` had to keep every earlier day's answers right while adding the new day's. On Day 8, `binmastery.py` fetched five bundles, each with a 67 MB Swift binary, solved them in parallel and submitted 400 answers in one call, about 21s inside a roughly 27s window.
 
 One challenge got away: [SHA1-Hulud](/huntress-ctf-2026/day30-sha1-hulud/), a standalone Day 30 single, a stripped Rust PE with encrypted strings, anti-debug checks and four SHA-1-style functions, the month's one unsolved mode.
 
@@ -59,8 +59,6 @@ Day 16's WebAssembly pair was a format the handler didn't know; a Claude Code se
 ## Speaking the grader's language
 
 `x86-64`, not `amd64`; `i386`, not `x86`; `pe_cli`, not `pe`: the grader speaks normalised. The declared format, not the field name, picks the encoding: Day 8's `elf_class` wanted the integer 64 and `machine` the raw `e_machine` 62, while Day 1's stayed text. Absence has a spelling: `[]` for a missing disassembly, `none` for a stripped symbol. Day 17's storage labels name the construct, not the section (`raw_const_array`, not `.data`), and no question listed them: the agent found them with about 900 one-field submits in about 25 minutes, the solved days' nearest brush with guessing.
-
-<!-- Austin: confirm the framing of the Day 17 label probe ("the solved days' nearest brush with guessing"); the flagship draft flags it as closer to guessing than anything else in the event. -->
 
 ## How the solver took shape
 

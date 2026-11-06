@@ -32,7 +32,7 @@ Day 18 hinted at three rails and one very zigzag commute, which reads as a rail 
 
 ## The solve
 
-All three modes were CORRECT at release, and the 88-blob mastery solved in 1.02 s. It ran on the known-plaintext work from 14 October. `kpa.solve` derives a rail-fence key from the known sentence and keeps it only if the decode reproduces that text. `wusolve.learn()` stores the key and offers it as a step in the time trial and mastery, which run in the same lane process. `kpa.hint_steps` can also turn the prompt's number words into candidates.
+All three modes were CORRECT at release, and the 88-blob mastery solved in 1.02s. It ran on the known-plaintext work from 14 October. `kpa.solve` derives a rail-fence key from the known sentence and keeps it only if the decode reproduces that text. `wusolve.learn()` stores the key and offers it as a step in the time trial and mastery, which run in the same lane process. `kpa.hint_steps` can also turn the prompt's number words into candidates.
 
 The slug chunk has no known plaintext, so its key has to come from the single's learned cache or from the prompt, and the notes do not record which one fired here. Day 19's clean-cache replay later showed that the next day's mastery depended on that cache.
 

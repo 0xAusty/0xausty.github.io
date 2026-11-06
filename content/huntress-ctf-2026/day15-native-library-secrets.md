@@ -36,6 +36,6 @@ The prompt asked for configuration split between the DEX code and a native libra
 
 That afternoon `bench.py` re-ran the Day 15 time trials and masteries, mobile's included, on fresh regular variants. The first ranked attempt the team was granted was this time trial, at 12:42:43. An attempt 22 seconds earlier had asked for a ranked run and was not granted.
 
-It placed #8 at 0.553 s against a leader at 0.391 s, with 1.66 s measured client-side. Board time is roughly artifact download plus solve plus submit, and each request cost about 150 ms of server time, so the solver was no longer the slow part.
+It placed #8 at 0.553s against a leader at 0.391s, with 1.66s measured client-side. Board time is roughly artifact download plus solve plus submit, and each request cost about 150ms of server time, so the solver was no longer the slow part.
 
 Regular play scores points and is never ranked. A speed-board attempt has to ask for it with `run_for_time: true`.

@@ -104,15 +104,15 @@ The fix came with a regression test: `tests/test_wusolve.py` builds a Day-14-sty
 
 At 10:06 the agent added a replay corpus and a pre-commit gate: every recorded attempt is re-solved through the live code, and a changed or lost answer blocks the commit. The hand-off notes cite this Day 10 to Day 14 chain as their example. The gate only checks the past, but Day 14 is now part of that past, so letting undecoded chunks win again would fail it.
 
-On 15 October the schedule became the fast path: one full search teaches the per-chunk path and the rest of the bundle decodes directly, accepted only as the exact sentence plus an all-dictionary slug, else back to the full search. Day 13 to 15 mastery solves fell from 2.4-4.4 s to 0.06-0.09 s.
+On 15 October the schedule became the fast path: one full search teaches the per-chunk path and the rest of the bundle decodes directly, accepted only as the exact sentence plus an all-dictionary slug, else back to the full search. Day 13 to 15 mastery solves fell from 2.4-4.4s to 0.06-0.09s.
 
 ## Timed modes
 
 The time trial's deadline was 09:00:36 and the mastery's 09:00:38. The mastery was graded, and graded incorrect, so the clock was not what failed.
 
-The fix still had to fit inside the clock, since warmups mastery windows had run roughly 7 to 13 seconds on Days 10 and 11. `6e23eb3` also hoisted `_chunk_cands` out of the per-path loop, decoding each chunk once instead of once per beam path: 0.28 s to 0.094 s a blob, 4.3 s for all 68.
+The fix still had to fit inside the clock, since warmups mastery windows had run roughly 7 to 13 seconds on Days 10 and 11. `6e23eb3` also hoisted `_chunk_cands` out of the per-path loop, decoding each chunk once instead of once per beam path: 0.28s to 0.094s a blob, 4.3s for all 68.
 
-On 28 October, in a broad pass on the speed boards, a ranked Day 14 time trial and mastery both came back CORRECT, with board times the log estimated at about 1.12-2.41 s and 1.25-2.46 s.
+On 28 October, in a broad pass on the speed boards, a ranked Day 14 time trial and mastery both came back CORRECT, with board times the log estimated at about 1.12-2.41s and 1.25-2.46s.
 
 ## Dead ends
 

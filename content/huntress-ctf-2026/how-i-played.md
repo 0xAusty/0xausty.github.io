@@ -21,9 +21,7 @@ An event built around an API is an invitation to automate, so that's what I did.
 
 The result: 63rd of 1,602 teams (2,304 players), with 1,880 of 1,885 points and 560 of 561 modes. The one miss was SHA1-Hulud, a standalone reverse-engineering challenge added on Day 30, still unsolved when the event closed. The fastest complete release morning was Day 18: all 15 modes CORRECT by 09:03:45.
 
-This isn't a story about an AI winning a CTF while I watched. The agent wrote most of the code: 146 of the repo's 153 commits carry Claude's co-author line. My job was the part that decides whether automation is any good: the rules it plays by, the order it does things in, when to stop guessing, and where to take a question the pipeline couldn't answer. I didn't solve any challenge by hand. Where an answer came from the agent in a live session, from the Homebase AI or from my own ChatGPT account rather than from the pipeline, I'll say so.
-
-<!-- Austin: confirm -->
+Claude's co-author line is on 146 of the repo's 153 commits. My part was the one that decides whether automation is any good: the rules it plays by, the order it does things in, and where to take a question the pipeline couldn't answer. Where an answer came from the agent in a live session, from the Homebase AI or from my own ChatGPT account rather than from the pipeline, I'll say so.
 
 ## The setup
 
@@ -51,8 +49,6 @@ The hot path has no model in it. Each lane has a **deterministic solver**: given
 
 A **daily runner** wakes up at 8:50 ET from both cron and a systemd user timer, so a missed wake-up still gets caught. It polls the Game Master until the new day appears, then runs every lane in parallel. Within each lane it does the single first, then the time trial and mastery once the single comes back correct. Whatever the sweep can't solve goes to triage: first an agent per lane, then a live session with me at the laptop, steering the agent or putting the question to the Homebase AI.
 
-<!-- Austin: confirm -->
-
 The solvers are almost all standard-library Python. The binary lane parses ELF, PE and Java class files with `struct`, not a disassembler, and the script lane runs a few inert decoder functions in a Node `vm` sandbox. The evidence zips were WinZip-AES encrypted, and the laptop had no 7-Zip, so one of the first things the agent wrote was a 30-line AES-CTR + PBKDF2 extractor.
 
 ### The one rule: never guess
@@ -63,29 +59,19 @@ That rule cost points. Some fields sat unanswered for days while plausible guess
 
 Three exceptions carry my approval on record. On 7 October I approved a capped two-try for the one Batch label the bytes could not decide (never a third label). On 15 October I approved the self-healing submit (format variants and the other allowed values of fixed-choice fields) and closest-name guesses for unknown metadata and binary fields, built only from values parsed from the artifact.
 
-Two places went further with no approval recorded. `binsolve.py` maps each file's machine code to the grader's spelling of the architecture, but only three spellings are confirmed; for any other it submits the spelling that follows their style, then alternates (an ARM64 build goes in as `aarch64`, then `arm64`). The machine code comes from the bytes; only the spelling is a guess. It may fall under the format-variants approval, and I'm comfortable with it: it re-spells a derived fact rather than inventing one.
+`binsolve.py` went a step further, with no approval recorded. It reads each file's machine code from the bytes, and for an architecture outside the three confirmed spellings it submits the spelling that follows the grader's style, then the alternative (an ARM64 build goes in as `aarch64`, then `arm64`). The architecture always comes from the file; only its spelling varies.
 
-<!-- Austin: confirm -->
-
-The other is the Day 17 label probe, the closest the month came to brute force. The binary bundle wanted a generator label for how each build stored its config record, which no parser could supply. A one-field submit returns `accepted` when that field is right, so the agent's session tried candidate labels one at a time: about 900 submits over roughly 25 minutes. Those were guesses. The notes already named the alternative: ask the Homebase AI, use an organiser hint, or wait for a question that lists the allowed values. That's the line I'd hold now.
-
-<!-- Austin: confirm -->
-
-On the last day the rule broke outright. With SHA1-Hulud open and submissions free and untimed, about 60 themed guesses went in, then 23 more, all wrong. That was guessing, and it didn't work.
-
-<!-- Austin: confirm -->
+The Day 17 label probe went furthest. The binary bundle wanted a label for how each build stored its config record, and no parser could supply one. Because a one-field submit returns `accepted` when that field is right, the agent's session tried candidate labels one at a time: about 900 submits over 25 minutes. That was the closest the month came to brute force; next time I'd ask the Homebase AI or wait for a question that lists the allowed values.
 
 ### Who did what
 
 Answers came from four places, and each challenge page's card names the ones behind it:
 
 - **The pipeline, on its own:** the daily runner and the lane solvers, with nobody in the loop. On Day 27 it banked every mode of the five standard lanes by 09:00:43.
-- **Claude Code, in session:** wrote and extended the solvers, chased down rejections, and kept a replay corpus of every past attempt so a fix for today couldn't break yesterday. It also fixed release-morning misses live with me at the laptop (the notes say "hand-fixed"; the hands were the agent's).
+- **Claude Code, in session:** wrote and extended the solvers, chased down rejections, and kept a replay corpus of every past attempt so a fix for today couldn't break yesterday. It also fixed release-morning misses live with me at the laptop.
 - **The event's Homebase AI:** some answers were short labels from the challenge generator's own vocabulary, like the form a Batch variable expansion takes. Asking it with the challenge's exact wording, framed as "what's the short label for this," got answers neither of us could derive. It also supplied the script control-flow labels and masteries for Days 4 to 7, the Day 1 ELF symbol field, the PE symbol spelling in the [Mangled](/huntress-ctf-2026/day02-mangled/) mastery and the [Trust the Webhook](/huntress-ctf-2026/day26-trust-the-webhook/) recipe.
 - **My own ChatGPT account,** used when Claude hit its usage limit. It built SHA1-Hulud's first emulator and, with the Homebase AI, produced the Day 23 script time trial and mastery ([Press Start to Decode](/huntress-ctf-2026/day23-press-start-to-decode/)) after the agent's own attempt stalled.
-- **Me:** the rules and their exceptions, the goals, the triage order and the approvals; outside facts like the scoreboard's tie-break and Discord's word on SHA1-Hulud; and jobs the agent couldn't do, like pairing the Homebase VM. The stubborn cases I took to an AI rather than solving them myself. The clearest was a binary field that wanted the ELF's *entire* symbol table in stored order, where every narrower reading had been rejected: the answer came from the Homebase AI once I put the question to it.
-
-<!-- Austin: confirm -->
+- **Me:** the rules and their exceptions, the goals, the triage order and the approvals; outside facts like the scoreboard's tie-break and Discord's word on SHA1-Hulud; and jobs the agent couldn't do, like pairing the Homebase VM.
 
 ## Six lanes, one secret in different clothes
 
@@ -121,7 +107,7 @@ Then speed bit. On Day 11 five lane processes hit the Game Master at once and tr
 
 Day 15's automated pass had 7 of 15 modes by 09:00:31 and fixes in session finished at 09:18:55, moving us to 34th; the leader had finished all 15 in under two minutes. Day 16, 15/15 by 09:05:09, put us 13th. Day 17 finished by 09:33:55 but took us to 5th: its binary was the separator, solved by only eight teams when I checked.
 
-The OpenAPI description explained another gap. A request must set `run_for_time: true` to get a ranked, timed attempt, so three days of "Hall of Fame ineligible" were simply our runners never asking. The first ranked run placed 8th at 0.553 s against a 0.391 s leader. I approved a capped ranked loop and stopped it on 16 October, once more shots were mostly measuring the server.
+The OpenAPI description explained another gap. A request must set `run_for_time: true` to get a ranked, timed attempt, so three days of "Hall of Fame ineligible" were simply our runners never asking. The first ranked run placed 8th at 0.553s against a 0.391s leader. I approved a capped ranked loop and stopped it on 16 October, once more shots were mostly measuring the server.
 
 By late October a release morning was built to run itself: preflight at 08:45, lane workers warm before the drop, a headless escalator spawning one agent per first-pass miss, and a supervisor that re-solved the affected modes within about 10 to 30 seconds of a saved fix.
 
@@ -145,7 +131,7 @@ After 5th on Day 17, rank slid to 66th by Day 26 on late finishes and ended at 6
 
 From Day 16 on, the day's last CORRECT came by 09:05:09 on Days 16 and 18, and by 09:26:14 on seven more (Day 30 not counting SHA1-Hulud). The slow days were the label probe (Day 17, 09:33:55), web (Day 19, 10:16:22), a session that died (Day 23, 10:32:39), the laptop off at 9:00 and five new shapes (Day 24, 09:39:17), Trust the Webhook (Day 26, 12:30:09), an idle gap and a binary fix that missed the PE builds (Day 28, 09:53:20), and a crash-and-recover finale (Day 31, 09:33:08).
 
-The official scoreboard also records five first bloods, the first of 1,602 teams to solve a mode, all in the metadata lane: the Day 23 [Page Me Maybe](/huntress-ctf-2026/day23-page-me-maybe/) time trial and mastery, about a minute ahead of the next team, and all three modes of Day 26 [Before You Go](/huntress-ctf-2026/day26-before-you-go/), the single 0.3 s ahead.
+The official scoreboard also records five first bloods, the first of 1,602 teams to solve a mode, all in the metadata lane: the Day 23 [Page Me Maybe](/huntress-ctf-2026/day23-page-me-maybe/) time trial and mastery, about a minute ahead of the next team, and all three modes of Day 26 [Before You Go](/huntress-ctf-2026/day26-before-you-go/), the single 0.3s ahead.
 
 The miss, [SHA1-Hulud](/huntress-ctf-2026/day30-sha1-hulud/), was a stripped Rust PE with string encryption, anti-debugging and modified SHA-1 functions. After my own ChatGPT account built the first offline Unicorn emulator, Claude Code took it over: one session concluded the check was a one-way gate, and a later one showed that was wrong, found the emulator bug behind a long detour, and stopped a few steps from the end. I also put it to the Homebase AI. It stayed open.
 

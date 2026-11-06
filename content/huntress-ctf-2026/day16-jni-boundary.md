@@ -36,6 +36,6 @@ The single and time trial were answered at release, at 09:00:09 and 09:00:11. Th
 
 Claude Code re-ran the mastery in session and it landed at 09:00:58, 47 seconds after the time trial. Three lanes lost their mastery the same way. The fix made `daily.py` run single, time trial and mastery strictly in sequence, with a test.
 
-The ranked time trial later sat at #1 with 0.409 s until someone posted 0.407 s. I read 0.409 s off the board, which helped calibrate the board's stamp against our own clock. A chase to win it back never fired, because artifact probes stayed slower than its trigger.
+The ranked time trial later sat at #1 with 0.409s until someone posted 0.407s. I read 0.409s off the board, which helped calibrate the board's stamp against our own clock. A chase to win it back never fired, because artifact probes stayed slower than its trigger.
 
 Check a gating rule in the history before parallelising across it.

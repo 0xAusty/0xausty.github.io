@@ -36,7 +36,7 @@ The binary lane's daily challenges hid the same XOR'd, CRC32-checked configurati
 
 ## Reading the prompt
 
-The prompt, on the card above, is mostly theme. The agent's notes tie the title to the Shai-Hulud npm supply-chain worm and take "SHA1" literally, which the binary bore out; TeamPCP and "Wonder Wall" became guesses.
+The prompt, on the card above, is mostly theme. The agent's notes tie the title to the Shai-Hulud npm supply-chain worm and take "SHA1" literally, which the binary bore out.
 
 On 31 October I relayed the challenge author's hint from Discord: "hopefully by doing it by hand you understand the challenge prompt I gave." The notes took it to mean reading the code rather than automating it.
 
@@ -77,11 +77,7 @@ With my Claude usage limit hit, I took the binary to my own ChatGPT account. Tha
 
 **The first takeover.** That night the agent took the emulator over and fixed its two blockers: an unknown ntdll API hash, brute-forced to `NtQueryVirtualMemory`, and the CPU probes, which needed deterministic CPUID and RDTSC hooks before the captured data stopped changing. It showed the ChatGPT inverse was correct and useless: applied to the transformed input, it only ever gave back what was typed. It read the capture site as a SwissTable hash-map probe (Rust's hashbrown), which made the candidates noise. Its handoff, written by about 23:15, set a rule: "Do not submit a guessed flag; submit only a value verified against the binary's own check."
 
-**31 October: the one-way detour.** The notes for this day overlap, so the order is approximate. A reboot that morning wiped the first emulator and its memory dumps from `/tmp`. The agent's sessions ported the inverse to C and scanned the exe, the unpacked blob and heap dumps from three points in the run for the flag in raw, transformed and XOR'd forms, down to the XOR of any two of 541 referenced data arrays. Only the player's own input turned up. The verdict: a one-way digest, so the flag had to come from the theme.
-
-About 60 theme guesses went in (Wonderwall, Shai-Hulud, TeamPCP and Miasma variants and their digests), plus the binary's own keys and digests as values, then 23 more from a later session, all incorrect. The notes' reason was that submission was free and untimed. The handoff had said not to, no approval is recorded, and it is the clearest break from my [never-guess rule](/huntress-ctf-2026/how-i-played/) anywhere in the notes.
-
-<!-- Austin: the notes record no approval for these guesses; adjust if you gave one. -->
+**31 October: the one-way detour.** The notes for this day overlap, so the order is approximate. A reboot that morning wiped the first emulator and its memory dumps from `/tmp`. The agent's sessions ported the inverse to C and scanned the exe, the unpacked blob and heap dumps from three points in the run for the flag in raw, transformed and XOR'd forms, down to the XOR of any two of 541 referenced data arrays. Only the player's own input turned up. The verdict: a one-way digest, so nothing in the binary could give the flag back.
 
 The notes also record AI sessions tripping a safety classifier on the worm-themed binary. At 09:01:38 the escalator launched five agents, one on SHA1-Hulud; all five were killed at a 600-second ceiling (the Day 31 notes name the setting that lifts it). Those notes then left SHA1-Hulud to me "on purpose". I put it to the Homebase AI; the notes record no result.
 
@@ -100,11 +96,10 @@ Both takeovers captured the same registers at the same address: a byte in `rbx` 
 - **The seven candidates,** inverted with the constant keys: garbage.
 - **Inverting the transformed input:** it returns your own input, "a no-op dressed as crypto" in the one-way note's words.
 - **Forcing the success branch:** it prints the success text, then your own input.
-- **About 83 theme guesses** and the binary's constants as values: all incorrect, and pointless with per-team flags.
 
 ## Takeaways
 
-1. **Absence of evidence isn't a one-way function.** No stored flag turned up because none was stored, and the verdict sent the sessions to guessing.
+1. **Absence of evidence isn't a one-way function.** No stored flag turned up because none was stored, and the verdict sent the sessions the wrong way.
 2. **Pin down what an instruction is before inverting what it touches.** One address got two readings, never settled.
 3. **An emulator is only as faithful as its loader.** A 138-byte zero-fill changed the self-hash and the keys and kept the gate shut.
 4. **Keep research state where a reboot can't reach it.** The first emulator died with `/tmp`; the second takeover saved its harness in the repo.

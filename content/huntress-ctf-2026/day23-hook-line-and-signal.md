@@ -95,7 +95,7 @@ The commit also left out `nativemix.py`, a gap the agent's note flagged: a fresh
 
 ## Timed modes
 
-Neither mode had a clock in regular play: the log shows `deadline None` for the time trial, and the Game Master's guidance for both said a correct untimed solve still earns the flag and the points. Only the ranked Hall of Fame versions were timed, at 50 s and 230 s.
+Neither mode had a clock in regular play: the log shows `deadline None` for the time trial, and the Game Master's guidance for both said a correct untimed solve still earns the flag and the points. Only the ranked Hall of Fame versions were timed, at 50s and 230s.
 
 The order of the modes did the damage. The pipeline runs a lane's time trial only after its single, and its mastery only after its time trial, because the Game Master refuses them otherwise; one time-trial miss cost the mastery its morning run. Finishing at 09:58 rather than 09:02 cost no points, but on a scoreboard that breaks ties by who reached the score first, it cost time. The mastery's seven mechanisms, one of them native, needed no per-day code: the emulator ran whatever `Release.code()` did.
 

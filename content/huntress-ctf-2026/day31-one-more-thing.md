@@ -32,10 +32,10 @@ The last warmup was the only three-layer chain in the lane: Base64, then gzip, t
 
 ## The solve
 
-The supervisor solved the single and the Time Trial, but slowly, with answers ready 35.55 s and 26.87 s after each mode started. "base64+decompress" wasn't a first step in `wusolve.py`, so the fast per-chunk search never applied the Base32 step to the decompressed text and the blob fell through to the slow deep search.
+The supervisor solved the single and the Time Trial, but slowly, with answers ready 35.55s and 26.87s after each mode started. "base64+decompress" wasn't a first step in `wusolve.py`, so the fast per-chunk search never applied the Base32 step to the decompressed text and the blob fell through to the slow deep search.
 
 With 153 blobs in the Mastery, that got expensive. A worker running the deep search pegged a core, and because the supervisor only reloads solvers and opens new work when no worker is running, every lane stalled. The log goes silent from 09:03 until the kill.
 
-Claude Code, in a fresh recovery session, added "base64+decompress" and "decompress" to the first steps. That brought a blob to about 0.35 s, and it solved the Mastery inline. The Mastery was confirmed correct by 09:14:39.
+Claude Code, in a fresh recovery session, added "base64+decompress" and "decompress" to the first steps. That brought a blob to about 0.35s, and it solved the Mastery inline. The Mastery was confirmed correct by 09:14:39.
 
 One combined unwrap has to be a first step whenever another encoding sits beneath it, and one wedged worker shouldn't be able to freeze a supervisor.

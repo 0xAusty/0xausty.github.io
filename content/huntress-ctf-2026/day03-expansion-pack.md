@@ -51,7 +51,7 @@ What the notes credit to me is the framing: quoting the Game Master's prompt to 
 
 ## Making it deterministic
 
-**Decoding.** `bat.py` never needs the codec hint. It reads the material as base64, reversed base64, hex or decimal, forwards or reversed, and at first tried all 256 XOR keys, 255 subtraction keys and seven right-rotations, keeping the candidate that starts `v=1|`: up to 4,144 transforms per file. On 15 October profiling showed that search taking 6.8 s of the Day 15 script mastery's 7.8 s solve, so the agent switched to recovering the key from the known prefix: 45 times faster, identical on all 657 corpus samples. The inner step, condensed:
+**Decoding.** `bat.py` never needs the codec hint. It reads the material as base64, reversed base64, hex or decimal, forwards or reversed, and at first tried all 256 XOR keys, 255 subtraction keys and seven right-rotations, keeping the candidate that starts `v=1|`: up to 4,144 transforms per file. On 15 October profiling showed that search taking 6.8s of the Day 15 script mastery's 7.8s solve, so the agent switched to recovering the key from the known prefix: 45 times faster, identical on all 657 corpus samples. The inner step, condensed:
 
 ```python
 PREFIX = b"v=1|"  # every decoded Batch descriptor starts with this

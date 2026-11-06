@@ -32,7 +32,7 @@ A Base32 blob ("smaller alphabet" in the prompt), with the usual warmups questio
 
 ## The solve
 
-The supervisor solved the single and the Time Trial at release; they were CORRECT at 09:00:04 and 09:00:06. The 48-blob mastery was left unsolved: the dictionary gate in `wusolve.py` rejected a correct decode because the real slug word wasn't in the system word list, which left one blob of 48 unanswered, so nothing was submitted. Timers had also come back after two untimed days, and a serial solve overran the window of about 13 s.
+The supervisor solved the single and the Time Trial at release; they were CORRECT at 09:00:04 and 09:00:06. The 48-blob mastery was left unsolved: the dictionary gate in `wusolve.py` rejected a correct decode because the real slug word wasn't in the system word list, which left one blob of 48 unanswered, so nothing was submitted. Timers had also come back after two untimed days, and a serial solve overran the window of about 13s.
 
 Claude Code fixed it: when the dictionary gate yields nothing, fall back to the strictly cheapest reading (one standard encoding per chunk) and accept it only if that minimum is unique, refusing ties. A process-parallel solve and a single submit fit the window. The mastery was CORRECT at 09:12:28, before the 09:15:41 commit, but the notes don't say whether the submit came before or after the fix.
 

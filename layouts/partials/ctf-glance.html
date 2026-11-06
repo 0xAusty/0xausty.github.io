@@ -107,7 +107,7 @@
       {{- else if $correct }}{{ $when = "not recorded" }}{{ end }}
       <tr>
         <th scope="row">{{ $m.label }}{{ with .points }} <small class="text-dim">{{ int . }} pts</small>{{ end }}</th>
-        <td data-label="Result"><span class="ctf-chip is-{{ $status }}{{ if .first_blood }} is-first-blood{{ end }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "not recorded" }}{{ with .first_blood }} <span class="ctf-first-blood" title="First blood: the first of all teams to solve this mode{{ with .margin_s }}, {{ . }} s ahead of the next team{{ end }}">First blood</span>{{ end }}</td>
+        <td data-label="Result"><span class="ctf-chip is-{{ $status }}{{ if .first_blood }} is-first-blood{{ end }}" aria-hidden="true">{{ $m.chip }}</span> {{ $result | default "not recorded" }}{{ with .first_blood }} <span class="ctf-first-blood" title="First blood: the first of all teams to solve this mode{{ with .margin_s }}, {{ . }}s ahead of the next team{{ end }}">First blood</span>{{ end }}</td>
         <td data-label="When">{{ $when }}</td>
         <td data-label="Questions">
           {{- with .questions }}{{ int . }}{{ else }}not recorded{{ end }}

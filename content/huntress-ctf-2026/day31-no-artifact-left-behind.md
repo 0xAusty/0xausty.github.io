@@ -111,7 +111,7 @@ if len(roots) == 1:                                # the supported chain: unique
 cycle = sorted(n for n in nodes if n not in set(chain))   # the unsupported residual loop
 ```
 
-The fix went into commit `7fff503` at 09:45:03 with the morning's other fold-ins. The pre-commit replay gate re-solved 691 recorded attempts in 577 s, 0 regressed and all 13,632 metadata fields matching, with learned keys cleared so that every answer came from the bytes and the prompt alone.
+The fix went into commit `7fff503` at 09:45:03 with the morning's other fold-ins. The pre-commit replay gate re-solved 691 recorded attempts in 577s, 0 regressed and all 13,632 metadata fields matching, with learned keys cleared so that every answer came from the bytes and the prompt alone.
 
 ## Timed modes
 
@@ -122,7 +122,7 @@ The corpus holds one attempt per mode, a time trial at 09:15:28 and a mastery at
 ## Dead ends
 
 - **A greedy pattern for edges.** It read one character past an id in a packed SQLite row and broke the decoy loop into a chain. Replaced by exact matching of the known ids.
-- **Leaving the timed modes to the supervisor.** The reload waited behind a stuck warmups worker. The same commit added `base64+decompress` and `decompress` to the first steps in `wusolve.py`, so that chunk now resolves in about 0.35 s. The reload gating and the escalator's 600-second ceiling were found that day and not fixed, since it was the last release.
+- **Leaving the timed modes to the supervisor.** The reload waited behind a stuck warmups worker. The same commit added `base64+decompress` and `decompress` to the first steps in `wusolve.py`, so that chunk now resolves in about 0.35s. The reload gating and the escalator's 600-second ceiling were found that day and not fixed, since it was the last release.
 
 ## Takeaways
 
