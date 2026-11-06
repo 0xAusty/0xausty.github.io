@@ -334,7 +334,7 @@ If the mixing on `/platforms/` itself ever bothers you, split it into a separate
 
 1. **Build** — `hugo --panicOnWarning`, so a deprecation or template warning fails the run.
 2. **Dead links** — [htmltest](https://github.com/wjdp/htmltest) over the built HTML, configured in `.htmltest.yml`.
-3. **Secrets** — [gitleaks](https://github.com/gitleaks/gitleaks) across both the working tree and full git history.
+3. **Secrets** — [gitleaks](https://github.com/gitleaks/gitleaks) across both the working tree and full git history. `.gitleaks.toml` keeps the default rules and allows one value shape, the Huntress CTF challenge slugs such as `day28-family-resemblance`, which the generic key rule otherwise mistakes for secrets.
 
 All three tool versions are pinned. To reproduce a CI failure locally:
 

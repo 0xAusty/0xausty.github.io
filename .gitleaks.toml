@@ -1,0 +1,15 @@
+# gitleaks configuration. CI (.github/workflows/ci.yml) runs `gitleaks dir .` and
+# `gitleaks git .` from the repo root, which picks this file up automatically.
+
+# Keep every default rule.
+[extend]
+useDefault = true
+
+# The Huntress CTF 2026 catalog names each challenge by a slug such as
+# "day28-family-resemblance", stored as `key` in data/huntress_ctf_2026.json and as
+# `catalog_key` in each page's front matter. The generic-api-key rule flags the longer
+# slugs because the field name contains "key". A slug is an identifier, not a secret,
+# and no real credential has this shape, so only values matching it are allowed.
+[allowlist]
+description = "Huntress CTF 2026 challenge slugs (catalog keys), not secrets"
+regexes = ['''^day\d{2}-[a-z0-9-]+$''']
